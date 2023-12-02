@@ -1,0 +1,69 @@
+body{
+    background-color: rgb(8, 8, 40);
+    font-size: 14px;
+}
+h1,h2,h3,p,li{
+    color: rgba(245, 245, 220, 0.852);
+    padding: 2px;
+}
+h2{
+    background: rgb(47, 255, 68);
+    background: linear-gradient(90deg, rgba(60, 193, 255, 0.779) 50%, rgba(2,0,36,0) 100%);
+    padding-left: 5px;
+}
+h3{
+    background: rgb(47, 245, 255);
+    background: linear-gradient(90deg,  rgba(36, 200, 208, 0.474) 50%, rgba(2,0,36,0) 100%);
+    padding-left: 5px;
+    font-size: 1em;
+}
+.p-text{
+    background-color: rgba(240, 248, 255, 0.087);
+    box-shadow: 0 0 10px rgba(0, 169, 203, 0.435);
+}
+ol,ul{
+    background-color: rgba(0, 214, 200, 0.159);
+}
+a,a code{
+    color: rgb(211, 228, 255);
+}
+
+code{
+    color: rgb(153, 255, 0);
+}
+pre{
+    background-color: rgba(0, 123, 2, 0.316);
+    color: rgb(218, 218, 218);
+    box-shadow: 0 0 6px  rgba(255, 255, 255, 0.518);
+}
+.hljs-keyword{
+    color: rgb(57, 232, 255);
+}
+.hljs-title{
+    color: beige;
+}
+.hljs-comment{
+    color: rgb(0, 192, 0);
+}
+.hljs-title-function_{
+    color: rgb(57, 232, 255);
+}
+.hljs-variable-language_{
+    color: rgb(255, 146, 240);
+}
+.hljs-string{
+    color: orange;
+}
+/*
+<link rel="stylesheet" href="../Styles/mycode-stylesheet.css">
+*/
+
+code[title="html-code"]{color: rgb(0, 217, 255);}
+
+blockquote{
+    color: greenyellow;
+}
+
+table{
+    background-color: rgba(175, 248, 255, 0.635);
+}

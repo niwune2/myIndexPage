@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x30b9;&#x30ad;&#x30eb;&#x30c6;&#x30b9;&#x30c8;&colon; &#x914d;&#x5217;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="スキルテスト-配列">スキルテスト: 配列</h1>
+<ul>
+<li><a href="#%E3%82%B9%E3%82%AD%E3%83%AB%E3%83%86%E3%82%B9%E3%83%88-%E9%85%8D%E5%88%97">スキルテスト: 配列</a>
+<ul>
+<li><a href="#%E9%85%8D%E5%88%97-1">配列 1</a></li>
+<li><a href="#%E9%85%8D%E5%88%97-2">配列 2</a></li>
+<li><a href="#%E9%85%8D%E5%88%97-3">配列 3</a></li>
+<li><a href="#%E9%85%8D%E5%88%97-4">配列 4</a></li>
+</ul>
+</li>
+</ul>
+<p><a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Test_your_skills:_Arrays">スキルテスト: 配列</a></p>
+<h2 id="配列-1">配列 1</h2>
+<p>まずは配列の基礎から始めましょう。このタスクでは、 3 つの要素を含む配列を作成し、 <code>myArray</code> という変数に格納します。要素は何でも構いません。好きな食べ物やバンドにしてはいかがでしょうか？</p>
+<p>次に、単純な括弧の記法による代入で、最初の 2 つの要素を変更してください。そのあと、配列の先頭に新しい要素を追加します。</p>
+<pre><code class="language-js"><span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">let</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = <span class="hljs-string">`Array: <span class="hljs-subst">${ myArray }</span>`</span>;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+</code></pre>
+<h2 id="配列-2">配列 2</h2>
+<p>さて、別のタスクに移りましょう。ここでは、取り組むべき文字列が与えられています。すべきことは次の通りです。</p>
+<ol>
+<li>文字列を配列に変換してください。その過程で、 <code>+</code> という文字を取り除きます。結果を <code>myArray</code> という変数に格納します。</li>
+<li>配列の要素数を、 <code>arrayLength</code> という変数に格納します。</li>
+<li>配列の末尾の要素を、 <code>lastItem</code> という変数に格納します。</li>
+</ol>
+<pre><code class="language-js"><span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-keyword">let</span> myString = <span class="hljs-string">&#x27;Ryu+Ken+Chun-Li+Cammy+Guile+Sakura+Sagat+Juri&#x27;</span>;
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">let</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = <span class="hljs-string">`Array: <span class="hljs-subst">${ myArray }</span>`</span>;
+
+<span class="hljs-keyword">let</span> para2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para2.<span class="hljs-property">textContent</span> = <span class="hljs-string">`The length of the array is <span class="hljs-subst">${ arrayLength }</span>.`</span>;
+
+<span class="hljs-keyword">let</span> para3 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para3.<span class="hljs-property">textContent</span> = <span class="hljs-string">`The last item in the array is &quot;<span class="hljs-subst">${ lastItem }</span>&quot;.`</span>;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+section.<span class="hljs-title function_">appendChild</span>(para2);
+section.<span class="hljs-title function_">appendChild</span>(para3);
+</code></pre>
+<h2 id="配列-3">配列 3</h2>
+<p>このタスクでは、我々が用意した配列を出発点として、やや逆行する作業を行います。具体的には、</p>
+<ol>
+<li>配列の末尾の要素を削除します。</li>
+<li>配列の末尾に新たに 2 つの名前を追加します。</li>
+<li>配列の各要素を調べて、要素のインデックス番号を丸括弧で囲み、名前の後ろに追記します。例: <code>Ryu (0)</code>。 なお、このやり方は配列の記事では教えていませんので、自分で調べる必要があるでしょう。</li>
+<li>最後に、配列の各要素を<code>&quot;-&quot;</code> で区切って 1 つの文字列に結合し、<code>myString</code>という変数に格納します。</li>
+</ol>
+<pre><code class="language-js"><span class="hljs-keyword">let</span> myArray = [ <span class="hljs-string">&quot;Ryu&quot;</span>, <span class="hljs-string">&quot;Ken&quot;</span>, <span class="hljs-string">&quot;Chun-Li&quot;</span>, <span class="hljs-string">&quot;Cammy&quot;</span>, <span class="hljs-string">&quot;Guile&quot;</span>, <span class="hljs-string">&quot;Sakura&quot;</span>, <span class="hljs-string">&quot;Sagat&quot;</span>, <span class="hljs-string">&quot;Juri&quot;</span> ];
+
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+
+<span class="hljs-keyword">let</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = myString;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+</code></pre>
+<h2 id="配列-4">配列 4</h2>
+<p>このタスクでは、出発点として鳥の名前を列挙した配列が与えられています。</p>
+<ul>
+<li><code>&quot;Eagles&quot;</code> 要素のインデックスを特定し、そのインデックスを用いて <code>&quot;Eagles&quot;</code> 要素を削除してください。</li>
+<li>この配列から、名前が&quot;E&quot;で始まる鳥だけを含む <code>eBirds</code> という名前の新しい配列を作成してください。ちなみに、 <code>startsWith()</code> は文字列が特定の文字で始まるかどうかを調べるのにとても役立ちます。
+<code>&quot;Emus,Egrets&quot;</code> が表示されたら成功です。</li>
+</ul>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> birds = [ <span class="hljs-string">&quot;Parrots&quot;</span>, <span class="hljs-string">&quot;Falcons&quot;</span>, <span class="hljs-string">&quot;Eagles&quot;</span>, <span class="hljs-string">&quot;Emus&quot;</span>, <span class="hljs-string">&quot;Caracaras&quot;</span>, <span class="hljs-string">&quot;Egrets&quot;</span> ];
+
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+
+<span class="hljs-keyword">const</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = eBirds;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+</code></pre>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

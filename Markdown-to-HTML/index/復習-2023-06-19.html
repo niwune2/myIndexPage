@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>2023&sol;06&sol;19</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="20230619">2023/06/19</h1>
+<ul>
+<li><a href="#20230619">2023/06/19</a>
+<ul>
+<li><a href="#event1">Event1</a></li>
+<li><a href="#event2">Event2</a></li>
+<li><a href="#event3">Event3</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC3">コードレビュー3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="event1">Event1</h2>
+<pre><code class="language-js"><span class="hljs-comment">//テキストのみ置き換える。</span>
+<span class="hljs-keyword">const</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.off&#x27;</span>);
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">changeText</span>(<span class="hljs-params"></span>){
+    <span class="hljs-keyword">if</span>(btn.<span class="hljs-property">textContent</span> === <span class="hljs-string">`Machine is off`</span>){
+        btn.<span class="hljs-property">textContent</span> = <span class="hljs-string">`Machine is ON`</span>;
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(btn.<span class="hljs-property">textContent</span> === <span class="hljs-string">`Machine is ON`</span>) {
+        btn.<span class="hljs-property">textContent</span> = <span class="hljs-string">`Machine is off`</span>;
+    }
+}
+btn.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>,changeText);<span class="hljs-comment">//これを下に置かないと何度もスイッチできない</span>
+</code></pre>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.off&#x27;</span>);
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">toggleButton</span>(<span class="hljs-params"></span>){    <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">if</span> (btn.<span class="hljs-property">classList</span>.<span class="hljs-property">contains</span> === <span class="hljs-string">&#x27;off&#x27;</span>){    <span class="hljs-comment">//2</span>
+    btn.<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&#x27;off&#x27;</span>);    <span class="hljs-comment">//3 </span>
+    btn.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;on&#x27;</span>);    <span class="hljs-comment">//4</span>
+    btn.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;Machine is on&#x27;</span>   <span class="hljs-comment">//5</span>
+  }<span class="hljs-keyword">else</span> {   <span class="hljs-comment">//6</span>
+    btn.<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&#x27;on&#x27;</span>);     <span class="hljs-comment">//7</span>
+    btn.<span class="hljs-property">classList</span>.<span class="hljs-title function_">add</span>(<span class="hljs-string">&#x27;off&#x27;</span>);       <span class="hljs-comment">//8</span>
+    btn.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;Machine is off&#x27;</span>  <span class="hljs-comment">//9</span>
+  }
+}
+btn.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>,toggleButton);     <span class="hljs-comment">//9</span>
+</code></pre>
+<ol>
+<li>関数を宣言</li>
+<li>ifステートメント</li>
+<li></li>
+</ol>
+<h2 id="event2">Event2</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;canvas&#x27;</span>);
+<span class="hljs-keyword">const</span> ctx = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">drawCircle</span>(<span class="hljs-params">x, y, size</span>) {
+  ctx.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&#x27;darkblue&#x27;</span>;
+  ctx.<span class="hljs-title function_">fillRect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, canvas.<span class="hljs-property">width</span>, canvas.<span class="hljs-property">height</span>);
+
+  ctx.<span class="hljs-title function_">beginPath</span>();
+  ctx.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&#x27;cyan&#x27;</span>;
+  ctx.<span class="hljs-title function_">arc</span>(x, y, size, <span class="hljs-number">0</span>, <span class="hljs-number">2</span> * <span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>);
+  ctx.<span class="hljs-title function_">fill</span>();
+}
+
+<span class="hljs-keyword">let</span> x = <span class="hljs-number">50</span>;
+<span class="hljs-keyword">let</span> y = <span class="hljs-number">50</span>;
+<span class="hljs-keyword">const</span> size = <span class="hljs-number">30</span>;
+
+<span class="hljs-title function_">drawCircle</span>(x, y, size);
+
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">`keydown`</span>,moveCircle);
+canvas.<span class="hljs-title function_">focus</span>();
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">moveCircle</span>(<span class="hljs-params">event</span>){
+    <span class="hljs-keyword">if</span>(event.<span class="hljs-property">key</span> === <span class="hljs-string">&quot;a&quot;</span>){
+        x -= <span class="hljs-number">5</span>;
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(event.<span class="hljs-property">key</span> === <span class="hljs-string">&quot;w&quot;</span>){
+        y -= <span class="hljs-number">5</span>;
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(event.<span class="hljs-property">key</span> === <span class="hljs-string">&quot;s&quot;</span>){
+        y += <span class="hljs-number">5</span>;
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(event.<span class="hljs-property">key</span> === <span class="hljs-string">&quot;d&quot;</span>){
+        x += <span class="hljs-number">5</span>;
+    }
+<span class="hljs-title function_">drawCircle</span>(x,y,size);
+}
+</code></pre>
+<pre><code class="language-js"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">`keydown`</span>,moveCircle);
+canvas.<span class="hljs-title function_">focus</span>();
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">moveCircle</span>(<span class="hljs-params">event</span>){
+    <span class="hljs-keyword">switch</span>(event){
+        <span class="hljs-keyword">case</span> event.<span class="hljs-property">key</span> === <span class="hljs-string">`w`</span>:
+            y -= <span class="hljs-number">5</span>;
+        <span class="hljs-keyword">break</span>
+        <span class="hljs-keyword">case</span> event.<span class="hljs-property">key</span> === <span class="hljs-string">`s`</span>:
+            y += <span class="hljs-number">5</span>:
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> event.<span class="hljs-property">key</span> === <span class="hljs-string">`a`</span>:
+            x -= <span class="hljs-number">5</span>:
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> event.<span class="hljs-property">key</span> === <span class="hljs-string">`d`</span>:
+            x += <span class="hljs-number">5</span>:
+            <span class="hljs-keyword">break</span>;
+    }
+    <span class="hljs-title function_">drawCircle</span>(x,y.<span class="hljs-property">size</span>);
+}
+</code></pre>
+<pre><code class="language-js"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;keydown&#x27;</span>,<span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
+    <span class="hljs-keyword">if</span>(event.<span class="hljs-property">key</span> === <span class="hljs-string">&#x27;w&#x27;</span>){
+        y -= <span class="hljs-number">5</span>;
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(event.<span class="hljs-property">key</span> === <span class="hljs-string">&#x27;s&#x27;</span>){
+        y += <span class="hljs-number">5</span>;
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(event.<span class="hljs-property">key</span> === <span class="hljs-string">&#x27;a&#x27;</span>){
+        x -= <span class="hljs-number">5</span>;
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(event.<span class="hljs-property">key</span> === <span class="hljs-string">&#x27;d&#x27;</span>){
+        x += <span class="hljs-number">5</span>;
+    }
+    <span class="hljs-title function_">drawCircle</span>(x,y,size);
+});
+</code></pre>
+<pre><code class="language-js">ducument.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;keydown&#x27;</span>,<span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span>{
+    <span class="hljs-keyword">switch</span>(event){
+        <span class="hljs-keyword">case</span> event.<span class="hljs-property">key</span> === <span class="hljs-string">`w`</span>:
+            y -= <span class="hljs-number">10</span>;
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> event,key === <span class="hljs-string">`s`</span>:
+            y += <span class="hljs-number">10</span>;
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> event.<span class="hljs-property">key</span> === <span class="hljs-string">`a`</span>:
+            x -= <span class="hljs-number">10</span>;
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> event.<span class="hljs-property">key</span> === <span class="hljs-string">`d`</span>:
+            x += <span class="hljs-number">10</span>;
+            <span class="hljs-keyword">break</span>;
+    }
+    <span class="hljs-title function_">drawCircle</span>(x,y,size);
+});
+</code></pre>
+<h2 id="event3">Event3</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> buttonBar = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.button-bar&#x27;</span>);
+<span class="hljs-comment">// Add your code here</span>
+
+buttonBar.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">`click`</span>,bgChange);
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">bgChange</span>(<span class="hljs-params"></span>){
+    <span class="hljs-keyword">const</span> target = event.<span class="hljs-property">target</span>;
+    <span class="hljs-keyword">if</span>(target.<span class="hljs-property">tagmane</span> === <span class="hljs-string">`BUTTON`</span>){
+        <span class="hljs-keyword">const</span> color = target.<span class="hljs-property">dataset</span>.<span class="hljs-property">color</span>;s
+        buttonBar.<span class="hljs-property">style</span>.<span class="hljs-property">backgroundColor</span> = color;
+    }
+    <span class="hljs-title function_">bgChange</span>();
+}
+</code></pre>
+<h3 id="コードレビュー3">コードレビュー3</h3>
+<pre><code class="language-javascript"><span class="hljs-comment">//GPTの模範解答</span>
+<span class="hljs-keyword">const</span> buttonBar = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.button-bar&#x27;</span>);<span class="hljs-comment">//1</span>
+
+buttonBar.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {<span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">const</span> target = event.<span class="hljs-property">target</span>;<span class="hljs-comment">//3</span>
+  <span class="hljs-keyword">if</span> (target.<span class="hljs-property">tagName</span> === <span class="hljs-string">&#x27;BUTTON&#x27;</span>) {<span class="hljs-comment">//4</span>
+    <span class="hljs-keyword">const</span> color = target.<span class="hljs-property">dataset</span>.<span class="hljs-property">color</span>;<span class="hljs-comment">//5</span>
+    buttonBar.<span class="hljs-property">style</span>.<span class="hljs-property">backgroundColor</span> = color;<span class="hljs-comment">//6</span>
+  }
+});
+</code></pre>
+<ol>
+<li>最初からあるコード
+<ol>
+<li><code>querySelector</code>で<code>button要素</code>を含む<code>div要素</code>を取得する</li>
+</ol>
+</li>
+<li>変数<code>buttonBar</code>にイベントリスナーを追加</li>
+<li>クリックイベントが発生した要素を<code>event.target</code>で取得</li>
+<li>if文で、<code>event.target</code>の要素が<code>BUTTON</code>タグであるかをチェックする</li>
+<li>ボタンがクリックされた場合は、そのボタンの<code>data-color</code>属性から色を取得する</li>
+<li>その色を<code>.button-bar</code>要素の背景色に設定する</li>
+</ol>
+
+        
+        
+    </body>
+    </html>

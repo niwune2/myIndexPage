@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x30b9;&#x30ad;&#x30eb;&#x30c6;&#x30b9;&#x30c8;-&#x95a2;&#x6570;&lpar;function&rpar;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="スキルテスト-関数function">スキルテスト-関数(function)</h1>
+<ul>
+<li><a href="#%E3%82%B9%E3%82%AD%E3%83%AB%E3%83%86%E3%82%B9%E3%83%88-%E9%96%A2%E6%95%B0function">スキルテスト-関数(function)</a>
+<ul>
+<li><a href="#%E9%96%A2%E6%95%B01">関数1</a></li>
+<li><a href="#%E9%96%A2%E6%95%B02">関数2</a></li>
+<li><a href="#%E9%96%A2%E6%95%B03">関数3</a></li>
+<li><a href="#%E9%96%A2%E6%95%B04">関数4</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="関数1">関数1</h2>
+<p>最初の課題では、</p>
+<ol>
+<li>与えられた配列（<code>names</code>）からランダムな名前を与えられた段落（<code>para</code>）に出力する簡単な関数 - <code>chooseName()</code> - を作成し、</li>
+<li>それを一度実行する必要があります。</li>
+</ol>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> names = [<span class="hljs-string">&#x27;Chris&#x27;</span>, <span class="hljs-string">&#x27;Li Kang&#x27;</span>, <span class="hljs-string">&#x27;Anne&#x27;</span>, <span class="hljs-string">&#x27;Francesca&#x27;</span>, <span class="hljs-string">&#x27;Mustafa&#x27;</span>, <span class="hljs-string">&#x27;Tina&#x27;</span>, <span class="hljs-string">&#x27;Bert&#x27;</span>, <span class="hljs-string">&#x27;Jada&#x27;</span>]
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+section.<span class="hljs-title function_">appendChild</span>(para);
+</code></pre>
+<h2 id="関数2">関数2</h2>
+<p>関数に関連する2つ目のタスクでは、与えられた5つの入力変数に基づいて、与えられた <code>&lt;canvas&gt;</code> (参照変数 <code>canvas</code>, <code>ctx</code> で利用できるコンテキスト) に矩形を描画する関数を作成する必要があります：</p>
+<ul>
+<li><code>x</code> - 矩形の x 座標．</li>
+<li><code>y</code> - 矩形の y 座標．</li>
+<li><code>width</code> - 矩形の幅。</li>
+<li><code>height</code> - 矩形の高。</li>
+<li><code>color</code> - 矩形の色。</li>
+</ul>
+<p>描画の前にキャンバスをクリアしておくと、ライブ版の場合、コードが更新されたときに、たくさんの矩形が重なって描かれることがありません。</p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;canvas&#x27;</span>);
+<span class="hljs-keyword">const</span> ctx = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);
+<span class="hljs-keyword">const</span> x = <span class="hljs-number">50</span>;
+<span class="hljs-keyword">const</span> y = <span class="hljs-number">60</span>;
+<span class="hljs-keyword">const</span> width = <span class="hljs-number">100</span>;
+<span class="hljs-keyword">const</span> height = <span class="hljs-number">75</span>;
+<span class="hljs-keyword">const</span> color = <span class="hljs-string">&#x27;blue&#x27;</span>;
+<span class="hljs-comment">// Add your code here</span>
+
+</code></pre>
+<h2 id="関数3">関数3</h2>
+<p>この課題では、課題1で出された問題に戻り、それを改善することを目的としています。改善してほしいのは、次の3点です：</p>
+<ol>
+<li>乱数を生成するコードを <code>random()</code> という別の関数にリファクタリングし、乱数がその間にあるべき2つの一般的な境界をパラメータとして受け取り、その結果を返すようにする。</li>
+<li>chooseName()`関数を更新し、乱数関数を利用し、選択する配列をパラメータとして受け取り（より柔軟に）、その結果を返すようにする。</li>
+<li>返された結果をパラグラフ (<code>para</code>) の <code>textContent</code> に出力する。</li>
+</ol>
+<hr>
+<ol>
+<li>Refactor the code that generates the random number into a separate function called <code>random()</code>, which takes as parameters two generic bounds that the random number should be between, and returns the result.</li>
+<li>Update the <code>chooseName()</code> function so that it makes use of the random number function, takes the array to choose from as a parameter (making it more flexible), and returns the result.</li>
+<li>Print the returned result into the paragraph (<code>para</code>)'s <code>textContent</code>.</li>
+</ol>
+<hr>
+<p><strong>GPT翻訳</strong></p>
+<p>この課題では、次の手順に従ってコードをリファクタリング（改良）していくよう指示されています。以下、各手順の解説です。</p>
+<ol>
+<li>ランダムな数値を生成するコードを、<code>random()</code>という別の関数にリファクタリングします。この関数は、ランダムな数値が存在する範囲の下限と上限をパラメータとして受け取り、その範囲内のランダムな数値を生成して結果を返します。</li>
+<li><code>chooseName()</code>関数を更新し、ランダムな数値の関数を利用するようにします。また、選択する配列をパラメータとして受け取るように変更します（柔軟性が向上します）。そして、結果を返すようにします。</li>
+<li>返された結果を段落（<code>para</code>）の<code>textContent</code>に表示します。</li>
+</ol>
+<p>この課題では、コードの機能をより分割し、再利用可能な関数を作成することが求められています。それにより、コードの柔軟性と保守性が向上します。</p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> names = [<span class="hljs-string">&#x27;Chris&#x27;</span>, <span class="hljs-string">&#x27;Li Kang&#x27;</span>, <span class="hljs-string">&#x27;Anne&#x27;</span>, <span class="hljs-string">&#x27;Francesca&#x27;</span>, <span class="hljs-string">&#x27;Mustafa&#x27;</span>, <span class="hljs-string">&#x27;Tina&#x27;</span>, <span class="hljs-string">&#x27;Bert&#x27;</span>, <span class="hljs-string">&#x27;Jada&#x27;</span>]
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+section.<span class="hljs-title function_">appendChild</span>(para);
+</code></pre>
+<h2 id="関数4">関数4</h2>
+<p>このタスクでは、名前の配列があり、5文字より短い名前だけを集めた配列を得るために <code>Array.filter()</code> を使っています。このフィルターには現在、名前の長さをチェックする関数 <code>isShort()</code> が渡されており、名前が5文字未満であれば <code>true</code>、そうでなければ <code>false</code> を返しています。</p>
+<p>これをアロー関数に変えてください。どれだけコンパクトにできるか試してみてください。</p>
+<blockquote>
+<p>We'd like you to change this into an arrow function. See how compact you can make it.</p>
+</blockquote>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> names = [<span class="hljs-string">&#x27;Chris&#x27;</span>, <span class="hljs-string">&#x27;Li Kang&#x27;</span>, <span class="hljs-string">&#x27;Anne&#x27;</span>, <span class="hljs-string">&#x27;Francesca&#x27;</span>, <span class="hljs-string">&#x27;Mustafa&#x27;</span>, <span class="hljs-string">&#x27;Tina&#x27;</span>, <span class="hljs-string">&#x27;Bert&#x27;</span>, <span class="hljs-string">&#x27;Jada&#x27;</span>];
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">isShort</span>(<span class="hljs-params">name</span>) {
+  <span class="hljs-keyword">return</span> name.<span class="hljs-property">length</span> &lt; <span class="hljs-number">5</span>;
+}
+
+<span class="hljs-keyword">const</span> shortNames = names.<span class="hljs-title function_">filter</span>(isShort);
+para.<span class="hljs-property">textContent</span> = shortNames;
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+section.<span class="hljs-title function_">appendChild</span>(para);
+</code></pre>
+
+        
+        
+    </body>
+    </html>

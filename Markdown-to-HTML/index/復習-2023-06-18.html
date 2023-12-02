@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>2023&sol;06&sol;18</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="20230618">2023/06/18</h1>
+<ul>
+<li><a href="#20230618">2023/06/18</a>
+<ul>
+<li><a href="#active-learning-%E9%96%A2%E6%95%B0%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%88%E3%81%86">Active learning: 関数を作ってみよう</a>
+<ul>
+<li><a href="#%E9%96%A2%E6%95%B01%E3%81%A4%E7%9B%AE">関数1つ目</a></li>
+<li><a href="#%E9%96%A2%E6%95%B02%E3%81%A4%E7%9B%AE">関数2つ目</a></li>
+</ul>
+</li>
+<li><a href="#function-1">function 1</a></li>
+<li><a href="#function-2">function 2</a></li>
+<li><a href="#function-3">function 3</a>
+<ul>
+<li><a href="#%E6%A8%A1%E7%AF%84%E8%A7%A3%E7%AD%94-3">模範解答-3</a></li>
+</ul>
+</li>
+<li><a href="#function-4">function 4</a>
+<ul>
+<li><a href="#gpt%E3%81%AB%E7%A2%BA%E8%AA%8D-function4">GPTに確認-function4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/Building_blocks/Build_your_own_function">独自の関数を作る</a>
+<ul>
+<li>Active learning: 関数を作ってみよう</li>
+</ul>
+</li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/API/Element/setAttribute">element.setAttribute</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/API/Node/removeChild">Node: removeChild() メソッド</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/API/Element/click_event">Element: click イベント</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Functions">Test your skills: Functions</a></li>
+<li><a href="https://www.suzu6.net/posts/91-js-random-array/">JavaScriptでランダムな配列を作成する</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions/Arrow_functions">アロー関数式</a></li>
+<li><a href="https://www.javadrive.jp/javascript/function/index9.html">アロー関数式を使って関数を定義する</a></li>
+<li><a href="https://ja.javascript.info/arrow-functions">アロー関数ふたたび</a></li>
+<li><a href="https://ja.javascript.info/arrow-functions-basics">アロー関数の基本</a></li>
+<li><a href="https://programmercollege.jp/column/7169/">2. 配列の値をランダムに取得</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes">キャンバスでの図形の描画</a></li>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/API/CanvasRenderingContext2D/fillRect">CanvasRenderingContext2D.fillRect()</a></li>
+</ul>
+<h2 id="active-learning-関数を作ってみよう">Active learning: 関数を作ってみよう</h2>
+<h3 id="関数1つ目">関数1つ目</h3>
+<pre><code class="language-js">    <span class="hljs-keyword">const</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;button&#x27;</span>);<span class="hljs-comment">//何度でもメッセージボックスを呼び出せるボタンを追加</span>
+    btn.<span class="hljs-property">onclick</span> = displayMessage;
+        <span class="hljs-comment">/* btn.onclick = displayMessage();　とするとすぐにメッセージボックスが表示される。このコンテキストでの括弧は、「関数呼び出し演算子」と呼ばれ、現在のスコープですぐに関数を実行する場合にのみ使用する。*/</span>
+
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">displayMessage</span>(<span class="hljs-params"></span>){
+    <span class="hljs-keyword">const</span> html = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;html&#x27;</span>);
+    <span class="hljs-keyword">const</span> panel = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+    panel.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;class&#x27;</span>,<span class="hljs-string">&#x27;msgBox&#x27;</span>);
+    html.<span class="hljs-title function_">appendChild</span>(panel);
+    <span class="hljs-comment">//&lt;html&gt;&lt;div class=&quot;msgBox&quot;&gt;&lt;/div&gt;&lt;/html&gt;</span>
+
+    <span class="hljs-keyword">const</span> msg = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+    msg.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;これはメッセージボックスです&#x27;</span>;
+    panel.<span class="hljs-title function_">appendChild</span>(msg);
+    <span class="hljs-comment">/*
+    &lt;html&gt;
+    &lt;div class = &quot;msgBox&quot;&gt;
+    &lt;p&gt;これはメッセージボックスです&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;/html&gt;
+    */</span>
+
+   <span class="hljs-keyword">const</span> closeBtn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;button&#x27;</span>);
+   closeBtn.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;x&#x27;</span>;
+   panel.<span class="hljs-title function_">appendChild</span>(closeBtn);
+   <span class="hljs-comment">/*
+   &lt;html&gt;
+    &lt;div class = &quot;msgBox&quot;&gt;
+    &lt;p&gt;これはメッセージボックスです&lt;/p&gt;
+    &lt;button&gt;x&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;/html&gt;
+   */</span>
+
+  closeBtn.<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>){
+    panel.<span class="hljs-property">parentNode</span>.<span class="hljs-title function_">removeChild</span>(panel);
+       <span class="hljs-comment">/*
+   &lt;html&gt;
+    &lt;/html&gt;
+    &lt;div&gt;の親要素から(panel.parentNode)、つまり&lt;html&gt;要素から&lt;div&gt;要素(panel)を取り除く
+   */</span>
+  }
+} 
+</code></pre>
+<h3 id="関数2つ目">関数2つ目</h3>
+<pre><code class="language-js">    <span class="hljs-keyword">const</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;button&#x27;</span>);<span class="hljs-comment">//何度でもメッセージボックスを呼び出せるボタンを追加</span>
+    btn.<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>){
+        <span class="hljs-title function_">displayMessage</span>(<span class="hljs-string">`メールボックスがいっぱいです。メールを削除してください。`</span>,<span class="hljs-string">`warning`</span>);
+        <span class="hljs-comment">//displayMessage(`ブライアン:こんにちは。調子はいかが？`,`chat`);</span>
+    };
+        <span class="hljs-comment">/* btn.onclick = displayMessage();　とするとすぐにメッセージボックスが表示される。このコンテキストでの括弧は、「関数呼び出し演算子」と呼ばれ、現在のスコープですぐに関数を実行する場合にのみ使用する。*/</span>
+
+    <span class="hljs-keyword">function</span> <span class="hljs-title function_">displayMessage</span>(<span class="hljs-params">msgText, msgType</span>){
+    <span class="hljs-keyword">const</span> html = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;html&#x27;</span>);
+    <span class="hljs-keyword">const</span> panel = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+    panel.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&#x27;class&#x27;</span>,<span class="hljs-string">&#x27;msgBox&#x27;</span>);
+    html.<span class="hljs-title function_">appendChild</span>(panel);
+    <span class="hljs-comment">//&lt;html&gt;&lt;div class=&quot;msgBox&quot;&gt;&lt;/div&gt;&lt;/html&gt;</span>
+
+    <span class="hljs-keyword">const</span> msg = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+    msg.<span class="hljs-property">textContent</span> = msgText;
+    panel.<span class="hljs-title function_">appendChild</span>(msg);
+    <span class="hljs-comment">/*
+    &lt;html&gt;
+    &lt;div class = &quot;msgBox&quot;&gt;
+    &lt;p&gt;これはメッセージボックスです&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;/html&gt;
+    */</span>
+
+   <span class="hljs-keyword">const</span> closeBtn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;button&#x27;</span>);
+   closeBtn.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;x&#x27;</span>;
+   panel.<span class="hljs-title function_">appendChild</span>(closeBtn);
+   <span class="hljs-comment">/*
+   &lt;html&gt;
+    &lt;div class = &quot;msgBox&quot;&gt;
+    &lt;p&gt;これはメッセージボックスです&lt;/p&gt;
+    &lt;button&gt;x&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;/html&gt;
+   */</span>
+
+  closeBtn.<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>){
+    panel.<span class="hljs-property">parentNode</span>.<span class="hljs-title function_">removeChild</span>(panel);
+       <span class="hljs-comment">/*
+   &lt;html&gt;
+    &lt;/html&gt;
+    &lt;div&gt;の親要素から(panel.parentNode)、つまり&lt;html&gt;要素から&lt;div&gt;要素(panel)を取り除く
+   */</span>
+  }
+  <span class="hljs-keyword">if</span>(msgType === <span class="hljs-string">&#x27;warning&#x27;</span>){
+    msg.<span class="hljs-property">style</span>.<span class="hljs-property">backgrounImage</span> = <span class="hljs-string">&#x27;url(warning.png)&#x27;</span>;
+    panel.<span class="hljs-property">style</span>.<span class="hljs-property">backgroundColor</span> = <span class="hljs-string">&#x27;orange&#x27;</span>;
+  }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(msgType === <span class="hljs-string">&#x27;chat&#x27;</span>){
+    msg.<span class="hljs-property">style</span>.<span class="hljs-property">backgroundImage</span> = <span class="hljs-string">&#x27;url(chat.png)&#x27;</span>;
+    panel.<span class="hljs-property">style</span>.<span class="hljs-property">backgroundColor</span> = <span class="hljs-string">&#x27;dodgerblue&#x27;</span>;
+  }<span class="hljs-keyword">else</span>{
+    msg.<span class="hljs-property">style</span>.<span class="hljs-property">paddingLeft</span> = <span class="hljs-string">&#x27;20px&#x27;</span>;
+  }
+}  
+</code></pre>
+<h2 id="function-1">function 1</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> names = [<span class="hljs-string">&#x27;Chris&#x27;</span>, <span class="hljs-string">&#x27;Li Kang&#x27;</span>, <span class="hljs-string">&#x27;Anne&#x27;</span>, <span class="hljs-string">&#x27;Francesca&#x27;</span>, <span class="hljs-string">&#x27;Mustafa&#x27;</span>, <span class="hljs-string">&#x27;Tina&#x27;</span>, <span class="hljs-string">&#x27;Bert&#x27;</span>, <span class="hljs-string">&#x27;Jada&#x27;</span>]
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">chooseName</span>(<span class="hljs-params"></span>){
+    <span class="hljs-keyword">let</span> picUp = names[<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>()*names.<span class="hljs-property">length</span>)];
+    para.<span class="hljs-property">textContent</span> = picUp;
+}
+<span class="hljs-title function_">chooseName</span>();
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+section.<span class="hljs-title function_">appendChild</span>(para);
+</code></pre>
+<h2 id="function-2">function 2</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;canvas&#x27;</span>);
+<span class="hljs-keyword">const</span> ctx = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);
+
+<span class="hljs-keyword">const</span> x = <span class="hljs-number">50</span>;
+<span class="hljs-keyword">const</span> y = <span class="hljs-number">60</span>;
+<span class="hljs-keyword">const</span> width = <span class="hljs-number">100</span>;
+<span class="hljs-keyword">const</span> height = <span class="hljs-number">75</span>;
+<span class="hljs-keyword">const</span> color = <span class="hljs-string">&#x27;blue&#x27;</span>;
+
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">square</span>(<span class="hljs-params"></span>){
+    ctx.<span class="hljs-property">fillStyle</span> = color;
+    ctx.<span class="hljs-title function_">fillRect</span>(x, y, width, height);
+}
+<span class="hljs-title function_">square</span>();
+</code></pre>
+<h2 id="function-3">function 3</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> names = [<span class="hljs-string">&#x27;Chris&#x27;</span>, <span class="hljs-string">&#x27;Li Kang&#x27;</span>, <span class="hljs-string">&#x27;Anne&#x27;</span>, <span class="hljs-string">&#x27;Francesca&#x27;</span>, <span class="hljs-string">&#x27;Mustafa&#x27;</span>, <span class="hljs-string">&#x27;Tina&#x27;</span>, <span class="hljs-string">&#x27;Bert&#x27;</span>, <span class="hljs-string">&#x27;Jada&#x27;</span>]
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">random</span>(<span class="hljs-params"></span>){
+    <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>()*names.<span class="hljs-property">length</span>)
+}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">chooseName</span>(<span class="hljs-params"></span>){
+    names[<span class="hljs-title function_">random</span>()];
+}
+<span class="hljs-title function_">chooseName</span>();
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+section.<span class="hljs-title function_">appendChild</span>(para);
+</code></pre>
+<h3 id="模範解答-3">模範解答-3</h3>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> names = [<span class="hljs-string">&#x27;Chris&#x27;</span>, <span class="hljs-string">&#x27;Li Kang&#x27;</span>, <span class="hljs-string">&#x27;Anne&#x27;</span>, <span class="hljs-string">&#x27;Francesca&#x27;</span>, <span class="hljs-string">&#x27;Mustafa&#x27;</span>, <span class="hljs-string">&#x27;Tina&#x27;</span>, <span class="hljs-string">&#x27;Bert&#x27;</span>, <span class="hljs-string">&#x27;Jada&#x27;</span>]
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">random</span>(<span class="hljs-params">min, max</span>) {     <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">const</span> num = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * (max - min)) + min;    <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">return</span> num;   <span class="hljs-comment">//3</span>
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">chooseItem</span>(<span class="hljs-params">array</span>) {    <span class="hljs-comment">//4</span>
+  <span class="hljs-keyword">const</span> choice = array[<span class="hljs-title function_">random</span>(<span class="hljs-number">0</span>, array.<span class="hljs-property">length</span>)];    <span class="hljs-comment">//5</span>
+  <span class="hljs-keyword">return</span> choice;    <span class="hljs-comment">//6</span>
+}
+para.<span class="hljs-property">textContent</span> = <span class="hljs-title function_">chooseItem</span>(names);   <span class="hljs-comment">//7</span>
+</code></pre>
+<ol>
+<li>//1. ランダムな数値を生成する関数
+<ol>
+<li>引数に<code>min</code>,<code>max</code>を使う</li>
+</ol>
+</li>
+<li><a href="//2.xn--urso20a">//2.変数</a><code>num</code>に、<a href="#function-2">function 2</a>で使ったランダムな整数のコード<code>[Math.floor(Math.random()*names.length)]</code>を書き換え、<code>max</code> と<code>min</code>の間の数値でランダムな数値を生成できるようにする</li>
+<li><a href="//3.xn--urso20a">//3.変数</a><code>num</code>は&quot;設定された範囲内の中の整数をランダムに返す式&quot;であり、<code>random()</code>が呼び出されるときはこの変数の値が用いられる</li>
+<li><a href="//4.xn--u8j2a6a2b9hi9c3031b5qhcialvn1mmuaq16qbrzimroa">//4.配列から一つの名前を取り出す関数</a><code>chooseItem(array)</code>
+<ol>
+<li>引数<code>array</code>は関数内で、その値を処理するために用いる。</li>
+<li><a href="//7.xn--n8jpbzl6hd1d4b7pia8083ho2g787dyczj">//7.でこの関数が呼び出されているが</a>、括弧に変数<code>names</code>を入れることで&quot;names内の中から一つを選ぶ”ことができる</li>
+<li><code>names</code>のような配列の変数が複数ある場合、そのまま括弧の中を置き換えるだけでよく、わざわざ一つの変数に対応する関数を記述する必要がなくなる</li>
+</ol>
+</li>
+<li>//5.<code>[random(0, array.length)]</code>は上記の関数の呼び出し</li>
+<li><a href="//6.xn--urso20a">//6.変数</a><code>choice</code>の値を<code>chooseItem</code>関数の値として呼び出すための<code>return</code></li>
+</ol>
+<h2 id="function-4">function 4</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> names = [<span class="hljs-string">&#x27;Chris&#x27;</span>, <span class="hljs-string">&#x27;Li Kang&#x27;</span>, <span class="hljs-string">&#x27;Anne&#x27;</span>, <span class="hljs-string">&#x27;Francesca&#x27;</span>, <span class="hljs-string">&#x27;Mustafa&#x27;</span>, <span class="hljs-string">&#x27;Tina&#x27;</span>, <span class="hljs-string">&#x27;Bert&#x27;</span>, <span class="hljs-string">&#x27;Jada&#x27;</span>];
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">isShort</span>(<span class="hljs-params">name</span>) {    <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">return</span> name.<span class="hljs-property">length</span> &lt; <span class="hljs-number">5</span>;   <span class="hljs-comment">//2</span>
+}
+<span class="hljs-keyword">const</span> shortNames = names.<span class="hljs-title function_">filter</span>(isShort);   <span class="hljs-comment">//3</span>
+para.<span class="hljs-property">textContent</span> = shortNames;  <span class="hljs-comment">//4</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+section.<span class="hljs-title function_">appendChild</span>(para);
+</code></pre>
+<ol>
+<li>//1.&quot;名前<code>name</code>の長さが5文字より短いもの&quot;を返す関数<code>isShort</code></li>
+</ol>
+<pre><code class="language-Js"><span class="hljs-keyword">let</span> <span class="hljs-title function_">isShort</span> = (<span class="hljs-params">name</span>) =&gt; name.<span class="hljs-property">length</span> &lt; <span class="hljs-number">5</span>;
+</code></pre>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> shortNames = names.<span class="hljs-title function_">filter</span>(isShort=<span class="hljs-function">(<span class="hljs-params">name</span>)=&gt;</span>name.<span class="hljs-property">length</span>&lt;<span class="hljs-number">5</span>);
+</code></pre>
+<h3 id="gptに確認-function4">GPTに確認-function4</h3>
+<p>一つ確認をお願いします。</p>
+<pre><code class="language-js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">isShort</span>(<span class="hljs-params">name</span>) {    <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">return</span> name.<span class="hljs-property">length</span> &lt; <span class="hljs-number">5</span>;   <span class="hljs-comment">//2</span>
+}
+<span class="hljs-keyword">const</span> shortNames = names.<span class="hljs-title function_">filter</span>(isShort);   <span class="hljs-comment">//3</span>
+</code></pre>
+<p>上のコードと</p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> shortNames = names.<span class="hljs-title function_">filter</span>(isShort=<span class="hljs-function">(<span class="hljs-params">name</span>)=&gt;</span>name.<span class="hljs-property">length</span>&lt;<span class="hljs-number">5</span>);
+</code></pre>
+<p>このコードは同じ機能でしょうか？</p>
+<hr>
+<p>いいえ、それらのコードは異なる機能を持ちます。</p>
+<p>最初のコードでは、関数<code>isShort</code>が定義されており、引数<code>name</code>の長さが5未満かどうかをチェックしています。そして、<code>names</code>という配列に対して<code>filter</code>メソッドを使い、関数<code>isShort</code>をフィルター関数として渡しています。この結果、<code>shortNames</code>配列には<code>names</code>配列から長さが5未満の要素だけがフィルタリングされます。</p>
+<p>一方、2番目のコードでは、<code>isShort</code>という名前のアロー関数が定義されています。このアロー関数は単一の引数<code>name</code>を取り、その長さが5未満であるかどうかを評価しています。そして、このアロー関数自体を<code>isShort</code>という変数に代入しています。その後、<code>names</code>配列に対して<code>filter</code>メソッドを使用し、アロー関数<code>isShort</code>をフィルター関数として渡しています。これにより、同じく長さが5未満の要素だけがフィルタリングされ、<code>shortNames</code>配列に格納されます。</p>
+<p>結果として、2つのコードは同じ機能を実現していますが、関数の定義方法や関数の代入方法が異なる点に注意してください。</p>
+<hr>
+<p>どちらも&quot;<code>names</code>から5文字未満の名前を抜き取る&quot;という点では共通しているのでしょうか</p>
+<hr>
+<p>はい、正確に言えば、両方のコードは同じ目的を持っています。両方のコードは、<code>names</code>という配列から5文字未満の名前をフィルタリングして取得することを目的としています。</p>
+<p>最初のコードでは、関数<code>isShort</code>を定義して、名前の長さが5未満かどうかを判定しています。そして、その関数を<code>filter</code>メソッドの引数として渡しています。<code>filter</code>メソッドは、与えられたフィルター関数を使用して配列をフィルタリングし、条件を満たす要素だけを取得します。</p>
+<p>2番目のコードでは、アロー関数を使って直接フィルター関数を定義しています。このアロー関数も同様に、名前の長さが5未満かどうかを判定します。そして、そのアロー関数を<code>filter</code>メソッドの引数として渡しています。</p>
+<p>したがって、両方のコードは同じ結果を得るために同じフィルタリングの機能を実行しています。ただし、関数の定義と関数の代入の方法が異なるため、コードの構造や文法が異なることに注意してください。</p>
+
+        
+        
+    </body>
+    </html>

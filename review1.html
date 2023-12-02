@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>アクティブ学習-ifとswitch</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/Users/sakimine/Downloads/プログラミングテスト/JavaScript/個人的JSインデックス/images/javascript_icon_orange.png">
+  </head>
+
+<body class="container">
+<nav class="metho">
+  <a href="#bottoms">☆最下層へ</a><br>
+  インデックス<br>
+  <p>単純なカレンダー</p>
+  <a href="#Act-cal">アクティブ学習:カレンダー</a><br>
+  <a href="#cal-code">与えられたコード</a><br>
+  <a href="#cal-ans">回答</a><br>
+  <a href="#-and-or-not">ANDとORとNOT</a><br>
+  <p>色選び</p>
+  <a href="#Act-col">アクティブ学習:色選び</a><br>
+  <a href="#col-code">与えられたコード</a><br>
+  <a href="#col-ans">回答</a><br>
+  <a href="#col-expl">参考コード</a><br>
+  <a href="#switch-statement">switchステートメント</a><br>
+  <a href="#switch-expl">switchの使用例</a><br>
+  <p>外部リンク</p>
+  <p>外部リンク</p>
+  <a href="method-expl.html">コードの使用例</a><br>
+  <a href="forloop.html">forループについて</a><br>
+  <a href="function.html">functionについて</a><br>
+  <a href="review3-looping-code.html">ループするコード</a><br>
+  <a href="演算子.html">演算子について</a><br>
+
+  <a href="#tops" class="toptop">To top</a><br>
+</nav>
+<!--section要素はずらさない。pre要素が干渉する-->
+<article class="content" id="tops">
+  <h1 id="h1-">アクティブラーニング</h1>
+  <h2>単純なカレンダーと色選び</h2>
+<section class="review-1-cal"><h2 id="Act-cal">アクティブ学習: 単純なカレンダー</h2>
+  <p>この例では、単純なカレンダーアプリケーションの作成を手伝ってもらいます。現在、以下の内容がコードに書かれています。</p>
+  <ul>
+  <li>ユーザーが月を選択できるように <code>&lt;select&gt;</code> 要素があります。</li>
+  <li><code>&lt;select&gt;</code> メニューの選択内容が変更された場合に、イベントを補足できるように <code>onchange</code> イベントハンドラーが設定されています。</li>
+  <li>カレンダーを描画し、<code>&lt;h1&gt;</code> 要素に適切な月を設定する <code>createCalendar()</code> と呼ばれる関数があります。</li>
+  <li><p>あなたには、<code>onchange</code> ハンドラーの内部に条件式を書いてもらいます。<br><code>// 条件式をここに書く</code> というコメントのすぐ下に...</p>
+  </li>
+  <li><p>選択されている月を取得します (これは <code>choice</code> 変数に格納されています。この値は <code>&lt;select&gt;</code> 要素で選択された後の値で、例えば 1 月なら、&quot;1&quot; といった値です。)</p>
+  </li>
+  <li><code>days</code> という変数に、選択された月の日数を設定します。そのためには、1 年の各月の日数を調べる必要があるでしょう。うるう年はこの例題の目的から外れるため、無視してください。</li>
+  </ul>
+  <ol>
+    <li>選択されている月を取得します (これは <code>choice</code> 変数に格納されています。この値は <code>&lt;select&gt;</code> 要素で選択された後の値で、例えば 1 月なら、&quot;1&quot; といった値です。)</li>
+    <li><code>days</code> という変数に、選択された月の日数を設定します。そのためには、1 年の各月の日数を調べる必要があるでしょう。うるう年はこの例題の目的から外れるため、無視してください。</li>
+    </ol>
+    <p>ヒント:</p>
+    <p>ほとんどの月は日数が同じなので、複数の月を OR 演算子を用いて一つの条件式にまとめるのが良いでしょう。
+    どの月が最も多い日数なのか考えてください。そして、その日数をデフォルト値として使用しましょう。<br>
+    もし間違ってしまっても、「リセット」ボタンを押すことでいつでも元に戻せます。詰まってしまったら、「答えを見る」ボタンで答えが見られます。</p>
+        
+</section>
+
+<section class="review-1-cal"><h2 id="cal-code">与えられたコード</h2>
+  <pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">const</span> select = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'select'</span>);
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">list</span> = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'ul'</span>);
+  <span class="hljs-keyword">const</span> h1 = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'h1'</span>);
+  
+  select.onchange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> choice = select.value;
+  
+    <span class="hljs-comment">// 条件式をここに書く</span>
+  
+    createCalendar(days, choice + <span class="hljs-string">' 月'</span>);
+  }
+  
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createCalendar</span>(<span class="hljs-params">days, choice</span>) </span>{
+    <span class="hljs-built_in">list</span>.innerHTML = <span class="hljs-string">''</span>;
+    h1.textContent = choice;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt;= days; i++) {
+      <span class="hljs-keyword">const</span> listItem = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'li'</span>);
+      listItem.textContent = i;
+      <span class="hljs-built_in">list</span>.appendChild(listItem);
+    }
+  }
+  
+  createCalendar(<span class="hljs-number">31</span>,<span class="hljs-string">'1 月'</span>);
+  </code></pre>
+  
+
+</section>
+
+<section class="review-1-cal"><h2 id="cal-ans">回答</h2>
+  <h3 id="cal-mycode">自分の動いたコード</h3>
+  <pre class="answer"><code class="lang-js">  
+  <span class="hljs-comment">// 条件式をここに書く</span>
+  let days = <span class="hljs-number">31</span>;
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">choice</span> === <span class="hljs-string">'2'</span>){
+    days = <span class="hljs-number">28</span>;
+  }<span class="hljs-keyword">else</span>(<span class="hljs-keyword">choice</span> === <span class="hljs-string">'4'</span> || 
+        <span class="hljs-keyword">choice</span> === <span class="hljs-string">'6'</span> ||
+        <span class="hljs-keyword">choice</span> === <span class="hljs-string">'9'</span> ||
+        <span class="hljs-keyword">choice</span> ===<span class="hljs-string">'11'</span>){
+   days = <span class="hljs-number">30</span>;
+  }
+  
+    createCalendar(days, <span class="hljs-keyword">choice</span> + <span class="hljs-string">' 月'</span>);
+  }
+  </code></pre>
+  <h3 id="cal-model-a">正解のコード</h3>
+  <pre class="answer"><code class="lang-js">
+    <span class="hljs-keyword">select</span>.onchange = function() {
+  let <span class="hljs-keyword">choice</span> = <span class="hljs-keyword">select</span>.value;
+  let days = <span class="hljs-number">31</span>;
+  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">choice</span> === <span class="hljs-string">'2'</span>) {
+  days = <span class="hljs-number">28</span>;
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-keyword">choice</span> === <span class="hljs-string">'4'</span> || 
+            <span class="hljs-keyword">choice</span> === <span class="hljs-string">'6'</span> || 
+            <span class="hljs-keyword">choice</span> === <span class="hljs-string">'9'</span>|| 
+            <span class="hljs-keyword">choice</span> === <span class="hljs-string">'11'</span>) {
+  days = <span class="hljs-number">30</span>;
+  }
+
+  createCalendar(days, <span class="hljs-keyword">choice</span> + <span class="hljs-string">' 月'</span>);
+  }
+
+</code></pre>
+
+  
+</section>
+
+<section class="review-1-cal"><h2 id="-and-or-not">論理演算子: AND と OR と NOT</h2>
+  <p>複数の条件を入れ子の <code>if...else</code> ステートメントを書かずに判定したいなら、論理演算子の出番です。条件文の中で使用する場合、AND と OR は以下の作用をもたらすでしょう。</p>
+  <ul>
+  <li><code>&amp;&amp;</code> — <code>AND</code> は 2 つ以上の式を一つに繋げ、それぞれの式を個別に評価して、すべて <code>true</code> になった場合、その式全体が <code>true</code> として返します。</li>
+  <li><code>||</code>— <code>OR</code> は 2 つ以上の式を 1 つに繋げ、それぞれの式を個別に評価し、最初に <code>true</code> になったところで、その式全体を <code>true</code> として返します。
+  <code>AND</code> の例を示すため、先ほどのコードを書き直すと以下のようになります。
+    <pre class="answer"><code class="lang-js">
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">choice</span> === <span class="hljs-string">'sunny'</span> &amp;&amp; temperature &lt; <span class="hljs-number">86</span>) {
+  para.textContent = <span class="hljs-string">'外の気温は '</span> + temperature + 
+  <span class="hljs-string">' 度です — とてもいい天気です。海水浴や、
+    公園に出かけてアイスクリームを食べましょう'</span>;
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">choice</span> === <span class="hljs-string">'sunny'</span> &amp;&amp; temperature &gt;= <span class="hljs-number">86</span>) {
+  para.textContent = <span class="hljs-string">'外の気温は '</span> + temperature + 
+  <span class="hljs-string">' 度です — かなり暑いです！外出する場合には
+    アイスクリームを持って出かけましょう。'</span>;
+  }
+  </code></pre>
+  </li>
+  </ul>
+  
+  <p>例では、最初のブロックは <code>choice === &#39;sunny&#39;</code> と <code>temperature &lt; 86</code> のどちらも <code>true</code> となった場合にのみ実行されます。</p>
+<p>今度は <code>OR</code> の例を見てみましょう。</p>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">if</span> (iceCreamCarOutside || houseStatus === <span class="hljs-string">'火事'</span>) {
+    console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'すぐに家から出ましょう。'</span>)<span class="hljs-comment">;</span>
+    } <span class="hljs-keyword">else</span> {
+    console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'それでは家にいましょう。'</span>)<span class="hljs-comment">;</span>
+    }
+
+</code></pre>
+<p>論理演算子の最後は NOT です。<code>!</code> 演算子で表され、式を否定するのに使用します。それでは先ほどの <code>OR</code> と組み合わせてみましょう。</p>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">if</span> (!(iceCreamVanOutside || houseStatus === <span class="hljs-string">'火事'</span>)) {
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'それでは家にいましょう。'</span>)<span class="hljs-comment">;</span>
+  } <span class="hljs-keyword">else</span> {
+  console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'すぐに家から出ましょう。'</span>)<span class="hljs-comment">;</span>
+  }
+
+</code></pre>
+
+<p>このコード例では、OR ステートメントが <code>true</code> となれば、NOT 演算子がそれを否定します。そのため、式全体は <code>false</code> となります。</p>
+<p>論理ステートメントは思うがままに、いくつでも繋げることが可能です。次の例では両方の OR ステートメントが真を返した場合に AND ステートメントが真となり、<code>if</code> の中のコードが実行されます。</p>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">if</span> ((x === <span class="hljs-number">5</span> <span class="hljs-params">||</span> y &gt; <span class="hljs-number">3</span> <span class="hljs-params">||</span> z &lt;= <span class="hljs-number">10</span>) &amp;&amp; (loggedIn 
+  <span class="hljs-params">||</span> userName === <span class="hljs-string">'スティーブ'</span>)) {
+  <span class="hljs-regexp">//</span> コードを実行
+  }
+
+</code></pre>
+<p>この場合、<code>if(...) の条件式</code>は常に真となります。なぜなら 7 (もしくはその他 0 以外の数値) が常に <code>true</code> と評価されるためです。この条件式は「もし x が 5 であるか 7 が真であるならば (7 は常に真です)」となります。これは求めているものではありませんよね！このコードの誤りを修正するためには、OR 演算子の隣に常に完全な条件を書かなければなりません。</p>
+<pre class="answer"><code class="lang-js"><span class="hljs-keyword">
+  if</span> (x === <span class="hljs-number">5</span> <span class="hljs-params">||</span> x === <span class="hljs-number">7</span> <span class="hljs-params">||</span> x === <span class="hljs-number">10</span> <span class="hljs-params">||</span>x === <span class="hljs-number">20</span>) {
+  <span class="hljs-regexp">//</span> コードを実行する
+  }
+  
+</code></pre>
+</section>
+
+
+<!---色選び-->
+
+
+<section class="review-1-col"><h2 id="Act-col">アクティブ学習: もっとたくさんの色から選ぶ！</h2>
+<p>この例では、先ほどの三項演算子の例を switch ステートメントに変換し、単純なウェブサイトに、より多くの選択肢を与えます。<code>&lt;select&gt;</code> 要素を見てください。今回は先ほどの 2 つではなく、5 つの選択肢があります。</p>
+<p><code>// ここに SWITCH ステートメントを書く</code>というコメントの真下に <code>switch ステートメント</code>を追加してください。</p>
+<ul>
+<li><code>choice 変数</code>を判定する式として使用します。</li>
+<li>各ケース (case) で、<code>choice 変数</code>は選択可能な値 (&#39;white&#39;、&#39;black&#39;、&#39;purple&#39;、&#39;yellow&#39;、&#39;psychedelic&#39;) のうちのどれかです。</li>
+<li>各ケース (case) で、<code>update() 関数</code>が実行されるようにしてください。関数には 2 つの引数を指定します。1 つ目の引数は背景色、2 つ目の色は前景色です。色は文字列なので、忘れずに引用符で囲みましょう。
+もし間違ってしまっても、「リセット」ボタンを押すことでいつでも元に戻せます。詰まってしまったら、「答えを見る」ボタンで答えが見られます。</li>
+</ul>
+</section>
+<section class="review-1-col"><h2 id="col-code">与えられたコード</h2>
+  <pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">const</span> select = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'select'</span>);
+  <span class="hljs-keyword">const</span> html = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.output'</span>);
+  
+  select.onchange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> choice = select.value;
+  
+    <span class="hljs-comment">// ここに SWITCH ステートメントを書く</span>
+  }
+  
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span>(<span class="hljs-params">bgColor, textColor</span>) </span>{
+    html.style.backgroundColor = bgColor;
+    html.style.color = textColor;
+  }
+  </code></pre>
+  
+</section>
+<section class="review-1-col"><h2 id="col-ans">回答</h2>
+<h3 id="-">自分の回答</h3>
+  <pre class="answer"><code class="lang-js">  
+    <span class="hljs-comment">// ここに SWITCH ステートメントを書く</span>
+  <span class="hljs-keyword">switch</span>(<span class="hljs-keyword">choice</span>) {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'white'</span>:
+    update(<span class="hljs-string">'white'</span>,<span class="hljs-string">'black'</span>);
+      <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'black'</span>:
+    update(<span class="hljs-string">'black'</span>,<span class="hljs-string">'white'</span>);
+      <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'purple'</span>:
+    update(<span class="hljs-string">'purple'</span>,<span class="hljs-string">'white'</span>);
+      <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'yellow'</span>:
+    update(<span class="hljs-string">'yellow'</span>,<span class="hljs-string">'black'</span>);
+      <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'psychedelic'</span>:
+    update(<span class="hljs-string">'psychedelick'</span>,<span class="hljs-string">'purple'</span>);
+    <span class="hljs-comment">//カラー'psychedelick'は無いのですぐ上の'yellow'が適用された</span>
+      <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">default</span>:
+  }
+  }
+
+</code></pre>
+
+<h3 id="-">模範解答</h3>
+<pre class="answer"><code class="lang-js"> 
+  <span class="hljs-keyword">switch</span>(<span class="hljs-keyword">choice</span>) {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'black'</span>:
+  update(<span class="hljs-string">'black'</span>,<span class="hljs-string">'white'</span>);
+  <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'white'</span>:
+  update(<span class="hljs-string">'white'</span>,<span class="hljs-string">'black'</span>);
+  <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'purple'</span>:
+  update(<span class="hljs-string">'purple'</span>,<span class="hljs-string">'white'</span>);
+  <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'yellow'</span>:
+  update(<span class="hljs-string">'yellow'</span>,<span class="hljs-string">'darkgray'</span>);
+  <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'psychedelic'</span>:
+  update(<span class="hljs-string">'lime'</span>,<span class="hljs-string">'purple'</span>);
+  <span class="hljs-keyword">break</span>;
+  }
+  }
+
+</code></pre>
+
+</section>
+
+<section class="review-1-col"><h2 id="col-expl">参考</h2>
+  <pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">select</span>.onchange = setWeather;
+
+  <span class="hljs-keyword">function</span> <span class="hljs-title">setWeather</span>() {
+  const choice = select.value;
+
+  <span class="hljs-keyword">switch</span>(choice) {
+  <span class="hljs-keyword">case</span> 'sunny':
+  para.textContent = <span class="hljs-string">
+    'Itis niceand sunny outside today. Wear shorts! 
+    Go to the beach,or the park,and get an ice cream.'</span>;
+  <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> 'rainy':
+  para.textContent = <span class="hljs-string">
+    'Rainis falling outside; take a rain coatand a brolly
+    ,and don\'t stayoutfor too long.'</span>;
+  <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> 'snowing':
+  para.textContent = <span class="hljs-string">
+    'The snowis coming down — itis freezing! 
+    Best to stayinwith a cupof hot chocolate,or go build a snowman.'</span>;
+  <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> 'overcast':
+  para.textContent =<span class="hljs-string"> 
+    'It isn\'t raining, but the skyis greyand gloomy; 
+    it could turn any minute, so take a rain coat justincase.'</span>;
+  <span class="hljs-keyword">break</span>;
+  default:
+  para.textContent = '';
+  }
+  }
+
+</code></pre>
+
+</section>
+<section class="review-1-col"><h2 id="switch-statement">switch ステートメント</h2>
+<p><code>if...else</code>ステートメントは条件の判定を上手くこなしていましたが、欠点がないわけではありません。<br>いくつかの選択肢しかない場合には申し分ないのですが、AND / OR の条件が複雑になるにつれて (例えば、複数の論理演算子を使ったりする場合など)、相当量のコードを書かなければなりません。<br>ある選択肢に応じて値を変数に設定したり、特定の条件に応じて何かを表示したりするとき、選択肢がたくさんあると、<code>if...else</code>ステートメントを書くのは面倒です。</p>
+<p><code>switch ステートメント</code>はそんなときの味方です。<code>switch ステートメント</code>は<strong>一つの式または値を受け取り、それに合致する値が見つかるまで選択肢を探します。そして合致した選択肢に対応するコードを実行します。</strong>まずは擬似コードを見て、雰囲気をつかみましょう。</p>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">switch</span> ( 式 ) {
+  <span class="hljs-keyword">case</span> 選択肢<span class="hljs-number">1</span>:
+    このコードを実行する
+    <span class="hljs-keyword">break</span>;
+
+  <span class="hljs-keyword">case</span> 選択肢<span class="hljs-number">2</span>:
+    代わりにこのコードを実行する
+    <span class="hljs-keyword">break</span>;
+
+  <span class="hljs-comment">// 以下に選択肢を好きなだけ並べる</span>
+
+  <span class="hljs-keyword">default</span>:
+    既定でこのコードを実行する
+
+</code></pre>
+<p>上記のコードには...</p>
+<ol class="review-1-col-ol">
+<li><code>switch</code> キーワードに続き、一組の括弧があります。</li>
+<li>括弧の中には、式または値があります。</li>
+<li><code>case</code> キーワードに続き、選択肢となる式または値、それにコロン (<code>:</code>) が並んでいます。</li>
+<li>もしその選択肢にマッチすれば、コードが実行されます。</li>
+<li><code>break</code> ステートメントとセミコロン (;) があります。もし前の選択肢にマッチして入ればブラウザーはコードの実行をここでやめ、<code>switch</code> ステートメントの後ろにあるコードに移動します。</li>
+<li><code>case</code> 節 (上記 3. から 5. ) は好きなだけ書くことができます。</li>
+<li>上記 3. から 5.の case 節と全く同じコードパターンで書かれている default キーワードがあります。違いは default の後ろに選択肢が書かれていないことです。また、後ろに続くコードがないので、ここには <code>break</code> ステートメントが必要ありません。もし、選択肢のどれにもマッチするものがない場合に既定のオプションとして実行されます。</li>
+</ol>
+
+</section>
+
+<section class="review-1-col"><h2 id="switch-expl">switch を使用する例</h2>
+<p>それでは実際の例を見てみましょう。先ほどの天気予報アプリを <code>switch ステートメント</code>を使用して書き直してみました。</p>
+<p>HTML</p>
+<pre class="answer"><code class="lang-html">
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"weather"</span>&gt;</span>今日の天気を選択してください: <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"weather"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>--選択してください--<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"sunny"</span>&gt;</span>晴れ<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"rainy"</span>&gt;</span>雨<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"snowing"</span>&gt;</span>雪<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"overcast"</span>&gt;</span>曇り<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+</code></pre>
+<p>JavaScript</p>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">const</span> <span class="hljs-keyword">select</span> = document.querySelector(<span class="hljs-string">'select'</span>);
+  <span class="hljs-keyword">const</span> para = document.querySelector(<span class="hljs-string">'p'</span>);
+  
+  <span class="hljs-keyword">select</span>.addEventListener(<span class="hljs-string">'change'</span>, setWeather);
+  
+  
+  <span class="hljs-function">function <span class="hljs-title">setWeather</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> choice = <span class="hljs-keyword">select</span>.<span class="hljs-keyword">value</span>;
+  
+    <span class="hljs-keyword">switch</span> (choice) {
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'sunny'</span>:
+        para.textContent = 
+        <span class="hljs-string">'今日はとてもいい天気です。短いパンツをはいて、
+          砂浜や公園に出かけ、アイスクリームを食べましょう！'</span>;
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'rainy'</span>:
+        para.textContent = 
+        <span class="hljs-string">'雨が降っています。
+          レインコートと傘を忘れないようにしましょう。'</span>;
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'snowing'</span>:
+        para.textContent = 
+        <span class="hljs-string">'雪が降ってとても寒いです！
+          室内でホットチョコレートを飲むか、
+          雪だるまを作るのがよいでしょう。'</span>;
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-string">'overcast'</span>:
+        para.textContent = 
+        <span class="hljs-string">'雨は降っていませんが、
+          空はとても暗くなっています。
+          万が一に備えレインコートを持ちましょう。'</span>;
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">default</span>:
+        para.textContent = <span class="hljs-string">''</span>;
+    }
+  }
+  </code></pre>
+  
+</section>
+<div id="bottoms">☆</div><!--article外だと真下に置けない-->
+</article>
+<a href="#tops" class="toptop">To top</a>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x30b9;&#x30ad;&#x30eb;&#x30c6;&#x30b9;&#x30c8; &#x30eb;&#x30fc;&#x30d7;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="スキルテスト-ループ">スキルテスト ループ</h1>
+<ul>
+<li><a href="#%E3%82%B9%E3%82%AD%E3%83%AB%E3%83%86%E3%82%B9%E3%83%88-%E3%83%AB%E3%83%BC%E3%83%97">スキルテスト ループ</a>
+<ul>
+<li><a href="#loops-1">Loops 1</a></li>
+<li><a href="#loops-2">Loops 2</a></li>
+<li><a href="#loops-3">Loops 3</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops">Test your skills: Loops</a></li>
+</ul>
+<h2 id="loops-1">Loops 1</h2>
+<p>最初のループ処理では、まず単純なループを作成し、<code>myArray</code>のすべての項目を調べ、リスト項目（すなわち、<code>&lt;li&gt; </code>要素）として画面に出力し、それを<code>list</code>に追加してもらいます。</p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> myArray = [<span class="hljs-string">&#x27;tomatoes&#x27;</span>, <span class="hljs-string">&#x27;chick peas&#x27;</span>, <span class="hljs-string">&#x27;onions&#x27;</span>, <span class="hljs-string">&#x27;rice&#x27;</span>, <span class="hljs-string">&#x27;black beans&#x27;</span>];
+<span class="hljs-keyword">const</span> list = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;ul&#x27;</span>);
+
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+<span class="hljs-keyword">const</span> section = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;section&#x27;</span>);
+section.<span class="hljs-title function_">appendChild</span>(list);
+</code></pre>
+<h2 id="loops-2">Loops 2</h2>
+<p>次の課題では、名前を与えられたら、名前と電話番号を含むオブジェクトの配列（<code>phonebook</code>）を検索し、名前が見つかったら、名前と電話番号をパラグラフ（<code>para</code>）に出力し、ループが一巡する前に終了する簡単なプログラムを書いてほしい。</p>
+<p>オブジェクトについてまだ読んでいない方もご安心ください！今のところ、あなたが知る必要があるのは、メンバーと値のペアにアクセスする方法だけです。オブジェクトについては、JavaScriptのオブジェクトの基本チュートリアルをお読みください。</p>
+<p>最初に3つの変数が与えられます：</p>
+<ul>
+<li><code>name</code> - 検索するための名前を含む。</li>
+<li><code>para</code> - 結果を報告するために使用されるパラグラフへの参照が含まれます。</li>
+<li><code>phonebook</code> - 検索する電話帳のエントリーが含まれています。
+前のタスクで使っていないタイプのループを使用する必要があります。</li>
+</ul>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> name = <span class="hljs-string">&#x27;Mustafa&#x27;</span>;
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+
+<span class="hljs-keyword">const</span> phonebook = [
+  { name : <span class="hljs-string">&#x27;Chris&#x27;</span>, number : <span class="hljs-string">&#x27;1549&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Li Kang&#x27;</span>, number : <span class="hljs-string">&#x27;9634&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Anne&#x27;</span>, number : <span class="hljs-string">&#x27;9065&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Francesca&#x27;</span>, number : <span class="hljs-string">&#x27;3001&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Mustafa&#x27;</span>, number : <span class="hljs-string">&#x27;6888&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Tina&#x27;</span>, number : <span class="hljs-string">&#x27;4312&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Bert&#x27;</span>, number : <span class="hljs-string">&#x27;7780&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Jada&#x27;</span>, number : <span class="hljs-string">&#x27;2282&#x27;</span> },
+]
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+<span class="hljs-keyword">const</span> section = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;section&#x27;</span>);
+section.<span class="hljs-title function_">appendChild</span>(para);
+</code></pre>
+<h2 id="loops-3">Loops 3</h2>
+<p>この最終タスクでは、次のようなものが提供されます：</p>
+<ul>
+<li><code>i</code> - 500の値で始まり、イテレータとして使用されることを意図しています。</li>
+<li><code>para</code> - 結果を報告するために使用される、段落への参照が含まれています。</li>
+<li><code>isPrime()</code> - 数値を渡すと、その数値が素数であれば真、そうでなければ偽を返す関数です。</li>
+</ul>
+<p>ループを使って、2～500の数字を後ろから見ていき（1は素数としてカウントされない）、提供された <code>isPrime()</code> 関数を実行する必要があります。素数でない各数値について、次のループの繰り返しに進みます。素数である各数字について、それを段落の <code>textContent</code> に何らかの区切り文字とともに追加する。</p>
+<p>前の2つの課題で使っていないタイプのループを使う必要があります。</p>
+<pre><code class="language-js"><span class="hljs-keyword">let</span> i = <span class="hljs-number">500</span>;
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">isPrime</span>(<span class="hljs-params">num</span>) {
+  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>; i &lt; num; i++) {
+    <span class="hljs-keyword">if</span>(num % i === <span class="hljs-number">0</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+  }
+
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+<span class="hljs-keyword">const</span> section = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;section&#x27;</span>);
+section.<span class="hljs-title function_">appendChild</span>(para);
+</code></pre>
+
+        
+        
+    </body>
+    </html>

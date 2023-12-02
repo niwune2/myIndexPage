@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ループするコード</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/Users/sakimine/Downloads/プログラミングテスト/JavaScript/個人的JSインデックス/images/javascript_icon_orange.png">
+  </head>
+
+<body class="container">
+<nav class="metho">
+  <a href="#bottoms">☆最下層へ</a><br>
+  インデックス<br>
+  <p>JSコード例</p>
+    <a href="#100-">100個の円を描写するコードの例</a><br>
+  <p>forループ</p>
+    <a href="#for-loop">標準的なforループ</a><br>
+    <a href="#heihou">平方の計算</a><br>
+  <p>for...ofループ</p>
+    <a href="#for-of-loop">for...ofループ</a><br>
+  <p>.map()と.filter()</p>
+    <a href="#map-and-filter">.map() と .filter()</a><br>
+    <a href="#-map-">.map()</a><br>
+    <a href="#-filter-">.filter()</a><br>
+  <p>whileとdo...while</p>
+    <a href="#while-do-while">whileとdo...while</a><br>
+    <a href="#loop-while">.while()</a><br>
+    <a href="#do...while">do...while</a><br>
+    <a href="#for-while-gpt">forループとwhileループの違い</a><br>
+  <p>break</p>
+    <a href="#break-end">breakでループ終了</a><br>
+  <p>continue</p>
+    <a href="#continue-skip">continueで繰り返しをスキップする</a><br>
+  <p>イテレーター</p>
+    <a href="#what-is-iterator-gpt">イテレーターとは</a><br>
+    <a href="#broadly-defined">広義のイテレーター</a><br>
+    <a href="#javascript-iterator">JSでのイテレーター</a><br>
+  <p>ACT-カウントダウン</p>
+    <a href="#Act-countdown">カウントダウン</a><br>
+    <a href="#code-1">与えられたコード</a><br>
+    <a href="#ans-1">答え1</a><br>
+    <a href="#Act-countdown-gpt">GPTのコード解説</a><br>
+  <p>ACT-リストに追加</p>
+    <a href="#Act-add-list">リストに追加する</a><br>
+    <a href="#code-2">与えられたコード</a><br>
+    <a href="#Act-add-list-gpt">答えとGPTの解説</a><br>
+    <a href="#add-list-mycode-gptcode">自分のコードとGPTのコード</a><br>
+  <p>GPTのアドバイス</p>
+    <a href="#for-and-map-or-filter">forループのなかに.map(),.filter()</a>
+  <p>外部リンク</p>
+    <a href="method-expl.html">メソッドの使用例</a><br>
+    <a href="forloop.html">forループについて</a><br>
+    <a href="function.html">functionについて</a><br>
+    <a href="review3-looping-code.html">ループするコード</a><br>
+    <a href="演算子.html">演算子について</a><br>
+  
+  <a href="#tops" class="toptop">To top</a><br>
+</nav>
+
+<article class="content" id="tops"><h1 id="looping-codes">ループするコード</h1>
+
+<section class="looping"><h2 id="100-">100個の円を描写するコードの例</h2>
+  <pre><code class="lang-js">
+  <span class="hljs-keyword">const</span> btn = document.querySelector(<span class="hljs-string">'button'</span>);
+  <span class="hljs-keyword">const</span> canvas = document.querySelector(<span class="hljs-string">'canvas'</span>);
+  <span class="hljs-keyword">const</span> ctx = canvas.getContext(<span class="hljs-string">'2d'</span>);
+  
+  document.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, () =&gt; {
+    canvas.<span class="hljs-built_in">width</span> = document.documentElement.clientWidth;
+    canvas.<span class="hljs-built_in">height</span> = document.documentElement.clientHeight;
+  })
+  
+  function <span class="hljs-built_in">random</span>(number) {
+    <span class="hljs-keyword">return</span> Math.<span class="hljs-built_in">floor</span>(Math.<span class="hljs-built_in">random</span>()*number);
+  }
+  
+  function <span class="hljs-title">draw</span>() {
+    ctx.clearRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, canvas.<span class="hljs-built_in">width</span>, canvas.<span class="hljs-built_in">height</span>);
+    <span class="hljs-keyword">for</span> (let i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) { <span class="hljs-comment">//100個の円を描画している部分</span>
+      ctx.beginPath();
+      ctx.fillStyle = <span class="hljs-string">'rgba(255,0,0,0.5)'</span>;
+      ctx.<span class="hljs-built_in">arc</span>(<span class="hljs-built_in">random</span>(canvas.<span class="hljs-built_in">width</span>), <span class="hljs-built_in">random</span>(canvas.<span class="hljs-built_in">height</span>), 
+      <span class="hljs-built_in">random</span>(<span class="hljs-number">50</span>), <span class="hljs-number">0</span>, <span class="hljs-number">2</span> * Math.<span class="hljs-literal">PI</span>);
+      ctx.<span class="hljs-built_in">fill</span>();
+    }
+  }
+  btn.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-title">draw</span>);
+  </code></pre><br>
+  </section><a href="#tops" class="toptop">To top</a>
+
+<section class="looping"><h2 id="for-loop">標準的な for ループ</h2>
+  <h3 id="for-">forループの構文</h3>
+  <pre><code class="lang-js">
+    <span class="hljs-keyword">for</span> (初期化処理; 条件; 最後の式) {
+    <span class="hljs-comment">// 実行するコード</span>
+  }
+  </code></pre>
+  <ol>
+  <li><code>for</code> キーワードに続き括弧があります。</li>
+  <li>括弧の中には、セミコロンで区切られた以下の項目があります。<ol>
+  <li><strong>初期化処理</strong>: これはたいていの場合、繰り返し回数分増やしていく変数の初期化処理となります。 この変数をカウンター変数と呼ぶことがあります。</li>
+  <li><strong>条件</strong>: これは、ループがいつ繰り返しをやめるかを定義します。 これはふつう、比較演算子を伴って、終了条件に達したかどうかを確認します。</li>
+  <li><strong>最後の式</strong>: これはループの 1 回が終了する度に評価される（または実行される）コードです。 通常、カウンター変数を増加させ（場合によっては減少させ）、条件が <code>true</code> ではなくなるポイントに近づけていきます。</li>
+  </ol>
+  </li>
+  <li>コードのブロックを格納する中括弧。このコードは、ループが反復処理されるたびに実行されます。</li>
+  </ol>
+
+  <h3 id="heihou">平方の計算</h3>
+  <pre><code class="lang-js">
+  <span class="hljs-keyword">const</span> results = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#results'</span>);
+  
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">calculate</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+      <span class="hljs-keyword">const</span> newResult = <span class="hljs-string">`<span class="hljs-subst">${i}</span> x <span class="hljs-subst">${i}</span> = <span class="hljs-subst">${i * i}</span>`</span>;
+      results.textContent += <span class="hljs-string">`<span class="hljs-subst">${newResult}</span>\n`</span>;
+    }
+    results.textContent += <span class="hljs-string">'\n完了!'</span>;
+  }
+  
+  <span class="hljs-keyword">const</span> calculateBtn = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#calculate'</span>);
+  <span class="hljs-keyword">const</span> clearBtn = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#clear'</span>);
+  
+  calculateBtn.addEventListener(<span class="hljs-string">'click'</span>, calculate);
+  clearBtn.addEventListener(<span class="hljs-string">'click'</span>, () =&gt; results.textContent = <span class="hljs-string">''</span>);
+  </code></pre>
+  <p>このコードは、1 から 9 までの数字の平方を計算し、その結果を書き出します。コードの中心は、計算を行う <code>for</code> ループです。</p>
+  <p><code>for (let i = 1; i &lt; 10; i++)</code> の行を 3 つの部分に分割してみましょう。</p>
+  <ol>
+  <li><strong><code>let i = 1</code></strong>: カウンター変数である <code>i</code> は <code>1</code> から始めます。ループを一周するたびにカウンターに代入するため、カウンターに <code>let</code> を使用しなければならないことに注意してください。</li>
+  <li><strong><code>i &lt; 10</code></strong>: <code>i</code> が <code>10</code> よりも小さい限り、ループを繰り返し続けます。</li>
+  <li><strong><code>i++</code></strong>: ループを一周するたびに <code>i</code> に <code>1</code> を加算します。</li>
+  </ol>
+  <p>ループの内部では、現在の <code>i</code> の値の平方、すなわち <code>i * i</code> を計算します。計算した内容と結果を表す文字列を作成し、出力テキストに追加します。また、<em>次に追加した文字列が改行されるように</em>、<code>\n</code> も追加しています。すなわち、</p>
+  <ol>
+  <li>最初の実行時は <code>i = 1</code> なので <code>1 x 1 = 1</code> を追加します。</li>
+  <li>二番目の実行時は <code>i = 2</code> なので <code>2 x 2 = 4</code> を追加します。</li>
+  <li>以下、同様に行います。</li>
+  <li><code>i</code> が <code>10</code> と等しくなったら、ループの実行を停止して、ループの下の次のコードにまっすぐ移動し、<code>完了!</code> というメッセージを新しい行に出力します。</li>
+  </ol>
+  
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="looping"><h2 id="for-of-loop">for...ofループ</h2>
+  <pre><code class="lang-js">
+  <span class="hljs-keyword">const</span> cats = 
+      [<span class="hljs-string">'Leopard'</span>, <span class="hljs-string">'Serval'</span>, <span class="hljs-string">'Jaguar'</span>, <span class="hljs-string">'Tiger'</span>, <span class="hljs-string">'Caracal'</span>, <span class="hljs-string">'Lion'</span>];
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> cat <span class="hljs-keyword">of</span> cats) {
+    <span class="hljs-built_in">console</span>.log(cat);
+  }
+  </code></pre>
+<p>この例では、<code>for (const cat of cats)</code> は次のように言っています。</p>
+<ol>
+<li>コレクション <code>cats</code> が指定されたら、コレクション内の最初のアイテムを取得する。</li>
+<li>それを変数 <code>cat</code> に割り当てて、中括弧 <code>{}</code> で囲まれたコードを実行する。</li>
+<li>次のアイテムを取得し、コレクションの終わりに達するまで2. を繰り返す。</li>
+</ol>
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="looping"><h2 id="map-and-filter">.map() と .filter()</h2>
+  <h3 id="-map-">.map()</h3>
+  <p><code>map()</code> を使用すると、</p>
+  <ol>
+  <li>コレクション内の各アイテムに対して何かを行い、</li>
+  <li>変更されたアイテムを格納した新しいコレクションを作成することができます。</li></ol>
+<pre><code class="lang-js">
+  <span class="hljs-keyword">function</span> toUpper(<span class="hljs-built_in">string</span>) {
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">string</span>.toUpperCase()<span class="hljs-comment">;</span>
+  }
+  
+  <span class="hljs-keyword">const</span> cats = 
+  [<span class="hljs-string">'Leopard'</span>, <span class="hljs-string">'Serval'</span>, <span class="hljs-string">'Jaguar'</span>, <span class="hljs-string">'Tiger'</span>, <span class="hljs-string">'Caracal'</span>, <span class="hljs-string">'Lion'</span>]<span class="hljs-comment">;</span>
+  
+  <span class="hljs-keyword">const</span> upperCats = cats.map(toUpper)<span class="hljs-comment">;</span>
+  
+  console.<span class="hljs-built_in">log</span>(upperCats)<span class="hljs-comment">;</span>
+  // [ <span class="hljs-string">"LEOPARD"</span>, <span class="hljs-string">"SERVAL"</span>, <span class="hljs-string">"JAGUAR"</span>, <span class="hljs-string">"TIGER"</span>, <span class="hljs-string">"CARACAL"</span>, <span class="hljs-string">"LION"</span> ]
+  </code></pre>
+    
+  <p>ここでは、<code>cats.map()</code> に関数を渡すと、<code>map()</code> は配列内のそれぞれのアイテムにその関数を 1 回ずつ、そのアイテムを渡して呼び出します。</p>
+  <p>そして、それぞれの関数呼び出しの返値を新しい配列に追加し、最後に新しい配列を返します。</p>
+  <p>この場合、提供した関数はアイテムを大文字に変換するので、結果として得られる配列には、すべてのネコ科動物がが大文字で格納されます。</p>
+  <pre><code class="lang-js">
+  [ <span class="hljs-string">"LEOPARD"</span>, <span class="hljs-string">"SERVAL"</span>, <span class="hljs-string">"JAGUAR"</span>, <span class="hljs-string">"TIGER"</span>, <span class="hljs-string">"CARACAL"</span>, <span class="hljs-string">"LION"</span> ]
+  </code></pre>
+
+  <h3 id="-filter-">.filter()</h3>
+<p><code>filter()</code> を使用すると、</p>
+<ol>
+<li>コレクション内のそれぞれのアイテムをテストし、</li>
+<li>一致するアイテムのみを格納した新しいコレクションを作成することができます。</li></ol>
+  <pre><code class="lang-js">
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lCat</span>(<span class="hljs-params">cat</span>) </span>{
+      <span class="hljs-keyword">return</span> cat.startsWith(<span class="hljs-string">'L'</span>);
+    }
+    
+    <span class="hljs-keyword">const</span> cats = 
+    [<span class="hljs-string">'Leopard'</span>, <span class="hljs-string">'Serval'</span>, <span class="hljs-string">'Jaguar'</span>, <span class="hljs-string">'Tiger'</span>, <span class="hljs-string">'Caracal'</span>, <span class="hljs-string">'Lion'</span>];
+    
+    <span class="hljs-keyword">const</span> filtered = cats.filter(lCat);
+    
+    <span class="hljs-built_in">console</span>.log(filtered);
+    <span class="hljs-comment">// [ "Leopard", "Lion" ]</span>
+    </code></pre>
+    
+    <p>これは <code>map()</code> とよく似ていますが、<strong>渡す関数が論理値を返す点が異なります</strong>。 </p>
+    <p>もし <code>true</code> を返すなら、アイテムは新しい配列に含まれます。 </p>
+    <p>この関数では、アイテムが文字「L」で始まるかどうかをテストするので、結果は名前が「L」で始まる猫だけを含む配列になります。</p>
+    <pre><code class="lang-js">
+    [ <span class="hljs-string">"Leopard"</span>, <span class="hljs-string">"Lion"</span> ]
+    </code></pre>
+    <p>なお、<code>map()</code> と <code>filter()</code> は、どちらもよく関数式と一緒に使われます。これは関数モジュールで学びます。 関数式を使用すると、上の例をもっとコンパクトに書き直すことができます。</p>
+<pre><code class="lang-js">
+  <span class="hljs-keyword">const</span> cats = 
+  [<span class="hljs-string">'Leopard'</span>, <span class="hljs-string">'Serval'</span>, <span class="hljs-string">'Jaguar'</span>, <span class="hljs-string">'Tiger'</span>, <span class="hljs-string">'Caracal'</span>, <span class="hljs-string">'Lion'</span>];
+  
+  <span class="hljs-keyword">const</span> filtered = cats.filter(<span class="hljs-function"><span class="hljs-params">(cat)</span> =&gt;</span> cat.startsWith(<span class="hljs-string">'L'</span>));
+  <span class="hljs-built_in">console</span>.log(filtered);
+  <span class="hljs-comment">// [ "Leopard", "Lion" ]</span>
+</code></pre>
+  </section><a href="#tops" class="toptop">To top</a>
+
+<section class="looping"><h2 id="while-do-while">whileとdo...while</h2>
+  <h3 id="loop-while">.while()</h3>
+  <p>.while()の構文</p>
+  <pre><code class="lang-js">
+  初期化処理
+  <span class="hljs-keyword">while</span> <span class="hljs-comment">(条件)</span> {
+    <span class="hljs-comment">// 実行するコード</span>
+    最後の式
+  }
+  </code></pre>
+  <p>これは for ループととてもよく似た動作をしますが、</p>
+<ol>
+<li>初期化変数がループの前に設定される点と、</li>
+<li>最後の式が、これら 2 つの項目が括弧の中に入っているのではなく、実行するコードの後にループの中に含まれている...</li>
+</ol>
+<p>...点が異なります。 </p>
+<p>条件は括弧の中に入っており、その前には for ではなく <code>while キーワード</code>が置かれています。</p>
+<p>同じ 3 つの項目が、for ループの中で定義されているのと同じ順番で存在しています。 これは、条件が真かどうかをチェックする前に、初期化処理を定義しておく必要があるためです。 そして、ループ内のコードが実行された（反復処理が完了した）後に最後の式が実行されますが、これは条件がまだ真である場合にのみ実行されます。</p>
+
+<ul><li><code>whileを使った例</code></li></ul>
+<pre><code class="lang-js">
+  <span class="hljs-keyword">const</span> cats = [<span class="hljs-string">'Pete'</span>, <span class="hljs-string">'Biggles'</span>, <span class="hljs-string">'Jasmine'</span>];
+  
+  <span class="hljs-keyword">let</span> myFavoriteCats = <span class="hljs-string">'My cats are called '</span>;
+  
+  <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;
+  
+  <span class="hljs-keyword">while</span> (i &lt; cats.length) {
+    <span class="hljs-keyword">if</span> (i === cats.length - <span class="hljs-number">1</span>) {
+      myFavoriteCats += <span class="hljs-string">`and <span class="hljs-subst">${cats[i]}</span>.`</span>;
+    } <span class="hljs-keyword">else</span> {
+      myFavoriteCats += <span class="hljs-string">`<span class="hljs-subst">${cats[i]}</span>, `</span>;
+    }
+  
+    i++;
+  }
+  
+  <span class="hljs-built_in">console</span>.log(myFavoriteCats);     
+  
+  <span class="hljs-comment">// "My cats are called Pete, Biggles, and Jasmine."</span>
+  </code></pre>
+  
+<ul><li><code>forループ</code>を使った例</li></ul>
+<pre><code class="lang-js">
+  <span class="hljs-keyword">const</span> cats = [<span class="hljs-string">'Pete'</span>, <span class="hljs-string">'Biggles'</span>, <span class="hljs-string">'Jasmine'</span>];
+  
+  <span class="hljs-keyword">let</span> myFavoriteCats = <span class="hljs-string">'My cats are called '</span>;
+  
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; cats.length; i++) {
+    <span class="hljs-keyword">if</span> (i === cats.length - <span class="hljs-number">1</span>) {   <span class="hljs-comment">// 配列の最後にいる場合</span>
+      myFavoriteCats += <span class="hljs-string">`and <span class="hljs-subst">${cats[i]}</span>.`</span>
+    } <span class="hljs-keyword">else</span> {
+      myFavoriteCats += <span class="hljs-string">`<span class="hljs-subst">${cats[i]}</span>, `</span>
+    }
+  }
+  
+  <span class="hljs-built_in">console</span>.log(myFavoriteCats);    
+
+  <span class="hljs-comment">// "My cats are called Pete, Biggles, and Jasmine."</span>
+  </code></pre>
+
+  <h3 id="do-while">do...while</h3>
+<p>構文</p>
+  <pre><code class="lang-js">
+  初期化処理
+  <span class="hljs-keyword">do</span> {
+    <span class="hljs-comment">// 実行するコード</span>
+
+    最後の式
+  } <span class="hljs-keyword">while</span> <span class="hljs-comment">(条件)</span>
+  </code></pre>
+
+  <p><code>do...while ループ</code>と <code>while ループ</code>の主な違いは、<code>do...while ループ</code>の中のコードは<strong>常に少なくとも 1 回は実行される</strong><br>
+  ということです。それは、ループ内のコードの後に条件が来るからです。</p>
+  <p>つまり、常にそのコードを実行し、その後、<strong>もう一度実行する必要があるかどうかをチェックする</strong>のです。<br>
+  <code>while ループ</code>や <code>for ループ</code>では、チェックが最初に来るので、そのコードは一度も実行されないかもしれません。</p>
+  
+  <pre><code class="lang-js">
+    <span class="hljs-keyword">const</span> cats = [<span class="hljs-string">'Pete'</span>, <span class="hljs-string">'Biggles'</span>, <span class="hljs-string">'Jasmine'</span>];
+    
+    <span class="hljs-keyword">let</span> myFavoriteCats = <span class="hljs-string">'My cats are called '</span>;
+    
+    <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;
+    
+    <span class="hljs-keyword">do</span> {
+      <span class="hljs-keyword">if</span> (i === cats.length - <span class="hljs-number">1</span>) {
+        myFavoriteCats += <span class="hljs-string">`and <span class="hljs-subst">${cats[i]}</span>.`</span>;
+      } <span class="hljs-keyword">else</span> {
+        myFavoriteCats += <span class="hljs-string">`<span class="hljs-subst">${cats[i]}</span>, `</span>;
+      }
+    
+      i++;
+    } <span class="hljs-keyword">while</span> (i &lt; cats.length);
+    
+    <span class="hljs-built_in">console</span>.log(myFavoriteCats);
+    
+    <span class="hljs-comment">// "My cats are called Pete, Biggles, and Jasmine."</span>
+    </code></pre>
+    
+    <blockquote>
+      <p><strong>警告</strong>: while と do...while では、すべてのループと同様に、カウンター変数を増加、もしくは場合により減少させて、<strong>最終的に条件が false となるようにする必要があります</strong>。 そうしなければループは永遠に進み、ブラウザーはそれ強制的に停止させるか、クラッシュします。これは<strong>無限ループ</strong>と呼ばれます。</p>
+      </blockquote>
+
+      <h3 id="for-while-gpt">forループとwhileループの違い(GPT補足)</h3>
+<p>forループとwhileループは、両方とも反復処理を行うための制御構造ですが、以下のような違いがあります。</p>
+<p>forループ:</p>
+<ul>
+<li>カウンタ変数を使用して反復処理を制御します。</li>
+<li>初期化、条件判定、更新処理の3つのステップが明確に書かれます。</li>
+<li>反復回数が予めわかっている場合や、特定の範囲内の処理に適しています。</li>
+</ul>
+<p>whileループ:</p>
+<ul>
+<li>条件式を使用して反復処理を制御します。</li>
+<li>条件式が真である限り繰り返されます。</li>
+<li>反復回数が予めわからない場合や、特定の条件を満たすまで繰り返し処理を行う場合に適しています。</li>
+</ul>
+<p>どちらのループも同じタスクを達成することができますが、使用する場面やコードの読みやすさによって使い分けることが重要です。forループは反復回数が明確な場合や、配列や範囲の処理に適しています。一方、whileループは特定の条件を満たすまで繰り返し処理を行う場合に適しています。</p>
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="looping"><h2 id="break-end">break でループを終了</h2>
+  <p>すべての反復処理が終了する前にループを終了したいときは、<strong>break 文を使用して終了させることができます。</strong> </p>
+  <p>前回の記事の switch 文で、入力した値が switch 文の case に一致したとき、switch 文を抜け、それ以降のコードを実行するために break 文を使用しました。</p>
+  <p>これはループでも同様で、break 文を使用することで即時にループを抜けて、ブラウザーに続きのコードを実行させることができます。</p>
+  
+  <pre><code class="lang-html">
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"search"</span>&gt;</span>連絡先の名前: <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>検索<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">const</span> contacts = 
+    [<span class="hljs-string">'クリス:2232322'</span>, 
+    <span class="hljs-string">'サラ:3453456'</span>, 
+    <span class="hljs-string">'ビル:7654322'</span>, 
+    <span class="hljs-string">'メアリー:9998769'</span>, 
+    <span class="hljs-string">'ダイアン:9384975'</span>];
+
+    <span class="hljs-keyword">const</span> para = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'p'</span>);
+    <span class="hljs-keyword">const</span> input = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'input'</span>);
+    <span class="hljs-keyword">const</span> btn = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'button'</span>);
+    
+    btn.addEventListener(<span class="hljs-string">'click'</span>, () =&gt; {
+      <span class="hljs-keyword">const</span> searchName = input.value.toLowerCase();
+      input.value = <span class="hljs-string">''</span>;
+      input.focus();
+      para.textContent = <span class="hljs-string">''</span>;
+      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> contact <span class="hljs-keyword">of</span> contacts) {
+        <span class="hljs-keyword">const</span> splitContact = contact.split(<span class="hljs-string">':'</span>);
+        <span class="hljs-keyword">if</span> (splitContact[<span class="hljs-number">0</span>].toLowerCase() === searchName) {
+          para.textContent = 
+          <span class="hljs-string">`<span class="hljs-subst">${splitContact[<span class="hljs-number">0</span>]}</span>の電話番号は<span class="hljs-subst">${splitContact[<span class="hljs-number">1</span>]}</span>です。`</span>;
+          <span class="hljs-keyword">break</span>;
+        }
+      }
+      <span class="hljs-keyword">if</span> (para.textContent === <span class="hljs-string">''</span>) {
+       para.textContent = <span class="hljs-string">'連絡先が見つかりません。'</span>;
+     }
+    });
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    </code></pre>
+    <p>連絡先や電話番号の配列を検索して、見つけたい番号だけを返したいとします。 まずは HTML です。検索するテキスト入力用の <code>&lt;input&gt;</code> 要素と、検索内容を送信 (submit) する<code>&lt;button&gt;</code> 要素、検索結果を表示する <code>&lt;p&gt;</code>要素を備えます。</p>
+    <ol>
+    <li>コードの先頭で、いくつか変数を宣言しています。その中に、連絡先の情報を持った配列があり、各要素は名前と電話番号をコロンで区切った文字列となっています。</li>
+    <li>次に、ボタン (<code>btn</code>) にイベントリスナーを設定しています。ボタンが押されたときに検索結果が戻ってくるようになっています。</li>
+    <li>テキスト入力欄に入力された値を <code>searchName</code> という変数に格納してから、次の検索に備え、入力欄をクリアし、フォーカスを設定しています。検索に大文字小文字を区別しないよう、文字列に <code>toLowerCase()</code> を実行しているのに注意してください。</li>
+    <li>ここからが本題の <code>for...of ループ</code>です。<ol>
+    <li>ループの中では、まず現在の連絡先をコロン文字で分割し、結果の 2 つの値を <code>splitContact</code> という配列に格納します。</li>
+    <li>それから、条件文を用いて、<code>splitContact[0]</code> （連絡先の名前）が入力された <code>searchName</code> にまた <code>toLowerCase()</code> を使って小文字化したものと等しいかを判定します。 もし等しければ、文字列を段落に入れてその連絡先の電話番号を示し、<code>break</code> を使用してループを終了しています。</li>
+    </ol>
+    </li>
+    <li>ループの後、連絡先が設定されたかどうかをチェックし、設定されていない場合は段落テキストを「連絡先が見つかりません。」に設定しています。</li>
+    </ol>
+    
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="looping"><h2 id="continue-skip">continue で繰り返しをスキップする</h2>
+  <p><code>continue</code> 文は <code>break</code> と同じような動作をします。</p>
+  <p>けれど、ループを完全に抜けてしまうのではなく、次の繰り返しまで飛ばします。 </p>
+  <p>それでは、今度は入力として数値を受け取り、その数以下で整数の平方である値のみを返すという例を見てみましょう。</p>
+  
+  <pre><code class="lang-html">
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"number"</span>&gt;</span>数値を入力してください: <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"number"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>整数の平方を生成<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>出力:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">const</span> para = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'p'</span>);
+  <span class="hljs-keyword">const</span> input = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'input'</span>);
+  <span class="hljs-keyword">const</span> btn = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'button'</span>);
+  
+  btn.addEventListener(<span class="hljs-string">'click'</span>, () =&gt; {
+    para.textContent = <span class="hljs-string">'出力: '</span>;
+    <span class="hljs-keyword">const</span> num = input.value;
+    input.value = <span class="hljs-string">''</span>;
+    input.focus();
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt;= num; i++) {
+      <span class="hljs-keyword">let</span> sqRoot = <span class="hljs-built_in">Math</span>.sqrt(i);
+      <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Math</span>.floor(sqRoot) !== sqRoot) {
+        <span class="hljs-keyword">continue</span>;
+      }
+      para.textContent += <span class="hljs-string">`<span class="hljs-subst">${i}</span> `</span>;
+    }
+  });
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  </code></pre>
+    
+  <ol>
+    <li>今回の入力内容は数値 (<code>num</code>) です。for ループには、カウンターの初期値として、（今回は 0 ではなく）1 が与えられ、終了する条件としてカウンターが入力値 (<code>num</code>) より大きくなった場合と指定されており、イテレーターとして、カウンターに 1 ずつ加算するよう指定されています。</li>
+    <li>ループ内部では、各値の平方根を <code>Math.sqrt(i)</code> を使用して求め、求めた平方根を切り捨てた値が、切り捨てる前の平方根と等しいかどうかを調べています（切り捨てには <code>Math.floor()</code> に任意の数値を渡します）。</li>
+    <li>もし、平方根と切り捨てた数値が等しくないのなら (<code>!==</code>)、平方根は整数ではないことを示しています。整数以外には興味がありませんので、<code>continue</code> 文を用いて、その数値をどこにも保持することなく、次のループの繰り返しまでスキップします。</li>
+    <li>もし、その平方根が整数値であるならば、if ブロックは飛ばされるので、<code>continue</code> 文は実行されません。代わりに、現在の <code>i</code> の値を段落の内容の後ろにスペースと一緒に結合します。</li>
+    </ol>
+    
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="looping"><h2 id="what-is-iterator-gpt">イテレーターとは(GPT解説)</h2>
+  <h3 id="broadly-defined">広い意味でのイテレーター</h3>
+  <p>広い意味での <strong>イテレーター(Iterator)</strong> は、データコレクションやコンテナ内の要素を反復処理するための抽象化されたインターフェースです。イテレーターは、<em>反復可能なオブジェクト（Iterable）から個々の要素を取り出すためのメカニズム</em>を提供します。</p>
+  <p>イテレーターは、<strong>反復処理において次の要素を順番に提供する役割</strong>を果たします。イテレーターは、要素を一度に1つずつ取得することができ、次の要素に進むためには明示的な命令（次の要素を要求するメソッドなど）が必要です。これにより、大量のデータを効率的に処理することができます。</p>
+  <p>イテレーターは、プログラミング言語やフレームワークの内部で使用されることがあります。また、開発者が独自のデータ構造やオブジェクトに反復処理をサポートするためにも利用されます。</p>
+  <p>イテレーターは、反復処理の抽象化と分離を可能にし、反復可能なオブジェクトを一貫した方法で操作できるようにします。これにより、異なるデータ構造やコレクションに対して同じ反復処理のロジックを再利用することができます。</p>
+
+  <h3 id="javascript-iterator">Javascriptでのイテレーター</h3>
+<p>イテレーター（Iterator）は、データコレクション（配列、オブジェクト、文字列など）の要素を反復処理するためのオブジェクトです。イテレーターは、次の要素を順番に提供することができます。</p>
+<p>イテレーターは、以下の2つの主要なメソッドを持っています。</p>
+<ol>
+<li><p><code>next()</code>: イテレーターの次の要素を返します。このメソッドは、<code>value</code>プロパティと<code>done</code>プロパティを持つオブジェクトを返します。<code>value</code>プロパティは次の要素の値を表し、<code>done</code>プロパティはイテレーションが完了したかどうかを示す真偽値です。</p>
+</li>
+<li><p><code>Symbol.iterator</code>: オブジェクト自体をイテレーターとして扱うためのメソッドです。<code>Symbol.iterator</code>メソッドを呼び出すことで、イテレーターオブジェクトが取得されます。</p>
+</li>
+</ol>
+<p>イテレーターは主に次のような場面で使用されます。</p>
+<ul>
+<li>ループ処理: <code>for...of</code>ループを使用してイテレーターを介して要素を反復処理できます。</li>
+<li>カスタムオブジェクトの反復処理: オブジェクトがイテレータープロトコルを実装している場合、カスタムな反復処理が可能になります。</li>
+<li>ジェネレータ関数: イテレーターオブジェクトを作成するためにジェネレータ関数が使用されます。</li>
+</ul>
+<p>イテレーターを使用することで、データコレクションの要素を効率的に反復処理することができ、コードの柔軟性と読みやすさを向上させることができます。</p>
+
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="looping"><h2 id="Act-countdown">アクティブラーニング - 発射のカウントダウン</h2>
+  <h3 id="code-1">与えられたコード 1</h3>
+  <pre><code class="lang-js">
+  <span class="hljs-keyword">let</span> output = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.output'</span>);
+  output.innerHTML = <span class="hljs-string">''</span>;
+  
+  <span class="hljs-regexp">// let i = 10;
+  
+  //</span> <span class="hljs-keyword">const</span> para = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
+  <span class="hljs-regexp">// para.textContent = ;
+  //</span> output.appendChild(para);
+  </code></pre>
+  <h3 id="ans-1">答え 1</h3>
+  <pre><code class="lang-js"><span class="hljs-keyword">const</span> output = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.output'</span>);
+  output.innerHTML = <span class="hljs-string">''</span>;
+  
+  <span class="hljs-keyword">let</span> i = <span class="hljs-number">10</span>;
+  
+  <span class="hljs-keyword">while</span> (i &gt;= <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">const</span> para = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
+    <span class="hljs-keyword">if</span> (i === <span class="hljs-number">10</span>) {
+      para.textContent = <span class="hljs-string">`Countdown <span class="hljs-subst">${i}</span>`</span>;
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i === <span class="hljs-number">0</span>) {
+      para.textContent = <span class="hljs-string">'Blast off!'</span>;
+    } <span class="hljs-keyword">else</span> {
+      para.textContent = i;
+    }
+  
+    output.appendChild(para);
+  
+    i--;
+  }
+  </code></pre>
+  <h3 id="Act-countdown-gpt">GPTのコード解説</h3>
+<p>このコードは、指定されたHTML要素（クラス名が&quot;output&quot;の要素）にカウントダウンのメッセージを表示するためのものです。</p>
+<p>まず、<code>output</code>という名前の変数を使って、<code>document.querySelector(&#39;.output&#39;)</code>を呼び出しています。これにより、HTML内でクラス名が&quot;output&quot;の要素が取得されます。次の行で、その要素の<code>innerHTML</code>を空に設定しています。これにより、要素内の既存の内容が削除されます。</p>
+<p>次に、ループの制御変数として<code>i</code>を初期化し、10で初期化されます。</p>
+<p>その後、<code>while</code>ループが開始されます。ループは、<code>i</code>が0以上の間、つまり<code>i</code>が10から0に減少する間実行されます。</p>
+<p>ループ内の処理は、各イテレーションごとに以下のように行われます。</p>
+<ul>
+<li>新しい<code>&lt;p&gt;</code>要素（段落要素）を作成し、<code>para</code>という名前の変数に割り当てます。</li>
+<li><code>if</code>文を使用して、現在のカウントの値に応じて<code>para</code>のテキストコンテンツを設定します。<code>i</code>が10の場合、<code>Countdown 10</code>というメッセージが表示され、<code>i</code>が0の場合は<code>Blast off!</code>というメッセージが表示されます。それ以外の場合は、<code>i</code>の値がそのまま表示されます。</li>
+<li><code>output.appendChild(para)</code>を使用して、作成した<code>&lt;p&gt;</code>要素を<code>output</code>要素に追加します。これにより、段落要素がカウントダウンのメッセージを表示するための要素内に追加されます。</li>
+<li><code>i</code>を1減らします。</li>
+</ul>
+<p>この処理が繰り返され、カウントダウンメッセージが段落要素として表示されます。最終的に、カウントダウンが0になった時点で<code>Blast off!</code>というメッセージが表示されます。</p>
+<p>このコードの目的は、カウントダウンのメッセージを表示するだけではありませんが、HTML要素の操作やループの基本的な使用方法を示しています。</p>
+
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="looping"><h2 id="Act-add-list">アクティブラーニング - ゲストリストに記入する</h2>
+  <p>この演習では、配列に格納された名前のリストを、ゲストリストにしていただきます。しかし、フィルとローラは貪欲で無礼で、いつも料理を全部食べてしまうので、ゲストに入れたくありません！</p>
+  <p>私たちは 2 つのリストを用意しました。1 つはゲストを認めるためのリスト、もう 1 つはゲストを拒否するためのリストです。</p>
+  <p>具体的には、次のようなことをしていただきます。</p>
+  <ol>
+  <li>0 から <code>people</code> 配列の長さまで反復するループを作成します。</li>
+  <li>各ループ反復中に、条件文を使用して現在の配列項目が &quot;Phil&quot; または &quot;Lola&quot; に等しいかチェックします。<ol>
+  <li>そうである場合は、<code>refused</code> 段落の <code>textContent</code> の最後に配列項目を連結し、その後にカンマとスペースを続けます</li>
+  <li>そうでない場合は、配列項目を、<code>admitted</code> 段落の <code>textContent</code> の末尾に連結し、その後にカンマとスペースを続けます
+  既に提供されているものは次のものです。</li>
+  </ol></li></ol>
+  <ul>
+    <li><code>refused.textContent +=</code> — <code>refused.textContent</code> の後に文字を連結する開始行</li>
+    <li><code>admitted.textContent +=</code> — <code>admitted.textContent</code> の後に文字を連結する開始行</li>
+    </ul>
+    <h3 id="code-2">与えられたコード 2</h3>
+    <pre><code class="lang-js">
+    <span class="hljs-keyword">const</span> people = 
+    [<span class="hljs-string">'Chris'</span>, <span class="hljs-string">'Anne'</span>, <span class="hljs-string">'Colin'</span>, <span class="hljs-string">'Terri'</span>, 
+    <span class="hljs-string">'Phil'</span>, <span class="hljs-string">'Lola'</span>, <span class="hljs-string">'Sam'</span>, <span class="hljs-string">'Kay'</span>, <span class="hljs-string">'Bruce'</span>];
+    
+    <span class="hljs-keyword">const</span> admitted = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'.admitted'</span>);
+    <span class="hljs-keyword">const</span> refused = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'.refused'</span>);
+    admitted.textContent = <span class="hljs-string">'Admit: '</span>;
+    refused.textContent = <span class="hljs-string">'Refuse: '</span>;
+    
+    <span class="hljs-comment">// loop starts here</span>
+    
+    <span class="hljs-comment">// refused.textContent += ;</span>
+    <span class="hljs-comment">// admitted.textContent += ;</span>
+    </code></pre>
+    
+    <h3 id="Act-add-list-gpt">答えとGPTの解説</h3>
+  <pre><code class="lang-js">
+  <span class="hljs-keyword">const</span> people = 
+  [<span class="hljs-string">'Chris'</span>, <span class="hljs-string">'Anne'</span>, <span class="hljs-string">'Colin'</span>, 
+  <span class="hljs-string">'Terri'</span>, <span class="hljs-string">'Phil'</span>, <span class="hljs-string">'Lola'</span>, <span class="hljs-string">'Sam'</span>, <span class="hljs-string">'Kay'</span>, <span class="hljs-string">'Bruce'</span>];
+  
+  <span class="hljs-keyword">const</span> admitted = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.admitted'</span>);
+  <span class="hljs-keyword">const</span> refused = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.refused'</span>);
+  
+  admitted.textContent = <span class="hljs-string">'Admit: '</span>;
+  refused.textContent = <span class="hljs-string">'Refuse: '</span>;
+  
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> person <span class="hljs-keyword">of</span> people) {
+    <span class="hljs-keyword">if</span> (person === <span class="hljs-string">'Phil'</span> || person === <span class="hljs-string">'Lola'</span>) {
+      refused.textContent += <span class="hljs-string">`<span class="hljs-subst">${person}</span>, `</span>;
+    } <span class="hljs-keyword">else</span> {
+      admitted.textContent += <span class="hljs-string">`<span class="hljs-subst">${person}</span>, `</span>;
+    }
+  }
+  
+  refused.textContent = 
+    refused.textContent.slice(<span class="hljs-number">0</span>,refused.textContent.length<span class="hljs-number">-2</span>) + <span class="hljs-string">'.'</span>;
+  admitted.textContent = 
+    admitted.textContent.slice(<span class="hljs-number">0</span>,admitted.textContent.length<span class="hljs-number">-2</span>) + <span class="hljs-string">'.'</span>;
+  </code></pre>
+  <p>このコードは与えられた<code>people</code>配列の要素をループ処理し、特定の条件に基づいて&quot;Admit&quot;（受け入れ）と&quot;Refuse&quot;（拒否）のリストを作成するものです。</p>
+<ol>
+<li><p>まず、<code>people</code>配列と結果を表示するための<code>admitted</code>と<code>refused</code>という要素を取得します。</p>
+</li>
+<li><p>次に、<code>for...of</code>ループを使用して<code>people</code>配列の要素を順番に取り出します。<code>for...of</code>ループは、配列やイテラブルオブジェクトの要素を繰り返し処理するために使用されます。</p>
+</li>
+<li><p>ループ内部では、各要素を条件式で判定します。ここでは、<code>person</code>が&#39;Phil&#39;または&#39;Lola&#39;と一致するかどうかをチェックしています。</p>
+</li>
+<li><p>条件に基づいて、<code>refused</code>か<code>admitted</code>のいずれかのテキストコンテンツに、該当する人物の名前を追加しています。テキストコンテンツは<code>${person},</code>の形式で加算代入されます。</p>
+</li>
+<li><p>最後に、<code>.</code>を追加する前に余分なコンマとスペースを削除するために、<code>slice()</code>メソッドを使用して最後の2文字を取り除いています。</p>
+</li>
+<li><p>したがって、ループの結果、&quot;Admit: &quot;の後には受け入れられた人物の名前が、&quot;Refuse: &quot;の後には拒否された人物の名前が表示されます。</p>
+</li>
+</ol>
+<p>コード全体として、ループと条件式を組み合わせて要素のフィルタリングと表示を行うシンプルな例です。</p>
+
+<h3 id="add-list-mycode-gptcode">メモ(自分の動かないコード)とGPTの修正コード</h3>
+<pre><code class="lang-js">
+<span class="hljs-comment">// loop starts here</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ref</span>(<span class="hljs-params">index0</span>)</span>{<span class="hljs-comment">///パラメーター`index0`が宣言されている。</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt; people.length; i++){
+  <span class="hljs-keyword">let</span> index0 = people.filter(<span class="hljs-string">'Phil'</span>,<span class="hljs-string">'Lola'</span>);
+  <span class="hljs-comment">///変数`index0`が宣言されている。上のパラメーターとかぶるため不適切</span>
+  refused.textContent += index0;
+  <span class="hljs-comment">//ifを使う？</span>
+  <span class="hljs-comment">//map?filter?</span>
+  }
+}
+<span class="hljs-comment">// refused.textContent += ;</span>
+<span class="hljs-comment">// admitted.textContent += ;</span>
+</code></pre>
+<p>このコードにはいくつかの問題点があります。</p>
+<ol>
+<li><p><code>ref</code>関数の宣言でパラメーター<code>index0</code>を定義していますが、その後の<code>for</code>ループの中で再び同じ名前の変数<code>index0</code>を宣言しています。変数名は一意である必要がありますので、パラメーターの定義を削除するか、ループ内の変数名を変更する必要があります。</p>
+</li>
+<li><p><code>filter</code>メソッドの使い方が間違っています。<code>filter</code>メソッドは条件に一致する要素を選択するために使用されますが、引数として文字列を渡しているため、正しい結果を得ることはできません。正しい使い方は、<code>people</code>配列内のオブジェクトのプロパティと比較することです。</p>
+</li>
+<li><p><code>refused.textContent += index0;</code>の行では、<code>index0</code>が配列であるため、そのまま文字列として表示することはできません。適切な方法で配列の要素を文字列に変換する必要があります。</p>
+</li>
+<li><p><code>refused.textContent += ;</code>の行と<code>admitted.textContent += ;</code>の行はコメントアウトされていますが、コメントを外して正しい処理を追加する必要があります。</p>
+</li>
+</ol>
+<p>以下は修正例です:</p>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ref</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> refused = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'refused'</span>);
+  <span class="hljs-keyword">const</span> admitted = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'admitted'</span>);
+
+  <span class="hljs-keyword">const</span> index0 = 
+  people.filter(<span class="hljs-function"><span class="hljs-params">person</span> =&gt;</span> person === <span class="hljs-string">'Phil'</span> || person === <span class="hljs-string">'Lola'</span>);
+  refused.textContent = index0.join(<span class="hljs-string">', '</span>);
+
+  <span class="hljs-comment">// ここに許可された人の処理を追加する</span>
+
+  <span class="hljs-comment">// admitted.textContent = ;</span>
+
+}
+</code></pre>
+<p>修正点の説明:</p>
+<ul>
+<li>パラメーター<code>index0</code>の定義を削除しました。</li>
+<li><code>filter</code>メソッドの引数を修正して、オブジェクトのプロパティと比較するようにしました。</li>
+<li><code>refused.textContent</code>には配列の要素を文字列に変換するため、<code>join</code>メソッドを使用しました。</li>
+<li><code>admitted.textContent</code>の処理はまだ記述されていませんので、追加する必要があります。</li>
+</ul>
+<p>なお、修正例では<code>refused</code>と<code>admitted</code>というidを持つ要素を取得していますが、これらの要素がHTML上に存在する必要があります。適切な要素を指定してください。</p>
+
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="looping"><h2 id="gpt-advice">GPTアドバイス</h2>
+  <h3 id="for-and-map-or-filter">forループのなかに.map(),.filter()</h3>
+  <p>はい、<code>for</code>ループの中に<code>.map</code>や<code>.filter</code>を使うことは適切です。ただし、使い方にはいくつかの注意点があります。</p>
+  <p><strong><code>.map</code>メソッド</strong>は、配列の各要素に対して同じ処理を実行し、その結果を新しい配列として返します。<code>for</code>ループとは異なり、新しい配列を作成して返すため、元の配列は変更されません。そのため、<code>.map</code>メソッドは元の配列の要素を変更する必要がない場合に適しています。</p>
+  <p><strong><code>.filter</code>メソッド</strong>は、与えられた条件に一致する要素だけを持つ新しい配列を作成して返します。<code>.filter</code>メソッドも、元の配列を変更せずに新しい配列を返すため、<code>for</code>ループの代替手段として使うことができます。</p>
+  <p>ただし、<code>.map</code>や<code>.filter</code>を使う場合には、その目的に応じて正しい使い方をする必要があります。<code>for</code>ループは要素に対して直接操作を行うことができますが、<code>.map</code>や<code>.filter</code>は新しい配列を作成するため、一時的な配列が必要になる場合があります。また、パフォーマンスの観点から、ループの回数や配列のサイズに応じて最適な方法を選ぶ必要があります。</p>
+  <p>したがって、<code>.map</code>や<code>.filter</code>は適切な使用方法と適切なシナリオにおいて、<code>for</code>ループの代替手段として使用できます。それぞれのメソッドの特性と、処理の目的に基づいて適切な選択を行うことが重要です。</p>
+  
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<div id="bottoms">☆</div><!--article外だと真下に置けない-->
+</article>
+<!--
+テンプレ
+<section class="looping">
+
+  </section><a href="#tops" class="toptop">To top</a>
+
+
+<a href="#tops" class="toptop">To top</a>
+-->
+</body>
+</html>

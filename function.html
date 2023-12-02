@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head><!--この内容はコピペを含むため、一般公開は禁止する-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>function(関数)とは</title>
+    <link href="style.css" rel="stylesheet"type="text/css">
+    <link rel="icon" href="/Users/sakimine/Downloads/プログラミングテスト/JavaScript/個人的JSインデックス/images/javascript_icon_orange.png">
+  </head>
+
+<body class="container">
+<nav class="metho">
+  <a href="#bottoms">☆最下層へ</a><br>
+  インデックス<br>
+  <p>function</p>
+    <a href="#function">functionとはなにか</a><br>
+    <a href="#functionGPT">functionとは(GPTの解説)</a>
+    <a href="#functionexpl">functionの具体例</a><br>
+    <a href="#funinfun">function内の関数や変数</a>
+  <p>メソッド</p>
+    <a href="#methodoffun">メソッドのいくつかの例</a><br>
+    <a href="#consolelog">.console.log()</a><br>
+    <a href="#setTimeout">.setTimeout()</a><br>
+    <a href="#setInterval">.setInterval()</a><br>
+    <a href="#addEventListner">.addEventListner()</a><br>
+    <a href="#fetch">.fetch()</a><br>
+    <a href="#map">.map()</a><br>
+    <a href="#map">Array.prototype.filter()</a><br>
+    <a href="#filter">Array.prototype.filter()</a><br>
+    <a href="#reduce">Array.prototype.reduce()</a><br>
+    <a href="#randomVFA">randomValueFromArray()</a><br>
+  <p>使用例</p>
+  <p>外部リンク</p>
+    <a href="index.html">個人的JSインデックス</a><br>
+    <a href="method-expl.html">コードの使用例</a><br>
+    <a href="forloop.html">forループについて</a><br>
+    <a href="演算子.html">演算子について</a><br>
+  <p>コードレビュー</p>
+    <a href="review0.html">バカ話</a><br>
+  
+  <a href="#tops" class="toptop">To top</a><br>
+</nav>
+<!--section要素はずらさない。pre要素が干渉する-->
+<article class="content" id="tops">
+  <h1>function</h1>
+
+  <section class="functions" id="function"><h2>functionとはなにか</h2>
+    <p>関数とは、<b>複数の処理をひとまとまりにしたもの</b>です。<b>メソッド</b>と呼ばれることもあります。</p>
+    
+    <p>また、前述の通り、JavaScriptにおける基本的な構成要素のひとつであり、Function型のオブジェクトとして扱われます。関数をオブジェクトとして扱うことが出来るのがJavaScript特有の特徴です。</p>
+    
+    <h3>関数を使うメリット</h3>
+    <p>関数を利用することで<i>目的ごとに処理を分割</i>したり、<i>似たような処理を何度も書かなくて済む</i>ようになります。</p>
+    
+    <p>全ての処理を関数を使わずに書いた場合と、関数を使って書いた場合とではコードの文量が何倍にも変わります。場合によっては何倍どころか何十倍、何百倍になることもあります。</p>
+    
+    <p>関数を扱うためには、まず関数を定義（作成）する必要があります。JavaScriptで関数を定義するにはいくつかの方法があります。
+    ここではそれらの中から代表的な3つの方法について解説していきます。</p>
+   <h3>関数宣言で関数を定義する</h3>
+<p>もっとも代表的な関数定義の方法として **「関数宣言」**があります。 関数宣言は</p>
+ <p class="codes">function 関数名(引数) { 処理 }</p><p>という記法で関数を定義します。</p>
+<p>実際のコードは次のようになります。</p>
+<pre class="answer">
+  <code class="comout">//引数で指定した名前に挨拶をする文字列を返す関数</code>
+  <code class="lefter">function</code> hello1(name) {
+    <code class="lefter">var</code> message = <code class="strings">"Hello, "</code> + name
+    <code class="lefter">return</code> message
+  }
+</pre>
+<p>宣言の中にある <i>「引数」</i>という言葉についてですが、「引数」とは関数に渡して処理の中でその値を使うことができるものです。</p>
+<p>ここでは、hello1関数の引数に変数nameが指定されており、その変数nameは関数の処理の中で「Hello, ◯◯◯（引数で指定した名前）」という文字列を返却するように組み込まれています。</p>
+
+<p>同じような仕組みの処理を何度も必要とするときに引数を利用すれば、引数の値を変えるだけで同じ仕組みで算出された別の値を何個も取得できるようになります。</p>
+
+<p>また、<b>値や文字列などを関数の外に返却（出力）する処理</b>は、上記コード中にもあるように <b>return 返却値</b>という記法で書きます。return文は書かなくても問題ありませんが、その場合その関数は値を何も返却しない関数になります。</p>
+
+<h3>関数式で関数を定義する</h3>
+<p>JavaScriptにおいて関数はfunction型のオブジェクトです。</p>
+<p>そのため、<b>関数は式として変数に渡すことも出来ます</b>。式として関数を作成する記法を、<b>関数式</b>と呼びます。</p>
+  <p>関数式で関数を定義する実際のコードは次のようになります。</p>
+<pre class="answer">
+    <code class="comout">/* 引数で指定した名前に挨拶をする文字列を返す関数 */</code>
+    <code class="lefter">var</code> hello2 = function(name) {
+    <code class="lefter">var</code> message = <code class="strings">"Hello, "</code> + name
+    <code class="lefter">return</code> message
+  }
+</pre>
+
+<p>このように <b>var 変数名 = function(引数) { 処理 }</b>という記法で変数名の関数を作成できます。上記コードでは、`hello2`という名前の変数が関数になっています。</p>
+
+<h3>アロー関数式で関数を定義する</h3>
+<p>前述の関数式による関数定義を発展させた方法として、アロー関数式を用いた方法があります。</p>
+<p>アロー関数式とは、ECMAScript 2015（ES2015）という2015年に公開されたJavaScriptの新しい標準に含まれる記法です。従来の関数式のいくつかの要素を省略し、その他の細かな挙動を調整した式です。</p>
+
+<p>アロー関数式で関数を定義する実際の方法は次の通りです。</p>
+<pre class="answer">
+  <code class="comout">/* 引数で指定した名前に挨拶をする文字列を返す関数 */</code>
+  <code class="lefter">var</code> hello3 = name => {
+  <code class="lefter">var</code> message = <code class="strings">"Hello, "</code> + name
+  <code class="lefter">return</code> message
+  }
+</pre>
+
+<p>関数式では式の右辺は `function(引数) { 処理 }` という記法で書かれていました。</p>
+<p>アロー関数式ではこの記法のうち `function` や、引数を囲む括弧などが省略されています（ただし引数が複数ある場合にはこの括弧は省略出来ません）。</p>
+<p>また、関数の処理を囲んでいる波括弧ですが、これについても『波括弧内の処理が一行である』という条件を満たせば省略が可能になります。</p>
+<p>この条件を満たし波括弧を省略した場合、関数が値を返却するreturn文の『return』も省略が可能です。</p>
+<a href="https://techplay.jp/column/568">JavaScriptのfunctionを基本から解説</a>
+
+  </section><a href="#tops" class="toptop">To top</a>
+
+<section class="functions" id="functionGPT"><h2 id="function">functionとはなにか - GPTの解説</h2>
+<p>関数（function）は、再利用可能なコードのブロックであり、特定のタスクや処理を実行するために使用されます。関数は、複数の文や計算をグループ化し、必要なときに呼び出して実行することができます。</p>
+<p>関数は以下のような構文で定義されます：</p>
+<pre class="answer"><code class="lang-javascript">
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">functionName</span><span class="hljs-params">(parameter1, parameter2, <span class="hljs-rest_arg">...) {
+    // 関数の実行する処理
+    // 処理1
+    // 処理2
+    // ...
+    return</span> returnValue; <span class="hljs-comment">// 返り値（必要な場合）</span>
+  }</span></span>
+
+</code></pre>
+<ul>
+<li><code>function</code> キーワードで関数が始まります。</li>
+<li><code>functionName</code> は関数の名前で、呼び出すときに使用します。</li>
+<li><code>parameter1, parameter2, ...</code> は関数に渡される引数のリストで、必要な場合に指定します。</li>
+<li>関数の本体は中括弧 <code>{}</code> 内にあり、実行する処理が記述されます。</li>
+<li><code>return</code> 文は、関数が呼び出されたときに返す値を指定します。必要な場合にのみ使用します。</li>
+</ul>
+<p>以下に具体例を示します：</p>
+  <pre class="answer"><code class="lang-javascript">
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">name</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello, '</span> + name + <span class="hljs-string">'!'</span>);
+  }
+
+  greet(<span class="hljs-string">'Alice'</span>); 
+  <span class="hljs-comment">// 関数を呼び出して実行します（出力: Hello, Alice!）</span>
+  greet(<span class="hljs-string">'Bob'</span>); 
+  <span class="hljs-comment">// 関数を再度呼び出して実行します（出力: Hello, Bob!）</span>
+  
+</code></pre>
+<p>この例では、<code>greet</code> という関数が定義されています。<code>greet</code> 関数は <code>name</code> というパラメータを受け取り、その値を使って挨拶メッセージを表示します。<code>greet</code> 関数を複数回呼び出すことで、異なる名前に対して挨拶を行うことができます。</p>
+<p>関数はコードの再利用性を高め、効率的なプログラミングを実現するために重要な要素です。関数を使うことで、複雑な処理を単純化し、コードをより読みやすくメンテナンスしやすくすることができます。</p>
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="functions" id="functionexpl"><h2>functionの具体例</h2>
+  <p><strong>1. 加算を行う関数</strong> : </p>
+  <pre class="answer">
+
+    <code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addNumbers</span>(<span class="hljs-params">a, b</span>) </span>{
+    <span class="hljs-keyword">return</span> a + b;
+  }
+    <span class="hljs-keyword">const</span> result = addNumbers(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>);
+    <span class="hljs-built_in">console</span>.log(result); 
+    <span class="hljs-comment">// 出力: 8</span>
+  </code></pre>
+
+  <p>この例では、<code>addNumbers</code> という関数が定義されています。引数として <code>a</code> と <code>b</code> を受け取り、それらの値を加算して結果を返します。<code>addNumbers(5, 3)</code> のように関数を呼び出すと、引数の値が関数内で加算され、結果の <code>8</code> が返されます。</p>
+
+  <p><strong>2. 文字列の長さを取得する関数</strong></p>
+  <pre class="answer"><code class="lang-javascript">
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getStringLength</span><span class="hljs-params">(text)</span> {</span>
+    <span class="hljs-keyword">return</span> text.<span class="hljs-built_in">length</span>;
+  }
+  
+    <span class="hljs-keyword">const</span> <span class="hljs-built_in">length</span> = getStringLength(<span class="hljs-string">'Hello, world!'</span>);
+    <span class="hljs-built_in">console</span>.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">length</span>); 
+    <span class="hljs-comment">// 出力: 13</span>
+  </code></pre>
+
+  <p>この例では、<code>getStringLength</code> という関数が定義されています。引数として <code>text</code> を受け取り、その文字列の長さを <code>length</code> プロパティを使って取得して返します。<code>getStringLength(&#39;Hello, world!&#39;)</code> のように関数を呼び出すと、引数の文字列の長さが返されます。</p>
+
+  <p><strong>3. 配列の要素を合計する関数</strong></p>
+  <pre class="answer">
+    <code class="lang-javascript"><span class="hljs-keyword">function</span> sumArray(<span class="hljs-built_in">array</span>) {
+    <span class="hljs-built_in">let</span> <span class="hljs-built_in">sum</span> = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">array</span>.<span class="hljs-built_in">length</span>; i++) {
+      <span class="hljs-built_in">sum</span> += <span class="hljs-built_in">array</span>[i];
+    }
+    <span class="hljs-built_in">return</span> <span class="hljs-built_in">sum</span>;
+  }
+  
+  <span class="hljs-keyword">const</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];
+  <span class="hljs-keyword">const</span> total = sumArray(numbers);
+  console.<span class="hljs-built_in">log</span>(total); 
+  <span class="hljs-comment">// 出力: <span class="hljs-number">15</span>
+  </code></pre>
+
+  <p>この例では、<code>sumArray</code> という関数が定義されています。引数として <code>array</code> を受け取り、配列の要素を合計してその結果を返します。関数内では <code>for</code> ループを使って配列の要素を順番に加算しています。<code>sumArray(numbers)</code> のように関数を呼び出すと、引数の配列の要素の合計値が返されます。</p>
+
+  <p>以上がいくつかの関数の具体例です。関数はさまざまな処理を抽象化し、再利用可能なコードブロックとして利用できます。必要な処理に合わせて関数を定義し、コードを効率化しましょう。お役に立てれば幸いです！</p>
+    
+</section>
+
+<section class="functions" id="funinfun">
+  <h2 id="function-">function内に関数や変数を置く</h2>
+  <p>JavaScriptにおいて、関数内でのみ使用する変数を定義する場合、その変数を関数のスコープ内に宣言することが一般的です。これにより、変数は関数内でのみアクセス可能であり、関数外からは隠蔽されます。</p>
+  <p>変数を関数内で定義する方法には、次の2つがあります。</p>
+    <p><strong><code>var</code>キーワード</strong>: <code>var</code>キーワードを使用して変数を宣言すると、その変数は関数スコープを持ちます。</p>
+
+<pre class="answer"><code class="lang-javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">myFunction</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">var</span> localVar = <span class="hljs-string">'Hello'</span>;
+
+    <span class="hljs-comment">// localVarの値を使用した処理</span>
+    }
+    <span class="hljs-comment">// myFunctionの外ではlocalVarにアクセスできない</span>
+
+</code></pre>
+
+  <p><strong><code>let</code>または<code>const</code>キーワード</strong>: ES6以降では、<code>let</code>および<code>const</code>キーワードを使用して変数を宣言することもできます。これらのキーワードを使用すると、変数はブロックスコープを持ちます。関数内でのみ使用する変数には<code>let</code>または<code>const</code>を使用することが推奨されます。</p>
+
+  <pre class="answer"><code class="lang-javascript"><span class="hljs-function">
+  <span class="hljs-keyword">function</span> <span class="hljs-title">myFunction</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">let</span> localVar = <span class="hljs-string">'Hello'</span>;
+  
+    <span class="hljs-comment">// localVarの値を使用した処理</span>
+  }
+  <span class="hljs-comment">// myFunctionの外ではlocalVarにアクセスできない</span>
+  </code></pre>
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="functions" id="methodoffun">
+  <ul><li>
+    <p>JavaScriptでよく使われる関数のいくつかを以下に挙げます。</p>
+    <p><strong>1. <code>console.log()</code></strong> : デバッグやメッセージの出力に利用されます。コンソールに指定した値やメッセージを出力します。</p>
+    <p><strong>2. <code>setTimeout()</code></strong> : 指定した時間の経過後に、指定した関数を実行します。タイマー機能を持つため、一定時間後に処理を実行する場合に便利です。</p>
+    <p><strong>3. <code>setInterval()</code></strong> : 指定した時間ごとに、指定した関数を繰り返し実行します。一定間隔で処理を継続的に実行する場合に使用されます。</p>
+    <p><strong>4. <code>addEventListener()</code></strong> : 特定のイベントが発生したときに、指定した関数を実行します。イベントリスナーを追加するための関数であり、クリックやキーボード入力などのユーザーのアクションに対応するために使用されます。</p>
+    <p><strong>5. <code>fetch()</code></strong> : 
+    外部リソースやAPIからデータを非同期に取得するための関数です。HTTPリクエストを行い、データを取得する際に使用されます。</p>
+    <p><strong>6. <code>Array.prototype.map()</code></strong> : 配列の要素を順番に処理して新しい配列を生成します。配列の各要素に対して指定した関数を適用し、その結果を元に新しい配列を作成します。</p>
+    <p><strong>7. <code>Array.prototype.filter()</code></strong> :  配列の要素を順番に処理して、指定した条件に合致する要素のみを取り出して新しい配列を生成します。配列の各要素に対して指定した条件関数を実行し、条件に合致する要素のみを抽出します。</p>
+    <p><strong>8. <code>Array.prototype.reduce()</code></strong> : 配列の要素を順番に処理して、単一の値にまとめます。配列の各要素に対して指定した処理を適用し、最終的な結果を返します。</p>
+    <p>これらは一部の代表的な関数ですが、JavaScriptにはさまざまな組み込み関数やライブラリが存在し、様々な処理をサポートしています。関数は再利用可能なコードブロックとして、効率的なプログラミングを実現するために重要な要素です。</p>
+    </li></ul>
+    
+</section>
+
+<section class="functions" id="consolelog">
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="functions" id="setTimeout">
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="functions" id="setInterval">
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="functions" id="addEventListner">
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="functions" id="fetch">
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="functions" id="map">
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="functions" id="filter">
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="functions" id="reduce">
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="functions" id="randomVFA">
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<div id="bottoms">☆</div><!--article外だと真下に置けない-->
+
+</article>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Javascriptでの基本演算</title>
+    <style>
+      html{
+        font-size: 12px;
+        max-width: 900px;
+        background-color: rgb(28, 36, 21);
+        margin: 5% auto;
+      }
+      h1{
+        margin: 5% auto;
+        background-color: rgba(240, 248, 255, 0.227);
+        color: whitesmoke;
+        text-align: center;
+        border-top: 3px solid;border-bottom: 3px solid;
+        border-image: linear-gradient(90deg,yellow, green) 20;
+      }
+      caption{
+        font-size: 2em;
+        color: aliceblue;
+        /*background: 
+        linear-gradient(to left ,red 40%),
+        linear-gradient(to right,red 40%); */
+        background: 
+        linear-gradient(120deg,yellowgreen,green,yellowgreen);
+      }
+      table{
+        margin: 2% auto;
+        border-collapse: collapse;
+        border: 3px solid yellowgreen;
+        background-color: rgba(216, 216, 216, 0.67);
+        border-top:none;
+      }
+      th, td{
+        font-size: 13px;
+        border: 2px dashed gray;
+        height: 2.5em;
+        width: 400px;
+        padding-left: 2px
+      }
+      .aaa td:nth-child(1),tr th:nth-child(1){
+        text-align: center;
+        width: 10%;
+      }
+      .aaa td:nth-child(2),tr th:nth-child(2){
+        width: 20%;
+      }
+
+      .bbb td:nth-child(1),.bbb th:nth-child(1){
+        text-align: center;
+        width: 10%;
+      }
+      .bbb tr:nth-child(2),.bbb th:nth-child(2){
+        width: 10%;
+      }
+      .bbb tr:nth-child(3),.bbb th:nth-child(3){
+        width: 50%;
+      }
+      .bbb tr:nth-child(5),.bbb th:nth-child(5),.bbb tr:nth-child(4),.bbb th:nth-child(4){
+        width: 10%;
+      }
+
+      a{
+        font-size: 2em;
+        text-align: center;
+        margin: 0 auto;
+      }
+      a[href*=https]{
+        padding-right: 20px;
+        padding-top: 0px;
+        background: url(external-link-52.png) no-repeat 100% 0 ;
+        background-size: 20px 20px;
+        text-decoration: none;
+        color: yellowgreen;
+        
+      }
+      a[href*=https]:visited{
+        color:darkgreen;
+      }
+      a[href*=https]:hover{
+        text-shadow: 0 0 5px green;
+        color: rgb(207, 234, 205);
+      }
+      .ccc td:nth-child(1),.ccc th:nth-child(1){
+        text-align: center;
+        width: 10% ;
+      }
+      .ccc td:nth-child(2),.ccc th:nth-child(2){
+        width: 20% ;
+      }
+      .ccc td:nth-child(3),.ccc th:nth-child(3){
+        width: 50% ;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Javascriptでの基本演算</h1>
+    <a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Math#:~:text=%E9%96%8B%E7%99%BA%E3%82%92%E5%AD%A6%E3%81%B6-,JavaScript%E3%81%A7%E3%81%AE%E5%9F%BA%E6%9C%AC%E6%BC%94%E7%AE%97%20%E2%80%94%20%E6%95%B0%E5%80%A4%E3%81%A8%E6%BC%94%E7%AE%97%E5%AD%90,-Save" target="_blank">MDN - JavaScriptでの基本演算 — 数値と演算子</a>
+<table class="aaa"><caption>算術演算子</caption>
+  <tr>
+      <th>演算子</th>
+      <th>名前</th>
+      <th>目的</th>
+      <th>例</th>
+  </tr>
+  <tr>
+      <td>+</td>
+      <td>加算</td>
+      <td>左項と右項を足す</td>
+      <td>6 + 9</td>
+  </tr>
+  <tr>
+      <td>-</td>
+      <td>減算</td>
+      <td>左項と右項の数を引く</td>
+      <td>20 - 15</td>
+  </tr>
+  <tr>
+      <td>*</td>
+      <td>乗算</td>
+      <td>左項と右項を掛ける</td>
+      <td>3 * 7</td>
+  </tr>
+  <tr>
+      <td>/</td>
+      <td>除算</td>
+      <td>左項の数値を右項で割る</td>
+      <td>10 / 5</td>
+  </tr>
+  <tr>
+      <td>%</td>
+      <td>剰余(モジューロともいう)</td>
+      <td>左項を右項で割った余りを求める</td>
+      <td>8% 3 (8 を 3 で割ったとき、商 2 余り 2 の 2 ですね)</td>
+  </tr>
+  <tr>
+      <td>**</td>
+      <td>指数</td>
+      <td>基数を指数の累乗にします。つまり、指数の回数だけ基数の数自身を乗算します。</td>
+      <td>5 ** 2 ( 25 を返します。その値は 5 * 5 と同じですね)</td>
+  </tr>
+</table>
+
+<table class="bbb"><caption>代入演算子</caption>
+  <tr>    
+      <th>演算子</th>
+      <th>名前</th>
+      <th>目的</th>
+      <th>例</th>
+      <th>同様のコード</th>
+  </tr>
+  <tr>
+      <td>+=</td>
+      <td>加算代入</td>
+      <td>右辺の値を左辺の変数値に加算してから、新しい値を返します</td>
+      <td>x += 4;</td>
+      <td>x = x + 4;</td>
+  </tr>
+  <tr>
+      <td>-=</td>
+      <td>減算代入</td>
+      <td>右辺の値を左辺の変数値より減算してから、新しい値を返します</td>
+      <td>x -= 3;</td>
+      <td>x = x - 3;</td>
+  </tr>
+  <tr>
+      <td>*=</td>
+      <td>乗算代入</td>
+      <td>左辺の変数値に右辺の値を乗算してから、新しい値を返します</td>
+      <td>x *= 3;</td>
+      <td>x = x * 3;</td>
+  </tr>
+  <tr>
+      <td>/=</td>
+      <td>除算代入</td>
+      <td>左辺の変数値を右辺の値で除算してから、新しい値を返します</td>
+      <td>x /= 5;</td>
+      <td>x = x / 5;</td>
+  </tr>
+<table class="ccc"><caption>比較演算子</caption>
+  <tr>
+    <th>演算子</th>
+    <th>名前</th>
+    <th>目的</th>
+    <th>例</th>
+  </tr>
+  <tr>
+    <td>===</td>
+    <td>厳密な等価</td>
+    <td>右辺と左辺が厳密に同一の値であるかを判定します</td>
+    <td>5 === 2 + 4</td>
+  </tr>
+  <tr>
+    <td>!==</td>
+    <td>厳密な不等</td>
+    <td>右辺と左辺が厳密に同一の値”ではない”ことを判定します</td>
+    <td>5 !== 2 + 3</td>
+  </tr>
+
+  <tr>
+    <td>&lt;</td>
+    <td>小なり</td>
+    <td>左辺の値が右辺の値より小さいことを判定します</td>
+    <td>10 &lt; 6</td>
+  </tr>
+
+  <tr>
+    <td>&gt;</td>
+    <td>大なり</td>
+    <td>左辺の値が右辺の値より大きいことを判定します</td>
+    <td>10 &gt; 20</td>
+  </tr>
+
+  <tr>
+    <td>&lt;=</td>
+    <td>以下なり</td>
+    <td>左辺の値が右辺の値以下であることを判定します</td>
+    <td>3 &lt;= 2</td>
+  </tr>
+
+  <tr>
+    <td>&gt;=</td>
+    <td>以上なり</td>
+    <td>左辺の値が右辺の値以上であることを判定します</td>
+    <td>5 &gt;= 4</td>
+  </tr>
+
+</table>
+</table>
+  </body>
+</html>

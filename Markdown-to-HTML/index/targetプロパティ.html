@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&DiacriticalGrave;event&period;target&DiacriticalGrave;&#x306b;&#x3064;&#x3044;&#x3066;&lpar;GPT&rpar;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="eventtargetについてgpt"><code>event.target</code>について(GPT)</h1>
+<p><code>event.target</code>は、<strong>イベントが発生した要素（要素ノード）を参照するためのプロパティ</strong>です。<strong>イベントがトリガーされた要素を特定するために使用されます。</strong></p>
+<p>イベントは通常、要素内で発生し、イベントリスナーによって処理されます。例えば、クリックイベントがボタン要素で発生した場合、<code>event.target</code>はそのボタン要素を参照します。</p>
+<p>以下は、クリックイベントが発生した要素を取得する例です。</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;myButton&quot;</span>&gt;</span>Click me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+<span class="hljs-keyword">const</span> button = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;#myButton&#x27;</span>);
+
+button.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(event.<span class="hljs-property">target</span>); <span class="hljs-comment">// クリックされた要素を出力</span>
+});
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>上記の例では、ボタン要素がクリックされたときに、イベントリスナーが実行されます。そして、<code>event.target</code>を使用してクリックされた要素を取得し、コンソールに出力しています。</p>
+<p><code>event.target</code>は、イベントが発生した要素を特定するためによく使用されます。このプロパティを使うことで、イベントが発生した要素に対して特定の処理を行ったり、要素の属性や内容にアクセスしたりすることができます。</p>
+<p>もし他に何か質問があれば、お気軽にどうぞ！</p>
+
+        
+        
+    </body>
+    </html>

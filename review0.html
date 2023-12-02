@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>バカ話ジェネのレビュー</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/Users/sakimine/Downloads/プログラミングテスト/JavaScript/個人的JSインデックス/images/javascript_icon_orange.png">
+  </head>
+
+<body class="container">
+<nav class="metho">
+  <a href="#bottoms">☆最下層へ</a><br>
+  インデックス<br>
+  <p>用語</p>
+    <a href="#silly-story">バカ話ジェネレーターのコード解釈</a><br>
+    <a href="#-document-getelementbyid-">document.とgetElementById</a><br>
+    <a href="#-queryselector-">querySelector</a><br>
+    <a href="#-randomize-">randomize</a><br>
+    <a href="#-story-textcontet-style-visibility-">変数storyとtextContet,<br>.style.visibility</a><br>
+    <a href="#gpt-textcontent-">GPTのtextContentの使用例</a><br>
+    <a href="#randomelement">与えられた配列からランダムな要素を取得する</a><br>
+    <a href="#arrayandstrings">文字列の変数と配列の変数</a><br>
+    <a href="#-addeventlistner-">addEventListner</a><br>
+    <a href="#-randomvaluefromarray-">randomValueFromArray</a><br>
+    <a href="#-replaceall-">既存の変数に新しい値を設定する'変数 = 新しい値;'<br>.replaceAll()</a><br>
+    <a href="#-if-1-">if条件式1 名前の置き換え</a><br>
+    <a href="#-if-2-">if条件式2 チェックボックスと<br>テンプレートリテラル`${}`</a><br>
+    <a href="#-textcontet-style-visiblity-">textContet,<br>style.visiblity</a><br>
+
+  <p>外部リンク</p>
+  <p>外部リンク</p>
+  <a href="method-expl.html">コードの使用例</a><br>
+  <a href="forloop.html">forループについて</a><br>
+  <a href="function.html">functionについて</a><br>
+  <a href="review3-looping-code.html">ループするコード</a><br>
+  <a href="演算子.html">演算子について</a><br>
+
+  <a href="#tops" class="toptop">To top</a><br>
+</nav>
+<!--section要素はずらさない。pre要素が干渉する-->
+<article class="content" id="tops"><h1 id="h1-">バカ話ジェネのレビュー</h1>
+<section class="review"><h2 class="silly-story">バカ話ジェネレーターのコード解釈</h2>
+  <pre class="answer" class="answer"><code class="lang-js">
+    <span class="hljs-keyword">const</span> customName = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'customname'</span>);
+    <span class="hljs-keyword">const</span> randomize = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.randomize'</span>);
+    <span class="hljs-keyword">const</span> story = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.story'</span>);
+    
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">randomValueFromArray</span>(<span class="hljs-params">array</span>)</span>{
+      <span class="hljs-keyword">const</span> random = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*array.length);
+      <span class="hljs-keyword">return</span> array[random];
+    }
+    
+    <span class="hljs-keyword">const</span> storyText = 
+    <span class="hljs-string">'It was 94 fahrenheit outside, so 
+      :insertx: went for a walk. When they got to 
+      :inserty:, they stared in horror for a few moments, then 
+      :insertz:. Bob saw the whole thing, but was not surprised — 
+      :insertx: weighs 300 pounds, and it was a hot day.'</span>;
+    <span class="hljs-keyword">const</span> insertX = 
+      [<span class="hljs-string">'Willy the Goblin'</span>, <span class="hljs-string">'Big Daddy'</span>, <span class="hljs-string">'Father Christmas'</span>];
+    <span class="hljs-keyword">const</span> insertY = 
+      [<span class="hljs-string">'the soup kitchen'</span>, <span class="hljs-string">'Disneyland'</span>, <span class="hljs-string">'the White House'</span>];
+    <span class="hljs-keyword">const</span> insertZ = 
+      [<span class="hljs-string">'spontaneously combusted'</span>, 
+      <span class="hljs-string">'melted into a puddle on the sidewalk'</span>, 
+      <span class="hljs-string">'turned into a slug and crawled away'</span>];
+
+    randomize.addEventListener(<span class="hljs-string">'click'</span>, result);
+
+  <span class="hljs-function">
+    <span class="hljs-keyword">function</span> <span class="hljs-title">result</span></span>() {
+    let new<span class="hljs-type">Story</span> = storyText;
+
+    <span class="hljs-keyword">const</span> xItem = randomValueFromArray(insertX);
+    <span class="hljs-keyword">const</span> yItem = randomValueFromArray(insertY);
+    <span class="hljs-keyword">const</span> zItem = randomValueFromArray(insertZ);
+
+    new<span class="hljs-type">Story</span> = new<span class="hljs-type">Story</span>.replaceAll(<span class="hljs-string">':insertx:'</span>,xItem);
+    new<span class="hljs-type">Story</span> = new<span class="hljs-type">Story</span>.replaceAll(<span class="hljs-string">':inserty:'</span>,yItem);
+    new<span class="hljs-type">Story</span> = new<span class="hljs-type">Story</span>.replaceAll(<span class="hljs-string">':insertz:'</span>,zItem);
+    <span class="hljs-keyword">if</span> (customName.value !== <span class="hljs-string">''</span>) {
+    <span class="hljs-keyword">const</span> name = customName.value;
+    new<span class="hljs-type">Story</span> = new<span class="hljs-type">Story</span>.replaceAll(<span class="hljs-string">'Bob'</span>, name);
+  }
+
+    <span class="hljs-keyword">if</span> (document.getElementById(<span class="hljs-string">"uk"</span>).checked) {
+    <span class="hljs-keyword">const</span> weight = `${Math.round(<span class="hljs-number">300</span>*<span class="hljs-number">0.0714286</span>)} stone`;
+    <span class="hljs-keyword">const</span> temperature =  `${Math.round((<span class="hljs-number">94</span><span class="hljs-number">-32</span>) * <span class="hljs-number">5</span> / <span class="hljs-number">9</span>)} centigrade`;
+    new<span class="hljs-type">Story</span> = new<span class="hljs-type">Story</span>.replaceAll(<span class="hljs-string">'94 fahrenheit'</span>, temperature);
+    new<span class="hljs-type">Story</span> = new<span class="hljs-type">Story</span>.replaceAll(<span class="hljs-string">'300 pounds'</span>, weight);
+  }
+
+  story.textContent = new<span class="hljs-type">Story</span>;
+  story.style.visibility = <span class="hljs-string">'visible'</span>;
+  }
+  </code></pre>
+</section>
+
+<section class="review"><h2 id="-document-getelementbyid-"><code>document.</code>と<code>getElementById</code></h2>
+
+<pre class="answer" class="answer"><code class="lang-js">
+  <span class="hljs-keyword">const</span> customName = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'customname'</span>);
+
+</code></pre>
+<p><code>document.getElementById(&#39;customname&#39;)</code>でhtmlの</p>
+
+<pre class="answer" class="answer"><code class="lang-html">
+  &lt;<span class="hljs-keyword">label</span> <span class="hljs-keyword">for</span>=<span class="hljs-string">"customname"</span>&gt;Enter custom name:&lt;/<span class="hljs-keyword">label</span>&gt;
+  &lt;<span class="hljs-keyword">input</span> id=<span class="hljs-string">"customname"</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">"text"</span> placeholder=<span class="hljs-string">""</span> /&gt;
+
+</code></pre>
+<p>から取得した値を<code>customName</code>変数に格納している。
+<code>document.</code>オブジェクトは現在のウェブページを表す。
+<code>getElementById</code>メソッドは、HTML内の<code>customname</code>IDの要素を取得している。</p>
+
+</section>
+
+<section class="review"><h2 id="-queryselector-"><code>querySelector</code></h2>
+
+<pre class="answer" class="answer"><code class="lang-js">
+  <span class="hljs-keyword">const</span> randomize = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'.randomize'</span>);
+  <span class="hljs-keyword">const</span> story = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'.story'</span>);
+
+</code></pre><br>
+<pre class="answer" class="answer"><code class="lang-html">
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"randomize"</span>&gt;</span>Generate random story<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"story"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+</code></pre>
+<p><code>querySelector</code>はHTML内(document.)の中から指定されたセレクターに一致する最初の要素を返す。
+コード内でHTML内の値を使用できるようにするために<code>randomize</code>や<code>story</code>変数に格納している。</p>
+</section>
+
+<section class="review"><h2 id="-randomize-">変数<code>randomize</code></h2>
+<p><code>randomize</code>変数は、</p>
+  <pre class="answer" class="answer"><code class="lang-js">
+  <span class="hljs-selector-tag">randomize</span><span class="hljs-selector-class">.addEventListener</span>(<span class="hljs-string">'click'</span>, result);
+
+</code></pre>
+<p>で用いられる。これは「HTML内のボタンが押されたら<code>function result</code>を実行する」というもの。</p>
+
+</section>
+
+<section class="review"><h2 id="-story-textcontet-style-visibility-">変数<code>story</code> と<code>textContet</code>、<code>.style.visibility</code></h2>
+<p><code>story</code>変数は</p>
+<pre class="answer" class="answer"><code class="lang-js">  
+  story.textContent = new<span class="hljs-type">Story</span>;
+  story.style.visibility = <span class="hljs-string">'visible'</span>;
+  }
+
+</code></pre>
+<p>で用いられる。<code>newStory</code>変数が<em>文字列として</em>代入されている。
+<code>textContent</code>はDOM要素のプロパティで、DOM要素のテキストコンテンツを取得または設定するために使われる。例えば特定の要素内のコンテンツを取得したり、新しいテキストを書き込むことができる。</p>
+<p><code>story.style.visibility</code>は、<code>visible</code>に設定することで以下の<code>story</code>要素が可視化される。デフォが非表示でもこのコードで可視化できる。</p>
+<pre class="answer"><code class="lang-html">
+  &lt;p <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"story"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;
+</span></span>
+</code></pre>
+
+</section>
+
+<section class="review"><h2 id="gpt-textcontent-">GPTの<code>textContent</code>の使用例</h2>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">const</span> element = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'myElement'</span>);
+  <span class="hljs-built_in">console</span>.log(element.textContent); <span class="hljs-comment">// テキストコンテンツの取得</span>
+
+  element.textContent = <span class="hljs-string">'新しいテキスト'</span>; 
+  <span class="hljs-comment">// テキストコンテンツの設定</span>
+
+</code></pre>
+<p>上記の例では、<code>getElementById</code>メソッドを使用してIDが<code>myElement</code>の要素を取得し、その<code>textContent</code>を取得しています。また、<code>textContent</code>を使用して新しいテキストを設定しています。</p>
+<p><code>textContent</code>はテキストのみを扱うため、HTML要素を含む場合でもそのままのテキスト形式で取得および設定されます。HTMLを含む場合は、<code>innerHTML</code>プロパティを使用することでタグも解釈されます。</p>
+
+</section>
+
+<section class="review"><h2 id="randomelement">与えられた配列からランダムな要素を取得する</h2>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">function</span> randomValueFromArray(<span class="hljs-built_in">array</span>){
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">random</span> = Math.<span class="hljs-built_in">floor</span>(Math.<span class="hljs-built_in">random</span>()*<span class="hljs-built_in">array</span>.<span class="hljs-built_in">length</span>);
+  <span class="hljs-built_in">return</span> <span class="hljs-built_in">array</span>[<span class="hljs-built_in">random</span>];
+  }
+
+</code></pre>
+<p>この関数で、与えられた配列からランダムな要素を簡単に取得することができる。この関数は他のJSコードでも使える。</p>
+<ul>
+<li>この<code>function</code>関数は、メソッド<code>randomValueFromArray</code>の機能によって「与えられた配列からランダムな値を取得する」動作を行う。</li>
+<li>引数の<code>(array)</code>は、汎用的に用いられる文字列。この関数では異なる配列を受け取る可能性があるため、<code>array</code>を用いている。この<code>array</code>はこの関数内でのみ用いられる変数名である。他の名前でもいいが、可読性や保守性を考慮してこの文字列を使う。</li>
+<li><code>Math.random()</code> を使って 0 以上 1 未満のランダムな浮動小数点数を生成する。その値を<code>array.length</code>の値で掛け、その値を<code>Math.floor</code>メソッドで小数点以下を切り捨てた整数に変換する。</li>
+<li>与えられた整数はこの関数内の<code>random</code>変数に格納され、ランダムな整数は配列のインデックスとして使用して対応する要素を取得する。</li>
+<li>取得したランダムな要素を戻り値として返す。</li>
+</ul>
+
+</section>
+
+<section class="review"><h2 id="arrayandstrings">文字列の変数と配列の変数</h2>
+<pre class="answer"><code class="lang-js"><span class="hljs-keyword">const</span> storyText = <span class="hljs-string">
+  'It was 94 fahrenheit outside, so 
+  :insertx: went for a walk. When they got to 
+  :inserty:, they stared in horror for a few moments, then 
+  :insertz:. Bob saw the whole thing, but was not surprised — 
+  :insertx: weighs 300 pounds, and it was a hot day.';</span>
+<span class="hljs-keyword">const</span> insertX = 
+  [<span class="hljs-comment">'Willy the Goblin', 'Big Daddy', 'Father Christmas'];</span>
+<span class="hljs-keyword">const</span> insertY = 
+  [<span class="hljs-comment">'the soup kitchen', 'Disneyland', 'the White House'];</span>
+<span class="hljs-keyword">const</span> insertZ = 
+[<span class="hljs-comment">'spontaneously combusted', 
+  'melted into a puddle on the sidewalk', 
+  'turned into a slug and crawled away'];</span>
+</code></pre>
+<ul>
+<li>変数<code>storyText</code>は文字列として宣言される</li>
+<li>変数<code>insertX</code>,変数<code>insertY</code>,変数<code>insertZ</code>はそれぞれ配列として宣言される。
+<code>storyText</code>の文字列の内容は、以下のコードで何度か変更して使われるものだが、そのままこの変数を用いてしまうと一度しか新しい話が作れなくなる。そのため、この変数は文字列としてその下に新しい変数に格納される。</li>
+</ul>
+
+</section>
+
+<section class="review"><h2 id="-addeventlistner-"><code>addEventListner</code></h2>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-selector-tag">randomize</span><span class="hljs-selector-class">.addEventListener</span>(<span class="hljs-string">'click'</span>, result);
+
+</code></pre>
+<p><a href="#変数randomize">変数<code>randomize</code></a>に説明があり。
+<code>addEventListner</code>は、</p>
+<blockquote>
+<p>特定のイベントが発生したときに、指定した関数を実行します。イベントリスナーを追加するための関数であり、クリックやキーボード入力などのユーザーのアクションに対応するために使用されます。</p>
+</blockquote>
+
+</section>
+
+<section class="review"><h2 id="-randomvaluefromarray-"><code>randomValueFromArray</code></h2>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">result</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">let</span> newStory = storyText;
+
+  <span class="hljs-keyword">const</span> xItem = randomValueFromArray(insertX);
+  <span class="hljs-keyword">const</span> yItem = randomValueFromArray(insertY);
+  <span class="hljs-keyword">const</span> zItem = randomValueFromArray(insertZ);
+
+</code></pre>
+<p>コードの前半部分の複数の変数を新しい変数に格納する。</p>
+<ul>
+<li><code>storyText</code>変数は<code>newStory</code>変数に文字列として格納し、何度でも内容を変更可能なようにする。</li>
+<li>変数<code>insertX</code>,変数<code>insertY</code>,変数<code>insertZ</code>は配列として新たな変数に格納される。
+<code>randomValueFromArray</code>は、配列を含む変数の中から一つの文字列を取得するために用いるメソッド。引数として配列を受け取り、その配列からランダムに要素を取得して返す。
+これらの要素は、<code>result</code>関数内でのみ用いるため、<code>function</code>の中括弧<code>{}</code>の中に入れる。</li>
+</ul>
+
+</section>
+
+<section class="review"><h2 id="-replaceall-">既存の変数に新しい値を設定する<br><code>変数 = 新しい値;</code>、メソッド<code>replaceAll</code></h2>
+  <pre class="answer"><code class="lang-js">
+    new<span class="hljs-type">Story</span> = new<span class="hljs-type">Story</span>.replaceAll(<span class="hljs-string">':insertx:'</span>,xItem);
+    new<span class="hljs-type">Story</span> = new<span class="hljs-type">Story</span>.replaceAll(<span class="hljs-string">':inserty:'</span>,yItem);
+    new<span class="hljs-type">Story</span> = new<span class="hljs-type">Story</span>.replaceAll(<span class="hljs-string">':insertz:'</span>,zItem);
+  </code></pre>
+  <p>Javascriptでは、<em>すでに宣言された変数に対して再代入を行う場合は、再度変数の宣言をする必要はない</em>。</p>
+  <p>変数に新しい内容を設定するときは、<code>変数 = 新しい値;</code>とすること変数を上書きすることができる。</p>
+  <p>このコードでは、<code>newStory</code>の文字列にある<code>&#39;:insertx:&#39;</code>,<code>&#39;:inserty:&#39;</code>,<code>&#39;:insertz:&#39;</code>をメソッド<code>`replaceAll</code>を用いて<code>xItem</code>,<code>yItem</code>,<code>zItem</code>の内容に置き換えている。</p>
+  
+
+</section>
+
+<section class="review"><h2 id="-if-1-"><code>if</code>条件式1 名前の置き換え</h2>
+<pre class="answer"><code class="lang-js">  
+  <span class="hljs-keyword">if</span> (customName.value !== <span class="hljs-string">''</span>) {
+    const name = customName.value;
+    new<span class="hljs-type">Story</span> = new<span class="hljs-type">Story</span>.replaceAll(<span class="hljs-string">'Bob'</span>, name);
+  }
+
+</code></pre>
+<p>この<code>if</code>文は</p>
+<blockquote>
+<p>このコードは、テキストフィールド(<code>customName</code>)が空でない場合、入力された値を変数<code>name</code>に代入し、<code>newStory</code>の中の全ての <code>&#39;Bob&#39;</code> を変数<code>name</code>で置き換えることを意味しています。つまり、ユーザーが名前を入力した場合、物語の中の <code>&#39;Bob&#39;</code> の部分がユーザーの入力した名前に置き換わるという動作になります。</p>
+</blockquote>
+
+</section>
+
+<section class="review"><h2 id="-if-2-"><code>if</code>条件式2 チェックボックスとテンプレートリテラル<code>${}</code></h2>
+<pre class="answer"><code class="lang-js">  
+  <span class="hljs-keyword">if</span> (document.getElementById(<span class="hljs-string">"uk"</span>).checked) {
+    const weight = `${Math.round(<span class="hljs-number">300</span>*<span class="hljs-number">0.0714286</span>)} stone`;
+    const temperature =  `${Math.round((<span class="hljs-number">94</span><span class="hljs-number">-32</span>) * <span class="hljs-number">5</span> / <span class="hljs-number">9</span>)} centigrade`;
+    new<span class="hljs-type">Story</span> = new<span class="hljs-type">Story</span>.replaceAll(<span class="hljs-string">'94 fahrenheit'</span>, temperature);
+    new<span class="hljs-type">Story</span> = new<span class="hljs-type">Story</span>.replaceAll(<span class="hljs-string">'300 pounds'</span>, weight);
+  }
+
+</code></pre><br>
+<pre class="answer"><code class="lang-html">
+  &lt;<span class="hljs-keyword">label</span> <span class="hljs-keyword">for</span>=<span class="hljs-string">"us"</span>&gt;<span class="hljs-keyword">US</span>&lt;/<span class="hljs-keyword">label</span>&gt;
+  &lt;<span class="hljs-keyword">input</span> id=<span class="hljs-string">"us"</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">"radio"</span> 
+      name=<span class="hljs-string">"ukus"</span> value=<span class="hljs-string">"us"</span> checked /&gt;
+  &lt;<span class="hljs-keyword">label</span> <span class="hljs-keyword">for</span>=<span class="hljs-string">"uk"</span>&gt;UK&lt;/<span class="hljs-keyword">label</span>&gt;
+  &lt;<span class="hljs-keyword">input</span> id=<span class="hljs-string">"uk"</span> <span class="hljs-keyword">type</span>=<span class="hljs-string">"radio"</span> 
+      name=<span class="hljs-string">"ukus"</span> value=<span class="hljs-string">"uk"</span> /&gt;
+
+</code></pre>
+
+  <ul>
+<li><code>.checked</code></li><ul>
+<li>これはHTML内で<code>uk</code>のラジオボタンがチェックされているかどうかを判定するためのプロパティ。</li>
+<li>HTMLでは、デフォルトで<code>us</code>の方にチェックが入っている。</li>
+該当するチェックボックスが<code>True</code>となった場合、このif条件式の内容が反映される。</li></ul></li>
+<li>テンプレートリテラル<code>${}</code></li><ul>
+<li>このテンプレートリテラルを使うことで計算式を記述できる。</li>
+<li>テンプレートリテラルを用いれば、文字列と変数の結合が容易になる、可読性の向上、また数式の結果を直接文字列に挿入することができる。</li>
+<li>一般的に、数式を扱う場合はテンプレートリテラルを使用することが推奨されている。</li></ul>
+
+<p>テンプレートリテラルを用いた例</p>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">const</span> radius = <span class="hljs-number">5</span>;
+  <span class="hljs-keyword">const</span> area = <span class="hljs-built_in">Math</span>.PI * radius * radius;
+
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`半径が<span class="hljs-subst">${radius}</span>の円の面積は<span class="hljs-subst">${area}</span>です。`</span>);
+
+</code></pre>
+  
+</section>
+
+<section class="review"><h2 id="-textcontet-style-visiblity-"><code>textContet</code>,<code>style.visiblity</code></h2>
+<pre class="answer"><code class="lang-js">  
+  story.textContent = new<span class="hljs-type">Story</span>;
+  story.style.visibility = <span class="hljs-string">'visible'</span>;
+}
+
+</code></pre>
+<p>以下に解説がある。</p>
+<a href="#-story-textcontet-style-visibility-">変数<code>story</code> と<code>textContet</code>、<code>.style.visibility</code></a><br>
+<a href="#gpt-textcontent-">GPTの<code>textContent</code>の使用例</a><br>
+
+</section>
+<div id="bottoms">☆</div><!--article外だと真下に置けない-->
+</article>
+<a href="#tops" class="toptop">To top</a>
+</body>
+</html>

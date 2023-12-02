@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>2023&sol;06&sol;16</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$=\#gh-light-mode-only],
+        .vscode-light img[src$=\#gh-dark-mode-only] {
+            display: none;
+        }
+
+        /* From extension bierner.markdown-checkbox */
+        .contains-task-list {
+            padding-left: 0;
+        }
+
+        .contains-task-list li {
+            margin-left: 24px;
+        }
+
+        .contains-task-list .task-list-item {
+            list-style: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        .contains-task-list .contains-task-list {
+            padding-left: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="20230616">2023/06/16</h1>
+    <ul>
+        <li><a href="#20230616">2023/06/16</a>
+            <ul>
+                <li><a
+                        href="#%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0-%E7%99%BA%E5%B0%84%E3%81%AE%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%83%80%E3%82%A6%E3%83%B3">アクティブラーニング:
+                        発射のカウントダウン</a>
+                    <ul>
+                        <li><a href="#for-loop---%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%83%80%E3%82%A6%E3%83%B3">for-loop
+                                - カウントダウン</a></li>
+                        <li><a href="#while---%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%83%80%E3%82%A6%E3%83%B3">while -
+                                カウントダウン</a></li>
+                        <li><a href="#dowhile--%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%83%80%E3%82%A6%E3%83%B3">do...while
+                                -　カウントダウン</a></li>
+                    </ul>
+                </li>
+                <li><a
+                        href="#%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0-%E3%82%B2%E3%82%B9%E3%83%88%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AB%E8%A8%98%E5%85%A5%E3%81%99%E3%82%8B">アクティブラーニング:
+                        ゲストリストに記入する</a>
+                    <ul>
+                        <li><a href="#forof-loop---%E3%83%AA%E3%82%B9%E3%83%88">for...of-loop - リスト</a></li>
+                        <li><a href="#%E4%BF%AE%E6%AD%A3-%E3%83%AA%E3%82%B9%E3%83%88">修正-リスト</a></li>
+                        <li><a href="#%E5%9B%9E%E7%AD%94---%E3%83%AA%E3%82%B9%E3%83%88">回答 - リスト</a></li>
+                        <li><a href="#for-loop--%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84">for-loop -　わからない</a></li>
+                    </ul>
+                </li>
+                <li><a href="#%E3%82%B9%E3%82%AD%E3%83%AB%E3%83%86%E3%82%B9%E3%83%88---loop1">スキルテスト - loop1</a></li>
+                <li><a href="#%E3%82%B9%E3%82%AD%E3%83%AB%E3%83%86%E3%82%B9%E3%83%88---loop2">スキルテスト - loop2</a>
+                    <ul>
+                        <li><a href="#%E6%A8%A1%E7%AF%84%E8%A7%A3%E7%AD%94-loop2">模範解答-loop2</a></li>
+                        <li><a href="#gpt%E3%81%AB%E3%82%88%E3%82%8B%E5%9B%9E%E7%AD%94-loop2">GPTによる回答-loop2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#%E3%82%B9%E3%82%AD%E3%83%AB%E3%83%86%E3%82%B9%E3%83%88-loop3">スキルテスト-loop3</a>
+                    <ul>
+                        <li><a href="#%E6%A8%A1%E7%AF%84%E8%A7%A3%E7%AD%94-3">模範解答-3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li><a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/Building_blocks/Looping_code">ループするコード -
+                MDN</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Loops">Test
+                your skills: Loops</a></li>
+    </ul>
+    <h2 id="アクティブラーニング-発射のカウントダウン">アクティブラーニング: 発射のカウントダウン</h2>
+    <h3 id="for-loop---カウントダウン">for-loop - カウントダウン</h3>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> output = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.output&#x27;</span>);
+output.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27;&#x27;</span>;
+
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i =<span class="hljs-number">10</span> ; i &gt;= <span class="hljs-number">0</span> ; i--){ <span class="hljs-comment">//1</span>
+    <span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);<span class="hljs-comment">//2</span>
+    <span class="hljs-keyword">if</span> (i === <span class="hljs-number">10</span>){ <span class="hljs-comment">//3</span>
+        para.<span class="hljs-property">textContent</span> = <span class="hljs-string">`発射まで <span class="hljs-subst">${i}</span>`</span>;<span class="hljs-comment">//4</span>
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i === <span class="hljs-number">0</span>){<span class="hljs-comment">//5</span>
+        para.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;発射&#x27;</span>;<span class="hljs-comment">//6</span>
+    }<span class="hljs-keyword">else</span>{<span class="hljs-comment">//7</span>
+        para.<span class="hljs-property">textContent</span> = i;<span class="hljs-comment">//7</span>
+    }
+    output.<span class="hljs-title function_">appendChild</span>(para);<span class="hljs-comment">//8</span>
+}
+</code></pre>
+    <ol>
+        <li>//1: <code>for(let i =10 ; i &gt;= 0 ; i--)</code>
+            <ol>
+                <li><code>let i = 10</code> : カウントダウンするため、10から開始。</li>
+                <li><code>i &gt;= 0</code> : <code>i</code>が0以上の数である限り、ループを繰り返すという意味。</li>
+                <li><code>i--</code> : ループを一周するたびに、<code>i</code>に1を減算する。</li>
+            </ol>
+        </li>
+        <li>//2: <code>&lt;p&gt;</code>要素を作る<code>createElement</code>を変数<code>para</code>に格納</li>
+        <li>//3: 条件式の始まり
+            <ol>
+                <li>//3: <code>i</code>が10であるとき、専用のテキストを表示する(//4)</li>
+                <li>//5: <code>i</code>が0であるとき、専用のテキストを表示する(//6)</li>
+                <li>//7: <code>i</code>が10または0ではないとき、そのまま数値<code>i</code>を表示する</li>
+            </ol>
+        </li>
+        <li>//8: <code>if ステートメント</code> の条件式から出力(?)された数値が<code>appendChild()</code>メソッドで<code>para</code>変数に追加される。
+            <ol>
+                <li><code>appendChild()</code>は、親ノードの子ノードリストの末尾に新たにノードを追加する。</li>
+            </ol>
+        </li>
+    </ol>
+    <h3 id="while---カウントダウン">while - カウントダウン</h3>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> i = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">while</span>(i &gt;= <span class="hljs-number">0</span>){
+    <span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+    <span class="hljs-keyword">if</span> (i === <span class="hljs-number">10</span>){
+        para.<span class="hljs-property">textContent</span> = <span class="hljs-string">`発射まで <span class="hljs-subst">${i}</span> 秒`</span>;
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i === <span class="hljs-number">0</span>){
+        para.<span class="hljs-property">textContent</span> = <span class="hljs-string">`発射ぁ`</span>;
+    }<span class="hljs-keyword">else</span> {
+        para.<span class="hljs-property">textContent</span> =<span class="hljs-string">`<span class="hljs-subst">${i}</span> 秒`</span>;
+    }
+    output.<span class="hljs-title function_">appendChild</span>(para);
+    i--;
+}
+<span class="hljs-comment">// let i = 10;</span>
+<span class="hljs-comment">// const para = document.createElement(&#x27;p&#x27;);</span>
+<span class="hljs-comment">// para.textContent = ;</span>
+<span class="hljs-comment">// output.appendChild(para);</span>
+</code></pre>
+    <h3 id="dowhile--カウントダウン">do...while -　カウントダウン</h3>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> i = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">do</span> {
+    <span class="hljs-keyword">const</span> para =<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+    <span class="hljs-keyword">if</span>(i===<span class="hljs-number">10</span>){
+        para.<span class="hljs-property">textContent</span> = <span class="hljs-string">`発射まで・・・<span class="hljs-subst">${i}</span>秒`</span>;
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(i===<span class="hljs-number">0</span>){
+        para.<span class="hljs-property">textContent</span> = <span class="hljs-string">`発射〜`</span>;
+    }<span class="hljs-keyword">else</span>{
+        para.<span class="hljs-property">textContent</span> = <span class="hljs-string">`<span class="hljs-subst">${i}</span>秒`</span>;
+    }
+    output.<span class="hljs-title function_">appendChild</span>(para);
+    i--;
+}<span class="hljs-keyword">while</span>(i &gt;= <span class="hljs-number">0</span>);
+</code></pre>
+    <h2 id="アクティブラーニング-ゲストリストに記入する">アクティブラーニング: ゲストリストに記入する</h2>
+    <h3 id="forof-loop---リスト">for...of-loop - リスト</h3>
+    <pre><code class="language-js"><span class="hljs-keyword">const</span> people = [<span class="hljs-string">&#x27;Chris&#x27;</span>, <span class="hljs-string">&#x27;Anne&#x27;</span>, <span class="hljs-string">&#x27;Colin&#x27;</span>, <span class="hljs-string">&#x27;Terri&#x27;</span>, <span class="hljs-string">&#x27;Phil&#x27;</span>, <span class="hljs-string">&#x27;Lola&#x27;</span>, <span class="hljs-string">&#x27;Sam&#x27;</span>, <span class="hljs-string">&#x27;Kay&#x27;</span>, <span class="hljs-string">&#x27;Bruce&#x27;</span>];
+<span class="hljs-keyword">const</span> admitted = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.admitted&#x27;</span>);
+<span class="hljs-keyword">const</span> refused = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.refused&#x27;</span>);
+admitted.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;Admit: &#x27;</span>;
+refused.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;Refuse: &#x27;</span>;
+<span class="hljs-comment">// loop starts here</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> guest <span class="hljs-keyword">of</span> people.<span class="hljs-property">length</span>){  <span class="hljs-comment">//a</span>
+    <span class="hljs-keyword">if</span> (people === <span class="hljs-string">`Phile`</span>){    <span class="hljs-comment">//b</span>
+        refused.<span class="hljs-property">textContent</span> += <span class="hljs-string">`Phile`</span>; <span class="hljs-comment">//c</span>
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(people === <span class="hljs-string">`Lola`</span>){    <span class="hljs-comment">//d</span>
+        refused.<span class="hljs-property">textContent</span> += <span class="hljs-string">`Lola`</span>;  <span class="hljs-comment">//e</span>
+    }<span class="hljs-keyword">else</span>{  <span class="hljs-comment">//f</span>
+        admitted.<span class="hljs-property">textContent</span> += guest;  <span class="hljs-comment">//g</span>
+    }
+}
+<span class="hljs-comment">// refused.textContent += ;</span>
+<span class="hljs-comment">// admitted.textContent += ;</span>
+</code></pre>
+    <ol>
+        <li>//a: <code>of</code>以下の<code>people</code>に<code>.length</code>は必要ない</li>
+        <li>//b: スペルミス.論理演算子ORを使うべき
+            <ol>
+                <li>コンマを入れるためにテンプレートリテラルを使うべき</li>
+            </ol>
+        </li>
+    </ol>
+    <h3 id="修正-リスト">修正-リスト</h3>
+    <pre><code class="language-js"><span class="hljs-keyword">const</span> people = [<span class="hljs-string">&#x27;Chris&#x27;</span>, <span class="hljs-string">&#x27;Anne&#x27;</span>, <span class="hljs-string">&#x27;Colin&#x27;</span>, <span class="hljs-string">&#x27;Terri&#x27;</span>, <span class="hljs-string">&#x27;Phil&#x27;</span>, <span class="hljs-string">&#x27;Lola&#x27;</span>, <span class="hljs-string">&#x27;Sam&#x27;</span>, <span class="hljs-string">&#x27;Kay&#x27;</span>, <span class="hljs-string">&#x27;Bruce&#x27;</span>];
+
+<span class="hljs-keyword">const</span> admitted = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.admitted&#x27;</span>);
+<span class="hljs-keyword">const</span> refused = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.refused&#x27;</span>);
+admitted.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;Admit: &#x27;</span>;
+refused.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;Refuse: &#x27;</span>;
+
+<span class="hljs-comment">// loop starts here</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> guest <span class="hljs-keyword">of</span> people){  <span class="hljs-comment">//a</span>
+    <span class="hljs-keyword">if</span> (guest === <span class="hljs-string">&#x27;Phil&#x27;</span> || guest === <span class="hljs-string">&#x27;Lola&#x27;</span>){    <span class="hljs-comment">//b</span>
+        refused.<span class="hljs-property">textContent</span> += <span class="hljs-string">`<span class="hljs-subst">${guest}</span>, `</span> ; <span class="hljs-comment">//c</span>
+    }<span class="hljs-keyword">else</span>{  <span class="hljs-comment">//f</span>
+        admitted.<span class="hljs-property">textContent</span> += <span class="hljs-string">`<span class="hljs-subst">${guest}</span>, `</span> ;  <span class="hljs-comment">//g</span>
+    }
+}
+refused.<span class="hljs-property">textContent</span> = refused.<span class="hljs-property">textContent</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>,refused.<span class="hljs-property">textContent</span>.<span class="hljs-property">length</span>-<span class="hljs-number">2</span>) +<span class="hljs-string">`.`</span>;
+admitted.<span class="hljs-property">textContent</span> = admitted.<span class="hljs-property">textContent</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>,admitted.<span class="hljs-property">textContent</span>.<span class="hljs-property">length</span>-<span class="hljs-number">2</span>)+<span class="hljs-string">`.`</span> ;
+</code></pre>
+    <h3 id="回答---リスト">回答 - リスト</h3>
+    <pre><code class="language-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> person <span class="hljs-keyword">of</span> people) {  <span class="hljs-comment">//1</span>
+  <span class="hljs-keyword">if</span> (person === <span class="hljs-string">&#x27;Phil&#x27;</span> || person === <span class="hljs-string">&#x27;Lola&#x27;</span>) { <span class="hljs-comment">//2</span>
+    refused.<span class="hljs-property">textContent</span> += <span class="hljs-string">`<span class="hljs-subst">${person}</span>, `</span>;   <span class="hljs-comment">//3</span>
+  } <span class="hljs-keyword">else</span> {  <span class="hljs-comment">//4</span>
+    admitted.<span class="hljs-property">textContent</span> += <span class="hljs-string">`<span class="hljs-subst">${person}</span>, `</span>;  <span class="hljs-comment">//5</span>
+  }
+}
+refused.<span class="hljs-property">textContent</span> = refused.<span class="hljs-property">textContent</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>,refused.<span class="hljs-property">textContent</span>.<span class="hljs-property">length</span>-<span class="hljs-number">2</span>) + <span class="hljs-string">&#x27;.&#x27;</span>;  <span class="hljs-comment">//6</span>
+admitted.<span class="hljs-property">textContent</span> = admitted.<span class="hljs-property">textContent</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">0</span>,admitted.<span class="hljs-property">textContent</span>.<span class="hljs-property">length</span>-<span class="hljs-number">2</span>) + <span class="hljs-string">&#x27;.&#x27;</span>;   <span class="hljs-comment">//7</span>
+</code></pre>
+    <ol>
+        <li>//1: <code>for...of</code>ループのはじめ
+            <ol>
+                <li><code>const</code>で変数<code>person</code>を宣言</li>
+                <li><code>of</code>を挟み、配列の変数<code>people</code>をおく</li>
+            </ol>
+        </li>
+        <li>//2: <code>ifステートメント</code>で<code>resuse</code>と<code>admitted</code>を振り分ける
+            <ol>
+                <li>論理演算子OR(<code>||</code>)を用い、<code>person</code>が<code>Phile</code>または<code>Lola</code>であった場合の処理を決める
+                </li>
+            </ol>
+        </li>
+        <li>//3: <code>resused.textContent</code>でページ上の<code>Refuse</code>に加算代入(<code>+=</code>)する
+            <ol>
+                <li>変数<code>person</code>を使って該当する名前をリストに追加する</li>
+                <li>テンプレートリテラルを用いて代入することで、コンマ(,)も合わせて記入できる</li>
+            </ol>
+        </li>
+        <li>//4: Refuse以外の名前はすべて下の処理が適用される</li>
+        <li>//6,//7: リストの最後尾にピリオド(<code>.</code>)を追加するための2行
+            <ol>
+                <li>作成されたリスト<code>textContent</code>に<code>.slice()</code>メソッドを適用し、</li>
+                <li>最後尾のコンマ以外を切り取った上で、</li>
+                <li>ピリオドを最後尾に追加してそれぞれの<code>textContent</code>に格納している</li>
+            </ol>
+        </li>
+    </ol>
+    <h3 id="for-loop--わからない">for-loop -　わからない</h3>
+    <pre><code class="language-js"><span class="hljs-keyword">const</span> people = [<span class="hljs-string">&#x27;Chris&#x27;</span>, <span class="hljs-string">&#x27;Anne&#x27;</span>, <span class="hljs-string">&#x27;Colin&#x27;</span>, <span class="hljs-string">&#x27;Terri&#x27;</span>, <span class="hljs-string">&#x27;Phil&#x27;</span>, <span class="hljs-string">&#x27;Lola&#x27;</span>, <span class="hljs-string">&#x27;Sam&#x27;</span>, <span class="hljs-string">&#x27;Kay&#x27;</span>, <span class="hljs-string">&#x27;Bruce&#x27;</span>];
+<span class="hljs-keyword">const</span> admitted = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.admitted&#x27;</span>);
+<span class="hljs-keyword">const</span> refused = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.refused&#x27;</span>);
+admitted.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;Admit: &#x27;</span>;
+refused.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;Refuse: &#x27;</span>;
+
+<span class="hljs-keyword">let</span> personOne = people.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">`Phil`</span>);
+<span class="hljs-keyword">let</span> personTwo = people.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">`Lola`</span>);
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span> ; i &lt; people.<span class="hljs-property">length</span> ; i++){
+    <span class="hljs-keyword">if</span>(i === <span class="hljs-string">`Phil`</span> ||i === <span class="hljs-string">`Lola`</span>){
+        refused.<span class="hljs-property">textContent</span> += <span class="hljs-string">`<span class="hljs-subst">${personOne}</span>, `</span>;
+    }<span class="hljs-keyword">else</span>{
+        admitted.<span class="hljs-property">textContent</span> += <span class="hljs-string">`<span class="hljs-subst">${i}</span>, `</span>;
+    }
+}
+</code></pre>
+    <h2 id="スキルテスト---loop1">スキルテスト - loop1</h2>
+    <pre><code class="language-js"><span class="hljs-keyword">const</span> myArray = [<span class="hljs-string">&#x27;tomatoes&#x27;</span>, <span class="hljs-string">&#x27;chick peas&#x27;</span>, <span class="hljs-string">&#x27;onions&#x27;</span>, <span class="hljs-string">&#x27;rice&#x27;</span>, <span class="hljs-string">&#x27;black beans&#x27;</span>];
+<span class="hljs-keyword">const</span> list = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;ul&#x27;</span>);
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> begi <span class="hljs-keyword">of</span> myArray){
+    <span class="hljs-keyword">const</span> lis = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;li&#x27;</span>);
+    lis.<span class="hljs-property">textContent</span> = begi;
+    list.<span class="hljs-title function_">appendChild</span>(lis);
+}
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+<span class="hljs-keyword">const</span> section = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;section&#x27;</span>);
+section.<span class="hljs-title function_">appendChild</span>(list);
+</code></pre>
+    <h2 id="スキルテスト---loop2">スキルテスト - loop2</h2>
+    <pre><code class="language-js"><span class="hljs-keyword">const</span> name = <span class="hljs-string">&#x27;Mustafa&#x27;</span>;
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-keyword">const</span> phonebook = [
+    { name : <span class="hljs-string">&#x27;Chris&#x27;</span>, number : <span class="hljs-string">&#x27;1549&#x27;</span> },
+    { name : <span class="hljs-string">&#x27;Li Kang&#x27;</span>, number : <span class="hljs-string">&#x27;9634&#x27;</span> },
+    { name : <span class="hljs-string">&#x27;Anne&#x27;</span>, number : <span class="hljs-string">&#x27;9065&#x27;</span> },
+    { name : <span class="hljs-string">&#x27;Francesca&#x27;</span>, number : <span class="hljs-string">&#x27;3001&#x27;</span> },
+    { name : <span class="hljs-string">&#x27;Mustafa&#x27;</span>, number : <span class="hljs-string">&#x27;6888&#x27;</span> },
+    { name : <span class="hljs-string">&#x27;Tina&#x27;</span>, number : <span class="hljs-string">&#x27;4312&#x27;</span> },
+    { name : <span class="hljs-string">&#x27;Bert&#x27;</span>, number : <span class="hljs-string">&#x27;7780&#x27;</span> },
+    { name : <span class="hljs-string">&#x27;Jada&#x27;</span>, number : <span class="hljs-string">&#x27;2282&#x27;</span> },
+]
+<span class="hljs-comment">// Add your code here</span>
+
+
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+<span class="hljs-keyword">const</span> section = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;section&#x27;</span>);
+section.<span class="hljs-title function_">appendChild</span>(para);
+</code></pre>
+    <h3 id="模範解答-loop2">模範解答-loop2</h3>
+    <pre><code class="language-js"><span class="hljs-keyword">const</span> name = <span class="hljs-string">&#x27;Mustafa&#x27;</span>;     <span class="hljs-comment">//1</span>
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);   <span class="hljs-comment">//2</span>
+<span class="hljs-keyword">const</span> phonebook = [     <span class="hljs-comment">//3</span>
+  { name : <span class="hljs-string">&#x27;Chris&#x27;</span>, number : <span class="hljs-string">&#x27;1549&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Li Kang&#x27;</span>, number : <span class="hljs-string">&#x27;9634&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Anne&#x27;</span>, number : <span class="hljs-string">&#x27;9065&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Francesca&#x27;</span>, number : <span class="hljs-string">&#x27;3001&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Mustafa&#x27;</span>, number : <span class="hljs-string">&#x27;6888&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Tina&#x27;</span>, number : <span class="hljs-string">&#x27;4312&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Bert&#x27;</span>, number : <span class="hljs-string">&#x27;7780&#x27;</span> },
+  { name : <span class="hljs-string">&#x27;Jada&#x27;</span>, number : <span class="hljs-string">&#x27;2282&#x27;</span> },
+]
+
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; phonebook.<span class="hljs-property">length</span>; i++) {    <span class="hljs-comment">//4</span>
+  <span class="hljs-keyword">if</span>(phonebook[i].<span class="hljs-property">name</span> === name) {      <span class="hljs-comment">//5</span>
+    para.<span class="hljs-property">textContent</span> = <span class="hljs-string">`<span class="hljs-subst">${ phonebook[i].name }</span>&#x27;s number is <span class="hljs-subst">${ phonebook[i].number }</span>.`</span>;      <span class="hljs-comment">//6</span>
+    <span class="hljs-keyword">break</span>;      <span class="hljs-comment">//7</span>
+  }
+
+  <span class="hljs-keyword">if</span>(i === phonebook.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>) {      <span class="hljs-comment">//8</span>
+    para.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;Name not found in the phonebook&#x27;</span>;   <span class="hljs-comment">//8</span>
+  }
+}
+</code></pre>
+    <ol>
+        <li>//1: 検索したい名前(文字列)の変数<code>name</code></li>
+        <li>//2: <code>&lt;p&gt;</code>要素を作る変数<code>para</code>
+            <ol>
+                <li>名前や番号を表示するために使う変数</li>
+            </ol>
+        </li>
+        <li>//3: 名前と番号を格納した配列の変数<code>phonebook</code>
+            <ol>
+                <li>中括弧<code>{}</code>で分けられており、<code>name</code>や<code>number</code>プロパティとコロン<code>:</code>を挟んで名前や番号の文字列を記述している
+                </li>
+                <li>これにより、配列内の要素を検索しやすくなる</li>
+            </ol>
+        </li>
+        <li>//4: 検索したい名前と番号を検索するための<code>forループ</code>
+            <ol>
+                <li>配列内の要素のインデックスは<code>0</code>から始まるので<code>let i = 0</code>となる</li>
+                <li><code>i</code>が<code>phonebook.length</code>より小さい間はループし続ける</li>
+            </ol>
+        </li>
+        <li>//5: 配列の変数<code>phonebook</code>のうち、探したい名前<code>name</code>を検索するための<code>ifステートメント</code>
+            <ol>
+                <li>配列<code>phonebook</code>の<code>i</code>番目の要素　=&gt; <code>phoenbook[i]</code></li>
+                <li><code>.name</code>は配列内の<code>nameプロパティ</code>を参照するためのもの</li>
+                <li><code>=== name</code>で「配列内の[<code>i</code>]番目の要素が変数<code>name</code>と一致したら...</li>
+            </ol>
+        </li>
+        <li>//6: 配列の中で条件に当てはまった要素(名前と番号)をテキストにして表示するためのコード
+            <ol>
+                <li>テンプレートリテラルを用いて表示する</li>
+                <li>各プロパティを用いることで、表示したい情報を選択できる</li>
+            </ol>
+        </li>
+        <li>//7: 検索したい名前が見つかったら配列を検索するループをとめる<code>break</code></li>
+        <li>//8: <code>i　=== phonebook.length</code>はつまり検索したい名前が見つからない場合を表す</li>
+    </ol>
+    <h3 id="gptによる回答-loop2">GPTによる回答-loop2</h3>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> searchName = name.<span class="hljs-title function_">toLowerCase</span>();    <span class="hljs-comment">//1</span>
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; phonebook.<span class="hljs-property">length</span>; i++) {    <span class="hljs-comment">//2</span>
+  <span class="hljs-keyword">let</span> entry = phonebook[i];     <span class="hljs-comment">//3</span>
+  <span class="hljs-keyword">if</span> (entry.<span class="hljs-property">name</span>.<span class="hljs-title function_">toLowerCase</span>() === searchName) {    <span class="hljs-comment">//4</span>
+    para.<span class="hljs-property">textContent</span> = <span class="hljs-string">`Name: <span class="hljs-subst">${entry.name}</span>, Number: <span class="hljs-subst">${entry.number}</span>`</span>;      <span class="hljs-comment">//5</span>
+    <span class="hljs-keyword">break</span>;      <span class="hljs-comment">//6</span>
+  }
+}
+</code></pre>
+    <ol>
+        <li>//1: 変数<code>searchName</code>で検索する名前<code>name</code>を小文字に変換する</li>
+        <li>//2: 検索したい名前と番号を検索するための<code>forループ</code>
+            <ol>
+                <li><code>i</code>が<code>phonebook.length</code>より小さい間はループし続ける</li>
+            </ol>
+        </li>
+        <li>//3: 配列の<code>i</code>番目の要素を格納する変数<code>entry</code>.<code>let</code>を用いる</li>
+        <li>//4: 配列の変数<code>phonebook</code>のうち、探したい名前<code>name</code>を検索するための<code>ifステートメント</code>
+            <ol>
+                <li><code>searchName</code>と同様に、配列の要素(<code>nameプロパティ</code>)を小文字に変換することで、検索の機能性をあげる</li>
+                <li>小文字化した文字列は、検索のみに用いるため、表示されることはない</li>
+                <li>配列内の要素から<code>searchName</code>と一致するものが見つかると下の処理が行われる</li>
+            </ol>
+        </li>
+        <li>//5:検索した名前と番号を表示する
+            <ol>
+                <li><code>entry.name</code>と<code>entry.numbar</code>は<code>phonebook</code>の<code>i</code>番目の<code>name</code>と<code>number</code>を表す
+                </li>
+            </ol>
+        </li>
+        <li>//6: <code>if</code>の条件に合致した場合ループを止める</li>
+    </ol>
+    <h2 id="スキルテスト-loop3">スキルテスト-loop3</h2>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> i = <span class="hljs-number">500</span>;
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">isPrime</span>(<span class="hljs-params">num</span>) {
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>; i &lt; num; i++) {
+    <span class="hljs-keyword">if</span>(num % i === <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+<span class="hljs-keyword">const</span> section = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;section&#x27;</span>);
+section.<span class="hljs-title function_">appendChild</span>(para);
+</code></pre>
+    <h3 id="模範解答-3">模範解答-3</h3>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> i = <span class="hljs-number">500</span>;    <span class="hljs-comment">//1</span>
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);   <span class="hljs-comment">//2</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">isPrime</span>(<span class="hljs-params">num</span>) {     <span class="hljs-comment">//3</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">2</span>; i &lt; num; i++) {      <span class="hljs-comment">//4</span>
+    <span class="hljs-keyword">if</span>(num % i === <span class="hljs-number">0</span>) {     <span class="hljs-comment">//5</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;       <span class="hljs-comment">//6</span>
+    }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;    <span class="hljs-comment">//7</span>
+}
+<span class="hljs-keyword">do</span> {    <span class="hljs-comment">//8</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-title function_">isPrime</span>(i)) {     <span class="hljs-comment">//9</span>
+    para.<span class="hljs-property">textContent</span> += <span class="hljs-string">`<span class="hljs-subst">${i}</span> `</span>;    <span class="hljs-comment">//10</span>
+  }
+  i--;  <span class="hljs-comment">//11</span>
+} <span class="hljs-keyword">while</span> (i &gt; <span class="hljs-number">1</span>);    <span class="hljs-comment">//12</span>
+<span class="hljs-keyword">const</span> section = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;section&#x27;</span>);  <span class="hljs-comment">//13</span>
+section.<span class="hljs-title function_">appendChild</span>(para);  <span class="hljs-comment">//14</span>
+</code></pre>
+    <ol>
+        <li>//1: イテレーター<code>i</code>は500で指定</li>
+        <li>//2: <code>&lt;p&gt;</code>要素の作成を変数<code>para</code>に格納</li>
+        <li>//3: <code>isPrime(num)</code>関数.素数を判定するための関数
+            <ol>
+                <li>//4: <code>let i = 2</code>は、1が素数として判定されないため2から始めている</li>
+                <li>//4: <code>i</code>が<code>num</code>より小さい間はループを繰り返す</li>
+                <li>//5: 剰余演算子<code>%</code>は、左項を右項で割った余りを求める
+                    <ol>
+                        <li>素数は、「1とその数以外で割り切れない数」なので、割って0になる、つまり<code>=== 0</code>になる数値は素数ではないと判定する</li>
+                        <li>//6: その値は<code>false</code>として<code>return</code>される</li>
+                    </ol>
+                </li>
+                <li>//7: <code>false</code>となった数値以外はすべて素数と判定されるので<code>true</code>となる</li>
+            </ol>
+        </li>
+        <li>//8: <code>do...while</code>ループ</li>
+        <li>//9:<code>isPrime()</code>関数を条件式にした<code>ifステートメント</code>
+            <ol>
+                <li>//1の<code>i</code>の数値のうち、<code>isPrime関数</code>が素数判定(<code>true</code>)した数値を条件として</li>
+                <li>//10: テンプレートリテラルでテキストとしてその数値を表示する</li>
+            </ol>
+        </li>
+        <li>//11: 500から数えるため<code>i--</code></li>
+        <li>//12: <code>i</code>が1より大きい数までループを繰り返す</li>
+        <li>//13: HTML内で<code>&lt;section&gt;</code>を<code>querySelector</code>で探す
+            <ol>
+                <li>//14:その<code>&lt;section&gt;</code>に//2の<code>para</code>を収める</li>
+                <li>こうなっているはず<code>&lt;section class=&quot;preview&quot;&gt;&lt;p&gt;(//10の数値)&lt;/p&gt;&lt;/section&gt;</code>
+                </li>
+            </ol>
+        </li>
+    </ol>
+
+    <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</body>
+
+</html>

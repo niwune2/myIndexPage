@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>2023&sol;06&sol;17&lpar;&#x30a4;&#x30d9;&#x30f3;&#x30c8;&rpar;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="20230617イベント">2023/06/17(イベント)</h1>
+<ul>
+<li><a href="#20230617%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88">2023/06/17(イベント)</a>
+<ul>
+<li><a href="#event-1">Event 1</a></li>
+<li><a href="#event-2">Event 2</a></li>
+<li><a href="#event-3">Event 3</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="event-1">Event 1</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.off&#x27;</span>);
+
+<span class="hljs-comment">// Add your code here</span>
+</code></pre>
+<h2 id="event-2">Event 2</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;canvas&#x27;</span>);
+<span class="hljs-keyword">const</span> ctx = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">drawCircle</span>(<span class="hljs-params">x, y, size</span>) {
+  ctx.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&#x27;white&#x27;</span>;
+  ctx.<span class="hljs-title function_">fillRect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, canvas.<span class="hljs-property">width</span>, canvas.<span class="hljs-property">height</span>);
+
+  ctx.<span class="hljs-title function_">beginPath</span>();
+  ctx.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&#x27;black&#x27;</span>;
+  ctx.<span class="hljs-title function_">arc</span>(x, y, size, <span class="hljs-number">0</span>, <span class="hljs-number">2</span> * <span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>);
+  ctx.<span class="hljs-title function_">fill</span>();
+}
+
+<span class="hljs-keyword">let</span> x = <span class="hljs-number">50</span>;
+<span class="hljs-keyword">let</span> y = <span class="hljs-number">50</span>;
+<span class="hljs-keyword">const</span> size = <span class="hljs-number">30</span>;
+
+<span class="hljs-title function_">drawCircle</span>(x, y, size);
+
+<span class="hljs-comment">// Add your code here</span>
+
+</code></pre>
+<h2 id="event-3">Event 3</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> buttonBar = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.button-bar&#x27;</span>);
+
+<span class="hljs-comment">// Add your code here</span>
+</code></pre>
+
+        
+        
+    </body>
+    </html>

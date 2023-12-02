@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>スキルテスト-条件文</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/Users/sakimine/Downloads/プログラミングテスト/JavaScript/個人的JSインデックス/images/javascript_icon_orange.png">
+  </head>
+
+<body class="container">
+<nav class="metho">
+  <a href="#bottoms">☆最下層へ</a><br>
+  インデックス<br>
+  <p>条件文 1</p>
+    <a href="#if-1">条件文1</a><br>
+    <a href="#memo-if-1">自分の回答</a><br>
+  <p>条件文 2</p>
+    <a href="#if-2">条件文2</a><br>
+    <a href="#memo-if-2">自分の回答</a><br>
+    <a href="#gpt-if-2">GPTの修正後</a><br>
+  <p>条件文 3</p>
+    <a href="#if-3">条件文3</a><br>
+    <a href="#memo-if-3">自分の回答</a><br>
+  <p>条件文 4</p>
+    <a href="#if-4">条件文4</a><br>
+    <a href="#memo-if-4">自分の回答</a><br>
+    <a href="#gpt-if-4">GPTの修正後</a><br>
+  <p>外部リンク</p>
+  <p>外部リンク</p>
+    <a href="method-expl.html">コードの使用例</a><br>
+    <a href="forloop.html">forループについて</a><br>
+    <a href="function.html">functionについて</a><br>
+    <a href="review3-looping-code.html">ループするコード</a><br>
+    <a href="演算子.html">演算子について</a><br>
+
+  <a href="#tops" class="toptop">To top</a><br>
+</nav>
+<!--section要素はずらさない。pre要素が干渉する-->
+<article class="content" id="tops"><h1 id="-">スキルテスト: 条件文</h1>
+  <section class="skilltest-if"><h2 id="if-1">条件文 1</h2>
+  <p>このタスクでは、2 つの変数が提供されます。</p>
+  <ul>
+  <li><code>season</code> — 現在の季節を示す文字列が格納されます。</li>
+  <li><code>response</code> — 初期化されていない状態で始まりますが、後に出力パネルに表示されるレスポンスを格納するために使用されます。</li>
+  <li>私たちは、<code>season</code> が文字列 &quot;summer&quot; を格納しているかどうかを調べる条件を作成し、</li>
+  <li>もし格納している場合は <code>response</code> に文字列を割り当てて、ユーザーに季節に関する適切なメッセージを表示させるようにしたいと考えています。</li>
+  <li>そうでない場合は、 <code>response</code> に一般的な文字列を割り当てて、ユーザーに季節が何であるかわからないことを指示しなければなりません。</li>
+  <li>最後に、<code>season</code>に &quot;winter &quot;という文字列が含まれているかどうかをチェックし、<code>response</code>に適切な文字列を割り当てるテストを追加してください。</li>
+  </ul>
+
+  <pre class="answer"><code class="lang-js">
+    <span class="hljs-keyword">let</span> season = <span class="hljs-string">'summer'</span>;
+    <span class="hljs-keyword">let</span> response;
+    
+    <span class="hljs-comment">// Add your code here</span>
+    
+    <span class="hljs-comment">// Don't edit the code below here!</span>
+    
+    <span class="hljs-keyword">const</span> section = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.preview'</span>);
+    section.innerHTML = <span class="hljs-string">' '</span>;
+    <span class="hljs-keyword">let</span> para1 = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
+    para1.textContent = response;
+    section.appendChild(para1);
+    </code></pre><br>
+    <hr>
+    <h3 id="memo-if-1">memo(自分の回答)</h3>
+    <pre class="answer"><code class="lang-js">
+      <span class="hljs-comment">// `response`は出力パネルに表示する文字列の変数</span>
+    <span class="hljs-keyword">if</span> (season === <span class="hljs-string">'summer'</span>){
+        response = <span class="hljs-string">'summer'</span>;
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (season !== <span class="hljs-string">'summer'</span>){
+        response = <span class="hljs-string">'what'</span>;
+    }
+    
+    <span class="hljs-keyword">if</span> (season !== <span class="hljs-string">'winter'</span>){
+        response = <span class="hljs-string">'winter'</span>
+    }
+    </code></pre><br>
+    <hr>
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="skilltest-if"><h2 id="if-2">条件文2</h2>
+<p>このタスクでは、3 つの変数が提供されます。</p>
+<ul>
+  <li><code>machineActive</code> — 応答装置のスイッチがオンになっているかどうかのコンテナー (<code>true</code>/<code>false</code>) が格納されます。</li>
+  <li><code>score</code> — 想像上のゲームにおけるあなたのスコアを格納します。このスコアは応答装置に供給され、あなたがどれだけうまくできたかを示すレスポンスを提供します。</li>
+  <li><code>response</code> — 初期化されていない状態で始まりますが、後に出力パネルに表示されるレスポンスを格納するために使用されます。</li>
+</ul>
+  
+<ol>
+  <li>マシンの電源が入っているかどうかを調べて、</li>
+  <li>もし入っていなければ <code>response</code> 変数にメッセージを入れて、</li>
+  <li>ユーザーにマシンの電源を入れるように指示する <code>if...else</code> 構造を作成する必要があります。</li>
+</ol>
+
+<ol>
+  <li>最初の構造の中に、もしマシンの電源が入っていれば、</li>
+  <li><code>score</code> の値に応じて適切なメッセージを <code>response</code> 変数に格納する <code>if...else if...else</code> を入れ子にしておく必要があります。異なる形のテスト(とその結果のレスポンス)は以下の通りです。</li>
+</ol>
+  
+<ul>
+  <li>点数が 0 未満または 100 を超える場合 — &quot;これは不可能です。エラーが発生しました&quot;。</li>
+  <li>0 から 19 点 — &quot;ひどい点数だ。完全に失敗だ！&quot;</li>
+  <li>20 から 39 点 — &quot;いくらか知っているようだが、かなり悪い点数だ。改善が必要だ。&quot;</li>
+  <li>40 から 69 点 — &quot;悪くない仕事をしましたね！&quot;</li>
+  <li>70 から 89 点 — &quot;素晴らしい点数だ、実によく分かっている&quot;</li>
+  <li>90 から 100 点 — &quot;すごい点数だね。カンニングしてない？本当？&quot;</li>
+</ul>
+
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">let</span> response;
+  <span class="hljs-keyword">let</span> score = <span class="hljs-number">75</span>;
+  <span class="hljs-keyword">let</span> machineActive = <span class="hljs-literal">false</span>;
+  
+  <span class="hljs-comment">// Add your code here</span>
+  
+  <span class="hljs-comment">// Don't edit the code below here!</span>
+  
+  section.innerHTML = <span class="hljs-string">' '</span>;
+  <span class="hljs-keyword">let</span> para1 = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
+  <span class="hljs-keyword">let</span> para2 = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
+  
+  para1.textContent = <span class="hljs-string">`Your score is <span class="hljs-subst">${ score }</span>`</span>;
+  para2.textContent = response;
+  
+  section.appendChild(para1);
+  section.appendChild(para2);
+  </code></pre>
+  
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="skilltest-if"><h3 id="memo-if-2">memo(自分の回答)</h3>
+<p><a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/Building_blocks/conditionals#%E5%85%A5%E3%82%8C%E5%AD%90%E3%81%AE_if_..._else">if...else</a></p>
+<pre class="answer"><code class="lang-js">
+    <span class="hljs-keyword">if</span> (machineActive === <span class="hljs-literal">false</span>){
+      response = <span class="hljs-string">'電源をいれてください'</span>;
+    }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(machineActive === <span class="hljs-literal">true</span>){
+      response = <span class="hljs-string">'電源ON'</span>;
+      <span class="hljs-keyword">if</span>(<span class="hljs-built_in">score</span> &lt; <span class="hljs-number">0</span> || <span class="hljs-built_in">score</span> &gt; <span class="hljs-number">100</span>){
+          response = <span class="hljs-string">'不可能な点数です。エラーが発生しました。'</span>;
+      }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-built_in">score</span> &lt;= <span class="hljs-number">0</span> || <span class="hljs-built_in">score</span> &gt;= <span class="hljs-number">19</span>){
+          response = <span class="hljs-string">'だらしねぇな？'</span>;
+      }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-built_in">score</span> &lt;= <span class="hljs-number">20</span> || <span class="hljs-built_in">score</span> &gt;= <span class="hljs-number">39</span>){
+          response = <span class="hljs-string">'少し知っているが、殆どだめだ。改善せぇ。'</span>;
+      }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-built_in">score</span> &lt;= <span class="hljs-number">40</span> || <span class="hljs-built_in">score</span> &gt;= <span class="hljs-number">69</span>){
+          response = <span class="hljs-string">'まあ悪くはない'</span>;
+      }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-built_in">score</span> &lt;= <span class="hljs-number">70</span> || <span class="hljs-built_in">score</span> &gt;= <span class="hljs-number">89</span>){
+          response = <span class="hljs-string">'すばらしい！よく理解できている'</span>;
+      }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-built_in">score</span> &lt;= <span class="hljs-number">90</span> || <span class="hljs-built_in">score</span> &gt;= <span class="hljs-number">100</span>){
+          response = <span class="hljs-string">'理論上の最高点。理論上は。'</span>;
+      }
+  }
+
+</code></pre>
+
+<h3 id="gpt-if-2">GPTの修正後</h3>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">if</span> (machineActive === <span class="hljs-literal">false</span>){
+      response = <span class="hljs-string">'電源をいれてください'</span>;
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (machineActive === <span class="hljs-literal">true</span>){
+      response = <span class="hljs-string">'電源ON'</span>;
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">score</span> &lt; <span class="hljs-number">0</span> || <span class="hljs-built_in">score</span> &gt; <span class="hljs-number">100</span>) {
+    response = <span class="hljs-string">"不可能な点数です。エラーが発生しました。"</span>;
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">score</span> &gt;= <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-built_in">score</span> &lt;= <span class="hljs-number">19</span>) {
+      response = <span class="hljs-string">"だらしねぇな？"</span>;
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">score</span> &gt;= <span class="hljs-number">20</span> &amp;&amp; <span class="hljs-built_in">score</span> &lt;= <span class="hljs-number">39</span>) {
+      response = <span class="hljs-string">"少し知っているが、殆どだめだ。改善せぇ。"</span>;
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">score</span> &gt;= <span class="hljs-number">40</span> &amp;&amp; <span class="hljs-built_in">score</span> &lt;= <span class="hljs-number">69</span>) {
+      response = <span class="hljs-string">"まあ悪くはない"</span>;
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">score</span> &gt;= <span class="hljs-number">70</span> &amp;&amp; <span class="hljs-built_in">score</span> &lt;= <span class="hljs-number">89</span>) {
+      response = <span class="hljs-string">"すばらしい！よく理解できている"</span>;
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">score</span> &gt;= <span class="hljs-number">90</span> &amp;&amp; <span class="hljs-built_in">score</span> &lt;= <span class="hljs-number">100</span>) {
+      response = <span class="hljs-string">"理論上の最高点。理論上は。"</span>;
+      }
+  }
+</code></pre>
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="skilltest-if"><h2 id="if-3">条件文3</h2>
+<p>このタスクでは、2 つ目のタスクで書いたコードを、内側の <code>if...else if...else</code>を書き換えて、代わりに <code>switch</code> 文を使用する必要があります。</p>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">let</span> response;
+  <span class="hljs-keyword">let</span> score = <span class="hljs-number">75</span>;
+  <span class="hljs-keyword">let</span> machineActive = <span class="hljs-literal">false</span>;
+  
+  <span class="hljs-keyword">if</span>(machineActive) {
+      <span class="hljs-comment">// Add your code here</span>
+  } <span class="hljs-keyword">else</span> {
+    response = 
+    <span class="hljs-string">'The machine is turned off. Turn it on to process your score.'</span>;
+  }
+  
+  <span class="hljs-comment">// Don't edit the code below here!</span>
+  
+  section.innerHTML = <span class="hljs-string">' '</span>;
+  <span class="hljs-keyword">let</span> para1 = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
+  <span class="hljs-keyword">let</span> para2 = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
+  
+  para1.textContent = <span class="hljs-string">`Your score is <span class="hljs-subst">${ score }</span>.`</span>;
+  para2.textContent = response;
+  
+  section.appendChild(para1);
+  section.appendChild(para2);
+  </code></pre>
+  
+  <h3 id="memo-if-3">自分の回答</h3>
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">let</span> response;
+  <span class="hljs-keyword">let</span> score = <span class="hljs-number">75</span>;
+  <span class="hljs-keyword">let</span> machineActive = <span class="hljs-literal">false</span>;
+
+  <span class="hljs-keyword">if</span>(machineActive) {
+      <span class="hljs-comment">// Add your code here</span>
+  } <span class="hljs-keyword">else</span>{
+    response = 
+    <span class="hljs-string">'機械の電源が切れています。
+      スコアを処理するために電源を入れてください。'</span>;
+  }
+  <span class="hljs-keyword">switch</span>(machineActive === <span class="hljs-literal">true</span>){
+      <span class="hljs-keyword">case</span> score &lt; <span class="hljs-number">0</span>:
+          response = <span class="hljs-string">'ありえない点数です。エラーが発生しました。'</span>;
+          <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> score &gt;= <span class="hljs-number">0</span> &amp;&amp; score &lt;= <span class="hljs-number">19</span>:
+          response = <span class="hljs-string">'だらしねぇな？'</span>;
+          <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> score &gt;= <span class="hljs-number">20</span> &amp;&amp; score &lt;= <span class="hljs-number">39</span>:
+          response = <span class="hljs-string">'少し知っているが、殆どだめだ。改善せぇ。'</span>;
+          <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> score &gt;= <span class="hljs-number">40</span> &amp;&amp; score &lt;= <span class="hljs-number">69</span>:
+          response = <span class="hljs-string">'まあ悪くはない'</span>;
+          <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> score &gt;= <span class="hljs-number">70</span> &amp;&amp; score &lt;= <span class="hljs-number">89</span>:
+          response = <span class="hljs-string">'すばらしい！よく理解できている'</span>
+          <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> score &gt;= <span class="hljs-number">90</span> &amp;&amp; score &lt;= <span class="hljs-number">99</span>:
+          response = <span class="hljs-string">'ずるしてないよね？'</span>
+          <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> score === <span class="hljs-number">100</span>:
+          response = <span class="hljs-string">'理論上の最高得点.ズルしたね？'</span>
+          <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">default</span>:
+          response = <span class="hljs-string">'不可能な点数でぇーす。エラーが発生しました。'</span>
+  }
+  <span class="hljs-comment">// Don't edit the code below here!</span>
+
+  section.innerHTML = <span class="hljs-string">' '</span>;
+  <span class="hljs-keyword">let</span> para1 = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
+  <span class="hljs-keyword">let</span> para2 = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
+
+  para1.textContent = <span class="hljs-string">`Your score is <span class="hljs-subst">${ score }</span>.`</span>;
+  para2.textContent = response;
+
+  section.appendChild(para1);
+  section.appendChild(para2);
+
+</code></pre>
+
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="skilltest-if"><h2 id="if-4">条件文 4</h2>
+<p>最後のタスクでは、4 つの変数が提供されます。</p>
+<ul>
+<li><code>machineActive</code> - ログインマシンの電源が入っているかどうかのコンテナー (<code>true/false</code>) が格納されています。</li>
+<li><code>pwd</code> - ユーザーのログインパスワードが格納されています。</li>
+<li><code>machineResult</code> - 初期化されていない状態で始まりますが、後にマシンの電源が入ったかどうかをユーザーに知らせるために、出力パネルに表示されるレスポンスを格納するために使用されます。</li>
+<li><code>pwdResult</code> - 初期化されていない状態で始まりますが、後に出力パネルに表示されるレスポンスを格納するために使用され、ログインが成功したかどうかをユーザーに知らせます。</li>
+</ul>
+
+<ol>
+  <li>マシンのスイッチがオンになっているかどうかを調べる <code>if...else</code> 構造を作成し、 </li>
+  <li><code>machineResult</code> 変数に、<em>マシンがオンになっているかオフになっているかをユーザーに指示するメッセージ</em>を格納したいと思います。</li>
+</ol>
+
+<ol>
+  <li>マシンの電源が入っている場合、2 つ目の条件も実行して、 </li>
+  <li><code>pwd</code> が <code>cheese</code> と等しいかどうかを調べます。</li>
+  <li>もしそうなら、 <code>pwdResult</code> に文字列を割り当てて、</li>
+  <li>ユーザーにログインに成功したことを指示します。</li>
+  <li>そうでない場合は、<code>pwdResult</code> に異なる形の文字列を割り当てて、</li>
+  <li>ログインに失敗したことをユーザーに指示しなければなりません。</li>
+  <li>これを単一の行で、<code>if...else</code> 構造でないものを使用してほしいと思います。</li>
+</ol>
+  
+<pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">let</span> machineActive = <span class="hljs-literal">true</span>;
+  <span class="hljs-keyword">let</span> pwd = <span class="hljs-string">'cheese'</span>;
+  
+  <span class="hljs-keyword">let</span> machineResult;
+  <span class="hljs-keyword">let</span> pwdResult;
+  
+  <span class="hljs-comment">// Add your code here</span>
+  
+  <span class="hljs-comment">// Don't edit the code below here!</span>
+  
+  section.innerHTML = <span class="hljs-string">' '</span>;
+  <span class="hljs-keyword">let</span> para1 = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
+  <span class="hljs-keyword">let</span> para2 = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
+  
+  para1.textContent = machineResult;
+  para2.textContent = pwdResult;
+  
+  section.appendChild(para1);
+  section.appendChild(para2);
+
+</code></pre>
+
+<h3 id="memo-if-4">自分の回答</h3>
+<p>(おそらく正解)</p>
+  <pre class="answer"><code class="lang-js">
+  <span class="hljs-comment">// if...elseを使ったコード</span>
+  <span class="hljs-keyword">if</span> (machineActive === <span class="hljs-literal">false</span>){
+      machineResult = <span class="hljs-string">'電源をいれてください'</span>;
+  }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (machineActive === <span class="hljs-literal">true</span>){
+      <span class="hljs-keyword">if</span>(<span class="hljs-built_in">pwd</span> === <span class="hljs-string">'cheese'</span>){
+          <span class="hljs-built_in">pwd</span>Result = <span class="hljs-string">'ログインに成功しました'</span>;
+      }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-built_in">pwd</span> !==<span class="hljs-string">'cheese'</span>){
+          <span class="hljs-built_in">pwd</span>Result = <span class="hljs-string">'ログイン失敗です'</span>
+      }
+  }
+  </code></pre><br>
+  <pre class="answer"><code class="lang-js">
+    <span class="hljs-comment">// if...elseを使わないコード</span>
+    <span class="hljs-comment">//一行で</span>
+    <span class="hljs-keyword">switch</span> (machineActive){<span class="hljs-keyword">case</span> <span class="hljs-literal">true</span>:machineResult = 
+    <span class="hljs-string">'でんげんON'</span>;<span class="hljs-keyword">switch</span>(pwd){<span class="hljs-keyword">case</span> <span class="hljs-string">'cheese'</span>:pwdResult = 
+    <span class="hljs-string">'ログインせいこうです'</span>;<span class="hljs-keyword">break</span>;<span class="hljs-keyword">default</span>:pwdResult = 
+    <span class="hljs-string">'ログインしっぱいです'</span>;<span class="hljs-keyword">break</span>;}<span class="hljs-keyword">break</span>;<span class="hljs-keyword">default</span>:machineResult = 
+    <span class="hljs-string">'でんげんをいれてください'</span>;}
+    </code></pre><br>
+  
+  <pre class="answer"><code class="lang-js">
+    <span class="hljs-comment">//改行ありで</span>
+    <span class="hljs-keyword">switch</span> (machineActive) {
+      <span class="hljs-keyword">case</span> <span class="hljs-literal">true</span>:
+        machineResult = <span class="hljs-string">'でんげんON'</span>;
+        <span class="hljs-keyword">switch</span> (pwd) {
+          <span class="hljs-keyword">case</span> <span class="hljs-string">'cheese'</span>:
+            pwdResult = <span class="hljs-string">'ログインせいこうです'</span>;
+            <span class="hljs-keyword">break</span>;
+          <span class="hljs-keyword">default</span>:
+            pwdResult = <span class="hljs-string">'ログインしっぱいです'</span>;
+            <span class="hljs-keyword">break</span>;
+        }
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">default</span>:
+        machineResult = <span class="hljs-string">'でんげんをいれてください'</span>;
+    }
+    </code></pre>
+
+    <h3 id="gpt-if-4">GPT アドバイス</h3>
+<p>おはようございます。提供されたコードにはいくつかの構文エラーがあります。以下の修正が必要です：</p>
+  <pre class="answer"><code class="lang-js">
+  <span class="hljs-keyword">switch</span> (machineActive) {
+    <span class="hljs-keyword">case</span> <span class="hljs-literal">true</span>:
+      machineResult = <span class="hljs-string">'でんげんON'</span>;
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+      machineResult = <span class="hljs-string">'でんげんをいれてください'</span>;
+  }
+  </code></pre>
+<p>修正点は次の通りです：</p>
+<ol>
+<li><code>case true</code>の後にはコロン（:）が必要です。</li>
+<li><code>case</code>節の後にはステートメント（ここでは<code>machineResult = &#39;でんげんON&#39;;</code>）が必要です。</li>
+<li><code>case</code>節の最後には必ず<code>break</code>文を追加する必要があります。</li>
+</ol>
+<p>修正を行うことで、コードが正しく動作するはずです。お気をつけてお試しください。</p>
+
+    
+</section><a href="#tops" class="toptop">To top</a>
+
+  <div id="bottoms">☆</div><!--article外だと真下に置けない-->
+</article>
+<!--
+<a href="#tops" class="toptop">To top</a>
+-->
+</body>
+</html>

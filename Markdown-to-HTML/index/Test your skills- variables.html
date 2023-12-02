@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Test your skills&colon; variables</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="test-your-skills-variables">Test your skills: variables</h1>
+<ul>
+<li><a href="#test-your-skills-variables">Test your skills: variables</a>
+<ul>
+<li><a href="#%E5%A4%89%E6%95%B01">変数1</a></li>
+<li><a href="#%E5%A4%89%E6%95%B0-2">変数 2</a></li>
+<li><a href="#%E5%A4%89%E6%95%B0-3">変数 3</a></li>
+</ul>
+</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Test_your_skills:_variables">Test your skills: variables -MDN</a></p>
+<h2 id="変数1">変数1</h2>
+<p>このタスクでは、以下のことを行ってください：</p>
+<ul>
+<li><code>myName</code>という名前の変数を宣言する。</li>
+<li><code>myName</code>を適当な値で初期化する（別の行で）（実際の名前を使うか、他のものを使うか）。</li>
+<li><code>myAge</code>という変数を宣言し、同じ行にある値で初期化する。</li>
+</ul>
+<p>以下のライブコードを更新して、完成した例を再現してみてください：</p>
+<pre><code class="language-js">
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">const</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = myName;
+<span class="hljs-keyword">const</span> para2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para2.<span class="hljs-property">textContent</span> = myAge;
+section.<span class="hljs-title function_">appendChild</span>(para1);
+section.<span class="hljs-title function_">appendChild</span>(para2);
+</code></pre>
+<hr>
+<h2 id="変数-2">変数 2</h2>
+<p>このタスクでは、既存の<code>myName</code>変数に格納されている値を自分の名前に修正するために、新しい行を追加する必要があります。</p>
+<p>以下のライブコードを更新して、完成した例を再現してみてください：</p>
+<pre><code class="language-js">
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-keyword">let</span> myName = <span class="hljs-string">&#x27;Paul&#x27;</span>;
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">const</span> para = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para.<span class="hljs-property">textContent</span> = myName;
+section.<span class="hljs-title function_">appendChild</span>(para);
+</code></pre>
+<hr>
+<h2 id="変数-3">変数 3</h2>
+<p>最後の課題です。この場合、既存のコードが提供されますが、このコードには2つのエラーがあります。結果パネルには、<code>Chris</code>という名前と、Chrisが20年後に何歳になっているかという文が出力されているはずです。この問題を解決し、出力を修正するにはどうすればよいでしょうか？</p>
+<p>以下のライブコードを更新して、完成した例を再現してみてください：</p>
+<pre><code class="language-js">
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-keyword">const</span> myName = <span class="hljs-string">&#x27;Default&#x27;</span>;
+myName = <span class="hljs-string">&#x27;Chris&#x27;</span>;
+
+<span class="hljs-keyword">let</span> myAge = <span class="hljs-string">&#x27;42&#x27;</span>;
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">const</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-keyword">const</span> para2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = myName;
+para2.<span class="hljs-property">textContent</span> = <span class="hljs-string">`In 20 years, I will be <span class="hljs-subst">${myAge + <span class="hljs-number">20</span>}</span>`</span>;
+section.<span class="hljs-title function_">appendChild</span>(para1);
+section.<span class="hljs-title function_">appendChild</span>(para2);
+</code></pre>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

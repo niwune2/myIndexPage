@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaScript math marking guide</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="javascript-math-marking-guide">JavaScript math marking guide</h1>
+<p>タスクの目的は、Learn Web Development on MDN の <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Math">Basic math in JavaScript - numbers and operators</a> レッスンでカバーされている JavaScript 機能を理解していることを示すことです。</p>
+<p>注：コードにエラーがある場合、答えを見つけるために、ページの結果パネルに出力されます（ダウンロード版の場合は、ブラウザのJavaScriptコンソールに出力されます）。</p>
+<h2 id="task-1">Task 1</h2>
+<p>このタスクでは、数値を含む4つの変数を作成する必要があります。最初の2つは足して格納する必要があり、4つ目は3つ目から引いて結果を格納する必要があります。これらの演算の2つの結果を掛け合わせて、別の結果である48を作成する必要があり、これは変数<code>finalResult</code>に格納する必要があります。</p>
+<p>最後に、この数字が偶数か奇数かをチェックする計算を書き、その結果を <code>evenOddCheck</code> に格納する必要があります。ここで必要な演算子はモジュロ(<code>%</code>)です。モジュロ2の値が0になれば、偶数であることがわかります。</p>
+<p>答えはこのようになるはずです：</p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> number1 = <span class="hljs-number">4</span>;
+<span class="hljs-keyword">const</span> number2 = <span class="hljs-number">8</span>;
+<span class="hljs-keyword">const</span> number3 = <span class="hljs-number">12</span>;
+<span class="hljs-keyword">const</span> number4 = <span class="hljs-number">8</span>;
+
+<span class="hljs-keyword">const</span> additionResult = number1 + number2;
+<span class="hljs-keyword">const</span> subtractionResult = number3 - number4;
+
+finalResult = additionResult * subtractionResult;
+
+evenOddResult = finalResult % <span class="hljs-number">2</span>;
+</code></pre>
+<p>このタスクは、変数の命名能力もテストします。変数がベストプラクティス（キャメルケースの下、説明的、長すぎない）に従った賢明な名前である場合、追加のマークが付けられます。</p>
+<h2 id="task-2">Task 2</h2>
+<p>この記事の2つ目の課題では、演算子の優先順位を考慮し、最初の2つの計算を期待通りの結果にするために括弧を使用する必要があります。</p>
+<p>次に、理想的には、乗算代入演算子を使って2つの結果を掛け合わせ、その積を <code>result</code> に代入して戻す必要があります。</p>
+<p>その後、数値で利用できる <code>toFixed()</code> メソッドを使って <code>result</code> を小数点以下2桁に丸め、その積を <code>finalResult</code> 変数に格納する必要があります。</p>
+<p>最後に、<code>typeof</code>を使って、変数に文字列が含まれているかどうかをテストすることができます。Number()<code>を使って、</code>finalResult<code>を数値型に変換する必要があります。この最終的な数値は </code>finalNumber` という変数に格納する必要がある。</p>
+<p>結果はこのような感じになるはずです：</p>
+<pre><code class="language-js"><span class="hljs-keyword">let</span> result = (<span class="hljs-number">7</span> + <span class="hljs-number">13</span>) / (<span class="hljs-number">9</span> + <span class="hljs-number">7</span>);
+<span class="hljs-keyword">let</span> result2 = <span class="hljs-number">100</span> / (<span class="hljs-number">2</span> * <span class="hljs-number">6</span>);
+
+result *= result2;
+
+<span class="hljs-keyword">const</span> finalResult = result.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">2</span>);
+
+<span class="hljs-keyword">const</span> finalNumber = <span class="hljs-title class_">Number</span>(finalResult);
+</code></pre>
+<h2 id="task-3">Task 3</h2>
+<p>この最後の課題では、比較演算子を使う能力が試されます。ここでは、数学的に問題文の記述を証明したり反証したりすることを示すテストをいくつか書く必要があります。</p>
+<p>テスト結果は、それぞれ <code>weightComparison</code>、<code>heightComparison</code>、<code>pwdMatch</code> という変数に格納する必要があります。</p>
+<p>コードは次のようになります：</p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> weightComparison = eleWeight &lt; mouseWeight;
+
+<span class="hljs-keyword">const</span> heightComparison = ostrichHeight &gt; duckHeight;
+
+<span class="hljs-keyword">const</span> pwdMatch = pwd1 === pwd2;
+</code></pre>
+
+        
+        
+    </body>
+    </html>

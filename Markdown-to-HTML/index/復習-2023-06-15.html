@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x30a2;&#x30af;&#x30c6;&#x30a3;&#x30d6;&#x5b66;&#x7fd2;&colon; &#x5358;&#x7d14;&#x306a;&#x30ab;&#x30ec;&#x30f3;&#x30c0;&#x30fc;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <ul>
+<li><a href="#%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E5%AD%A6%E7%BF%92-%E5%8D%98%E7%B4%94%E3%81%AA%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC">アクティブ学習: 単純なカレンダー</a></li>
+<li><a href="#%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E5%AD%A6%E7%BF%92-%E3%82%82%E3%81%A3%E3%81%A8%E3%81%9F%E3%81%8F%E3%81%95%E3%82%93%E3%81%AE%E8%89%B2%E3%81%8B%E3%82%89%E9%81%B8%E3%81%B6">アクティブ学習: もっとたくさんの色から選ぶ！</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC---%E8%89%B2%E9%81%B8%E3%81%B3">コードレビュー - 色選び</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9D%A1%E4%BB%B6%E6%96%871">条件文1</a></li>
+<li><a href="#%E6%9D%A1%E4%BB%B6%E6%96%872">条件文2</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC---%E6%9D%A1%E4%BB%B6%E6%96%872">コードレビュー - 条件文2</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9D%A1%E4%BB%B6%E6%96%873">条件文3</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC---%E6%9D%A1%E4%BB%B6%E6%96%873">コードレビュー - 条件文3</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9D%A1%E4%BB%B6%E6%96%874">条件文4</a>
+<ul>
+<li><a href="#%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC---%E6%9D%A1%E4%BB%B6%E6%96%874">コードレビュー - 条件文4</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/Building_blocks/conditionals">アクティブ・ラーニング</a></li>
+</ul>
+<h2 id="アクティブ学習-単純なカレンダー">アクティブ学習: 単純なカレンダー</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> select = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;select&#x27;</span>);
+<span class="hljs-keyword">const</span> list = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;ul&#x27;</span>);
+<span class="hljs-keyword">const</span> h1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;h1&#x27;</span>);
+
+select.<span class="hljs-property">onchange</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> choice = select.<span class="hljs-property">value</span>;
+
+  <span class="hljs-comment">// 条件式をここに書く</span>
+    <span class="hljs-comment">//30days(4,6,9,11) 31days(1,3,5,7,8,10,12) 28days(2)</span>
+    <span class="hljs-keyword">let</span> thOne = [<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">10</span>,<span class="hljs-number">12</span>];
+    <span class="hljs-keyword">if</span> (choice === thOne){
+
+    }
+
+  <span class="hljs-title function_">createCalendar</span>(days, choice + <span class="hljs-string">&#x27; 月&#x27;</span>);
+}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">createCalendar</span>(<span class="hljs-params">days, choice</span>) {
+  list.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27;&#x27;</span>;
+  h1.<span class="hljs-property">textContent</span> = choice;
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">1</span>; i &lt;= days; i++) {
+    <span class="hljs-keyword">const</span> listItem = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;li&#x27;</span>);
+    listItem.<span class="hljs-property">textContent</span> = i;
+    list.<span class="hljs-title function_">appendChild</span>(listItem);
+  }
+}
+<span class="hljs-title function_">createCalendar</span>(<span class="hljs-number">31</span>,<span class="hljs-string">&#x27;1 月&#x27;</span>);
+</code></pre>
+<pre><code class="language-js"><span class="hljs-comment">//答え</span>
+select.<span class="hljs-property">onchange</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {<span class="hljs-comment">//1</span>
+<span class="hljs-keyword">let</span> choice = select.<span class="hljs-property">value</span>;<span class="hljs-comment">//2</span>
+<span class="hljs-keyword">let</span> days = <span class="hljs-number">31</span>;<span class="hljs-comment">//3</span>
+<span class="hljs-keyword">if</span>(choice === <span class="hljs-string">&#x27;2&#x27;</span>) {<span class="hljs-comment">//4</span>
+days = <span class="hljs-number">28</span>;<span class="hljs-comment">//5</span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(choice === <span class="hljs-string">&#x27;4&#x27;</span> || choice === <span class="hljs-string">&#x27;6&#x27;</span> || choice === <span class="hljs-string">&#x27;9&#x27;</span>|| choice === <span class="hljs-string">&#x27;11&#x27;</span>) {<span class="hljs-comment">//5</span>
+days = <span class="hljs-number">30</span>;<span class="hljs-comment">//6</span>
+}<span class="hljs-comment">//7</span>
+<span class="hljs-title function_">createCalendar</span>(days, choice + <span class="hljs-string">&#x27; 月&#x27;</span>);<span class="hljs-comment">//8</span>
+}
+</code></pre>
+<p>###　コードレビュー - カレンダー</p>
+<ol>
+<li><code>select変数</code>は、htmlから<code>&lt;select&gt;</code>要素を取得している
+<ol>
+<li><code>onchange</code>はフォーム内の要素の内容が変更されたときに起るイベント処理のこと</li>
+<li><code>function</code> - <code>select要素</code>で月を選択したときの処理を担う</li>
+</ol>
+</li>
+<li><code>choice変数</code>は、<code>select要素</code>で選択された値を<code>value</code>で取得したものを格納している</li>
+<li><code>days変数</code>は、最大日数を格納している。
+<ol>
+<li>31日の月が最も多いため、記述量を減らすために他の月の条件のみを書けば良いようにする。</li>
+<li>30日や29日の月についての条件は<code>if文</code>に記述し、31日の月の条件は「それ以外」ということにする。</li>
+<li><code>days変数</code>は変更できるように、<code>let</code>を使う。</li>
+</ol>
+</li>
+<li>2月の条件</li>
+<li><code>days変数</code>を29にする</li>
+<li>30日の月の条件</li>
+<li><code>days変数</code> を30にする</li>
+<li>カレンダーのグラフィックを作る<code>createCalendar関数</code>に、//1からの処理を代入する</li>
+</ol>
+<h2 id="アクティブ学習-もっとたくさんの色から選ぶ">アクティブ学習: もっとたくさんの色から選ぶ！</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> select = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;select&#x27;</span>);
+<span class="hljs-keyword">const</span> html = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.output&#x27;</span>);
+
+select.<span class="hljs-property">onchange</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {<span class="hljs-comment">//0</span>
+  <span class="hljs-keyword">const</span> choice = select.<span class="hljs-property">value</span>;<span class="hljs-comment">//0</span>
+
+  <span class="hljs-comment">// ここに SWITCH ステートメントを書く</span>
+  <span class="hljs-keyword">switch</span>(choice){ <span class="hljs-comment">//1</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;white&#x27;</span>:<span class="hljs-comment">//2</span>
+        <span class="hljs-title function_">update</span>(<span class="hljs-string">&#x27;white&#x27;</span>,<span class="hljs-string">&#x27;blue&#x27;</span>);<span class="hljs-comment">//3</span>
+        <span class="hljs-keyword">break</span>;<span class="hljs-comment">//4</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;black&#x27;</span>:<span class="hljs-comment">//5</span>
+        <span class="hljs-title function_">update</span>(<span class="hljs-string">&#x27;black&#x27;</span>,<span class="hljs-string">&#x27;gray&#x27;</span>);<span class="hljs-comment">//6</span>
+        <span class="hljs-keyword">break</span>;<span class="hljs-comment">//7</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;purple&#x27;</span>:<span class="hljs-comment">//8</span>
+        <span class="hljs-title function_">update</span>(<span class="hljs-string">&#x27;purple&#x27;</span>,<span class="hljs-string">&#x27;red&#x27;</span>);<span class="hljs-comment">//9</span>
+        <span class="hljs-keyword">break</span>;<span class="hljs-comment">//10</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;yellow&#x27;</span>:<span class="hljs-comment">//11</span>
+        <span class="hljs-title function_">update</span>(<span class="hljs-string">&#x27;yellow&#x27;</span>,<span class="hljs-string">&#x27;orange&#x27;</span>);<span class="hljs-comment">//12</span>
+        <span class="hljs-keyword">break</span>;<span class="hljs-comment">//13</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;psychedelic&#x27;</span>:<span class="hljs-comment">//14</span>
+        <span class="hljs-title function_">update</span>(<span class="hljs-string">&#x27;lime&#x27;</span>,<span class="hljs-string">&#x27;purple&#x27;</span>);<span class="hljs-comment">//15</span>
+        <span class="hljs-keyword">break</span><span class="hljs-comment">//16</span>
+  }
+}
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">update</span>(<span class="hljs-params">bgColor, textColor</span>) {
+  html.<span class="hljs-property">style</span>.<span class="hljs-property">backgroundColor</span> = bgColor;
+  html.<span class="hljs-property">style</span>.<span class="hljs-property">color</span> = textColor;
+}
+</code></pre>
+<h3 id="コードレビュー---色選び">コードレビュー - 色選び</h3>
+<ol start="0">
+<li><code>choice変数</code>は、<code>select要素</code>で取得した値を格納している</li>
+<li><code>switchステートメント</code>で、<code>choice変数</code>で取得した値をもとに、それぞれ処理を行う</li>
+<li><code>white</code>を選択した場合</li>
+<li><code>update関数</code>を呼び出し、ページに色の変更を反映する。
+<ol>
+<li><code>update関数</code>は、背景色と文字色を変更するための関数</li>
+</ol>
+</li>
+<li>条件に当てはまった場合は<code>break</code>で止まり、処理が実行される。当てはまらない場合は、そのまま下の条件を探す</li>
+<li>~ 16.まで同じ</li>
+<li>いずれの値とも一致しなかった場合は<code>default</code>句の後に記述された処理を実行する。この句が不要である場合は省略可能。</li>
+</ol>
+<h2 id="条件文1">条件文1</h2>
+<pre><code class="language-js"><span class="hljs-keyword">let</span> season = <span class="hljs-string">&#x27;summer&#x27;</span>;
+<span class="hljs-keyword">let</span> response;
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">if</span> (season === <span class="hljs-string">&#x27;summer&#x27;</span>)　{
+    response = <span class="hljs-string">&#x27;夏です。&#x27;</span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(season !== <span class="hljs-string">&#x27;summer&#x27;</span>) {<span class="hljs-comment">//`else if`とするなら`(条件文)`が必要</span>
+    response = <span class="hljs-string">&#x27;今の季節はなんでしょうか？&#x27;</span>
+}
+
+<span class="hljs-keyword">if</span> (season === <span class="hljs-string">&#x27;winter&#x27;</span>){
+    response = <span class="hljs-string">&#x27;冬です。&#x27;</span>
+} <span class="hljs-keyword">else</span> {
+    response = <span class="hljs-string">&#x27;冬ではない&#x27;</span>
+} 
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+<span class="hljs-keyword">const</span> section = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.preview&#x27;</span>);
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">let</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = response;
+section.<span class="hljs-title function_">appendChild</span>(para1);
+</code></pre>
+<h2 id="条件文2">条件文2</h2>
+<pre><code class="language-js"><span class="hljs-keyword">let</span> response;
+<span class="hljs-keyword">let</span> score = <span class="hljs-number">75</span>;
+<span class="hljs-keyword">let</span> machineActive = <span class="hljs-literal">true</span>;
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">if</span> (machineActive === <span class="hljs-literal">false</span>){<span class="hljs-comment">//1</span>
+    response = <span class="hljs-string">&#x27;でんげんをいれてください&#x27;</span>;<span class="hljs-comment">//2</span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (machineActive === <span class="hljs-literal">true</span>){<span class="hljs-comment">//3</span>
+    <span class="hljs-keyword">if</span> (score &lt; <span class="hljs-number">0</span> || score &gt; <span class="hljs-number">100</span>){<span class="hljs-comment">//4</span>
+        response = <span class="hljs-string">&#x27;不可能な点数です。エラーが発生しました。&#x27;</span>;<span class="hljs-comment">//5</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(score &gt;= <span class="hljs-number">0</span> &amp;&amp; score &lt;= <span class="hljs-number">19</span>){<span class="hljs-comment">//6</span>
+        response = <span class="hljs-string">&#x27;わざとじゃなければこんな点数は出ません&#x27;</span>;<span class="hljs-comment">//7</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(score &gt;= <span class="hljs-number">20</span> &amp;&amp; score &lt;= <span class="hljs-number">39</span>){<span class="hljs-comment">//8</span>
+        response = <span class="hljs-string">&#x27;やる気出せ。参加賞だ。&#x27;</span>;<span class="hljs-comment">//9</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(score &gt;= <span class="hljs-number">40</span> &amp;&amp; score &lt;= <span class="hljs-number">69</span>){<span class="hljs-comment">//10</span>
+        response = <span class="hljs-string">&#x27;悪くはない。良くもない。&#x27;</span>;<span class="hljs-comment">//11</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(score &gt;= <span class="hljs-number">70</span> &amp;&amp; score &lt;= <span class="hljs-number">89</span>){<span class="hljs-comment">//12</span>
+        response = <span class="hljs-string">&#x27;いい点数です&#x27;</span>;<span class="hljs-comment">//13</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(score &gt;= <span class="hljs-number">90</span> &amp;&amp; score &lt;= <span class="hljs-number">100</span>){<span class="hljs-comment">//14</span>
+        response = <span class="hljs-string">&#x27;まじすげえ&#x27;</span>;<span class="hljs-comment">//15</span>
+    }}
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">let</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-keyword">let</span> para2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+
+para1.<span class="hljs-property">textContent</span> = <span class="hljs-string">`Your score is <span class="hljs-subst">${ score }</span>`</span>;
+para2.<span class="hljs-property">textContent</span> = response;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+section.<span class="hljs-title function_">appendChild</span>(para2);
+</code></pre>
+<h3 id="コードレビュー---条件文2">コードレビュー - 条件文2</h3>
+<ol>
+<li><code>ifステートメント</code> - <code>machineActive変数</code>が<code>false</code>か<code>true</code>かで処理するものを決める</li>
+<li>//2: <code>false</code>のときに表示するメッセージを<code>response変数</code>にわたす</li>
+<li>//3: <code>machineActive変数</code>が<code>true</code>であるときに処理する内容の<code>ifステートメント</code></li>
+<li>//4: <code>score</code>が<em>0より小さい</em>または(<code>||</code>)<em>100より大きい</em>という条件を記述する</li>
+<li>//5: <code>score</code>の値が//4の条件に当てはまった場合に、メッセージを<code>response</code>にわたす</li>
+<li>//6: <code>score</code>が<em>0以上</em>かつ(<code>&amp;&amp;</code>)<em>19以下</em>であるとき、という条件を記述</li>
+<li>//7: //6の条件を満たしていた場合に表示するメッセージ。</li>
+<li>//8: <code>score</code>の値が<em>20以上</em>かつ(<code>&amp;&amp;</code>)<em>39以下</em>であるとき、</li>
+<li>//9: 指定したメッセージを表示する</li>
+<li>//10:<code>score</code>の値が<em>40以上</em>かつ(<code>&amp;&amp;</code>)<em>69以下</em>であるとき、</li>
+<li>//11: 略</li>
+<li>//12: <em>70以上</em>かつ(<code>&amp;&amp;</code>)<em>89以下</em>であるとき</li>
+<li>//13: 略</li>
+<li>//14: <em>90以上</em>かつ(<code>&amp;&amp;</code>)<em>100以下</em>であるとき</li>
+<li>//15: 略</li>
+</ol>
+<h2 id="条件文3">条件文3</h2>
+<pre><code class="language-js"><span class="hljs-keyword">let</span> response;
+<span class="hljs-keyword">let</span> score = <span class="hljs-number">75</span>;
+<span class="hljs-keyword">let</span> machineActive = <span class="hljs-literal">false</span>;
+
+<span class="hljs-keyword">if</span>(machineActive) {<span class="hljs-comment">//0</span>
+	<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">switch</span>(<span class="hljs-literal">true</span>){<span class="hljs-comment">//1</span>
+    <span class="hljs-keyword">case</span> (score &lt; <span class="hljs-number">0</span> || score &gt; <span class="hljs-number">100</span>):<span class="hljs-comment">//2</span>
+        response = <span class="hljs-string">&#x27;エラーです&#x27;</span>
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> (score &gt;= <span class="hljs-number">0</span> &amp;&amp; score &lt;= <span class="hljs-number">19</span>):<span class="hljs-comment">//3</span>
+        response = <span class="hljs-string">&#x27;0以上19以下&#x27;</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> (score &gt;= <span class="hljs-number">20</span> &amp;&amp; score &lt;= <span class="hljs-number">39</span>):<span class="hljs-comment">//4</span>
+        response = <span class="hljs-string">&#x27;20以上39以下&#x27;</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> (score &gt;= <span class="hljs-number">40</span> &amp;&amp; score &lt;= <span class="hljs-number">69</span>):<span class="hljs-comment">//5</span>
+        response = <span class="hljs-string">&#x27;40以上69以下&#x27;</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> (score &gt;= <span class="hljs-number">70</span> &amp;&amp; score &lt;= <span class="hljs-number">89</span>):<span class="hljs-comment">//6</span>
+        response = <span class="hljs-string">&#x27;70以上89以下&#x27;</span>;
+        <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">case</span> (score &gt;= <span class="hljs-number">90</span> &amp;&amp; score &lt;= <span class="hljs-number">100</span>):<span class="hljs-comment">//7</span>
+        response = <span class="hljs-string">&#x27;90以上100以下&#x27;</span>
+        <span class="hljs-keyword">break</span>;
+  }
+} <span class="hljs-keyword">else</span> {<span class="hljs-comment">//8</span>
+  response = <span class="hljs-string">&#x27;スコアを計測するために、でんげんをいれてください。&#x27;</span>;
+}
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">let</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-keyword">let</span> para2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = <span class="hljs-string">`Your score is <span class="hljs-subst">${ score }</span>.`</span>;
+para2.<span class="hljs-property">textContent</span> = response;
+section.<span class="hljs-title function_">appendChild</span>(para1);
+section.<span class="hljs-title function_">appendChild</span>(para2);
+</code></pre>
+<h3 id="コードレビュー---条件文3">コードレビュー - 条件文3</h3>
+<ol start="0">
+<li>//0: <code>ifステートメント</code>で<code>machineActive</code>の条件を記述</li>
+<li>//1: <code>machineActive</code>の値が<code>true</code>であったときの条件を<code>switchステートメント</code>を記述するため引数には<code>true</code>を用いる</li>
+<li>//2: 「<code>score</code>が<em>0より小さい</em><code>OR</code>(<code>||</code>)<em>100より大きい</em>」という条件をつけるため、<code>case</code>のあとに括弧をつけて記述する</li>
+<li>//3: 以下//7まで略</li>
+<li>//8: <code>else</code>以下は<code>false</code>となった場合の処理</li>
+</ol>
+<h2 id="条件文4">条件文4</h2>
+<pre><code class="language-js"><span class="hljs-keyword">let</span> machineActive = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">let</span> pwd = <span class="hljs-string">&#x27;cheese&#x27;</span>;
+<span class="hljs-keyword">let</span> machineResult;
+<span class="hljs-keyword">let</span> pwdResult;
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">if</span>(machineActive === <span class="hljs-literal">false</span>){ <span class="hljs-comment">//1</span>
+    machineResult = <span class="hljs-string">&#x27;電源をいれてください。&#x27;</span>; <span class="hljs-comment">//2</span>
+}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(machineActive === <span class="hljs-literal">true</span>){ <span class="hljs-comment">//3</span>
+    machineResult = <span class="hljs-string">&#x27;電源はオンです。&#x27;</span>; <span class="hljs-comment">//4</span>
+    pwdResult = (pwd === <span class="hljs-string">&#x27;cheese&#x27;</span>) ? <span class="hljs-string">&#x27;ログイン成功&#x27;</span> : <span class="hljs-string">&#x27;ログイン失敗&#x27;</span>; <span class="hljs-comment">//5</span>
+}
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">let</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-keyword">let</span> para2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = machineResult;
+para2.<span class="hljs-property">textContent</span> = pwdResult;
+section.<span class="hljs-title function_">appendChild</span>(para1);
+section.<span class="hljs-title function_">appendChild</span>(para2);
+</code></pre>
+<h3 id="コードレビュー---条件文4">コードレビュー - 条件文4</h3>
+<ol>
+<li>//1: <code>machineActive</code>が<code>true</code>か<code>false</code>かに応じて処理を決める条件文</li>
+<li>//2: <code>machineResult</code>は<code>textContent</code>に表示するメッセージを格納するための変数</li>
+<li>//3: <code>machineActive</code>が<code>true</code>であったときの処理を記述する</li>
+<li>//4: <code>machineResult</code>にメッセージを格納し、表示させる</li>
+<li>//5: <a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/Building_blocks/conditionals#%E4%B8%89%E9%A0%85%E6%BC%94%E7%AE%97%E5%AD%90">三項演算子</a>を使った条件文
+<ol>
+<li>構文: <code>( 条件式 ) ? こちらのコードを実行する : 代わりにこちらのコードを実行する</code></li>
+<li>例1:<code>let greeting = ( isBirthday ) ? '誕生日おめでとうございます！' : 'おはようございます。';</code></li>
+<li>例2:<code>( select.value === 'black' ) ? update('black','white') : update('white','black');</code></li>
+<li><code>pwdResult</code>に格納させるため、<code>=</code>を書く</li>
+<li>括弧<code>()</code>内に条件式を書く</li>
+<li><code>?</code>を挟む</li>
+<li><code>true</code>の場合は右に、<code>false</code>の場合は左に記述する。間にはコロン<code>:</code>を挟む</li>
+</ol>
+</li>
+</ol>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

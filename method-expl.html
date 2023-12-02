@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>メソッドの使用例</title>
+    <link href="style.css" rel="stylesheet"type="text/css">
+    <link rel="icon" href="/Users/sakimine/Downloads/プログラミングテスト/JavaScript/個人的JSインデックス/images/javascript_icon_orange.png">
+  </head>
+
+<body class="container">
+<nav class="metho">
+  <a href="#bottoms">☆最下層へ</a><br>
+  インデックス<br>
+<p>.indexOf()</p>
+  <a href="#indexOf()">.indexOf()</a><br>
+  <a href="#indexof-0">文字列内での特定の文字列の位置を検索する</a><br>
+  <a href="#indexof-1">配列内での要素の位置を検索する</a><br>
+  <a href="#indexof-2">部分文字列の位置を検索する</a><br>
+  <a href="#indexof-3">存在しない文字列の位置を検索する</a><br>
+  <a href="#indexof-4">検索を開始する位置を指定する</a><br>
+<p>.toLowerCace()</p>
+  <a href="#toLC">.toLowerCace()</a><br>
+  <a href="#toLC-0">文字列を小文字に変換する</a><br>
+  <a href="#toLC-1">ユーザーの入力を小文字に正規化する</a><br>
+  <a href="#toLC-2">文字列が大文字・小文字を区別しない比較を行う</a><br>
+  <a href="#toLC-3">オブジェクトのプロパティ名を小文字に統一する</a><br>
+  <a href="#toLC-4">文字列内の特定の部分文字列の小文字変換</a><br>
+<p>.toLowerCase()</p>
+  <a href="#toUC">.toLowerCase()</a><br>
+  <a href="#toUC-0">文字列を大文字に変換する</a><br>
+  <a href="#toUC-1">ユーザーの入力を大文字に正規化する</a><br>
+  <a href="#toUC-2">文字列が大文字・小文字を区別しない比較を行う</a><br>
+  <a href="#toUC-3">オブジェクトのプロパティ名を大文字に統一する</a><br>
+  <a href="#toUC-4">文字列内の特定の部分文字列の大文字変換</a><br>
+<p>.slice()</p>
+  <a href="#slice">.slice()</a><br>
+  <a href="#slice-0">文字列の一部を取り出す</a><br>
+  <a href="#slice-1">配列の一部を取り出す</a><br>
+  <a href="#slice-2">文字列の後ろから一部を取り出す</a><br>
+  <a href="#slice-3">配列の後ろから一部を取り出す</a><br>
+  <a href="#slice-4">文字列をコピーする</a><br>
+  
+<p>プロパティ</p>
+  <a href="#leng">.length</a>
+
+  <p>外部リンク</p>
+    <a href="method-expl.html">コードの使用例</a><br>
+    <a href="forloop.html">forループについて</a><br>
+    <a href="function.html">functionについて</a><br>
+    <a href="review3-looping-code.html">ループするコード</a><br>
+    <a href="演算子.html">演算子について</a><br>
+
+  <p>コードレビュー</p>
+  <a href="review0.html">バカ話</a><br>
+
+  <a href="#tops" class="toptop">To top</a><br>
+</nav>
+<!--section要素はずらさない。pre要素が干渉する-->
+<article class="content" id="tops">
+<h1 id="h1-">メソッドの使用例</h1>
+
+<section class="methoexpl"><h2 id="indexof">.indexOf()</h2>
+
+<h3 id="indexof-0">文字列内での特定の文字列の位置を検索する例:</h3>
+  <pre><code class="lang-javascript">  
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"Hello, world!"</span>;
+  <span class="hljs-keyword">const</span> index = <span class="hljs-built_in">str</span>.indexOf(<span class="hljs-string">"world"</span>);
+  console.<span class="hljs-built_in">log</span>(index); <span class="hljs-comment">// Output: 7</span>
+
+</code></pre>
+
+<h3 id="indexof-1">配列内での要素の位置を検索する例:</h3>
+  <pre><code class="lang-javascript">  
+  <span class="hljs-keyword">const</span> arr = [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span>];
+  <span class="hljs-keyword">const</span> index = arr.indexOf(<span class="hljs-number">30</span>);
+  console.<span class="hljs-built_in">log</span>(index); <span class="hljs-comment">// Output: 2</span>
+
+</code></pre>
+
+<h3 id="indexof-2">部分文字列の位置を検索する例:</h3>
+  <pre><code class="lang-javascript">  
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"JavaScript is awesome!"</span>;
+  <span class="hljs-keyword">const</span> index = <span class="hljs-built_in">str</span>.indexOf(<span class="hljs-string">"is"</span>);
+  console.<span class="hljs-built_in">log</span>(index); <span class="hljs-comment">// Output: 11</span>
+
+</code></pre>
+
+<h3 id="indexof-3">存在しない文字列の位置を検索する例:</h3>
+  <pre><code class="lang-javascript">  
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"Hello, world!"</span>;
+  <span class="hljs-keyword">const</span> index = <span class="hljs-built_in">str</span>.indexOf(<span class="hljs-string">"foo"</span>);
+  console.<span class="hljs-built_in">log</span>(index); <span class="hljs-comment">// Output: -1</span>
+
+</code></pre>
+
+<h3 id="indexof-4">検索を開始する位置を指定する例:</h3>
+  <pre><code class="lang-javascript">  
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"Hello, world!"</span>;
+  <span class="hljs-keyword">const</span> index = <span class="hljs-built_in">str</span>.indexOf(<span class="hljs-string">"o"</span>, <span class="hljs-number">5</span>);
+  console.<span class="hljs-built_in">log</span>(index); <span class="hljs-comment">// Output: 7</span>
+
+</code></pre>
+
+<p> これらの例では、<code>.indexOf()</code>メソッドが文字列や配列内で特定の要素や部分文字列を検索し、最初に見つかった位置を返しています。もし見つからなかった場合は、-1が返されます。また、5番目の例では、検索を指定した位置から開始しています。</p>
+</section><a href="#tops" class="toptop">To top</a>
+<!---------->
+<section class="methoexpl"><h2 id="toLC">.toLowerCace()</h2>
+
+<h3 id="toLC-0">文字列を小文字に変換する例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"Hello, World!"</span>;
+  <span class="hljs-keyword">const</span> lowercase = <span class="hljs-built_in">str</span>.toLowerCase();
+  console.<span class="hljs-built_in">log</span>(lowercase); <span class="hljs-comment">// Output: "hello, world!"</span>
+  </code></pre>
+
+<h3 id="toLC-1">ユーザーの入力を小文字に正規化する例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> userInput = <span class="hljs-string">"OpEnAI"</span>;
+  <span class="hljs-keyword">const</span> normalizedInput = userInput.toLowerCase();
+  console.<span class="hljs-built_in">log</span>(normalizedInput); // Output: <span class="hljs-string">"openai"</span>
+  </code></pre>
+
+<h3 id="toLC-2">文字列が大文字・小文字を区別しない比較を行う例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> str1 = <span class="hljs-string">"Hello"</span>;
+  <span class="hljs-keyword">const</span> str2 = <span class="hljs-string">"hello"</span>;
+  <span class="hljs-keyword">const</span> isEqual = str1.toLowerCase() === str2.toLowerCase();
+  console.<span class="hljs-built_in">log</span>(isEqual); <span class="hljs-comment">// Output: true</span>
+  </code></pre>
+  
+<h3 id="toLC-3">オブジェクトのプロパティ名を小文字に統一する例:</h3>
+<pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> obj = {
+  Name: <span class="hljs-string">"John"</span>,
+  Age: <span class="hljs-number">25</span>,
+  Occupation: <span class="hljs-string">"Developer"</span>
+  };
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-built_in">key</span> in obj) {
+  <span class="hljs-keyword">const</span> lowercaseKey = <span class="hljs-built_in">key</span>.toLowerCase();
+  console.<span class="hljs-built_in">log</span>(lowercaseKey + <span class="hljs-string">": "</span> + obj[<span class="hljs-built_in">key</span>]);
+  }
+  <span class="hljs-comment">/* Output:
+  name: John
+  age: 25
+  occupation: Developer
+  */</span>
+  </code></pre>
+
+<h3 id="toLC-4">文字列内の特定の部分文字列の小文字変換例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"I love JavaScript!"</span>;
+  <span class="hljs-keyword">const</span> modifiedStr = <span class="hljs-built_in">str</span>.replace(<span class="hljs-string">"JavaScript"</span>, <span class="hljs-built_in">str</span>.slice(<span class="hljs-number">7</span>,
+   <span class="hljs-number">18</span>).toLowerCase());
+  console.<span class="hljs-built_in">log</span>(modifiedStr); <span class="hljs-comment">// Output: "I love javascript!"</span>
+
+</code></pre>
+
+  <p>これらの例では、<code>.toLowerCase()</code>メソッドが文字列を小文字に変換するために使用されています。文字列全体の変換や特定の部分の変換、文字列の比較など、さまざまな場面で利用されます。</p>
+</section><a href="#tops" class="toptop">To top</a>
+<!---------->
+<section class="methoexpl"><h2 id="toUC">.toUpperCase()</h2>
+<h3 id="toUC-0">文字列を大文字に変換する例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"hello, world!"</span>;
+  <span class="hljs-keyword">const</span> uppercase = <span class="hljs-built_in">str</span>.toUpperCase();
+  console.<span class="hljs-built_in">log</span>(uppercase); <span class="hljs-comment">// Output: "HELLO, WORLD!"</span>
+  </code></pre>
+
+<h3 id="toUC-1">ユーザーの入力を大文字に正規化する例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> userInput = <span class="hljs-string">"openai"</span>;
+  <span class="hljs-keyword">const</span> normalizedInput = userInput.toUpperCase();
+  console.<span class="hljs-built_in">log</span>(normalizedInput); <span class="hljs-comment">// Output:"OPENAI"</span>
+  </code></pre>
+
+<h3 id="toUC-2">文字列が大文字・小文字を区別しない比較を行う例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> str1 = <span class="hljs-string">"HELLO"</span>;
+  <span class="hljs-keyword">const</span> str2 = <span class="hljs-string">"hello"</span>;
+  <span class="hljs-keyword">const</span> isEqual = str1.toUpperCase() === str2.toUpperCase();
+  console.<span class="hljs-built_in">log</span>(isEqual); <span class="hljs-comment">// Output: true</span>
+  </code></pre>
+
+<h3 id="toUC-3">オブジェクトのプロパティ名を大文字に統一する例:</h3>
+<pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> obj = {
+  name: <span class="hljs-string">"John"</span>,
+  age: <span class="hljs-number">25</span>,
+  occupation: <span class="hljs-string">"Developer"</span>
+  };
+  
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-built_in">key</span> in obj) {
+  <span class="hljs-keyword">const</span> uppercaseKey = <span class="hljs-built_in">key</span>.toUpperCase();
+  console.<span class="hljs-built_in">log</span>(uppercaseKey + <span class="hljs-string">": "</span> + obj[<span class="hljs-built_in">key</span>]);
+  }
+  <span class="hljs-comment">/* Output:
+  NAME: John
+  AGE: 25
+  OCCUPATION: Developer
+  */</span>
+  </code></pre>
+
+<h3 id="toUC-4">文字列内の特定の部分文字列の大文字変換例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"I love javascript!"</span>;
+  <span class="hljs-keyword">const</span> modifiedStr = <span class="hljs-built_in">str</span>.replace(<span class="hljs-string">"javascript"</span>, 
+    <span class="hljs-built_in">str</span>.slice(<span class="hljs-number">7</span>, <span class="hljs-number">18</span>).toUpperCase());
+  console.<span class="hljs-built_in">log</span>(modifiedStr); <span class="hljs-comment">// Output: "I love JAVASCRIPT!"</span>
+  </code></pre>
+  <p>これらの例では、<code>.toUpperCase()</code>メソッドが文字列を大文字に変換するために使用されています。文字列全体の変換や特定の部分の変換、文字列の比較など、さまざまな場面で活用できます。</p>
+<p>これらの例を参考にして、<code>.toUpperCase()</code>メソッドの使い方を復習してみてください。</p>  
+</section><a href="#tops" class="toptop">To top</a>
+<!---------->
+<section class="methoexpl"><h2 id="slice">.slice()</h2>
+<h3 id="slice-0">文字列の一部を取り出す例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"Hello, world!"</span>;
+  <span class="hljs-keyword">const</span> sliced = <span class="hljs-built_in">str</span>.slice(<span class="hljs-number">7</span>, <span class="hljs-number">12</span>);
+  console.<span class="hljs-built_in">log</span>(sliced); <span class="hljs-comment">// Output: "world"</span>
+  </code></pre>
+
+<h3 id="slice-1">配列の一部を取り出す例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span><span class="hljs-built_in"> array </span>= [1, 2, 3, 4, 5];
+  <span class="hljs-keyword">const</span>sliced = array.slice(2, 4);
+  console.<span class="hljs-built_in">log</span>(sliced); <span class="hljs-comment">// Output: [3, 4]</span>
+  </code></pre>
+
+<h3 id="slice-2">文字列の後ろから一部を取り出す例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"Hello, world!"</span>;
+  <span class="hljs-keyword">const</span> sliced = <span class="hljs-built_in">str</span>.slice(<span class="hljs-number">-6</span>);
+  console.<span class="hljs-built_in">log</span>(sliced); <span class="hljs-comment">// Output: "world!"</span>
+  </code></pre>
+
+<h3 id="slice-3">配列の後ろから一部を取り出す例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span><span class="hljs-built_in"> array </span>= [1, 2, 3, 4, 5];
+  <span class="hljs-keyword">const</span> sliced = array.slice(-3);
+  console.<span class="hljs-built_in">log</span>(sliced); <span class="hljs-comment">// Output: [3, 4, 5]</span>
+  </code></pre>
+
+<h3 id="slice-4">文字列をコピーする例:</h3>
+  <pre><code class="lang-javascript">
+  <span class="hljs-keyword">const</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"Hello, world!"</span>;
+  <span class="hljs-keyword">const</span> copied = <span class="hljs-built_in">str</span>.slice();
+  console.<span class="hljs-built_in">log</span>(copied); <span class="hljs-comment">// Output: "Hello, world!"</span>
+  </code></pre>
+  <p>これらの例では、<code>.slice()</code>メソッドが文字列や配列の一部を取り出すために使用されています。指定した範囲の要素を取得したり、後ろからの部分取得、オブジェクトのコピーなど、さまざまな用途で使えます。</p>
+</section><a href="#tops" class="toptop">To top</a>
+<!---------->
+
+<div id="bottoms">☆</div><!--article外だと真下に置けない-->
+</article>
+<a href="#tops" class="toptop">To top</a>
+</body>
+</html>

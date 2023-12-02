@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>forループ</title>
+    <link href="style.css" rel="stylesheet"type="text/css">
+    <link rel="icon" href="/Users/sakimine/Downloads/プログラミングテスト/JavaScript/個人的JSインデックス/images/javascript_icon_orange.png">
+  </head>
+
+<body class="container">
+<nav class="metho">
+  <a href="#bottoms">☆最下層へ</a><br>
+  インデックス<br>
+  <p>ループ</p>
+    <a href="#forloop">forループの基本</a><br>
+    <a href="#for...in">for...in</a><br>
+    <a href="#for...of">for...of</a><br>
+  <p>使用例</p>
+    <a href="#expl0">使用例1</a><br>
+  <p>外部リンク</p>
+    <a href="index.html">個人的JSインデックス</a><br>
+    <a href="method-expl.html">コードの使用例</a><br>
+    <a href="function.html">functionについて</a><br>
+    <a href="演算子.html">演算子について</a><br>
+    <p>コードレビュー</p>
+    <a href="review0.html">バカ話</a><br>
+  
+  <a href="#tops" class="toptop">To top</a><br>
+</nav>
+<!--section要素はずらさない。pre要素が干渉する-->
+<article class="content" id="tops">
+  <h1>forループ</h1>
+
+  <section class="loops" id="forloop"><h2>forループの基本</h2>
+    <p class="codes">for (初期化式; 条件式; 更新式) {<br>
+        // 繰り返し実行する処理 }</p>
+      <p>forループはプログラムで反復処理を行うための制御構造の一つです。特定の条件の下で同じ処理を繰り返し実行することができます。</p>
+      <h3>構文の解説</h3>
+      <ol>
+        <li>初期化式: ループの最初に一度だけ実行される式です。通常は変数の初期化やカウンターの設定などが行われます。</li>
+        <li>条件式: 各反復の前に評価される式です。条件が真（true）の場合、ループのブロック内の処理が実行されます。条件が偽（false）の場合、ループは終了します。</li>
+        <li>更新式: 各反復の最後に実行される式です。通常はカウンターの値の更新や変数の変化などが行われます。</li>
+        <li>ループのブロック内の処理: ループ内で実行される処理を記述します。この部分が繰り返し実行されます。</li>
+      </ol>
+      <p>例として、1から10までの数値をコンソールに出力するforループのコードを示します:</p>
+    <pre class="answer">
+        
+        <code class=lefter>for</code> (let i = 1; i <= 10; i++) {
+            <code class=consoles>console</code>.log(i);
+          }
+    </pre>
+    <p>この例では、let i = 1で変数iを初期化し、i &lt;= 10という条件式で繰り返しの条件を設定しています。ループのブロック内ではconsole.log(i)が実行され、変数iの値がコンソールに出力されます。最後にi++によってiの値が1ずつ増加します。</p>
+    <h3>具体的な使用例</h3>
+    <h4>1. 配列の要素を処理する場合:</h4>
+    <pre class="answer">
+
+        <code class=lefter>const</code> numbers = <code class=arrays>[1, 2, 3, 4, 5]</code>;
+
+        <code class=lefter>for</code> (let i = 0; i < numbers.length; i++) {
+        <code class=consoles>console</code>.log(numbers[i]);
+        }
+    </pre>
+    <p>この例では、配列numbersの要素を順番に処理して、それぞれの要素をコンソールに出力しています。<br>`i`はループ変数で、0から始まり、numbers配列の長さ未満の値である限りループが続きます。ループの各反復で、配列の要素にアクセスするためにnumbers[i]を使用しています。</p>
+    <h4>2. オブジェクトのプロパティを処理する場合:</h4>
+    <pre class="answer">
+
+        <code class=lefter>const</code> person = {
+            name: <code class=strings>'John'</code>,
+            age: <code class=strings>30</code>,
+            gender: <code class=strings>'male'</code>
+          };
+          
+          <code class=lefter>for</code> (let key in person) {
+            <code class=consoles>console</code>.log(key + ': ' + person[key]);
+          }
+    </pre>
+    <p>この例では、オブジェクトpersonのプロパティを順番に処理して、プロパティ名とその値をコンソールに出力しています。<br>
+    keyはループ変数で、personオブジェクトの各プロパティ名が代入されます。ループのブロック内では、person[key]を使ってプロパティの値にアクセスしています。</p>
+
+    <h4>3. 固定回数の繰り返し処理の場合:</h4>
+    <pre class="answer">
+
+        <code class=lefter>for</code> (let i = 0; i < 5; i++) {
+            <code class=consoles>console</code>.log(<code class=strings>'Hello'</code>);
+          }
+    </pre>
+    <p>この例では、`5`回の繰り返し処理を行い、`Hello`という文字列をコンソールに出力しています。ループ変数`i`は`0`から始まり、`5`未満の値である限りループが続きます。</p>
+
+    <p>これらは一部の例ですが、`forループ`はデータの集合を反復処理したり、特定の回数の繰り返し処理を行う場合に頻繁に使用されます。制御の流れを明確に表現し、繰り返し処理を効率的に行うことができます。</p>
+    <a href="#tops" class="toptop">To top</a></section>
+
+  <section class="loops" id="forin"><h2>for...in</h2>
+    <p class="codes">for (let key in object) {<br>
+        // キーに対する処理 }</p>
+    <p>for...inループは、オブジェクトのプロパティを反復処理するためのループです。<br>for...inループでは、オブジェクトのキー（プロパティ名）を順番に取得して処理を行うことができます。</p>
+    <h3>構文の解説</h3>
+        <ol>
+            <li>key: オブジェクトのプロパティ名が代入される変数です。ループの各反復で異なるプロパティ名が代入されます。</li>
+            <li>object: 反復処理するオブジェクトです。</li>
+        </ol>
+    <p>例として、以下のようなオブジェクトがあるとします:</p>
+    <pre class="answer">
+
+        <code class=lefter>const</code> person = {
+          name: <code class=strings>'John'</code>,
+          age: <code class=strings>30</code>,
+          gender: <code class=strings>'male'</code>
+        };
+    </pre>
+    <p>この場合、for...inループを使ってpersonオブジェクトのプロパティを反復処理するコードは以下のようになります:</p>
+    <pre class="answer">
+
+        <code class=lefter>for</code> (let key in person) {
+            <code class=consoles>console</code>.log(key + ': ' + person[key]);
+            }
+    </pre>
+    <p>このループでは、各反復で変数keyにオブジェクトpersonのプロパティ名が代入されます。ループのブロック内では、person[key]を使ってプロパティの値にアクセスし、コンソールに出力しています。<br>出力結果は以下のようになります:</p>
+    <pre class="answer">
+
+        name: John
+        age: 30
+        gender: male
+    </pre>
+    <p>注意点として、for...inループはオブジェクトのプロパティを反復処理するために使用されることが一般的です。配列の反復処理にはforループやArray.forEachメソッドを使用するのが適しています。</p>
+    <p>for...inループの使用時には、オブジェクトが継承したプロパティも反復されることに注意してください。また、反復の順序は一定ではないため、プロパティの順番に依存した処理には使わない方が良いでしょう。</p>
+    <h3>for...inループの具体例</h3>
+    <h4>1. オブジェクトのプロパティを表示する場合:</h4>
+    <pre class="answer">
+
+        <code class=lefter>const</code> person = {
+          name: <code class=strings>'John'</code>,
+          age: <code class=strings>30</code>,
+          gender: <code class=strings>'male'</code>
+        };
+          
+          <code class=lefter>for</code> (let key in person) {
+            <code class=consoles>console</code>.log(key + ': ' + person[key]);
+          }
+    </pre>
+    <p>この例では、オブジェクトpersonのプロパティを順番に処理して、プロパティ名とその値をコンソールに出力しています。keyはループ変数で、personオブジェクトの各プロパティ名が代入されます。ループのブロック内では、person[key]を使ってプロパティの値にアクセスしています。</p>
+    <h4>2. オブジェクトのプロパティを合計する場合:</h4>
+    <pre class="answer">
+
+        <code class=lefter>const</code> sales = {
+            product1: 100,
+            product2: 200,
+            product3: 150,
+            product4: 300
+          };
+          
+          let total = 0;
+          
+          <code class=lefter>for</code> (let key in sales) {
+            total += sales[key];
+          }
+          
+          <code class=consoles>console</code>.log('Total sales: ' + total);
+    </pre>
+    <p>この例では、オブジェクトsalesの各プロパティの値を合計しています。ループの各反復で、sales[key]を使ってプロパティの値にアクセスし、それをtotal変数に加算しています。</p>
+    <h4>3. オブジェクトのプロパティに対して処理を行う場合:</h4>
+    <pre class="answer">
+
+        <code class=lefter>const</code> person = {
+          name: <code class=strings>'John'</code>,
+          age: <code class=strings>30</code>,
+          gender: <code class=strings>'male'</code>
+        };
+          
+          <code class=lefter>for</code> (let key in person) {
+            if (typeof person[key] === 'string') {
+              <code class=consoles>console</code>.log('String property: ' + person[key]);
+            }
+          }
+    </pre>
+    <p>この例では、オブジェクトpersonの各プロパティに対して処理を行っています。ループのブロック内では、typeof演算子を使ってプロパティの型をチェックし、文字列であればコンソールに出力しています。</p>
+    <p>これらは一部の例ですが、for...inループはオブジェクトのプロパティに対して反復処理を行う際に便利です。ただし、配列の反復処理にはfor...inループではなく、for...ofループが適しています。</p>
+    <a href="#tops" class="toptop">To top</a></section>
+
+  <section class="loops" id="forof"><h2>for...of</h2>
+    <p class="codes">for (let element of iterable) {<br>
+        // 要素に対する処理 }</p>
+    <p>for...ofループは、配列やイテラブルオブジェクトの要素を反復処理するためのループです。for...ofループは、反復可能なオブジェクトの要素を直接取り出して利用するため、よりシンプルな記述が可能です。</p>
+    <h3>構文の解説</h3>
+    <ol>
+        <li>element: 反復処理中の各要素が代入される変数名です。</li>
+        <li>iterable: 反復可能なオブジェクト（配列や文字列など）です。</li>
+    </ol>
+    <h4>具体例1: 配列の要素を表示する場合</h4>
+    <pre class="answer">
+
+        <code class=lefter>const</code> numbers = <code class=arrays>[1, 2, 3, 4, 5]</code>;
+
+        <code class=lefter>for</code> (let num of numbers) {
+        <code class=consoles>console</code>.log(num);
+        }
+
+    </pre>
+    <p>この例では、配列numbersの要素を順番に処理して、各要素をコンソールに表示しています。</p>
+    <h4>具体例2: 文字列の文字を表示する場合</h4>
+    <pre class="answer">
+
+        <code class=lefter>const</code> message = <code class=strings>'Hello'</code>;
+
+        <code class=lefter>for</code> (let char of message) {
+        <code class=consoles>console</code>.log(char);
+        }
+
+    </pre>
+    <p>この例では、文字列messageの各文字を順番に処理して、各文字をコンソールに表示しています。</p>
+    <p>for...ofループは、配列や文字列などの反復可能なオブジェクトを簡潔に反復処理するための方法です。ループ内で取得した要素を直接利用する場合に便利です。</p>
+    <p>ただし、for...ofループは反復可能なオブジェクトに対してのみ使用できます。オブジェクトのプロパティを反復処理する場合は、for...inループを使用する必要があります。</p>
+    <h3>for...ofループの具体例</h3>
+    <h4>例1: 配列の要素を合計する</h4>
+    <pre class="answer">
+
+        <code class=lefter>const</code> numbers = <code class=arrays>[1, 2, 3, 4, 5]</code>;
+        let sum = 0;
+
+        <code class=lefter>for</code> (let num of numbers) {
+        sum += num;
+        }
+
+        <code class=consoles>console</code>.log(sum); // 出力: 15
+
+    </pre>
+    <p>この例では、配列numbersの要素を合計しています。for...ofループを使用して配列の要素にアクセスし、それぞれの要素をsumに加算しています。</p>
+    <h4>例2: 文字列の文字数をカウントする</h4>
+    <pre class="answer">
+        <code class=lefter>const</code> message = 'Hello, world!';
+        let count = 0;
+
+        <code class=lefter>for</code> (let char of message) {
+        count++;
+        }
+
+        <code class=consoles>console</code>.log(count); <code class=comout>// 出力: 13</code>
+    </pre>
+    <p>この例では、文字列messageの文字数をカウントしています。for...ofループを使用して文字列の各文字にアクセスし、カウントを増やしています。</p>
+    <h4>例3: Mapの要素を処理する</h4>
+    <pre class="answer">
+
+        <code class=lefter>const</code> map = new Map();
+        map.set(<code class=strings>'name', 'John'</code>);
+        map.set(<code class=strings>'age', 30</code>);
+        map.set(<code class=strings>'city', 'Tokyo'</code>);
+
+        <code class=lefter>for</code> (let <code class=arrays>[key, value]</code> of map) {
+        <code class=consoles>console</code>.log(key, value);
+        }
+    </pre>
+    <p>この例では、Mapオブジェクトの要素を処理しています。for...ofループを使用して、Mapの各エントリーをキーと値のペアとして取得しています。</p>
+    <p>これらの例は、for...ofループの基本的な使用方法を示しています。配列や文字列、反復可能なオブジェクトを効果的に処理するために、for...ofループを活用することができます。</p>
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="loops" id="expl0"><h2>使用例1</h2>
+    <pre class="answer">
+
+    index = myArray.pop();
+    myArray.push(<code class=strings>"Mario" , "Luigi"</code>); <code class=comout>//myArrayにpushする</code>
+
+    <code class=lefter>for</code> (let i = 0; i < myArray.length; i++){
+    myArray[i] = myArray[i] + '('+i+')';
+    }
+
+    myString = myArray.join(<code class=strings>'-'</code>);
+    <code class=comout>//Ryu(0)-Ken(1)-Chun-Li(2)-Cammy(3)
+    -Guile(4)-Sakura(5)-Sagat(6)-Mario(7)-Luigi(8)</code>
+    </pre>
+    <a href="#tops" class="toptop">To top</a></section>
+    <!--テンプレート
+
+    <section class="metho2" id="***"><h2>***</h2>
+  <p class="codes">***</p>
+  <p></p>
+  <p></p>
+  <p></p>
+
+  <p class="ul1">構文の解説</p>
+    <li>str : 対象の文字列</li>
+    <li></li>
+    <li></li>
+
+  <p class="ul1">***の動作について</p>
+    <ol>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+
+<pre class="answer">
+***
+</pre><br>
+<a href="#tops" class="toptop">To top</a></section>
+
+    -->
+    <div id="bottoms">☆</div><!--article外だと真下に置けない-->
+
+</article>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>GPT&#x30a2;&#x30c9;&#x30d0;&#x30a4;&#x30b9;-&#x30ad;&#x30fc;&#x30dc;&#x30fc;&#x30c9;&#x5165;&#x529b;&#x306b;&#x95a2;&#x3059;&#x308b;&#x30a4;&#x30d9;&#x30f3;&#x30c8;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="gptアドバイス-キーボード入力に関するイベント">GPTアドバイス-キーボード入力に関するイベント</h1>
+<p>キーボード入力に関連する主なイベントは以下の通りです。</p>
+<ol>
+<li><code>keydown</code>: キーボードのキーが押された瞬間に発生します。</li>
+<li><code>keyup</code>: キーボードのキーが離された瞬間に発生します。</li>
+<li><code>keypress</code>: 文字が入力された瞬間に発生します（非推奨となっています）。</li>
+</ol>
+<p>これらのイベントは、特定のキーに対してリスナーを登録して、キーの押下や離上時に関数を実行することができます。たとえば、<code>W``A``S``D</code>キーに反応して特定の処理を実行する場合、<code>keydown</code>イベントを使用してキーを監視し、該当するキーが押された場合に処理を実行します。</p>
+<p>以下に、<code>W``A``S``D</code>キーに反応してイベントを処理する例を示します。</p>
+<pre><code class="language-js"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;keydown&#x27;</span>, handleKeyDown);
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">handleKeyDown</span>(<span class="hljs-params">event</span>) {
+  <span class="hljs-keyword">if</span> (event.<span class="hljs-property">key</span> === <span class="hljs-string">&#x27;w&#x27;</span>) {
+    <span class="hljs-comment">// &#x27;W&#x27;キーが押された場合の処理</span>
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;W key pressed&#x27;</span>);
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (event.<span class="hljs-property">key</span> === <span class="hljs-string">&#x27;a&#x27;</span>) {
+    <span class="hljs-comment">// &#x27;A&#x27;キーが押された場合の処理</span>
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;A key pressed&#x27;</span>);
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (event.<span class="hljs-property">key</span> === <span class="hljs-string">&#x27;s&#x27;</span>) {
+    <span class="hljs-comment">// &#x27;S&#x27;キーが押された場合の処理</span>
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;S key pressed&#x27;</span>);
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (event.<span class="hljs-property">key</span> === <span class="hljs-string">&#x27;d&#x27;</span>) {
+    <span class="hljs-comment">// &#x27;D&#x27;キーが押された場合の処理</span>
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;D key pressed&#x27;</span>);
+  }
+}
+</code></pre>
+<p>上記のコードでは、<code>keydown</code>イベントを監視し、<code>event.key</code>プロパティを使用して押されたキーを判定しています。それぞれのキーに対して処理を記述することで、キーボード入力に反応するイベントハンドラを作成することができます。</p>
+
+        
+        
+    </body>
+    </html>

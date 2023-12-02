@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x914d;&#x5217;&#x3000;&#x30a2;&#x30af;&#x30c6;&#x30a3;&#x30d6;&#x30e9;&#x30fc;&#x30cb;&#x30f3;&#x30b0;&colon; &#x5546;&#x54c1;&#x3092;&#x5370;&#x5b57;&#x3057;&#x3088;&#x3046;&#xff01;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h2 id="配列アクティブラーニング-商品を印字しよう">配列　アクティブラーニング: 商品を印字しよう！</h2>
+<p><a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Arrays">配列</a></p>
+<ul>
+<li><a href="#%E9%85%8D%E5%88%97%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0-%E5%95%86%E5%93%81%E3%82%92%E5%8D%B0%E5%AD%97%E3%81%97%E3%82%88%E3%81%86">配列　アクティブラーニング: 商品を印字しよう！</a></li>
+<li><a href="#%E9%85%8D%E5%88%97%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0-%E4%B8%8A%E4%BD%8D-5-%E4%BB%B6%E3%81%AE%E6%A4%9C%E7%B4%A2">配列　アクティブラーニング: 上位 5 件の検索</a></li>
+<li><a href="#%E3%82%B9%E3%82%AD%E3%83%AB%E3%83%86%E3%82%B9%E3%83%881">スキルテスト1</a></li>
+<li><a href="#%E3%82%B9%E3%82%AD%E3%83%AB%E3%83%86%E3%82%B9%E3%83%882">スキルテスト2</a></li>
+<li><a href="#%E3%82%B9%E3%82%AD%E3%83%AB%E3%83%86%E3%82%B9%E3%83%883">スキルテスト3</a></li>
+<li><a href="#%E3%82%B9%E3%82%AD%E3%83%AB%E3%83%86%E3%82%B9%E3%83%884">スキルテスト4</a></li>
+</ul>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> list = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.output ul&#x27;</span>);
+<span class="hljs-keyword">const</span> totalBox = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.output p&#x27;</span>);
+<span class="hljs-keyword">let</span> total = <span class="hljs-number">0</span>;
+list.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27;&#x27;</span>;
+totalBox.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;&#x27;</span>;
+<span class="hljs-comment">// No.1</span>
+
+<span class="hljs-keyword">let</span> products = [<span class="hljs-string">&#x27;パンツ:6.99&#x27;</span>,<span class="hljs-string">&#x27;靴下:5.99&#x27;</span>,<span class="hljs-string">&#x27;T シャツ:14.99&#x27;</span>,<span class="hljs-string">&#x27;ズボン:31.99&#x27;</span>,<span class="hljs-string">&#x27;靴:23.99&#x27;</span>];<span class="hljs-comment">//セミコロンは外に出す</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; products.<span class="hljs-property">length</span>; i++) {
+<span class="hljs-keyword">let</span> subArray = products[i].<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;:&#x27;</span>);
+<span class="hljs-keyword">let</span> name = subArray[<span class="hljs-number">0</span>];
+<span class="hljs-keyword">let</span> price = <span class="hljs-title class_">Number</span>(subArray[<span class="hljs-number">1</span>]);
+total += price;
+<span class="hljs-keyword">let</span> itemText = <span class="hljs-number">0</span>;
+itemText = name +<span class="hljs-string">&#x27;- $&#x27;</span>+ price;
+
+  <span class="hljs-keyword">const</span> listItem = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;li&#x27;</span>);
+  listItem.<span class="hljs-property">textContent</span> = itemText;
+  list.<span class="hljs-title function_">appendChild</span>(listItem);
+}
+totalBox.<span class="hljs-property">textContent</span> = <span class="hljs-string">&#x27;合計: $&#x27;</span> + total.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">2</span>);
+</code></pre>
+<h2 id="配列アクティブラーニング-上位-5-件の検索">配列　アクティブラーニング: 上位 5 件の検索</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> list = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.output ul&#x27;</span>);
+<span class="hljs-keyword">const</span> searchInput = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.output input&#x27;</span>);
+<span class="hljs-keyword">const</span> searchBtn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.output button&#x27;</span>);
+
+list.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27;&#x27;</span>;
+
+<span class="hljs-keyword">let</span> myHistory = [];
+
+searchBtn.<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">if</span> (searchInput.<span class="hljs-property">value</span> !== <span class="hljs-string">&#x27;&#x27;</span>) {
+    myHistory.<span class="hljs-title function_">unshift</span>(searchInput.<span class="hljs-property">value</span>);
+    <span class="hljs-comment">//`searchInput.value`はメソッドの引数に</span>
+
+    list.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27;&#x27;</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; myHistory.<span class="hljs-property">length</span>; i++) {
+      itemText = myHistory[i];
+      <span class="hljs-keyword">const</span> listItem = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;li&#x27;</span>);
+      listItem.<span class="hljs-property">textContent</span> = itemText;
+      list.<span class="hljs-title function_">appendChild</span>(listItem);
+    }
+
+    <span class="hljs-keyword">if</span> (myHistory.<span class="hljs-property">length</span> &gt;= <span class="hljs-number">5</span>) {
+    myHistory.<span class="hljs-title function_">pop</span>()
+    }
+
+    searchInput.<span class="hljs-property">value</span> = <span class="hljs-string">&#x27;&#x27;</span>;
+    searchInput.<span class="hljs-title function_">focus</span>();
+  }
+}
+</code></pre>
+<h2 id="スキルテスト1">スキルテスト1</h2>
+<pre><code class="language-js"><span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">let</span> myArray = [<span class="hljs-string">&#x27;いぬ&#x27;</span>,<span class="hljs-string">&#x27;ねこ&#x27;</span>,<span class="hljs-string">&#x27;うさぎ&#x27;</span>];
+myArray[<span class="hljs-number">0</span>] = <span class="hljs-string">&#x27;かに&#x27;</span>;
+myArray[<span class="hljs-number">1</span>] = <span class="hljs-string">&#x27;うし&#x27;</span>;
+myArray.<span class="hljs-title function_">unshift</span>(<span class="hljs-string">&#x27;へび&#x27;</span>);
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">let</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = <span class="hljs-string">`Array: <span class="hljs-subst">${ myArray }</span>`</span>;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+</code></pre>
+<h2 id="スキルテスト2">スキルテスト2</h2>
+<pre><code class="language-js"><span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">let</span> myString = <span class="hljs-string">&#x27;Ryu+Ken+Chun-Li+Cammy+Guile+Sakura+Sagat+Juri&#x27;</span>;
+<span class="hljs-keyword">let</span> myArray =myString.<span class="hljs-title function_">split</span>(<span class="hljs-string">&#x27;+&#x27;</span>);
+<span class="hljs-keyword">let</span> arrayLength = myArray.<span class="hljs-property">length</span>;
+<span class="hljs-keyword">let</span> lastItem = myArray.<span class="hljs-title function_">pop</span>();
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">let</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = <span class="hljs-string">`Array: <span class="hljs-subst">${ myArray }</span>`</span>;
+
+<span class="hljs-keyword">let</span> para2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para2.<span class="hljs-property">textContent</span> = <span class="hljs-string">`The length of the array is <span class="hljs-subst">${ arrayLength }</span>.`</span>;
+
+<span class="hljs-keyword">let</span> para3 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para3.<span class="hljs-property">textContent</span> = <span class="hljs-string">`The last item in the array is &quot;<span class="hljs-subst">${ lastItem }</span>&quot;.`</span>;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+section.<span class="hljs-title function_">appendChild</span>(para2);
+section.<span class="hljs-title function_">appendChild</span>(para3);
+</code></pre>
+<h2 id="スキルテスト3">スキルテスト3</h2>
+<pre><code class="language-js"><span class="hljs-keyword">let</span> myArray = [ <span class="hljs-string">&quot;Ryu&quot;</span>, <span class="hljs-string">&quot;Ken&quot;</span>, <span class="hljs-string">&quot;Chun-Li&quot;</span>, <span class="hljs-string">&quot;Cammy&quot;</span>, <span class="hljs-string">&quot;Guile&quot;</span>, <span class="hljs-string">&quot;Sakura&quot;</span>, <span class="hljs-string">&quot;Sagat&quot;</span>, <span class="hljs-string">&quot;Juri&quot;</span> ];
+<span class="hljs-comment">// Add your code here</span>
+myArray.<span class="hljs-title function_">pop</span>();
+myArray.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;Mario&#x27;</span>,<span class="hljs-string">&#x27;Luigi&#x27;</span>);
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; myArray.<span class="hljs-property">length</span>; i++){
+    myArray[i]= myArray[i] + <span class="hljs-string">&#x27;(&#x27;</span> +[i]+ <span class="hljs-string">&#x27;)&#x27;</span>;
+}
+<span class="hljs-keyword">let</span> myString = myArray.<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;-&#x27;</span>)
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+
+<span class="hljs-keyword">let</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = myString;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+</code></pre>
+<pre><code class="language-js">myArray.<span class="hljs-title function_">pop</span>();
+myArray.<span class="hljs-title function_">push</span>(<span class="hljs-string">&#x27;Mario&#x27;</span>,<span class="hljs-string">&#x27;Luigi&#x27;</span>);
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> i <span class="hljs-keyword">of</span> myArray){ <span class="hljs-comment">//使えない.`i`が増加しない?</span>
+    myArray[i]= myArray[i] + <span class="hljs-string">&#x27;(&#x27;</span> +[i]+ <span class="hljs-string">&#x27;)&#x27;</span>;
+}
+<span class="hljs-keyword">let</span> myString = myArray.<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;-&#x27;</span>)
+</code></pre>
+<h2 id="スキルテスト4">スキルテスト4</h2>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> birds = [ <span class="hljs-string">&quot;Parrots&quot;</span>, <span class="hljs-string">&quot;Falcons&quot;</span>, <span class="hljs-string">&quot;Eagles&quot;</span>, <span class="hljs-string">&quot;Emus&quot;</span>, <span class="hljs-string">&quot;Caracaras&quot;</span>, <span class="hljs-string">&quot;Egrets&quot;</span> ];
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">let</span> index = birds.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&#x27;Eagles&#x27;</span>);
+birds.<span class="hljs-title function_">splice</span>(index,index-<span class="hljs-number">1</span>);
+
+<span class="hljs-keyword">let</span> eBirds = [];
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; birds.<span class="hljs-property">length</span>; i++){
+  <span class="hljs-keyword">if</span>(birds[i].<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&#x27;E&#x27;</span>)){
+    eBirds.<span class="hljs-title function_">push</span>(birds[i]);
+  }
+}
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+
+<span class="hljs-keyword">const</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = eBirds;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+</code></pre>
+<pre><code class="language-js"><span class="hljs-comment">//ある人の回答１</span>
+birds.<span class="hljs-title function_">splice</span>(birds.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&#x27;Eagles&#x27;</span>), <span class="hljs-number">1</span>);
+<span class="hljs-keyword">const</span> eBirds = [];
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; birds.<span class="hljs-property">length</span>; i++) {
+	<span class="hljs-keyword">if</span> (birds[i].<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&#x27;E&#x27;</span>)) {
+		eBirds.<span class="hljs-title function_">push</span>(birds[i]);
+	}
+}
+</code></pre>
+<pre><code class="language-js"><span class="hljs-comment">//ある人の回答２</span>
+<span class="hljs-keyword">const</span> index = birds.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;Eagles&quot;</span>);
+birds.<span class="hljs-title function_">splice</span>(index, <span class="hljs-number">1</span>);
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">beginE</span>(<span class="hljs-params">bird</span>) {
+  <span class="hljs-keyword">return</span> bird.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&quot;E&quot;</span>);
+}
+
+<span class="hljs-keyword">const</span> eBirds = birds.<span class="hljs-title function_">filter</span>(beginE);
+</code></pre>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

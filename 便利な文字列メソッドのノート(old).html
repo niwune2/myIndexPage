@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>便利な文字列メソッド アクティブ学習の復習</title>
+    <link href="/Users/sakimine/Downloads/プログラミングテスト/JavaScript/便利な文字列メソッド/style.css" rel="stylesheet"type="text/css">
+    <link rel="icon" href="/Downloads/プログラミングテスト/JavaScript/便利な文字列メソッド/javascript_FILL0_wght400_GRAD0_opsz48のコピー2.png">
+  <style>
+
+  </style>
+  </head>
+  <body>
+<h1 id="tops">便利な文字列メソッド</h1>
+<h2>アクティブ学習の復習</h2>
+
+<section class="reidai">
+  <a href="#one">特定の文字列のみを残す例</a><br>
+  <a href="#two">文字列の中の、特定の文字列を変える例</a><br>
+  <a href="#three">既存の文字列を新しい文字列に変える例</a>
+</section>
+<section class="metho">
+  <a href="#four">indexOf</a><br>
+  <a href="#five">toLowerCase</a><br>
+  <a href="#six">toUpperCase</a><br>
+  <a href="#seven">slice</a><br>
+  <a href="#eight">replace</a><br>
+</section>
+<!--------例題---------->
+  <section class="greeting" id="one"><h2>「クリスマスメッセージ」のみ残す</h2>
+    <div class="d1">
+      <ul><li>Happy Birthday!</li><li>Merry Christmas my love</li><li>A happy Christmas to all the family</li><li>You're all I want for Christmas</li><li>Get well soon</li></ul>
+    <pre class="prettyprint linenums">
+    const list = document.querySelector('.output ul');
+    list.innerHTML = '';
+    let greetings = 
+            ['Happy Birthday!',
+            'Merry Christmas my love',
+            'A happy Christmas to all the family',
+            'You\'re all I want for Christmas', 
+            'Get well soon']; 
+
+    for (let i = 0; i < greetings.length; i++) {
+      let input = greetings[i];
+      
+      // 以下の条件の括弧内の内容を書き換えて下さい
+
+      if (greetings[i]) {
+        let listItem = document.createElement('li');
+        listItem.textContent = input;
+        list.appendChild(listItem);
+      }
+  </pre>
+  </div>
+
+    <p>次のようにする(箇条書きは結果)</p>
+  <div class="d1">
+    <ul><li>Merry Christmas my love</li><li>A happy Christmas to all the family</li><li>You're all I want for Christmas</li></ul>
+  <pre class="answer">
+    const list = document.querySelector('.output ul');
+    list.innerHTML = '';
+    let greetings = 
+            ['Happy Birthday!',
+            'Merry Christmas my love',
+            'A happy Christmas to all the family',
+            'You\'re all I want for Christmas',
+            'Get well soon'];
+
+    for (let i = 0; i < greetings.length; i++) {
+      let input = greetings[i];
+      if (greetings[i].indexOf('Christmas') !== -1) {
+        let result = input;
+        let listItem = document.createElement('li');
+        listItem.textContent = result;
+        list.appendChild(listItem);
+      }
+    }
+  </pre>
+  </div>
+    <ul>各行についての解説
+      <li> let input = greetings[i];
+        <ul>
+          <li>input変数に、各メッセージが代入されている"greetings"変数を代入している</li>
+          <li>可読性とシンプルさを理由にこの代入を行う</li>
+          <li>greetings[i]を複数回入力するよりも、一時変数"input"に代入するほうがシンプルで読みやすくなる</li>
+          <li>inputに代入することで、特定の要素に対する処理を行うときにもっと具体的な変数名を利用できるようになり、コードの意図を明確にすることができる</li>
+        </ul>
+      </li>
+
+      <li> if (greetings[i].indexOf('Christmas') !== -1) {
+        <ul>
+        <li>これは要素"greetings"に"Christmas"という文字列が含まれているかをチェックしている</li>
+        <li>含まれている場合はtrueとなり、下のブロックが実行される</li>
+        </ul>
+      </li>
+
+      <li>document.createElement('li');
+        <ul>
+          <li>新しい"li"要素を作成している</li>
+        </ul>
+      </li>
+
+      <li>listItem.textContent = result;
+        <ul>
+          <li>新しく作成された"li"要素のテキストコンテンツに"result"変数の値を設定している</li>
+        </ul>
+      </li>
+
+      <li>listItem.textContent = result;
+        <ul>
+          <li>作成した"li"要素を先に取得した"ul"要素に追加している</li>
+        </ul>
+      </li>
+
+      <li class="gpt">greetings[i]に[i]が使われている理由について(GPT解説引用)
+        <ul>
+          <li>reetings[i]の[i]は、配列のインデックスを指定するための添え字（インデックス）です。</li>
+          <li>JavaScriptの配列は、0から始まるインデックス番号を持ちます。greetings配列の各要素は、0から始まる連続したインデックス番号を持ちます。したがって、greetings[i]はgreetings配列のi番目の要素を参照します。</li>
+          <li>ループのコンテキストでは、forループの制御変数（この場合はi）がインデックスとして使用され、ループの各イテレーションで異なるインデックス番号にアクセスするために使用されます。</li>
+          <li>例えば、greetings配列の要素に順番にアクセスするためにループを使用する場合、greetings[i]を使用して配列内の各要素にアクセスすることができます。iはループのカウンター変数であり、0から始まり、greetings配列の長さ未満の値になるまでインクリメントされます。</li>
+          <li>したがって、greetings[i]はgreetings配列内の特定の要素を参照するために使用される添え字です。</li>
+        </ul>
+
+      </li>
+    </ul>
+  </section><a href="#tops" class="toptop">To top</a>
+
+  <section class="caplow" id="two"><h2>頭文字だけを大文字にした地名にする</h2>
+    <div class="d1">
+    <ul><li>lonDon</li><li>ManCHESTer</li><li>BiRmiNGHAM<li>liVERpoOL</li></ul>
+  <pre>
+  const list = document.querySelector('.output ul');
+  list.innerHTML = '';
+  let cities = ['lonDon', 'ManCHESTer', 
+  'BiRmiNGHAM', 'liVERpoOL'];
+  for(var i = 0; i < cities.length; i++) {
+    var input = cities[i];
+
+    // この下にコードを書いて下さい
+
+  let komoji = input.toLowerCase();
+  let ichimoji = komoji.replace();
+  let kashira = ichimoji.indexOf(0);
+
+
+    let result = input;
+    let listItem = document.createElement('li');
+    listItem.textContent = result;
+    list.appendChild(listItem);
+  }
+  </pre>
+  </div>
+  <p>修正後は以下</p>
+  <div class="d1">
+  <ul><li>London</li><li>Manchester</li><li>Birmingham<li>Liverpool</li></ul>
+  <pre class="answer">
+  const list = document.querySelector('.output ul');
+  list.innerHTML = '';
+  let cities = ['lonDon', 'ManCHESTer',
+  'BiRmiNGHAM', 'liVERpoOL'];
+
+  for (let i = 0; i < cities.length; i++) {
+    let input = cities[i];
+    let lower = input.toLowerCase();
+    let firstLetter = lower.slice(0,1);
+    let capitalized = lower.replace(firstLetter,
+    firstLetter.toUpperCase());
+    let result = capitalized;
+    let listItem = document.createElement('li');
+    listItem.textContent = result;
+    list.appendChild(listItem);
+  }
+  </pre>
+  </div>
+  <ul>解説
+    <li>for (let i = 0; i < cities.length; i++) {
+      <ul>
+        <li>ここ以下は"for"を用いたループのコード。これがcities配列の各要素を順番に処理する</li>
+      </ul>
+    </li>
+
+    <li>let input = cities[i];
+      <ul>
+        <li>現在の要素をinput変数に代入している</li>
+      </ul>
+    </li>
+
+    <li>let lower = input.toLowerCase();
+      <ul>
+        <li>input 変数に代入された文字列を小文字に変換した上で、"lower"変数に代入している</li>
+      </ul>
+    </li>
+
+    <li>let firstLetter = lower.slice(0,1);
+      <ul>
+        <li>lower変数の文字列の頭文字を抽出し、"firstLetter"変数に代入している</li>
+      </ul>
+    </li>
+
+    <li>let capitalized = lower.replace(firstLetter,<br>firstLetter.toUpperCase());
+      <ul>
+        <li>lower変数の文字列の頭文字を大文字に置換し、"capitalized"変数に代入する。これで最初の文字が大文字に変換される</li>
+      </ul>
+    </li>
+
+    <li>let result = capitalized;
+      <ul>
+        <li>頭文字が大文字になった文字列をresult変数に代入する</li>
+      </ul>
+    </li>
+
+    <li>listItem.textContent = result;<br>list.appendChild(listItem);
+      <ul>
+        <li>(上に説明あり)</li>
+      </ul>
+    </li>
+  </ul>
+  </section><a href="#tops" class="toptop">To top</a>
+
+  <section class="mojiretsu" id="three"><h2>既存の部分から新しい文字列を作成する</h2>
+
+    <!--アルファベット 3 文字のコードを抽出し、新しい変数に格納します。
+    1,部分文字列を抽出する.indexOf('求める文字列')　
+      →求める文字列が見つかった場合、対象の文字列上で部分文字列が始まる位置を0から始まる数字で返す。見つからなかったら"-1"を返す。
+    2,セミコロンの文字インデックス番号を検索します。
+      →String.indexOf(searchValue[,fromIndex]);
+        "searchValue"は検索する文字列で空白の場合はStringから検索される
+        "fromIndex"は整数値で省略可能。その値が0より小さいか.lengthより大きい場合はそれぞれの位置か.lengthの位置から検索を始める。
+          'hello world'.indexOf('o',-5)は、0の位置から検索を始め、oが4の位置にあるので4を返します。
+          'hello world'.indexOf('o',11)(および fromIndex の値が 11 よりも大きな場合)は、11が文字列の末尾よりも後の位置であるため、-1を返します。
+        返す値はsearchValueが最初に現れた位置。見つからない場合は"-1"を返す。
+    -->
+    <div class="d1">
+    <ul><li>MAN675847583748sjt567654;Manchester Piccadilly</li><li>GNF576746573fhdg4737dh4;Greenfield</li><li>LIV5hg65hd737456236dch46dg4;Liverpool Lime Street</li><li>SYB4f65hf75f736463;Stalybridge</li><li>HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield</li></ul>
+  <pre>
+  const list = document.querySelector('.output ul');
+  list.innerHTML = '';
+  let stations = 
+      ['MAN675847583748sjt567654;Manchester Piccadilly',
+      'GNF576746573fhdg4737dh4;Greenfield',
+      'LIV5hg65hd737456236dch46dg4;Liverpool Lime Street',
+      'SYB4f65hf75f736463;Stalybridge',
+      'HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield'];
+
+  for (var i = 0; i < stations.length; i++) {
+    let input = stations[i];
+    // この下にコードを書いてください
+
+    let result = input;
+    let listItem = document.createElement('li');
+    listItem.textContent = result;
+    list.appendChild(listItem);
+  }
+  </pre>
+  </div>
+  <p>以下のようにする</p>
+  <div class="d1">
+  <ul><li>MAN: Manchester Piccadilly</li><li>GNF: Greenfield</li><li>LIV: Liverpool Lime Street</li><li>SYB: Stalybridge</li><li>HUD: Huddersfield</li></ul>
+  <pre class="answer">
+  const list = document.querySelector('.output ul');
+  list.innerHTML = '';
+  let stations =
+      ['MAN675847583748sjt567654;Manchester Piccadilly',
+      'GNF576746573fhdg4737dh4;Greenfield',
+      'LIV5hg65hd737456236dch46dg4;Liverpool Lime Street',
+      'SYB4f65hf75f736463;Stalybridge',
+      'HUD5767ghtyfyr4536dh45dg45dg3;Huddersfield'];
+    
+  for (let i = 0; i < stations.length; i++) {
+      let input = stations[i];
+      let code = input.slice(0,3);
+      let semiC = input.indexOf(';');
+      let name = input.slice(semiC + 1);
+      let result = code + ': ' + name;
+      let listItem = document.createElement('li');
+      listItem.textContent = result;
+      list.appendChild(listItem);
+    }
+  </pre>
+  </div>
+  <ul>
+    <li>for (let i = 0; i < stations.length; i++) {
+      <ul>
+        <li>"for"ループで"stations"配列の各要素を順番に処理している</li>
+      </ul>
+    </li>
+
+    <li>let input = stations[i];
+      <ul>
+        <li>各駅のデータが代入されたstation変数をinput変数に代入する</li>
+      </ul>
+    </li>
+
+    <li>let code = input.slice(0,3);
+      <ul>
+        <li>input変数の文字列中、最初の三文字(駅コード)を抽出し、"code"変数に代入している</li>
+      </ul>
+    </li>
+
+    <li>let semiC = input.indexOf(';');
+      <ul>
+        <li>input文字列内でセミコロン( ; )のインデックスを検索し、"semiC"変数にその位置を代入する</li>
+      </ul>
+    </li>
+    
+    <li>let name = input.slice(semiC + 1);
+      <ul>
+        <li>セミコロンの位置から後ろの部分(駅名)を抽出し、"name"変数に代入する</li>
+      </ul>
+    </li>
+
+    <li>let result = code + ': ' + name;
+      <ul>
+        <li>駅コードと駅名を結合して最終的な結果を作成する</li>
+      </ul>
+    </li>
+
+  </ul>
+  </section><a href="#tops" class="toptop">To top</a>
+
+<!----------解説----------->
+  <section class="metho2" id="four"> <h2>.indexOf()</h2>
+    <p class="codes">str.indexOf(searchValue [, fromIndex])</p>
+    <p>indexOf()メソッドは、呼び出すstrオブジェクトの中で、fromIndexから検索し、指定された値が最初に現れたインデックスを返す。値が見つからない場合は -1 を返す。</p>
+    <p>.indexOf()メソッドは、文字列内で特定の文字列や文字の出現位置を検索する際に役立つ</p>
+    <p class="ul1">JSの基本用語</p>
+    <ul>
+      <li>配列：値に順序をつけて格納できるオブジェクト</li>
+      <li>要素：配列に格納したそれぞれの値</li>
+      <li>インデックス:それぞれの要素の位置を表す0から始まる連番</li>
+    </ul>
+  <p class="ul1">構文の解説</p>
+      <ul>
+      <li>str
+        <ul>
+          <li>検索対象の文字列</li>
+        </ul>
+      </li>
+      <li>searchValue
+        <ul>
+          <li>検索対象の文字列</li>
+        </ul>
+      </li>
+      <li>fromIndex
+        <ul>
+          <li>検索を開始する位置を指定するオプションの引数</li>
+        </ul>
+      </li>
+      </ul>
+  <p class="ul1">.indexOfの動作について</p>
+      <ol>
+        <li>searchValueがstr内で最初に出現する位置を見つける。</li>
+        <li>見つかった場合はその位置のインデックスを返す。</li>
+        <li>見つからない場合は-1を返す。
+        </li>
+      </ol>
+  <pre class="answer">
+  const str = 'Hello, World!';
+
+  console.log(str.indexOf('Hello'));
+  // 0
+  console.log(str.indexOf('world')); 
+  // -1（大文字と小文字が一致しないため）
+  console.log(str.indexOf('o')); 
+  // 4（最初の'o'の位置）
+  console.log(str.indexOf('o', 5)); 
+  // 8（5番目のインデックス以降から最初の'o'の位置を検索）
+  </pre>
+  </section><a href="#tops" class="toptop">To top</a>
+
+  <section class="metho2" id="five"><h2>.toLowerCase()</h2>
+    <p class="codes">str.toLowerCase()</p>
+    <p>このメソッドは、対象の文字列をすべて小文字に変換する。</p>
+    <p>文字列の比較や検索の際に、大文字と小文字を区別しないようにするために使用することがある。<br>文字列をすべて小文字にすることで大文字小文字の違いによる問題を回避することが可能になる。</p>
+    <p>なお、このメソッドは元の文字列を変更せず、新しく変換された文字列を返す点に注意。</p>
+    <p class="ul1">構文の解説</p><li>str : 対象の文字列</li>
+    <p class="ul1">.toLowerCase()の動作について</p>
+      <ol>
+        <li>str内のすべての英字を小文字に変換する</li>
+        <li>変換された結果の文字列を返す</li>
+      </ol>
+  <pre class="answer">
+  const str = 'Hello, World!';
+
+  console.log(str.toLowerCase()); 
+  // 'hello, world!'
+  </pre>
+  </section><a href="#tops" class="toptop">To top</a>
+
+  <section class="metho2" id="six"><h2>.toUpperCase()</h2>
+    <p class="codes">str.toUpperCase()</p>
+    <p>このメソッドは、対象の文字列をすべて大文字に変換する。</p>
+    <p>これは文字列の比較や表示の際に大文字で統一したいときに使用される。大文字に変換することで、文字列の一貫性や視覚的な統一感を実現することができる。</p>
+    <p>.toLowerCase()と同様、元の文字列を変更せずに、新しく変換された文字列を返す点に注意する。</p>
+    <p class="ul1">構文の解説</p>
+      <li>str : 対象の文字列</li>
+    <p class="ul1">.toUpperCase()の動作について</p>
+      <ol>
+        <li>str内のすべての英字を大文字に変換する</li>
+        <li>変換された文字列を返す</li>
+      </ol>
+  <pre class="answer">
+  const str = 'Hello, World!';
+
+  console.log(str.toUpperCase()); 
+    // 'HELLO, WORLD!'
+  </pre>
+  </section><a href="#tops" class="toptop">To top</a>
+
+  <section class="metho2" id="seven"><h2>.slice()</h2>
+    <p class="codes">str.slice(startIndex[, endIndex])</p>
+    <p>このメソッドは、指定された位置から始まる一部の文字を取り出す。</p>
+    <p>文字列の一部を取り出したい場合に使用される。開始位置と終了位置を指定することで、特定の範囲の部分文字列を抽出することができる。</p>
+    <p>元の文字列を変更せずに新しい部分文字列を返す点は上と同じ。</p>
+
+    <p class="ul1">構文の解説</p>
+    <li>str : 対象の文字列</li>
+    <li>startIndex : 取り出す部分文字列の開始位置のインデックス</li>
+    <li>endIndex : 取り出す部分文字の終了位置のインデックス</li>
+
+    <p class="ul1">.slice()の動作について</p>
+    <ol>
+      <li>startIndexから始まる位置から部分文字列を取り出す</li>
+      <li>endIndexの位置の文字は含まれず、それより前の文字が取り出される</li>
+      <li>endIndexが指定されていない場合、文字列の最後までのすべての文字が取り出される</li>
+      <li>取り出された部分文字列が返される</li>
+    </ol>
+    <pre class="answer">
+  const str = 'Hello, World!';
+
+  console.log(str.slice(7)); // 'World!'
+  console.log(str.slice(0, 5)); // 'Hello'
+  console.log(str.slice(7, 12)); // 'World'
+    </pre>
+  </section><a href="#tops" class="toptop">To top</a> 
+
+  <section class="metho2" id="eight"><h2>.replace()</h2>
+    <p class="codes">str.replace(searchValue, replaceValue)
+    </p>
+    <p>これは文字列内で特定のパターンに一致する部分を別の文字列に置換する</p>
+    <p>これは文字列内の特定の文字列やパターンを別の文字列で置換するために使用される。単純な文字列の置換から正規表現を使用したパターンマッチングまで様々な置換操作が可能。</p>
+    <p>なお、.replace()メソッドは元の文字列を変更せず、新しい置換後の文字列を返す点に注意する。<br>また、デフォルトでは最初に一致した部分のみが置換される。全ての一致箇所を置換するには正規表現フラグ（gフラグ）を使用する必要がある。</p>
+
+    <p class="ul1">構文の解説</p>
+      <li>str : 対象の文字列</li>
+      <li>searchValue : 置換したい部分文字列か正規表現パターン</li>
+      <li>replaceValue : 置換後の文字列</li>
+
+    <p class="ul1">
+      <ol>
+        <li>str内で最初にsearchValueに一致する部分文字列を見つける</li>
+        <li>見つかった文字列をreplaceValueで置換する</li>
+        <li>置換された新しい文字列を返す</li>
+      </ol>
+    </p>
+    <pre class="answer">
+  const str = 'Hello, World!';
+
+  console.log(str.replace('Hello', 'Hi')); 
+  // 'Hi, World!'
+  console.log(str.replace('l', 'L')); 
+  // 'HeLlo, World!'
+  console.log(str.replace(/o/g, 'O')); 
+  // 'HellO, WOrld!'
+    </pre>
+
+  </section><a href="#tops" class="toptop">To top</a>
+
+<section class="expression" id="nine"><h2>テンプレートリテラル</h2>
+  <p class="codes">`文字列テキスト`<br>`文字列テキスト ${式}`</p>
+  <p>テンプレートリテラル（Template Literal）とは、JavaScriptにおける文字列の表現方法の一つ。テンプレートリテラルを使うと、文字列内に変数や式を埋め込むことができる。<br>
+  テンプレートリテラルはバッククォート（`）で囲まれた文字列として表現される。</p>
+  <p>テンプレートリテラルでは、${ }の中に式を記述することができる。式は中括弧内で評価され、その結果がテンプレートリテラルの中に埋め込まれる。</p>
+  <p>下記の例では、テンプレートリテラルを使用して変数nameとageの値を埋め込んでいる。${}内の式は評価され、その結果が文字列に置換される。</p>
+  <p>テンプレートリテラルは通常の文字列と比べて可読性が高く、文字列の組み立てや変数の埋め込みを簡潔に行うことができる。また、複数行の文字列を表現する際にも便利。</p>    
+  <p>さまざまな用途でテンプレートリテラルを活用することができるので、文字列操作や表示の際に便利な機能。</p>
+  <pre class="answer">
+    const name = 'Alice';
+    const age = 25;
+
+    const message = `私の名前は${name}です。年齢は${age}歳です。`;
+    console.log(message);
+    // 出力: 私の名前はAliceです。年齢は25歳です。
+  </pre>
+</section>
+<a href="#tops" class="toptop">To top</a>
+
+<section class="expression" id="ten"><h2>プレースホルダー</h2>
+  <p class="codes">${ }</p>
+  <p>
+    プレースホルダー（Placeholder）は、テンプレートリテラル内で使用される特殊な構文です。プレースホルダーは、変数や式の値を埋め込むための位置を指定します。
+  </p>
+  <p>プレースホルダーは${}で表され、その中に変数名や式を記述します。実行時に変数の値や式の評価結果がプレースホルダーに置換されます。
+  </p>
+  <pre class="answer">
+    const name = 'Alice';
+    const age = 25;
+
+    const message = `私の名前は${name}です。年齢は${age}歳です。`;
+    console.log(message);
+    // 出力: 私の名前はAliceです。年齢は25歳です。
+  </pre>
+  <p>上記の例では、${name}と${age}がプレースホルダーです。変数nameとageの値がそれぞれのプレースホルダーに置換され、最終的な文字列が生成されます。</p>
+  <p>
+    プレースホルダーは任意の式を含むこともできます。例えば、以下のように算術演算や関数呼び出しをプレースホルダー内で行うことができます：
+  </p>
+  <pre class="answer">
+  const a = 10;
+  const b = 5;
+
+  const result = `a + b = ${a + b}`;
+  console.log(result);
+  // 出力: a + b = 15
+
+  const currentTime = `現在の時刻は ${new Date().
+    toLocaleTimeString()} です`;
+  console.log(currentTime);
+  // 出力: 現在の時刻は 12:34:56 です（現在の時刻に応じて変化）
+  </pre>
+  <p>このように、プレースホルダーを使うことで、動的な値や式を文字列に埋め込むことができます。これは文字列の組み立てや表示の際に非常に便利です。
+  </p>
+  <p>また、プレースホルダー内には任意のJavaScript式を記述できるため、複雑な計算や条件に基づいた文字列の生成も容易に行うことができます。</p>
+</section><a href="#tops" class="toptop">To top</a>
+
+<section class="expression" id="elevn"><h2>エスケープシーケンス</h2>
+  <p>エスケープシーケンスとは、特定の文字を表現するために使用されるバックスラッシュ（\）に続く特殊な文字の組み合わせです。</p>
+  <p>エスケープシーケンスは、文字列内で特別な意味を持つ文字（例: クォーテーションマークや改行文字）を表現するために使用されます。</p>
+  <ul>
+    <li>\'：シングルクォート（単一引用符）を表現します。</li>
+    <li>\"：ダブルクォート（二重引用符）を表現します。</li>
+    <li>\\：バックスラッシュを表現します。</li>
+    <li>\n：改行文字を表現します。</li>
+    <li>\t：タブ文字を表現します。</li>
+    <li>\r：キャリッジリターンを表現します。</li>
+    <li>\b：バックスペースを表現します。</li>
+    <li>\f：フォームフィードを表現します。</li>
+  </ul>
+  <pre class="answer">
+    console.log('This is a single quote: \'');
+    console.log("This is a double quote: \"");
+    console.log('This is a backslash: \\');
+    console.log('This is a new line:\nHello');
+    console.log('This is a tab:\tHello');
+    console.log('This is a carriage return:\rHello');
+    console.log('This is a backspace:\bHello');
+    console.log('This is a form feed:\fHello');
+  </pre>
+  <p>以下が出力結果</p>
+  <pre class="answer">
+    This is a single quote: '
+    This is a double quote: "
+    This is a backslash: \
+    This is a new line:
+    Hello
+    This is a tab:       Hello
+    Helloge
+    This is a backspace:Hello
+                Hello
+  </pre>
+
+</section>
+  </body>
+  <!--テンプレート
+      <section class="metho2" id="＊＊＊"><h2>.indexOf()</h2>
+    <p class="codes">構文</p>
+    <p>せつめい</p>
+    <p>せつめい２</p>
+  <p class="ul1">構文の解説</p>
+      <ul>
+      <li>str
+        <ul>
+          <li>検索対象の文字列</li>
+        </ul>
+      </li>
+      <li>searchValue
+        <ul>
+          <li>検索対象の文字列</li>
+        </ul>
+      </li>
+      <li>fromIndex
+        <ul>
+          <li>検索を開始する位置を指定するオプションの引数</li>
+        </ul>
+      </li>
+      </ul>
+  <p class="ul1">＊＊＊の動作について</p>
+      <ol>
+        <li>searchValueがstr内で最初に出現する位置を見つける。</li>
+        <li>見つかった場合はその位置のインデックスを返す。</li>
+        <li>見つからない場合は-1を返す。
+        </li>
+      </ol>
+  <pre class="answer">
+
+  </pre>
+  </section><a href="#tops" class="toptop">To top</a>
+  -->
+</html>

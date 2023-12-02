@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&DiacriticalGrave;&period;getAttribute&DiacriticalGrave;&#x306b;&#x3064;&#x3044;&#x3066;&lpar;GPT&rpar;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="getattributeについてgpt"><code>.getAttribute</code>について(GPT)</h1>
+<p><code>.getAttribute</code>は、指定した要素の属性の値を取得するためのメソッドです。要素の属性とは、HTML要素に追加された属性（例: <code>id</code>、<code>class</code>、<code>data-*</code>属性など）を指します。</p>
+<p><code>.getAttribute</code>の基本的な構文は以下の通りです：</p>
+<pre><code class="language-javascript">element.<span class="hljs-title function_">getAttribute</span>(attributeName)
+</code></pre>
+<p>ここで、<code>element</code>は対象となるHTML要素を表し、<code>attributeName</code>は取得したい属性の名前を指定します。</p>
+<p>例えば、次のようなHTML要素があるとします：</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;myButton&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn&quot;</span> <span class="hljs-attr">data-color</span>=<span class="hljs-string">&quot;red&quot;</span>&gt;</span>Click me<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<p>この要素から<code>id</code>、<code>class</code>、<code>data-color</code>属性の値を取得する場合、以下のように<code>getAttribute</code>を使用します：</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> button = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;button&#x27;</span>);
+
+<span class="hljs-keyword">const</span> idValue = button.<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">&#x27;id&#x27;</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(idValue); <span class="hljs-comment">// 出力: &quot;myButton&quot;</span>
+
+<span class="hljs-keyword">const</span> classValue = button.<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">&#x27;class&#x27;</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(classValue); <span class="hljs-comment">// 出力: &quot;btn&quot;</span>
+
+<span class="hljs-keyword">const</span> colorValue = button.<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">&#x27;data-color&#x27;</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(colorValue); <span class="hljs-comment">// 出力: &quot;red&quot;</span>
+</code></pre>
+<p><code>.getAttribute</code>は、要素の属性の値を文字列として取得します。存在しない属性の場合は<code>null</code>を返します。</p>
+<p>なお、<code>data-*</code>属性にアクセスする場合は、<code>data-</code>の接頭辞を省略して属性名のキャメルケース形式で指定することが一般的です。</p>
+<p>ここでは<code>.getAttribute</code>の基本的な使い方を説明しましたが、もちろん他にもさまざまな応用があります。必要に応じて属性の値を取得する際に活用してください。</p>
+
+        
+        
+    </body>
+    </html>

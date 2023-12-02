@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Test your skills&colon; Strings</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="test-your-skills-strings">Test your skills: Strings</h1>
+<ul>
+<li><a href="#test-your-skills-strings">Test your skills: Strings</a>
+<ul>
+<li><a href="#strings-1">Strings 1</a></li>
+<li><a href="#strings-2">Strings 2</a></li>
+<li><a href="#strings-3">Strings 3</a></li>
+<li><a href="#strings-4">Strings 4</a></li>
+</ul>
+</li>
+</ul>
+<p>このスキルテストの目的は、「テキストの扱い — JavaScript での文字列」と「便利な文字列メソッド」の記事を理解できたかどうかを評価することです。</p>
+<h2 id="strings-1">Strings 1</h2>
+<p>最初の文字列タスクでは、まず小さなことから始めます。あなたはすでに<code>quoteStart</code>という変数に有名な引用文の半分を格納しています：</p>
+<ol>
+<li>引用文の残りの半分を調べ、<code>quoteEnd</code>という変数に追加します。</li>
+<li>2つの文字列を連結して、完全な引用を含む1つの文字列を作成します。この結果を <code>finalQuote</code> という変数に保存します。</li>
+<li>この時点でエラーが発生することがわかると思います。quoteStart`の問題を解決して、完全な引用文が正しく表示されるようにすることはできますか？</li>
+</ol>
+<pre><code class="language-js"><span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-keyword">const</span> quoteStart = <span class="hljs-string">&#x27;Don&#x27;</span>t judge each day by the harvest you reap <span class="hljs-string">&#x27;;
+
+// Don&#x27;</span>t edit the code below here!
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">const</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = finalQuote;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+</code></pre>
+<blockquote>
+<p>but the seeds that you plant.</p>
+</blockquote>
+<hr>
+<h2 id="strings-2">Strings 2</h2>
+<p>このタスクでは、2つの文字列を格納する2つの変数、<code>quote</code>と<code>substring</code>が提供されます。あなたにお願いしたいことがあります：</p>
+<ol>
+<li><code>quote</code>の長さを取得し、<code>quoteLength</code>という変数に格納しましょう。</li>
+<li>引用符の中で<code>substring</code>が出現するインデックス位置を求め、その値を<code>index</code>という変数に格納します。</li>
+<li>手持ちの変数と利用可能な文字列プロパティ/メソッドを組み合わせて、元の引用文を「I do not like green eggs and ham.」に切り詰め、<code>revisedQuote</code>という変数に格納します。</li>
+</ol>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> quote = <span class="hljs-string">&#x27;I do not like green eggs and ham. I do not like them, Sam-I-Am.&#x27;</span>;
+<span class="hljs-keyword">const</span> substring = <span class="hljs-string">&#x27;green eggs and ham&#x27;</span>;
+
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">const</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = <span class="hljs-string">`The quote is <span class="hljs-subst">${ quoteLength }</span> characters long.`</span>;
+<span class="hljs-keyword">const</span> para2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para2.<span class="hljs-property">textContent</span> = revisedQuote;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+section.<span class="hljs-title function_">appendChild</span>(para2);
+</code></pre>
+<h2 id="strings-3">Strings 3</h2>
+<p>次の文字列のタスクでは、前のタスクで終わったのと同じ引用文が与えられるのですが、それがどこか壊れています！ これを次のように修正・更新してほしいのです：</p>
+<ol>
+<li>ケーシングを正しい文例（大文字の頭文字を除き、すべて小文字）に変更する。新しい引用を<code>fixedQuote</code>という変数に格納する。</li>
+<li><code>fixedQuote</code>では、「グリーンエッグ＆ハム」を、自分が本当に嫌いな別の食べ物に置き換えてみてください。</li>
+<li>引用文の最後にピリオドを追加し、最終版を<code>finalQuote</code>という変数に保存することで、もう1つ小さな修正ができます。</li>
+</ol>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> quote = <span class="hljs-string">&#x27;I dO nOT lIke gREen eGgS anD HAM&#x27;</span>;
+
+<span class="hljs-comment">// Add your code here</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">const</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = fixedQuote;
+<span class="hljs-keyword">const</span> para2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para2.<span class="hljs-property">textContent</span> = finalQuote;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+section.<span class="hljs-title function_">appendChild</span>(para2);
+</code></pre>
+<h2 id="strings-4">Strings 4</h2>
+<p>最後の文字列の課題では、</p>
+<ol>
+<li>
+<p>定理の名前、</p>
+</li>
+<li>
+<p>2つの数値、</p>
+</li>
+<li>
+<p>不完全な文字列（追加が必要な部分にはアスタリスク（<code>*</code>）が付けられている）
+が与えられました。この文字列の値を次のように変更してほしい：</p>
+</li>
+<li>
+<p>文字列を通常の文字列リテラルからテンプレートリテラルに変更する。</p>
+</li>
+<li>
+<p>4つのアスタリスクを4つのテンプレート・リテラルのプレースホルダーに置き換える。これらは次のようなものでなければならない：</p>
+<ol>
+<li>定理の名前</li>
+<li>私たちが持っている2つの数の値。</li>
+<li>直角三角形の斜辺の長さ（他の2つの辺の長さが今ある2つの値と同じである場合）。この計算方法は、今あるものから調べる必要があります。プレースホルダーの中で計算をする。</li>
+</ol>
+</li>
+</ol>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> theorem = <span class="hljs-string">&#x27;Pythagorean theorem&#x27;</span>;
+<span class="hljs-comment">//三平方の定理</span>
+<span class="hljs-keyword">const</span> a = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">const</span> b = <span class="hljs-number">8</span>;
+
+<span class="hljs-keyword">const</span> myString = <span class="hljs-string">&#x27;Using *, we can work out that that if the two shortest sides of a right-angled triangle have lengths of * and *, the length of the hypotenuse is *.&#x27;</span>;
+<span class="hljs-comment">//を使うと、直角三角形の最短の2辺の長さが*と*である場合、斜辺の長さは*であることが計算できる。</span>
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">const</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = myString;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+</code></pre>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>個人用JSインデックスノート</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="/Users/sakimine/Downloads/プログラミングテスト/JavaScript/個人的JSインデックス/images/javascript_icon_orange.png">
+  </head>
+
+<body class="container">
+<nav class="metho">
+  <a href="#bottoms">☆最下層へ</a><br>
+  インデックス<br>
+  <p>用語</p>
+  <a href="#ArrayId">Array(配列)</a><br>
+  <a href="#templite">テンプレートリテラル</a><br>
+  <a href="#placeH">プレースホルダー</a><br>
+  <a href="#escseq">エスケープシーケンス</a><br>
+  <a href="#Kkakko">角括弧表記</a>
+
+  <p>ループ</p>
+  <a href="#forof">for...of</a>
+
+  <p>メソッド</p>
+  <a href="#indexof">.indexOf()</a><br>
+  <a href="#toLC">.toLowerCase()</a><br>
+  <a href="#toUC">.toUpperCase()</a><br>
+  <a href="#slice">.slice()</a><br>
+  <a href="#replace">.replace()</a><br>
+  <a href="#split">.split()</a><br>
+  <a href="#join">.join()</a><br>
+  <a href="#toSt">.toString()</a><br>
+  <a href="#push">.push()</a><br>
+  <a href="#pop">.pop()</a><br>
+  <a href="#unshift">.unshift()</a><br>
+  <a href="#shift">.shift()</a><br>
+  <a href="#map">.map()</a><br>
+  <a href="#forEach">.forEach()</a><br>
+  <a href="#startW">.startsWith()</a><br>
+  <a href="#splice">.splice()</a><br>
+  <a href="#filter">.filter()</a><br>
+  <a href="#findIndex">.findIndex()</a><br>
+  <a href="#includes">.includes()</a><br>
+
+  <p>プロパティ</p>
+  <a href="#leng">.length</a>
+
+  <p>コードレビュー</p>
+  <a href="review0.html">バカ話</a><br>
+  <p>アクティブ学習</p>
+  <a href="review1.html">カレンダーと色選び</a><br>
+  <a href="review2-skilltest-if-switch.html">スキルテスト:条件文</a><br>
+
+  <p>外部リンク</p>
+  <a href="method-expl.html">コードの使用例</a><br>
+  <a href="forloop.html">forループについて</a><br>
+  <a href="function.html">functionについて</a><br>
+  <a href="review3-looping-code.html">ループするコード</a><br>
+  <a href="演算子.html">演算子について</a><br>
+
+  <a href="#tops" class="toptop">To top</a><br>
+</nav>
+<!--section要素はずらさない。pre要素が干渉する-->
+<article class="content" id="tops">
+  <h1>個人用JSインデックスノート</h1>
+
+    <section class="metho2" id="indexof"> <h2>.indexOf()</h2>
+        <p class="codes">str.indexOf(searchValue [, fromIndex])</p>
+        <p>indexOf()メソッドは、呼び出すstrオブジェクトの中で、fromIndexから検索し、指定された値が最初に現れたインデックスを返す。値が見つからない場合は -1 を返す。</p>
+        <p>.indexOf()メソッドは、文字列内で特定の文字列や文字の出現位置を検索する際に役立つ</p>
+        <p class="ul1">JSの基本用語</p>
+        <ul>
+          <li>配列：値に順序をつけて格納できるオブジェクト</li>
+          <li>要素：配列に格納したそれぞれの値</li>
+          <li>インデックス:それぞれの要素の位置を表す0から始まる連番</li>
+        </ul>
+      <p class="ul1">構文の解説</p>
+          <ul>
+          <li>str<ul><li>検索対象の文字列</li></ul></li>
+          <li>searchValue<ul><li>検索対象の文字列</li></ul></li>
+          <li>fromIndex<ul><li>検索を開始する位置を指定するオプションの引数</li></ul></li>
+          </ul>
+      <p class="ul1">.indexOfの動作について</p>
+          <ol>
+            <li>searchValueがstr内で最初に出現する位置を見つける。</li>
+            <li>見つかった場合はその位置のインデックスを返す。</li>
+            <li>見つからない場合は-1を返す。
+            </li>
+          </ol>
+      <pre class="answer">
+
+      <code class=lefter>const</code> str = <code class=strings>'Hello, World!'</code>;
+    
+      <code class=consoles>console</code>.log(str.indexOf(<code class=strings>'Hello'</code>));
+      <code class=comout>// 0</code>
+      <code class=consoles>console</code>.log(str.indexOf(<code class=strings>'world'</code>)); 
+      <code class=comout>// -1（大文字と小文字が一致しないため）</code>
+      <code class=consoles>console</code>.log(str.indexOf(<code class=strings>'o'</code>)); 
+      <code class=comout>// 4（最初の'o'の位置）</code>
+      <code class=consoles>console</code>.log(str.indexOf(<code class=strings>'o'</code>, 5)); 
+      <code class=comout>// 8（5番目のインデックス以降から最初の'o'の位置を検索）</code>
+      </pre><br>
+      <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,String.prototype.indexOf(),-Save" target="_blank">.indexOf() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+    
+    <section class="metho2" id="toLC"><h2>.toLowerCase()</h2>
+        <p class="codes">str.toLowerCase()</p>
+        <p>このメソッドは、対象の文字列をすべて小文字に変換する。</p>
+        <p>文字列の比較や検索の際に、大文字と小文字を区別しないようにするために使用することがある。<br>文字列をすべて小文字にすることで大文字小文字の違いによる問題を回避することが可能になる。</p>
+        <p>なお、このメソッドは元の文字列を変更せず、新しく変換された文字列を返す点に注意。</p>
+        <p class="ul1">構文の解説</p><li>str : 対象の文字列</li>
+        <p class="ul1">.toLowerCase()の動作について</p>
+          <ol>
+            <li>str内のすべての英字を小文字に変換する</li>
+            <li>変換された結果の文字列を返す</li>
+          </ol>
+          <pre class="answer">
+
+            <code class="lefter">const</code> str = <code class="strings">'Hello, World!'</code>;
+            
+            <code class="consoles">console.log</code>(str.toLowerCase()); 
+            <code class="comout">// 'hello, world!'</code>
+            </pre><br>            
+      <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,String.prototype.toLowerCase(),-Save" target="_blank">.toLowerCase() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+    
+    <section class="metho2" id="toUC"><h2>.toUpperCase()</h2>
+        <p class="codes">str.toUpperCase()</p>
+        <p>このメソッドは、対象の文字列をすべて大文字に変換する。</p>
+        <p>これは文字列の比較や表示の際に大文字で統一したいときに使用される。大文字に変換することで、文字列の一貫性や視覚的な統一感を実現することができる。</p>
+        <p>.toLowerCase()と同様、元の文字列を変更せずに、新しく変換された文字列を返す点に注意する。</p>
+        <p class="ul1">構文の解説</p>
+          <li>str : 対象の文字列</li>
+        <p class="ul1">.toUpperCase()の動作について</p>
+          <ol>
+            <li>str内のすべての英字を大文字に変換する</li>
+            <li>変換された文字列を返す</li>
+          </ol>
+          <pre class="answer">
+
+            <code class="lefter">const</code> str = <code class="strings">'Hello, World!'</code>;
+            
+            <code class="consoles">console.log</code>(str.toUpperCase()); 
+            <code class="comout">// 'HELLO, WORLD!'</code>
+            </pre><br>
+      <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,String.prototype.toUpperCase(),-%E6%97%A5%E6%9C%AC%E8%AA%9E" target="_blank">.toUpperCase()</a>
+    <a href="#tops" class="toptop">To top</a></section>
+    
+    <section class="metho2" id="slice"><h2>.slice()</h2>
+        <p class="codes">str.slice(startIndex[, endIndex])</p>
+        <p>このメソッドは、指定された位置から始まる一部の文字を取り出す。</p>
+        <p>文字列の一部を取り出したい場合に使用される。開始位置と終了位置を指定することで、特定の範囲の部分文字列を抽出することができる。</p>
+        <p>元の文字列を変更せずに新しい部分文字列を返す点は上と同じ。</p>
+    
+        <p class="ul1">構文の解説</p>
+        <li>str : 対象の文字列</li>
+        <li>startIndex : 取り出す部分文字列の開始位置のインデックス</li>
+        <li>endIndex : 取り出す部分文字の終了位置のインデックス</li>
+    
+        <p class="ul1">.slice()の動作について</p>
+        <ol>
+          <li>startIndexから始まる位置から部分文字列を取り出す</li>
+          <li>endIndexの位置の文字は含まれず、それより前の文字が取り出される</li>
+          <li>endIndexが指定されていない場合、文字列の最後までのすべての文字が取り出される</li>
+          <li>取り出された部分文字列が返される</li>
+        </ol>
+        <pre class="answer">
+
+        <code class="lefter">const</code> str = <code class="strings">'Hello, World!'</code>;
+        
+        <code class="consoles">console.log</code>(str.slice(<code class="lefter">7</code>)); <code class="comout">// 'World!'</code>
+        <code class="consoles">console.log</code>(str.slice(<code class="lefter">0</code>, <code class="lefter">5</code>)); <code class="comout">// 'Hello'</code>
+        <code class="consoles">console.log</code>(str.slice(<code class="lefter">7</code>, <code class="lefter">12</code>)); <code class="comout">// 'World'</code>
+        
+        </pre><br>
+        <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/slice#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,String.prototype.slice(),-Save" target="_blank">.slice() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+    
+    <section class="metho2" id="replace"><h2>.replace()</h2>
+        <p class="codes">str.replace(searchValue, replaceValue)
+        </p>
+        <p>これは文字列内で特定のパターンに一致する部分を別の文字列に置換する</p>
+        <p>これは文字列内の特定の文字列やパターンを別の文字列で置換するために使用される。単純な文字列の置換から正規表現を使用したパターンマッチングまで様々な置換操作が可能。</p>
+        <p>なお、.replace()メソッドは元の文字列を変更せず、新しい置換後の文字列を返す点に注意する。<br>また、デフォルトでは最初に一致した部分のみが置換される。全ての一致箇所を置換するには正規表現フラグ（gフラグ）を使用する必要がある。</p>
+    
+        <p class="ul1">構文の解説</p>
+          <li>str : 対象の文字列</li>
+          <li>searchValue : 置換したい部分文字列か正規表現パターン</li>
+          <li>replaceValue : 置換後の文字列</li>
+    
+        <p class="ul1">.replace()の動作について</p>
+          <ol>
+            <li>str内で最初にsearchValueに一致する部分文字列を見つける</li>
+            <li>見つかった文字列をreplaceValueで置換する</li>
+            <li>置換された新しい文字列を返す</li>
+          </ol>
+  <pre class="answer">
+
+      <code class="lefter">const</code> str = <code class="strings">'Hello, World!'</code>;
+
+      <code class="consoles">console.log</code>(str.replace(<code class="strings">'Hello'</code>, <code class="strings">'Hi'</code>)); 
+      <code class="comout">// 'Hi, World!'</code>
+      <code class="consoles">console.log</code>(str.replace(<code class="strings">'l'</code>, <code class="strings">'L'</code>)); 
+      <code class="comout">// 'HeLlo, World!'</code>
+      <code class="consoles">console.log</code>(str.replace(<code class="lefter">/o/g</code>, <code class="strings">'O'</code>)); 
+      <code class="comout">// 'HellO, WOrld!'</code>
+
+</pre><br>
+        <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/replace#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,String.prototype.replace(),-Save" target="_blank">.replace() - MDN</a>
+
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="props" id="leng"><h2>.length</h2>
+      <p class="codes">.length</p>
+      <p>.lengthは、配列や文字列などのオブジェクトのプロパティであり、その要素の数（長さ）を表します。配列や文字列の長さを知るためによく使用されるプロパティです。</p>
+      <p>.length プロパティは読み取り専用であり、変更することはできません。配列や文字列の要素の数を取得するために便利なプロパティです。配列や文字列の要素の数に基づいてループを実行したり、要素の数に関する条件をチェックするために使用することができます。</p>
+    
+<pre class="answer">
+  <code class="lefter">// 1. 配列の長さを取得する:</code>
+  <code class="lefter">let</code> fruits = <code class="arrays">['apple', 'banana', 'orange']</code>;
+  <code class="consoles">console.log</code>(fruits.length);  <code class="comout">// 3</code>
+</pre> <br>
+
+<p>
+  配列 fruits の長さは3です。
+  .length プロパティは、配列内の要素の数を返します。</p>
+  <pre class="answer">
+  <code class="lefter">// 2. 文字列の長さを取得する:</code>
+  <code class="lefter">let</code> message = <code class="strings">'Hello, world!'</code>;
+  <code class="consoles">console.log</code>(message.length);  <code class="comout">// 13</code> </pre>
+    <p>  文字列 'Hello, world!' の長さは13です。
+  .length プロパティは、文字列内の文字の数を返します。</p>
+<pre class="answer">
+  <code class="lefter">// 3. 空の配列の長さを取得する:</code>
+  <code class="lefter">let</code> emptyArray = <code class="arrays">[]</code>;
+  <code class="consoles">console.log</code>(emptyArray.length);  <code class="comout">// 0</code></pre>
+    <p>
+  空の配列の長さは0です。
+  .length プロパティは、配列が空であっても正確な長さを示します。</p>
+  <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/length#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,Array.prototype.length,-Save" target="_blank">.length - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="metho2" id="split"><h2>.split()</h2>
+      <p class="codes">string.split(separator, limit)
+      </p>
+      <p>.split() は、文字列を指定した区切り文字で分割し、結果を配列として返すメソッドです。
+      </p>
+      <p>.split() メソッドは、文字列を指定した区切り文字で分割する場合に便利です。分割された要素は配列として取得できるため、それぞれの要素を個別に処理したり、特定の要素を選択したりすることができます。</p>    
+        
+<pre class="answer">
+        
+    <code class="lefter">// 1. 文字列を空白で分割する:</code>
+    
+    <code class="lefter">let</code> sentence = <code class="strings">'This is a sample sentence.'</code>;
+    <code class="lefter">let</code> words = sentence.split(<code class="strings">' '</code>);
+    <code class="consoles">console.log</code>(words);  
+    <code class="comout">// ['This', 'is', 'a', 'sample', 'sentence.']</code>
+
+</pre>
+  <p>文字列 sentence は空白で分割され、配列 words に各単語が格納されます。</p>
+<pre class="answer">
+
+    <code class="lefter">// 2. 文字列をコンマで分割する:</code>
+    
+    <code class="lefter">let</code> fruits = <code class="strings">'apple,banana,orange'</code>;
+    <code class="lefter">let</code> fruitArray = fruits.split(<code class="strings">','</code>);
+    <code class="consoles">console.log</code>(fruitArray);  
+    <code class="comout">// ['apple', 'banana', 'orange']</code>
+
+</pre>
+    <p>文字列 `fruits` はコンマで分割され、配列 `fruitArray` に各フルーツ名が格納されます。</p>
+    <pre class="answer">
+
+      <code class="lefter">// 3. 文字列を改行文字で分割し、制限を設定する:</code>
+      
+      <code class="lefter">let</code> lines = <code class="strings">'Line 1\nLine 2\nLine 3\nLine 4'</code>;
+      <code class="lefter">let</code> lineArray = lines.split(<code class="strings">'\n'</code>, 2);
+      <code class="consoles">console.log</code>(lineArray); 
+      <code class="comout">// ['Line 1', 'Line 2']</code>
+      </pre>
+      <p>文字列 `lines` は改行文字で分割され、`limit` パラメータが2に設定されているため、最初の2つの行だけが配列 `lineArray` に格納されます。</p>
+<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/split#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,String.prototype.split(),-Save" target="_blank">.split() - MDN</a>
+<br><a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Arrays#:~:text=%E3%81%BF%E3%81%BE%E3%81%97%E3%82%87%E3%81%86%E3%80%82-,%E6%96%87%E5%AD%97%E5%88%97%E3%81%A8%E9%85%8D%E5%88%97%E3%82%92%E7%9B%B8%E4%BA%92%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B,-%E3%83%87%E3%83%BC%E3%82%BF%E3%81%8C%E9%95%B7%E3%81%84" target="_blank">文字列と配列を相互に変換する - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+    
+    <section class="metho2" id="join"><h2>.join()</h2>
+      <p class="codes">array.join(separator)</p>
+      <p>`.join()` メソッドは、配列の要素を指定した区切り文字で連結して新しい文字列を作成します。</p>
+      <p>`.join()` メソッドは、配列の要素を結合して新しい文字列を作成するために使用されます。連結された文字列は、表示やフォーマットのために利用したり、他の処理に渡したりすることができます。 </p>
+    
+      <p class="ul1">構文の解説</p>
+        <li>`separator` (オプション): 要素を連結する際に使用する区切り文字を指定します。デフォルトはコンマ `,` です。 </li>
+        
+<pre class="answer">
+    <code class="lefter">// 1. 配列の要素をコンマで連結する:</code>
+    <code class="lefter">let</code> fruits = <code class="arrays">['apple', 'banana', 'orange']</code>;
+    <code class="lefter">let</code> fruitString = fruits.join(<code class="strings">','</code>);
+    <code class="consoles">console.log</code>(fruitString);  
+    <code class="comout">// 'apple,banana,orange'</code>
+</pre>
+<p>配列 `fruits` の要素がコンマで連結され、文字列 `fruitString` に格納されます。</p>
+<pre class="answer">
+    <code class="lefter">// 2. 配列の要素をスペースで連結する:</code>
+    <code class="lefter">let</code> numbers = <code class="arrays">[1, 2, 3, 4, 5]</code>;
+    <code class="lefter">let</code> numberString = numbers.join(<code class="strings">' '</code>);
+    <code class="consoles">console.log</code>(numberString);  
+    <code class="comout">// '1 2 3 4 5'</code>
+</pre>
+  <p>配列 `numbers` の要素がスペースで連結され、文字列 `numberString` に格納されます。
+</p>
+<pre class="answer">
+    <code class="lefter">// 3. 配列の要素を改行で連結する:</code>
+    <code class="lefter">let</code> lines = <code class="arrays">['Line 1', 'Line 2', 'Line 3']</code>;
+    <code class="lefter">let</code> lineString = lines.join(<code class="strings">'\n'</code>);
+    <code class="consoles">console.log</code>(lineString);
+    <code class="comout">// 'Line 1
+    // Line 2
+    // Line 3'</code>
+</pre>
+    <p>配列 `lines` の要素が改行で連結され、複数行の文字列 `lineString` に格納されます。
+</p>
+<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/join#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,Array.prototype.join(),-Save" target="_blank">.join() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+    
+    <section class="metho2" id="toSt"><h2>.toString()</h2>
+      <p class="codes">array.toString()</p>
+      <p>`.toString()` メソッドは、配列を文字列に変換します。</p>
+      <p>`.toString()` メソッドは、配列の要素を文字列に変換するために使用されます。必要に応じて、要素を別の区切り文字で連結する場合は `.join()` メソッドを使用することもできます。</p>
+      <p>このメソッドは、配列の要素をカンマで区切って連結し、新しい文字列を作成します。各要素は、要素自体の値の文字列表現に変換されます。</p>
+            
+      <pre class="answer">
+
+        <code class="lefter">// 配列を文字列に変換する:</code>
+        <code class="lefter">let</code> fruits = <code class="arrays">['apple', 'banana', 'orange']</code>;
+        <code class="lefter">let</code> fruitString = fruits.toString();
+        <code class="consoles">console.log</code>(fruitString);  <code class="comout">// 'apple,banana,orange'</code>
+        </pre>
+<p>配列 `fruits` の要素が `.toString()` メソッドによってカンマで区切られ、新しい文字列 `fruitString` が作成されます。</p>
+<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/toString#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,Object.prototype.toString(),-Save" target="_blank">.toString() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="metho2" id="push"><h2>.push()</h2>
+      <p class="codes">.push()</p>
+      <p>`.push()` メソッドは、配列の末尾に1つ以上の要素を追加するために使用されます。追加した要素は配列の新しい要素として保存されます。`.push()` メソッドは、配列の長さを変更する副作用を持ちます。
+      </p>
+      <p>`.push()` メソッドは追加された要素の数を返さず、単に配列の新しい長さを変更するだけです。
+      </p>
+            
+      <pre class="answer">
+
+    <code class="lefter">// 配列に要素を追加する:</code>
+    <code class="lefter">let</code> fruits = <code class="arrays">['apple', 'banana', 'orange']</code>;
+    <code class="consoles">console.log</code>(fruits);  
+    <code class="comout">// ['apple', 'banana', 'orange']</code>
+    
+    fruits.push(<code class="strings">'grape'</code>);
+    <code class="consoles">console.log</code>(fruits);  
+    <code class="comout">// ['apple', 'banana', 'orange', 'grape']</code>
+    
+    fruits.push(<code class="strings">'melon'</code>, <code class="strings">'kiwi'</code>);
+    <code class="consoles">console.log</code>(fruits);  
+    <code class="comout">// ['apple', 'banana', 'orange', 'grape', 'melon', 'kiwi']</code>
+        </pre>
+        <p>上記の例では、最初の配列 `fruits` には`'apple'`、`'banana'`、`'orange'` の3つの要素が含まれています。</p>
+<p>`.push()` メソッドを使用して `'grape'` を追加すると、配列の末尾に `'grape'` が追加されます。</p>
+<p>その後、さらに複数の要素 `'melon'` と `'kiwi'`を`.push()` メソッドで追加し、配列に追加されます。</p>
+<br><a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Arrays#:~:text=%E3%81%AB%E3%81%AF%E3%80%81%E3%81%9D%E3%82%8C%E3%81%9E%E3%82%8C-,push(),-%E3%81%A8%20pop()" target="_blank">.push() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="metho2" id="pop"><h2>.pop()</h2>
+      <p class="codes">.pop()</p>
+      <p>`.pop()` メソッドは、配列から最後の要素を削除してその要素を返すメソッドです。`.pop()` メソッドは配列の末尾から要素を削除し、配列の長さを1つ短くします。
+      </p>
+      <p>`.pop()` メソッドは配列から要素を削除し、削除された要素を返します。また、空の配列から `.pop()` メソッドを呼び出した場合は `undefined` を返します。
+      </p>
+            
+      <pre class="answer">
+
+        <code class="lefter">// 配列から要素を削除する:</code>
+        <code class="lefter">let</code> fruits = <code class="arrays">['apple', 'banana', 'orange']</code>;
+        <code class="consoles">console.log</code>(fruits);  
+        <code class="comout">// ['apple', 'banana', 'orange']</code>
+        
+        <code class="lefter">let</code> lastFruit = fruits.pop();
+        <code class="consoles">console.log</code>(lastFruit); 
+        <code class="comout">// 'orange'</code>
+        <code class="consoles">console.log</code>(fruits);  
+        <code class="comout">// ['apple', 'banana']</code>
+        </pre>
+          <p>上記の例では、最初の配列 `fruits` には`'apple'`、`'banana'`、`'orange'` の3つの要素が含まれています。</p>
+  <p>`.pop()` メソッドを使用すると、配列の最後の要素`'orange'` が削除され、その要素が返されます。</p><p>削除後の配列 `fruits`は`'apple'`と
+`'banana'` の2つの要素だけが残ります。</p>
+<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Arrays#:~:text=%E3%81%9D%E3%82%8C%E3%81%9E%E3%82%8C%20push()%20%E3%81%A8-,pop(),-%E3%82%92%E4%BD%BF%E3%81%84%E3%81%BE%E3%81%99" target="_blank">.pop() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="metho2" id="unshift"><h2>.unshift()</h2>
+      <p class="codes">.unshift()</p>
+      <p>`.unshift()` メソッドは、配列の先頭に要素を追加するメソッドです。新しい要素を先頭に追加することで、配列の要素の順序が変わります。追加後の配列の長さは元の配列の長さより1つ大きくなります。
+      </p>
+      <p>`.unshift()` メソッドは配列の先頭に要素を追加し、追加後の配列の要素数を返しません。配列自体が変更されます。
+      </p>
+            
+      <pre class="answer">
+
+        <code class="lefter">// 配列の先頭に要素を追加する:</code>
+        <code class="lefter">let</code> fruits = <code class="arrays">['apple', 'banana', 'orange']</code>;
+        <code class="consoles">console.log</code>(fruits);  
+        <code class="comout">// ['apple', 'banana', 'orange']</code>
+        
+        fruits.unshift(<code class="strings">'grape'</code>);
+        <code class="consoles">console.log</code>(fruits);  
+        <code class="comout">// ['grape', 'apple', 'banana', 'orange']</code>
+        </pre>
+        <p>上記の例では、最初の配列 `fruits` には`'apple'`、`'banana'`、`'orange'` の3つの要素が含まれています。</p>
+<p>`.unshift()` メソッドを使用すると、新しい要素 `'grape'` が配列の先頭に追加されます。</p>
+<p>追加後の配列 `fruits` は `'grape'`、`'apple'`、`'banana'`、`'orange'` の4つの要素を持ちます。</p>
+<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Arrays#:~:text=Copy%20to%20Clipboard-,unshift(),-%E3%81%A8%20shift()" target="_blank">.unshift() - MDN</a>
+<br><a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Arrays#:~:text=Copy%20to%20Clipboard-,%E9%A0%85%E7%9B%AE%E3%81%AE%E8%BF%BD%E5%8A%A0%E3%81%A8%E5%89%8A%E9%99%A4,-%E3%81%BE%E3%81%A0%E9%85%8D%E5%88%97%E3%81%B8" target="_blank">項目の追加と削除 - MDN</a>
+
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="metho2" id="shift"><h2>.shift()</h2>
+      <p class="codes">.shift()</p>
+      <p>`.shift()` メソッドは、配列の先頭から要素を削除するメソッドです。削除された要素は返されます。削除後の配列の長さは元の配列の長さより1つ小さくなります。</p>
+      <p>`.shift()` メソッドは配列の先頭から要素を削除し、削除された要素を返します。配列自体が変更されます。</p>
+            
+      <pre class="answer">
+
+        <code class="lefter">// 配列の先頭の要素を削除する:</code>
+        <code class="lefter">let</code> fruits = <code class="arrays">['apple', 'banana', 'orange']</code>;
+        <code class="consoles">console.log</code>(fruits);  
+        <code class="comout">// ['apple', 'banana', 'orange']</code>
+        
+        <code class="lefter">let</code> removedElement = fruits.shift();
+        <code class="consoles">console.log</code>(removedElement);  
+        <code class="comout">// 'apple'</code>
+        <code class="consoles">console.log</code>(fruits);  
+        <code class="comout">// ['banana', 'orange']</code>
+        </pre>
+        <p>上記の例では、最初の配列 `fruits` には `'apple'`、
+  `'banana'`、`'orange'` の3つの要素が含まれています。</p>
+<p>`.shift()` メソッドを使用すると、配列の先頭の要素 `'apple'` が削除されます。</p>
+<p>削除された要素 `'apple'` は `removedElement` 変数に代入され、配列 `fruits` は `'banana'`、`'orange'`の2つの要素を持つ配列になります。</p>
+<a href="https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/Arrays#:~:text=unshift()%20%E3%81%A8-,shift(),-%E3%81%AF%E3%81%9D%E3%82%8C%E3%81%9E%E3%82%8C%20push" target="_blank">.shift() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="loop" id="forof"><h2>for...of ループ</h2>
+      <p class="codes">for (let element of iterable) {// 要素ごとの処理 }</p>
+      <p>for...ofループは、JavaScriptの繰り返し処理の一種であり、配列やイテラブルオブジェクト（iterable object）の要素を順番に取り出して処理するための構文です。for...ofループは簡潔で直感的な構文を提供し、反復処理を行う際により簡単に読み書きできるようになります。
+      </p>
+      <p>for...ofループは配列の要素や文字列の文字など、イテラブルなデータに対して使用できます。また、オブジェクトは直接的にはイテラブルではないため、for...ofループでは使用できませんが、オブジェクトのキーと値のペアを取得するためには、`Object.entries()`を使用してイテラブルな配列に変換した上で、for...ofループを適用することができます。</p>
+      <p>for...ofループは繰り返し処理を行う際に便利な構文であり、配列やイテラブルオブジェクトの要素を順番に取り出して処理する場合に活用されます。</p>
+      <p>コードでは、iterableには反復処理を行いたい配列やイテラブルオブジェクトが入ります。ループの各反復では、iterableの要素が順番にelementに代入されて、その要素に対して処理が行われます。</p>
+            
+      <pre class="answer">
+
+        <code class="lefter">// 配列の要素や文字列の各文字を順番に処理する:</code>
+        <code class="lefter">let</code> numbers = <code class="arrays">[1, 2, 3, 4, 5]</code>;
+        
+        <code class="lefter">for</code> (<code class="lefter">let</code> number <code class="lefter">of</code> numbers) {
+          <code class="consoles">console.log</code>(number); <code class="comout">// 各要素が順番に出力される</code>
+        }
+        <code class="comout">// 出力:</code>
+        <code class="comout">// 1</code>
+        <code class="comout">// 2</code>
+        <code class="comout">// 3</code>
+        <code class="comout">// 4</code>
+        <code class="comout">// 5</code>
+        
+        <code class="lefter">let</code> string = <code class="strings">"Hello"</code>;
+        
+        <code class="lefter">for</code> (<code class="lefter">let</code> char <code class="lefter">of</code> string) {
+          <code class="consoles">console.log</code>(char); <code class="comout">// 文字列の各文字が順番に出力される</code>
+        }
+        <code class="comout">// 出力:</code>
+        <code class="comout">// H</code>
+        <code class="comout">// e</code>
+        <code class="comout">// l</code>
+        <code class="comout">// l</code>
+        <code class="comout">// o</code>
+        </pre>
+          <p>for...ofループは配列の要素や文字列の文字など、イテラブルなデータに対して使用できます。</p>
+  <p>また、オブジェクトは直接的にはイテラブルではないため、for...ofループでは使用できませんが、オブジェクトのキーと値のペアを取得するためには、`Object.entries()`を使用してイテラブルな配列に変換した上で、for...ofループを適用することができます。</p>
+<br><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/for...of#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,for...of,-Save" target="_blank">for...of - MDN</a>
+
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="expression" id="ArrayId"><h2>Array(配列)</h2>
+      <p>Array（配列）は、JavaScriptにおいて複数の値を一つの変数にまとめて格納するためのデータ構造です。</p>
+      <p>配列は順序付けられた要素の集合であり、それぞれの要素は0から始まるインデックス（位置）でアクセスすることができます。</p>
+      <p>JavaScriptのArrayは可変長（要素数を動的に変更できる）であり、異なる型の要素を混在させることができます。</p>
+      <p>配列を作成する方法はいくつかあります。以下に代表的な方法を示します:</p>
+      <pre class="answer">
+        <code class="lefter">// リテラル表記:</code>
+        let numbers = <code class="arrays">[1, 2, 3, 4, 5]</code>;
+        let names = <code class="arrays">['Alice', 'Bob', 'Charlie']</code>;</pre>
+          <br>
+        <pre class="answer">
+        <code class="lefter">// Arrayコンストラクタ:</code>
+        let numbers = <code class="lefter">new</code> Array(1, 2, 3, 4, 5);
+        let names = <code class="lefter">new</code> Array('Alice', 'Bob', 'Charlie')</code>;</pre>
+      <p>配列の要素へのアクセスは、インデックスを使用して行います。インデックスは0から始まり、配列の最初の要素はインデックス0、次の要素はインデックス1、というように続きます。
+      </p>
+      <pre class="answer">
+        <code class="lefter">let</code> fruits = <code class="arrays">['apple', 'banana', 'orange']</code>;
+        <code class="consoles">console</code>.log(fruits[0]); <code class="comout">// 'apple' を表示</code>
+        <code class="consoles">console</code>.log(fruits[1]); <code class="comout">// 'banana' を表示</code>
+        <code class="consoles">console</code>.log(fruits[2]); <code class="comout">// 'orange' を表示</code>
+</pre>
+    <p>配列の長さ（要素の数）は`length`プロパティで取得できます:</p>
+    <pre class="answer">
+      <code class="lefter">let</code> numbers = <code class="arrays">[1, 2, 3, 4, 5]</code>;
+      <code class="consoles">console</code>.log(numbers.length); <code class="comout">// 5 を表示</code>
+</pre>
+            <p>配列には多くの組み込みのメソッドが提供されており、要素の追加、削除、検索、変更などの操作を行うことができます。以下に一部のメソッドを示します:</p>
+      <ul>
+        <li>push(): 配列の末尾に要素を追加します。</li>
+        <li>pop(): 配列の末尾の要素を削除して返します。</li>
+        <li>shift(): 配列の先頭の要素を削除して返します。</li>
+        <li>unshift(): 配列の先頭に要素を追加します。</li>
+        <li>splice(): 配列の指定した位置に要素を追加または削除します。</li>
+        <li>concat(): 他の配列または要素と現在の配列を結合して新しい配列を作成します。</li>
+        <li>slice(): 配列の一部を抽出して新しい配列を作成します。</li>
+        <li>indexOf(): 指定した要素の最初のインデックスを返します。</li>
+        <li>includes(): 指定した要素が配列に含まれているかどうかを判定します。</li>
+      </ul>
+      <p>これらは一部ですが、配列の操作によく使用されるメソッドです。詳細な説明や他のメソッドについては、JavaScriptの公式ドキュメントや参考書を参照してください。<br>
+      また、配列には`for...of`ループや`forEach()`メソッドなど、繰り返し処理を行うための便利な機能も備わっています。<br>
+      配列はJavaScriptで非常に重要なデータ構造であり、多くの場面で使用されます。データの集合を効率的に管理し、処理するための便利な手段として、積極的に活用することが推奨されます。</p>
+      <br><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,Array,-Save" target="_blank">Array - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="expression" id="templite"><h2>テンプレートリテラル</h2>
+      <p class="codes">`文字列テキスト`<br>`文字列テキスト ${式}`</p>
+      <p>テンプレートリテラル（Template Literal）とは、JavaScriptにおける文字列の表現方法の一つ。テンプレートリテラルを使うと、文字列内に変数や式を埋め込むことができる。<br>
+      テンプレートリテラルはバッククォート（`）で囲まれた文字列として表現される。</p>
+      <p>テンプレートリテラルでは、${ }の中に式を記述することができる。式は中括弧内で評価され、その結果がテンプレートリテラルの中に埋め込まれる。</p>
+      <p>下記の例では、テンプレートリテラルを使用して変数nameとageの値を埋め込んでいる。${}内の式は評価され、その結果が文字列に置換される。</p>
+      <p>テンプレートリテラルは通常の文字列と比べて可読性が高く、文字列の組み立てや変数の埋め込みを簡潔に行うことができる。また、複数行の文字列を表現する際にも便利。</p>    
+      <p>さまざまな用途でテンプレートリテラルを活用することができるので、文字列操作や表示の際に便利な機能。</p>
+      <pre class="answer">
+
+  <code class="lefter">const</code> name = <code class="strings">'Alice'</code>;
+  <code class="lefter">const</code> age = <code class="lefter">25</code>;
+  
+  <code class="lefter">const</code> message = <code class="strings">`私の名前は${name}です。年齢は${age}歳です。`</code>;
+  <code class="consoles">console</code>.log(message);
+  <code class="comout">// 出力: 私の名前はAliceです。年齢は25歳です。</code>
+        </pre>
+        
+      <br>
+      <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Template_literals#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB%20(%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E6%96%87%E5%AD%97%E5%88%97),-Save" target="_blank">テンプレートリテラル (テンプレート文字列) - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="expression" id="placeH"><h2>プレースホルダー</h2>
+      <p class="codes">${ }</p>
+      <p>
+        プレースホルダー（Placeholder）は、テンプレートリテラル内で使用される特殊な構文です。プレースホルダーは、変数や式の値を埋め込むための位置を指定します。
+      </p>
+      <p>プレースホルダーは${}で表され、その中に変数名や式を記述します。実行時に変数の値や式の評価結果がプレースホルダーに置換されます。
+      </p>
+<pre class="answer">
+
+  <code class="lefter">const</code> name = <code class="strings">'Alice'</code>;
+  <code class="lefter">const</code> age = <code class="lefter">25</code>;
+
+  <code class="lefter">const</code> message = <code class="strings">`私の名前は${name}です。年齢は${age}歳です。`</code>;
+  <code class="consoles">console</code>.log(message);
+  <code class="comout">// 出力: 私の名前はAliceです。年齢は25歳です。</code>
+
+</pre>
+
+      <p>上記の例では、${name}と${age}がプレースホルダーです。変数nameとageの値がそれぞれのプレースホルダーに置換され、最終的な文字列が生成されます。</p>
+      <p>
+        プレースホルダーは任意の式を含むこともできます。例えば、以下のように算術演算や関数呼び出しをプレースホルダー内で行うことができます：
+      </p>
+<pre class="answer">
+  
+  <code class="lefter">const</code> a = <code class="lefter">10</code>;
+  <code class="lefter">const</code> b = <code class="lefter">5</code>;
+
+  <code class="lefter">const</code> result = <code class="strings">`a + b = ${a + b}`</code>;
+  <code class="consoles">console</code>.log(result);
+  <code class="comout">// 出力: a + b = 15</code>
+
+  <code class="lefter">const</code> currentTime = <code class="strings">`現在の時刻は 
+    ${new Date().toLocaleTimeString()} です`</code>;
+  <code class="consoles">console</code>.log(currentTime);
+  <code class="comout">// 出力: 現在の時刻は 12:34:56 です（現在の時刻に応じて変化）</code>
+
+</pre>
+      <p>このように、プレースホルダーを使うことで、動的な値や式を文字列に埋め込むことができます。これは文字列の組み立てや表示の際に非常に便利です。
+      </p>
+      <p>また、プレースホルダー内には任意のJavaScript式を記述できるため、複雑な計算や条件に基づいた文字列の生成も容易に行うことができます。</p>
+    <a href="#tops" class="toptop">To top</a></section>
+    
+    <section class="expression" id="escseq"><h2>エスケープシーケンス</h2>
+      <p>エスケープシーケンスとは、特定の文字を表現するために使用されるバックスラッシュ（\）に続く特殊な文字の組み合わせです。</p>
+      <p>エスケープシーケンスは、文字列内で特別な意味を持つ文字（例: クォーテーションマークや改行文字）を表現するために使用されます。</p>
+      <ul>
+        <li>\' : シングルクォート（単一引用符）を表現します。</li>
+        <li>\" : ダブルクォート（二重引用符）を表現します。</li>
+        <li>\\ : バックスラッシュを表現します。</li>
+        <li>\n : 改行文字を表現します。</li>
+        <li>\t : タブ文字を表現します。</li>
+        <li>\r : キャリッジリターンを表現します。</li>
+        <li>\b : バックスペースを表現します。</li>
+        <li>\f : フォームフィードを表現します。</li>
+      </ul>
+      <pre class="answer">
+
+        <code class="consoles">console</code>.log('This is a single quote: <code class="lefter">\'</code>');
+        <code class="consoles">console</code>.log("This is a double quote: <code class="lefter">\"</code>");
+        <code class="consoles">console</code>.log('This is a backslash: <code class="lefter">\\</code>');
+        <code class="consoles">console</code>.log('This is a new line:<code class="lefter">\n</code>Hello');
+        <code class="consoles">console</code>.log('This is a tab:<code class="lefter">\t</code>Hello');
+        <code class="consoles">console</code>.log('This is a carriage return:<code class="lefter">\r</code>Hello');
+        <code class="consoles">console</code>.log('This is a backspace:<code class="lefter">\b</code>Hello');
+        <code class="consoles">console</code>.log('This is a form feed:<code class="lefter">\f</code>Hello');
+        </pre>
+              <p>以下が出力結果</p>
+      <pre class="answer">
+        
+        This is a single quote: '
+        This is a double quote: "
+        This is a backslash: \
+        This is a new line:
+        Hello
+        This is a tab:       Hello
+        Helloge
+        This is a backspace:Hello
+                    Hello
+      </pre><br>
+      <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String#%E3%82%A8%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%97%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,String,-Save" target="_blank">String - MDN</a>
+      
+      <a href="#tops" class="toptop">To top</a></section>
+      
+    <section class="expression" id="Kkakko"><h2>角括弧表記</h2>
+      <p>角括弧表記（Bracket notation）は、JavaScriptにおいてオブジェクトや配列の要素にアクセスするための方法です。オブジェクトと配列はそれぞれ、キー（プロパティ名）やインデックスを使用して要素にアクセスします。</p>
+      <p>まず、オブジェクトの場合です。オブジェクトはキーと値のペアの集合であり、キーは文字列です。角括弧表記を使用してオブジェクトの要素にアクセスするには、オブジェクトの変数名の後に角括弧（`[]`）を使用し、アクセスしたいキーを指定します。<br>例えば、以下のオブジェクトがあるとします。</p>
+      <pre class="answer">
+        <code class="lefter">const</code> person = {
+          name: <code class="strings">'John'</code>,
+          age: <code class="lefter">30</code>,
+          city: <code class="strings">'Tokyo'</code>
+        };</pre>
+      <p>この場合、`person`オブジェクトの`name`キーにアクセスするには以下のようにします。</p>
+      <pre class="answer">
+        
+        <code class="consoles">console</code>.log(person[<code class="arrays">'name'</code>]); <code class="comout">// 'John'</code>
+      </pre><br>
+      <p>角括弧内にキーを文字列として指定することで、そのキーに対応する値を取得できます。変数を使用して動的にキーを指定することも可能です。</p>
+      <p>次に、配列の場合です。配列は順序付けられた値のリストです。配列の要素には0から始まるインデックスが割り当てられています。角括弧表記を使用して配列の要素にアクセスするには、配列の変数名の後に角括弧（`[]`）を使用し、アクセスしたいインデックスを指定します。<br>例えば、以下の配列があるとします。</p>
+      <pre class="answer">
+
+        <code class="lefter">const</code> fruits = [<code class="strings">'Apple'</code>, <code class="strings">'Banana'</code>, <code class="strings">'Orange'</code>];
+      </pre>      
+      <p>この場合、`fruits`配列のインデックス0の要素にアクセスするには以下のようにします。</p>
+        <pre class="answer">
+
+        <code class="consoles">console</code>.log(<code class="arrays">fruits</code>[0]); // <code class="strings">'Apple'</code>
+        </pre><br>
+      <p>配列のインデックスを指定することで、そのインデックスに対応する要素を取得できます。変数を使用して動的にインデックスを指定することも可能です。</p>
+      <p>角括弧表記を使用することで、オブジェクトや配列の要素に動的にアクセスできるため、プログラムの柔軟性や拡張性が向上します。</p>
+      <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="metho2" id="map"><h2>.map()</h2>
+      <p class="codes">.map()</p>
+      <p>`.map()`は、配列の各要素に対して指定された関数を実行し、その結果を新しい配列として返すJavaScriptのメソッドです。</p>
+      <pre class="answer">
+        <code class="lefter">const</code> numbers = <code class="arrays">[1, 2, 3, 4, 5]</code>;
+        
+        <code class="lefter">const</code> doubledNumbers = numbers.map((num) => {
+          <code class="comout">// 数字を2倍にする</code>
+          <code class="lefter">return</code> num * 2;
+        });
+        
+        <code class="consoles">console.log</code>(doubledNumbers);
+        <code class="comout">// [2, 4, 6, 8, 10] を表示</code>
+        </pre>
+  <p>`.map()`は配列の要素を順番に取り出し、指定された関数をそれぞれの要素に対して呼び出します。関数の返り値が新しい配列の対応する位置の要素となります。最終的に、新しい配列が生成されます。</p>
+  <p>`.map()`のコールバック関数は、要素の値だけでなく、インデックスや配列自体を引数として受け取ることもできます。以下はその例です:</p>
+  <pre class="answer">
+
+    <code class="lefter">const</code> numbers = <code class="arrays">[1, 2, 3, 4, 5]</code>;
+    
+    <code class="lefter">const</code> multipliedNumbers = numbers.map((num, index, array) => {
+      <code class="comout">// 各要素をそのインデックスと配列の長さで乗算する</code>
+      <code class="lefter">return</code> num * index * array.length;
+    });
+    
+    <code class="consoles">console</code>.log(multipliedNumbers);
+    <code class="comout">// [0, 2, 6, 12, 20]</code>
+    </pre>
+<p>`.map()`は元の配列を変更するのではなく、新しい配列を返すため、元の配列は変更されません。</p> 
+<p>`.map()`は配列の要素に対して繰り返し処理を行い、変換や加工を行いたい場合に便利です。</p>
+<p>例えば、配列内の全ての要素を大文字に変換する、要素の長さを取得するなど、多くのシナリオで利用されます。</p>
+<p>例</p>
+<pre class="answer">
+
+  <code class="lefter">const</code> myArray = [<code class="strings">'apple'</code>, <code class="strings">'banana'</code>, <code class="strings">'orange'</code>];
+  
+  <code class="lefter">const</code> newArray = 
+    myArray.map((element, index) => <code class="strings">`(${index}) ${element}`</code>);
+  
+  console.log(newArray);
+  </pre><p>このコードでは、`map()` メソッドを使って新しい配列 `newArray` を作成しています。コールバック関数内で、各要素とインデックス番号を組み合わせて新しい要素を生成しています。</p>
+<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,Array.prototype.map(),-Save" target="_blank">.map() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+  
+    <section class="metho2" id="forEach"><h2>.forEach()</h2>
+      <p class="codes">.forEach()</p>
+      <p>`.forEach()`は、配列の各要素に対して指定された関数を実行するJavaScriptのメソッドです。</p>
+      <p>以下はその基本的な使用例です。</p>
+<pre class="answer">
+
+  <code class="lefter">const</code> numbers = <code class="arrays">[1, 2, 3, 4, 5]</code>;
+
+  numbers.forEach((num) => {
+    <code class="consoles">console</code>.log(num);
+  });
+
+</pre>      
+    <p>この場合、`.forEach()`は配列の各要素に対してコールバック関数を呼び出し、それぞれの要素を引数として渡します。上記の例では、各要素がコンソールに表示されます。</p>
+    <p>`.forEach()`は、配列を変更せずに要素を順番に処理するため、新しい配列を返しません。</p>
+    <p>`.forEach()`のコールバック関数は、要素の値だけでなく、インデックスや配列自体も引数として受け取ることができます。以下はその例です:</p>
+    <pre class="answer">
+
+      <code class="lefter">const</code> numbers = <code class="arrays">[1, 2, 3, 4, 5]</code>;
+      
+      numbers.forEach((num, index, array) => {
+        <code class="consoles">console</code>.log(`Index: ${index}, Value: ${num}`);
+        <code class="consoles">console</code>.log(`Original Array: ${array}`);
+      });
+      </pre>
+      <p>`.forEach()`は、`.map()`とは異なり、新しい配列を生成せず、主にループ処理や要素に対する副作用を実行するために使用されます。要素ごとに特定の処理を行いたい場合や、配列内の要素を直接変更したい場合に適しています。</p>
+<p>例</p>
+<pre class="answer">
+  ```javascript
+  <code class="lefter">const</code> myArray = <code class="arrays">['apple', 'banana', 'orange']</code>;
+  <code class="lefter">const</code> newArray = <code class="arrays">[]</code>;
+
+  myArray.forEach((element, index) => {
+  newArray.push(<code class="strings">`(${index}) ${element}`</code>);
+  });
+
+  <code class="consoles">console</code>.log(newArray);
+  ```</pre>
+  <p>このコードでは、`forEach()` メソッドを使って配列をイテレートし、各要素とインデックス番号を組み合わせた新しい要素を `newArray` に追加しています。
+  </p>
+<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,Array.prototype.forEach(),-Save" target="_blank">.forEach() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="metho2" id="startW"><h2>.startsWith()</h2>
+      <p class="codes">.startsWith()</p>
+      <p>`startsWith()`は、与えられた文字列が指定した接頭辞（プレフィックス）で始まるかどうかを判定するためのJavaScriptのメソッドです。</p>
+      <p>以下は基本的な使用例です:</p>
+<pre class="answer">
+
+  <code class="lefter">const</code> str = <code class="strings">'Hello, world!'</code>;
+  
+  <code class="consoles">console</code>.log(str.startsWith('Hello')); <code class="comout">// true</code>
+  <code class="consoles">console</code>.log(str.startsWith('World')); <code class="comout">// false</code>
+  <code class="consoles">console</code>.log(str.startsWith('Hello,')); <code class="comout">// true</code>
+
+</pre>
+      <p>`startsWith()`は引数として比較したい接頭辞の文字列を受け取ります。指定した文字列が元の文字列の先頭にある場合は`true`を返し、そうでない場合は`false`を返します。</p>
+      <p>注意点として、`startsWith()`は文字列の先頭のみをチェックします。接尾辞（サフィックス）のチェックや、指定した位置からのチェックは行いません。また、引数として正規表現を使用することはできません。</p>
+      <p>`startsWith()`は文字列のパターンマッチングや条件分岐など、様々な場面で便利に活用できます。</p>
+<pre class="answer">
+
+  <code class="lefter">const</code> birds =<code class="arrays"> 
+    ["Parrots","Falcons","Eagles","Emus","Caracaras","Egrets"];</code>
+  
+  <code class="lefter">let</code> index = birds.indexOf(<code class="strings">'Eagles'</code>);
+  <code class="lefter">if</code> (index !== -1){
+    birds.splice(index,1);
+  }
+  et eBirds = birds.filter(item => item.startsWith('E'));
+  <code class="comout">//Emus,Egrets</code>
+
+</pre><br>
+<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,String.prototype.startsWith(),-Save" target="_blank">.startWith() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="metho2" id="splice"><h2>.splice()</h2>
+      <p class="codes">.splice()</p>
+      <p>`.splice()`メソッドは、指定したインデックスから要素を削除し、必要に応じて新しい要素を追加することができます。</p>
+      <p>以下は`.splice()`の使用例です:</p>
+<pre class="answer">
+
+  <code class="lefter">const</code> array = <code class="arrays">['apple','banana','cherry','date']</code>;
+  <code class="comout">
+  // インデックス1の要素を削除</code>
+  array.splice(1, 1);
+  
+  <code class="consoles">console</code>.log(array); 
+  <code class="comout">// ['apple','cherry','date']</code>
+
+</pre>
+
+      <p>上記の例では、`array`配列からインデックス1の要素（'banana'）が削除されます。`.splice()`メソッドの最初の引数は削除を開始するインデックスであり、2番目の引数は削除する要素の数です。</p>
+      <p>`.splice()`メソッドは元の配列を変更するため、新しい配列を返しません。</p>
+      <p>また、`.splice()`メソッドは削除した要素を返すため、削除した要素を取得することもできます。以下はその例です:</p>
+<pre class="answer">
+
+  <code class="lefter">const</code> array = <code class="arrays">['apple', 'banana', 'cherry', 'date']</code>;
+  
+  <code class="lefter">const</code> removedItem = array.splice(1, 1);
+  
+  <code class="consoles">console</code>.log(removedItem); 
+  <code class="comout">// ['banana']</code>
+  <code class="consoles">console</code>.log(array); 
+  <code class="comout">// ['apple', 'cherry', 'date']</code>
+
+</pre><br>
+  <p>削除した要素は配列として返されるため、必要に応じて取得や処理ができます。</p>
+  <pre class="answer">
+  ```javascript
+  <code class="lefter">const</code> birds = <code class="arrays">
+    ["Parrots","Falcons","Eagles","Emus","Caracaras","Egrets"]</code>;
+  
+  <code class="lefter">let</code> index = birds.indexOf(<code class="strings">'Eagles'</code>);
+  <code class="lefter">if</code> (index !== -1){
+  birds.splice(index,1);
+  }
+  et eBirds = birds.filter(item => item.startsWith('E'));
+  <code class="comout">//Emus,Egrets</code>
+  ```</pre><br>
+<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/splice#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,Array.prototype.splice(),-Save" target="_blank">.splice() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="metho2" id="filter"><h2>.filter()</h2>
+      <p class="codes">newArray = array.filter(callback(element, index, array));</p>
+      <p>`.filter()`メソッドは、与えられた条件に基づいて配列から要素をフィルタリングするためのメソッドです。<br>以下に、`.filter()`メソッドの使い方と役割について説明します。</p>
+      <p>構文の解説</p>
+      <ul>
+        <li>array : フィルタリングされる配列</li>
+        <li>callback : 条件を評価するための関数。各要素に対して実行される</li>
+        <li>element : 現在処理中の要素</li>
+        <li>index(オプション) : 現在処理中の要素のインデックス</li>
+        <li>array(オプション) : filterが呼び出された配列そのもの</li>
+      </ul>
+      <p>返り値:</p>
+      <p>`.filter()`メソッドは、配列の各要素に対してコールバック関数を実行し、その結果が真となる要素のみを新しい配列に追加します。コールバック関数が真を返す場合、その要素は新しい配列に含まれます。コールバック関数が偽を返す場合、その要素は新しい配列に含まれません。</p>
+      <p>以下は例です。</p>
+<pre class="answer">
+
+  <code class="lefter">const</code> numbers = <code class="arrays">[1, 2, 3, 4, 5, 6]</code>;
+  
+  <code class="lefter">const</code> evenNumbers = numbers.filter(number => number % 2 === 0);
+  
+  <code class="consoles">console</code>.log(evenNumbers); 
+  <code class="comout">// [2, 4, 6]</code>
+  </pre>
+<p>上記の例では、`.filter()`メソッドを使用して偶数のみを抽出しています。コールバック関数は各要素に対して実行され、その結果が真となる要素だけが新しい配列に含まれます。</p>
+<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter#:~:text=%E3%81%AE%E3%82%A6%E3%82%A7%E3%83%96%E6%8A%80%E8%A1%93-,Array.prototype.filter(),-Save" target="_blank">.filter() - MDN</a>
+    <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="metho2" id="findIndex"><h2>.findIndex()</h2>
+      <p>作成予定</p>
+      <a href="#tops" class="toptop">To top</a></section>
+
+    <section class="metho2" id="includes"><h2>.includes()</h2>
+      <p>作成予定</p>
+      <a href="#tops" class="toptop">To top</a></section>
+
+    <!--テンプレート
+
+    <section class="metho2" id="***"><h2>***</h2>
+  <p class="codes">***</p>
+  <p></p>
+  <p></p>
+  <p></p>
+
+  <p class="ul1">構文の解説</p>
+    <li>str : 対象の文字列</li>
+    <li></li>
+    <li></li>
+
+  <p class="ul1">***の動作について</p>
+    <ol>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+
+<pre class="answer">
+***
+</pre><br>
+<a href="#tops" class="toptop">To top</a></section>
+
+    -->
+    <div id="bottoms">☆</div><!--article外だと真下に置けない-->
+
+</article>
+</body>
+</html>

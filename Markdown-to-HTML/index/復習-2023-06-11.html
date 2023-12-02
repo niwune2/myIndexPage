@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x5fa9;&#x7fd2;-2023&sol;06&sol;11</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="復習-20230611">復習-2023/06/11</h1>
+<ul>
+<li><a href="#%E5%BE%A9%E7%BF%92-20230611">復習-2023/06/11</a>
+<ul>
+<li><a href="#%E6%95%B0%E5%AD%A6-1">数学 1</a></li>
+<li><a href="#%E6%95%B0%E5%AD%A6-2">数学 2</a>
+<ul>
+<li><a href="#%E5%9B%9E%E7%AD%94-2">回答-2</a></li>
+</ul>
+</li>
+<li><a href="#tofixed"><code>to.Fixed()</code></a></li>
+<li><a href="#%E6%95%B0%E5%AD%A6-3">数学 3</a>
+<ul>
+<li><a href="#%E5%9B%9E%E7%AD%94">回答</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="数学-1">数学 1</h2>
+<p>基本演算子の知識をテストすることから始めましょう。</p>
+<ol>
+<li>4 つの数値を作成し、最初の 2 つを加算してください。</li>
+<li>そして 3 番目から 4 番目を減算してください。</li>
+<li>そうして出来た 2 つの 2 次結果を乗算して、48 になるようにしてください。</li>
+<li>最後に、この値が偶数であることを証明するテストを記述することも必要ですね。</li>
+</ol>
+<p>では、完成イメージを再構築するために、下記のライブコードを更新してみましょう。次の手順に従ってください:</p>
+<ol>
+<li>数値の変数を 4 つ作成してください。変数にわかりやすい名前を付けてください。</li>
+<li>最初の 2 つの変数を加算し、その結果を別の変数に格納してください。</li>
+<li>3 番目の変数から 4 番目の変数を減算し、その結果を別の変数に格納してください。</li>
+<li>上記 2 つの工程の結果を乗算し、<code>finalResult</code> という変数に格納してください。その結果は 48 になるはずです。もしならなければ、初期の設定数値を調整する必要があります。</li>
+<li>最後に、<code>finalResult</code> が偶数であるかどうかをチェックする計算式を記述してください。結果を <code>evenOddResult</code> という変数に格納してください。</li>
+</ol>
+<pre><code class="language-js"><span class="hljs-keyword">let</span> finalResult;
+
+<span class="hljs-keyword">let</span> evenOddResult;
+
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">let</span> five =  <span class="hljs-number">3</span> ;
+<span class="hljs-keyword">let</span> six = <span class="hljs-number">3</span> ;
+<span class="hljs-keyword">let</span> one = <span class="hljs-number">12</span> ;
+<span class="hljs-keyword">let</span> two = <span class="hljs-number">4</span> ;
+
+<span class="hljs-keyword">let</span> fiveSix  = five + six ;
+<span class="hljs-keyword">let</span> oneTwo = one - two ;
+
+finalResult = fiveSix * oneTwo ;　<span class="hljs-comment">//出力：Is the finalResult 48? Yes, well done!</span>
+evenOddResult = finalResult % <span class="hljs-number">2</span>; <span class="hljs-comment">//出力：The final result is even!</span>
+<span class="hljs-comment">//剰余演算子を使用した</span>
+
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">const</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-keyword">const</span> finalResultCheck = finalResult === <span class="hljs-number">48</span> ? <span class="hljs-string">`Yes, well done!`</span> : <span class="hljs-string">`No, it is <span class="hljs-subst">${ finalResult }</span>`</span>;
+para1.<span class="hljs-property">textContent</span> = <span class="hljs-string">`Is the finalResult 48? <span class="hljs-subst">${ finalResultCheck }</span>`</span>;
+<span class="hljs-keyword">const</span> para2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-keyword">const</span> evenOddResultCheck = evenOddResult === <span class="hljs-number">0</span> ? <span class="hljs-string">&#x27;The final result is even!&#x27;</span> : <span class="hljs-string">&#x27;The final result is odd. Hrm.&#x27;</span>;
+para2.<span class="hljs-property">textContent</span> = evenOddResultCheck;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+section.<span class="hljs-title function_">appendChild</span>(para2);
+</code></pre>
+<hr>
+<h2 id="数学-2">数学 2</h2>
+<p>2 番目のタスクでは、すでに結果が変数 <code>result</code> と <code>result2</code> に格納されている 2 つの計算式が提供されています。しかし、これらの結果は私たちが求めているものではありません。望む結果にするために、2 つの計算式を変更する必要がでてきます。</p>
+<p>私たちは何を求めている？ 2 つの結果を乗算し、その結果を小数第 2 位までにフォーマットすると、最終結果は <code>10.42</code> になるようにしたいのです。</p>
+<p>この完成イメージを再構築するために、下記のライブコードを更新してみましょう。次の手順に従ってください:</p>
+<ol>
+<li><code>result</code> と <code>result2</code> を乗算し、結果を <code>result</code> に代入し戻す計算式を記述してください。これは、代入演算子の略記形を使いましょう。</li>
+<li>その結果を小数第 2 位までにフォーマットし、そして <code>finalResult</code> という変数に格納する 1 行コードを記述してください。</li>
+<li><code>typeof</code> を使用して <code>finalResult</code> のデータ型をチェックしてください。実際には <code>string</code> 型であることがわかるでしょう！それを <code>number</code> 型に変換し、結果を <code>finalNumber</code> という変数に格納する 1 行コードを記述してください。</li>
+<li><code>finalNumber</code> の値は <code>10.42</code> にならなければいけません。戻って、この最終結果が得られるように最初に与えられていた計算式を更新してください。<strong>数値や演算子は</strong>更新しないでくださいね。</li>
+</ol>
+<h3 id="回答-2">回答-2</h3>
+<pre><code class="language-js">
+<span class="hljs-comment">// Final result should be 10.42</span>
+<span class="hljs-comment">// Add/update your code here</span>
+
+<span class="hljs-keyword">let</span> result = <span class="hljs-number">7</span> + <span class="hljs-number">13</span> / <span class="hljs-number">9</span> + <span class="hljs-number">7</span>;
+<span class="hljs-keyword">let</span> result2 = <span class="hljs-number">100</span> / <span class="hljs-number">2</span> * <span class="hljs-number">6</span>;
+
+result *= result2; 
+
+<span class="hljs-keyword">let</span> finalResult = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(result * <span class="hljs-number">10</span>) / <span class="hljs-number">10</span>;
+<span class="hljs-keyword">typeof</span> finalResult;
+<span class="hljs-keyword">let</span> finalNumber = <span class="hljs-title class_">Number</span>(finalResult);
+
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">const</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+para1.<span class="hljs-property">textContent</span> = <span class="hljs-string">`Your finalResult is <span class="hljs-subst">${ finalResult }</span>`</span>;
+<span class="hljs-keyword">const</span> para2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-keyword">const</span> finalNumberCheck = <span class="hljs-built_in">isNaN</span>(finalNumber) === <span class="hljs-literal">false</span> ? <span class="hljs-string">&#x27;finalNumber is a number type. Well done!&#x27;</span> : <span class="hljs-string">`Ooops! finalNumber is not a number.`</span>;
+para2.<span class="hljs-property">textContent</span> = finalNumberCheck;
+
+section.<span class="hljs-title function_">appendChild</span>(para1);
+section.<span class="hljs-title function_">appendChild</span>(para2);
+    
+</code></pre>
+<pre><code class="language-js"><span class="hljs-comment">//ある人の回答</span>
+<span class="hljs-comment">// Add/update your code here</span>
+
+<span class="hljs-keyword">let</span> result = <span class="hljs-number">7</span> + <span class="hljs-number">13</span> / <span class="hljs-number">9</span> + <span class="hljs-number">7</span>;
+<span class="hljs-keyword">let</span> result2 = <span class="hljs-number">100</span> / <span class="hljs-number">2</span> * <span class="hljs-number">6</span>;
+
+result *= result2;
+<span class="hljs-keyword">let</span> finalResult = result.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">2</span>);<span class="hljs-comment">//toFixedの使用</span>
+<span class="hljs-keyword">typeof</span> finalResult;
+<span class="hljs-keyword">let</span> finalNumber = <span class="hljs-title class_">Number</span>(finalResult);
+<span class="hljs-keyword">let</span> results = result - <span class="hljs-number">4622.91</span>;
+finalResult = results.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">2</span>);
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+</code></pre>
+<pre><code class="language-js"><span class="hljs-comment">//模範解答</span>
+<span class="hljs-keyword">let</span> result = (<span class="hljs-number">7</span> + <span class="hljs-number">13</span>) / (<span class="hljs-number">9</span> + <span class="hljs-number">7</span>);
+<span class="hljs-keyword">let</span> result2 = <span class="hljs-number">100</span> / (<span class="hljs-number">2</span> * <span class="hljs-number">6</span>);
+</code></pre>
+<pre><code class="language-js"><span class="hljs-comment">//復習</span>
+<span class="hljs-keyword">let</span> result = (<span class="hljs-number">7</span> + <span class="hljs-number">13</span>) / (<span class="hljs-number">9</span> + <span class="hljs-number">7</span>);
+<span class="hljs-keyword">let</span> result2 = (<span class="hljs-number">100</span>) / (<span class="hljs-number">2</span> * <span class="hljs-number">6</span>);
+
+result *=result2;
+<span class="hljs-keyword">let</span> finalResult = result.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">2</span>);
+<span class="hljs-keyword">let</span> finalNumber = <span class="hljs-title class_">Number</span>(finalResult);
+</code></pre>
+<p><a href="https://johobase.com/javascript-floor-ceil-round/">JavaScript 数値丸め 切り捨て、切り上げ、四捨五入（floor、ceil、round）</a></p>
+<p><a href="https://www.tohoho-web.com/js/number.htm#str2num">数値（Number）</a></p>
+<h2 id="tofixed"><code>to.Fixed()</code></h2>
+<p><code>toFixed()</code>は、JavaScriptの数値オブジェクトのメソッドの1つで、数値を指定された小数点以下の桁数に丸めて文字列として返すために使用されます。以下に、<code>toFixed()</code>メソッドの詳細な説明を示します。</p>
+<p><strong>構文:</strong></p>
+<pre><code class="language-javascript">number.<span class="hljs-title function_">toFixed</span>(digits)
+</code></pre>
+<p><strong>パラメータ:</strong></p>
+<ul>
+<li><code>digits</code> (必須): 小数点以下の桁数を示す整数値。0以上20以下の範囲で指定します。</li>
+</ul>
+<p><strong>戻り値:</strong>
+指定された桁数に丸められた小数点以下の値を表す文字列。ただし、必要に応じて末尾に0が追加されることがあります。</p>
+<p>**例:**V</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">let</span> num = <span class="hljs-number">3.14159</span>;
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(num.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">2</span>)); <span class="hljs-comment">// 結果: &quot;3.14&quot;</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(num.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">4</span>)); <span class="hljs-comment">// 結果: &quot;3.1416&quot;</span>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(num.<span class="hljs-title function_">toFixed</span>(<span class="hljs-number">0</span>)); <span class="hljs-comment">// 結果: &quot;3&quot;</span>
+</code></pre>
+<p><code>toFixed()</code>メソッドは、指定された桁数に丸めた値を文字列として返すため、返される値のデータ型は文字列です。そのため、数値として使用する場合は必要に応じて<code>Number()</code>関数を使って数値に変換する必要があります。</p>
+<p>注意点として、<code>toFixed()</code>メソッドは丸め操作を行うため、結果の正確さには注意が必要です。特に、浮動小数点数の表現による丸め誤差が発生する可能性があります。適切な桁数を選択し、注意深く使用するようにしてください。</p>
+<p>以上が<code>toFixed()</code>メソッドの基本的な説明です。ご不明な点があればお気軽にお尋ねください。</p>
+<h2 id="数学-3">数学 3</h2>
+<p>この記事の最後のタスクでは、いくつかのテストを記述していきましょう。</p>
+<ol>
+<li>各々がステートメントと 2 つの変数で構成されてる、3 つのグループが与えられています。</li>
+<li>各グループについて、与えられているステートメントを証明または反証するテストを記述してください。</li>
+<li>これらのテスト結果を、各々 <code>weightComparison</code>、<code>heightComparison</code>、そして <code>pwdMatch</code> という変数に格納してください。</li>
+</ol>
+<pre><code class="language-js"><span class="hljs-comment">// ステートメント1：象の体重はネズミより軽い</span>
+<span class="hljs-keyword">const</span> eleWeight = <span class="hljs-number">1000</span>;
+<span class="hljs-keyword">const</span> mouseWeight = <span class="hljs-number">2</span>;
+
+<span class="hljs-comment">// ステートメント2：ダチョウはアヒルより背が高い</span>
+<span class="hljs-keyword">const</span> ostrichHeight = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">const</span> duckHeight = <span class="hljs-number">0.3</span>;
+
+<span class="hljs-comment">// ステートメント3：2つのパスワードは一致する</span>
+<span class="hljs-keyword">const</span> pwd1 = <span class="hljs-string">&#x27;stromboli&#x27;</span>;
+<span class="hljs-keyword">const</span> pwd2 = <span class="hljs-string">&#x27;stROmBoLi&#x27;</span>;
+</code></pre>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> weightTest = weightComparison ? <span class="hljs-string">&#x27;True-象はネズミより重くない！&#x27;</span>:<span class="hljs-string">&#x27;False-象はネズミより重いに決まっている！』&#x27;</span>;
+<span class="hljs-keyword">const</span> heightTest = heightComparison ? <span class="hljs-string">&#x27;True-確かにダチョウはアヒルより背が高いですね！&#x27;</span> : <span class="hljs-string">&#x27;False — アヒルはダチョウより背が高いらしい！？&#x27;</span>;
+<span class="hljs-keyword">const</span> pwdTest = pwdMatch ? <span class="hljs-string">&#x27;True — パスワードが一致する。&#x27;</span> : <span class="hljs-string">&#x27;False — パスワードが一致しないので、確認してください。&#x27;</span>;
+</code></pre>
+<h3 id="回答">回答</h3>
+<pre><code class="language-js"><span class="hljs-comment">/*出力
+False — of course an elephant is heavier than a mouse!
+
+True — an ostrich is indeed taller than a duck!
+
+False — the passwords do not match; please check them
+*/</span>
+
+<span class="hljs-comment">// Statement 1: The elephant weighs less than the mouse</span>
+<span class="hljs-keyword">const</span> eleWeight = <span class="hljs-number">1000</span>;
+<span class="hljs-keyword">const</span> mouseWeight = <span class="hljs-number">2</span>;
+
+<span class="hljs-comment">// Statement 2: The Ostrich is taller than the duck</span>
+<span class="hljs-keyword">const</span> ostrichHeight = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">const</span> duckHeight = <span class="hljs-number">0.3</span>;
+
+<span class="hljs-comment">// Statement 3: The two passwords match</span>
+<span class="hljs-keyword">const</span> pwd1 = <span class="hljs-string">&#x27;stromboli&#x27;</span>;
+<span class="hljs-keyword">const</span> pwd2 = <span class="hljs-string">&#x27;stROmBoLi&#x27;</span>;
+
+<span class="hljs-comment">// Add your code here</span>
+<span class="hljs-keyword">const</span> weightComparison = eleWeight &lt; mouseWeight;
+<span class="hljs-keyword">const</span> heightComparison = ostrichHeight &gt; duckHeight;
+<span class="hljs-keyword">const</span> pwdMatch = pwd1 === pwd2;
+
+<span class="hljs-comment">// Don&#x27;t edit the code below here!</span>
+
+section.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">&#x27; &#x27;</span>;
+<span class="hljs-keyword">const</span> para1 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-keyword">const</span> para2 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+<span class="hljs-keyword">const</span> para3 = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;p&#x27;</span>);
+
+<span class="hljs-keyword">const</span> weightTest = weightComparison ? <span class="hljs-string">&#x27;True — elephants weigh less than mice!?&#x27;</span> : <span class="hljs-string">&#x27;False — of course an elephant is heavier than a mouse!&#x27;</span>;
+<span class="hljs-keyword">const</span> heightTest = heightComparison ? <span class="hljs-string">&#x27;True — an ostrich is indeed taller than a duck!&#x27;</span> : <span class="hljs-string">&#x27;False — apparently a duck is taller than an ostrich!?&#x27;</span>;
+<span class="hljs-keyword">const</span> pwdTest = pwdMatch ? <span class="hljs-string">&#x27;True — the passwords match.&#x27;</span> : <span class="hljs-string">&#x27;False — the passwords do not match; please check them&#x27;</span>;
+
+para1.<span class="hljs-property">textContent</span> = weightTest;
+section.<span class="hljs-title function_">appendChild</span>(para1);
+para2.<span class="hljs-property">textContent</span> = heightTest;
+section.<span class="hljs-title function_">appendChild</span>(para2);
+para3.<span class="hljs-property">textContent</span> = pwdTest;
+section.<span class="hljs-title function_">appendChild</span>(para3);
+</code></pre>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

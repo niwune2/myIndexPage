@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>&#x30ad;&#x30fc;&#x30dc;&#x30fc;&#x30c9;&#x30b7;&#x30e7;&#x30fc;&#x30c8;&#x30ab;&#x30c3;&#x30c8;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-dark">
+        <h1 id="マークダウン記法のメモ">マークダウン記法のメモ</h1>
+<blockquote>
+<p>HTML変換はCmd + Ctrl + h -&gt; 同じディレクトリに保存される。</p>
+</blockquote>
+<ul>
+<li><a href="#%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E8%A8%98%E6%B3%95%E3%81%AE%E3%83%A1%E3%83%A2">マークダウン記法のメモ</a>
+<ul>
+<li><a href="#%E7%9B%AE%E6%AC%A1%E3%81%AE%E4%BD%9C%E6%88%90%E6%96%B9%E6%B3%95">目次の作成方法</a></li>
+<li><a href="#%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88">キーボードショートカット</a></li>
+<li><a href="#%E3%83%AA%E3%83%B3%E3%82%AF">リンク</a></li>
+<li><a href="#%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC">プレビュー</a></li>
+<li><a href="#css-%E3%81%AE%E9%81%A9%E7%94%A8">CSS の適用</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9">基本的な使い方</a>
+<ul>
+<li><a href="#%E6%AE%B5%E8%90%BD">段落</a></li>
+<li><a href="#%E5%BC%95%E7%94%A8">引用</a></li>
+<li><a href="#%E3%83%AA%E3%82%B9%E3%83%88">リスト</a></li>
+<li><a href="#%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9">チェックボックス</a></li>
+<li><a href="#%E5%8C%BA%E5%88%87%E3%82%8A%E7%B7%9A">区切り線</a></li>
+<li><a href="#url%E3%81%AE%E8%A1%A8%E7%A4%BA">URLの表示</a></li>
+<li><a href="#%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E3%81%AE%E8%A8%AD%E5%AE%9A">テキストスタイルの設定</a></li>
+<li><a href="#%E7%94%BB%E5%83%8F%E3%81%AE%E8%A1%A8%E7%A4%BA">画像の表示</a></li>
+<li><a href="#%E8%84%9A%E6%B3%A8">脚注</a></li>
+<li><a href="#%E3%82%B3%E3%83%BC%E3%83%89">コード</a>
+<ul>
+<li><a href="#%E3%82%A4%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3">インライン</a></li>
+<li><a href="#%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF">コードブロック</a></li>
+<li><a href="#%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%81%AB%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%90%8D%E3%82%82%E4%BB%98%E8%A8%98%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88">コードブロックにファイル名も付記する場合</a></li>
+</ul>
+</li>
+<li><a href="#%E8%A1%A8%E3%81%AE%E4%BD%9C%E6%88%90">表の作成</a></li>
+</ul>
+</li>
+<li><a href="#html">HTML</a>
+<ul>
+<li><a href="#%E9%81%B8%E6%8A%9E%E7%AF%84%E5%9B%B2%E3%82%92%E3%82%BF%E3%82%B0%E3%81%A7%E5%9B%B2%E3%82%80%E6%96%B9%E6%B3%95">選択範囲をタグで囲む方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>リンク
+<ol>
+<li><a href="https://docs.github.com/ja/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">基本的な書き方とフォーマットの構文</a></li>
+<li><a href="https://ja.wikipedia.org/wiki/Markdown">ウィキのMarkdown記事</a></li>
+<li><a href="https://codechord.com/2012/01/readme-markdown/">参考記事1</a></li>
+<li><a href="https://qiita.com/oreo/items/82183bfbaac69971917f">参考記事2</a></li>
+<li><a href="https://qiita.com/Yarakashi_Kikohshi/items/407f85ba2835d945dd5b">VSCode でちょっとでもMarkdown する</a></li>
+<li><a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/ja-jp/">Markdown Preview Enhanced</a></li>
+<li><a href="https://qiita.com/Qiita/items/c686397e4a0f4f11683d">Markdown記法 チートシート</a></li>
+<li><a href="https://github.github.com/gfm/">GitHub Flavored Markdown Spec</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">PlantUML</a></li>
+<li><a href="https://docs.github.com/ja/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams">ダイアグラムの作成</a></li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="目次の作成方法">目次の作成方法</h2>
+<ul>
+<li>
+<p>目次の自動作成 <em>MarkDown All in One（目次自動生成機能）</em></p>
+<blockquote>
+<p>目次を作成したい場所でコマンドパレットを起動（macの場合は<code>[Command］</code>＋<code>［Shift］</code>＋<code>［P］</code>）し、**「MarkDown All in One: 目次(TOC)の作成」**をクリックすると目次を生成してくれます。</p>
+</blockquote>
+<p>目次の追加したときはコマンドパレットから更新する</p>
+</li>
+</ul>
+<hr>
+<h2 id="キーボードショートカット">キーボードショートカット</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">キーボードショートカット</th>
+<th style="text-align:left">効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Ctrl+I</td>
+<td style="text-align:left">* で囲う (イタリック体) ※</td>
+</tr>
+<tr>
+<td style="text-align:left">Ctrl+B</td>
+<td style="text-align:left">** で囲う (ボールド体) ※</td>
+</tr>
+<tr>
+<td style="text-align:left">Alt+S</td>
+<td style="text-align:left">~~ で囲う (取り消し線) ※</td>
+</tr>
+<tr>
+<td style="text-align:left">Alt+C</td>
+<td style="text-align:left">チェックボックスにx を入れる (チェックを入れる) ※</td>
+</tr>
+<tr>
+<td style="text-align:left">Ctrl+Q</td>
+<td style="text-align:left">1つのバッククォートで囲う (インラインコード)11</td>
+</tr>
+<tr>
+<td style="text-align:left">Ctrl+Alt+Q</td>
+<td style="text-align:left">3つのバッククォートで囲う (コードブロック)</td>
+</tr>
+<tr>
+<td style="text-align:left">Ctrl+M</td>
+<td style="text-align:left">$ で囲う (行内数式) ※</td>
+</tr>
+<tr>
+<td style="text-align:left">Ctrl+Alt+M</td>
+<td style="text-align:left">$$ で囲う (行別数式)</td>
+</tr>
+<tr>
+<td style="text-align:left">Ctrl+Alt+L</td>
+<td style="text-align:left">選択した各行をリスト化する (繰り返し押下することで+ や1. に切り替え可能)</td>
+</tr>
+<tr>
+<td style="text-align:left">Ctrl+Alt+V</td>
+<td style="text-align:left">ビューワを右側に表示</td>
+</tr>
+<tr>
+<td style="text-align:left">Ctrl+Alt+S</td>
+<td style="text-align:left">ビューワとのスクロール同期のオン / オフ</td>
+</tr>
+<tr>
+<td style="text-align:left">Ctrl+Shift+S</td>
+<td style="text-align:left">カーソル位置にビューワを移動 ※</td>
+</tr>
+<tr>
+<td style="text-align:left">Ctrl+Shift+L</td>
+<td style="text-align:left">ある単語をいっぺんに選択</td>
+</tr>
+<tr>
+<td style="text-align:left">ビューワ上で右クリックSync Soursce</td>
+<td style="text-align:left">ビューワの位置にエディタが移動</td>
+</tr>
+</tbody>
+</table>
+<h2 id="リンク">リンク</h2>
+<blockquote>
+<p>Markdown-all-in-oneでは、素のテキストで書いたURLタイトルを選択してCtrl+Vで簡単にリンクを作成できる</p>
+</blockquote>
+<blockquote>
+<p>Markdownの文書の途中に長いリンクを記述したくない場合は、
+同じリンクの参照を何度も利用する場合は、リンク先への参照を定義することができます。</p>
+</blockquote>
+<hr>
+<p>上下にインデントつける</p>
+<p><a href="https://www.google.co.jp/">こっちからgoogle</a></p>
+<p><a href="https://www.google.co.jp/">こっちからもgoogle</a></p>
+<ol>
+<li>[タイトル]:URL　をどこかに書く</li>
+<li>文中でリンクにしたい文字列を角括弧[]で囲む</li>
+</ol>
+<hr>
+<h2 id="プレビュー">プレビュー</h2>
+<p>Shift + cmd + v でプレビュー</p>
+<h2 id="css-の適用">CSS の適用</h2>
+<p>これは<span style="color: red; ">赤文字</span>です</p>
+<p>これは<code>&lt;span style=&quot;color: red; &quot;&gt;赤文字&lt;/span&gt;</code>です</p>
+<h2 id="基本的な使い方">基本的な使い方</h2>
+<h3 id="段落">段落</h3>
+<p>空行をあける</p>
+<p>1段落目</p>
+<p>（空行をはさむ）</p>
+<p>2段落目</p>
+<h3 id="引用">引用</h3>
+<blockquote>
+<p>qq</p>
+</blockquote>
+<h3 id="リスト">リスト</h3>
+<p>点</p>
+<ul>
+<li>1
+<ul>
+<li>A
+<ul>
+<li>1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>数字</p>
+<ol>
+<li>aaa
+<ol>
+<li>bbb</li>
+<li>bbb
+<ol>
+<li>12</li>
+<li>34</li>
+<li>56</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>ccc</li>
+</ol>
+<p>HTMLの要素で書く方法</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span>A
+    <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>あ<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>a<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span>
+</code></pre>
+<h3 id="チェックボックス">チェックボックス</h3>
+<ul>
+<li>これは<strong>リスト化</strong>して書かなければいけない。</li>
+<li>また<strong>マウスクリックでチェック/アンチェックはできない</strong>。</li>
+<li>角括弧と文字列の間には半角スペースをはさむ</li>
+</ul>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox" id="task-item-2303003"><label class="task-list-item-label" for="task-item-2303003"> list 1</label></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox" id="task-item-3620190"><label class="task-list-item-label" for="task-item-3620190"> aaa</label></li>
+</ul>
+<p>[ ]　&lt;- これは機能しない</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox" checked=""type="checkbox" id="task-item-839229"><label class="task-list-item-label" for="task-item-839229"> aaa</label></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox" id="task-item-3423677"><label class="task-list-item-label" for="task-item-3423677"> sddsd</label></li>
+</ul>
+<p><input type="checkbox" checked> some checked text</p>
+<p><input type="checkbox"> some unchecked text</p>
+<p><code>&lt;input type=&quot;checkbox&quot; checked&gt; some checked text</code></p>
+<p><code>&lt;input type=&quot;checkbox&quot;&gt; some unchecked text </code></p>
+<p><a href="https://stackoverflow.com/questions/67535557/how-to-enable-checkboxes-in-markdown-preview-for-vscode">VSCode のマークダウン プレビューでチェックボックスを有効にする方法</a></p>
+<h3 id="区切り線">区切り線</h3>
+<hr>
+<hr>
+<hr>
+<hr>
+<h3 id="urlの表示">URLの表示</h3>
+<p><a href="http://qiita.com">http://qiita.com</a>
+<a href="http://qiita.com">http://qiita.com</a></p>
+<p><a href="http://qiita.com">Qiita</a></p>
+<p><a href="http://qiita.com" title="Qiita">Qiita</a>
+フォーカスで名前が出る</p>
+<h3 id="テキストスタイルの設定">テキストスタイルの設定</h3>
+<table>
+<thead>
+<tr>
+<th>スタイル</th>
+<th style="text-align:center">構文</th>
+<th style="text-align:center">ショートカット</th>
+<th>例</th>
+<th>出力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>太字</td>
+<td style="text-align:center">** ** / __ __</td>
+<td style="text-align:center">Cmd+B</td>
+<td>** これは太字のテキストです**</td>
+<td><strong>これは太字のテキストです</strong></td>
+</tr>
+<tr>
+<td>斜体</td>
+<td style="text-align:center">* * / _ _</td>
+<td style="text-align:center">Cmd+I</td>
+<td>*このテキストは斜体です*</td>
+<td><em>このテキストは斜体です</em></td>
+</tr>
+<tr>
+<td>取り消し線</td>
+<td style="text-align:center">~~ ~~</td>
+<td style="text-align:center">なし</td>
+<td>~~これは間違ったテキストでした~~</td>
+<td><s>これは間違ったテキストでした</s></td>
+</tr>
+<tr>
+<td>太字および太字中にある斜体</td>
+<td style="text-align:center">** ** / _ _</td>
+<td style="text-align:center">なし</td>
+<td>** このテキストはきわめて重要です**</td>
+<td><strong>このテキストはきわめて重要です</strong></td>
+</tr>
+<tr>
+<td>全体が太字かつ斜体</td>
+<td style="text-align:center">*** ***</td>
+<td style="text-align:center">なし</td>
+<td>*** このテキストはすべて重要です***</td>
+<td><em><strong>このテキストはすべて重要です</strong></em></td>
+</tr>
+<tr>
+<td>Subscript</td>
+<td style="text-align:center">&lt;sub&gt;&lt;/sub&gt;</td>
+<td style="text-align:center">なし</td>
+<td>yes,&lt;sub&gt;これは下付きテキストです&lt;/sub&gt;</td>
+<td>yes,<sub>これは下付きテキストです</sub></td>
+</tr>
+<tr>
+<td>Superscript</td>
+<td style="text-align:center">&lt;sup&gt;&lt;/sup&gt;</td>
+<td style="text-align:center">なし</td>
+<td>yes,&lt;sup&gt;これは上付きテキストです&lt;/sup&gt;</td>
+<td>yes,<sup>これは上付きテキストです</sup></td>
+</tr>
+</tbody>
+</table>
+<h3 id="画像の表示">画像の表示</h3>
+<p><img src="https://via.placeholder.com/150" alt="ダミー画像">
+<img src="https://via.placeholder.com/150" alt="ダミー画像" title="ダミー画像"></p>
+<h3 id="脚注">脚注</h3>
+<p>本文本文本文<a href="%E6%B3%A8%E9%87%88%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E6%B3%A8%E9%87%88%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E6%B3%A8%E9%87%88%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88">^3</a></p>
+<p>Here is a simple footnote[^1].</p>
+<p>A footnote can also have multiple lines[^2].</p>
+<p>[^1]: My reference.</p>
+<p>[^2]: To add line breaks within a footnote, prefix new lines with 2 spaces.
+This is a second line.</p>
+<h3 id="コード">コード</h3>
+<h4 id="インライン">インライン</h4>
+<p><code>$hoge = 1</code>
+<code>.md</code></p>
+<h4 id="コードブロック">コードブロック</h4>
+<pre><code class="language-html">   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;radioWave&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>迷いの中あてなく見上げた空彩る星たちが<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>嘘みたいに晴れた朝に繋がることを教えてくれた<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h4 id="コードブロックにファイル名も付記する場合">コードブロックにファイル名も付記する場合</h4>
+<pre><code class="language-html:index.html">   &lt;div class=&quot;radioWave&quot;&gt;
+      &lt;p&gt;迷いの中あてなく見上げた空彩る星たちが&lt;/p&gt;
+      &lt;p&gt;嘘みたいに晴れた朝に繋がることを教えてくれた&lt;/p&gt;
+   &lt;/div&gt;
+</code></pre>
+<h3 id="表の作成">表の作成</h3>
+<p><strong>コロン(:)を置いた側に文字揃え</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">左揃え</th>
+<th style="text-align:right">右揃え</th>
+<th style="text-align:center">中央揃え</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">This</td>
+<td style="text-align:right">This</td>
+<td style="text-align:center">This</td>
+</tr>
+<tr>
+<td style="text-align:left">column</td>
+<td style="text-align:right">column</td>
+<td style="text-align:center">column</td>
+</tr>
+<tr>
+<td style="text-align:left">will</td>
+<td style="text-align:right">will</td>
+<td style="text-align:center">will</td>
+</tr>
+<tr>
+<td style="text-align:left">be</td>
+<td style="text-align:right">be</td>
+<td style="text-align:center">be</td>
+</tr>
+<tr>
+<td style="text-align:left">left</td>
+<td style="text-align:right">right</td>
+<td style="text-align:center">center</td>
+</tr>
+<tr>
+<td style="text-align:left">aligned</td>
+<td style="text-align:right">aligned</td>
+<td style="text-align:center">aligned</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="html">HTML</h2>
+<h3 id="選択範囲をタグで囲む方法">選択範囲をタグで囲む方法</h3>
+<ol>
+<li>選択行が一行の場合
+<ol>
+<li><code>p{ららららら}</code>と書くと<code>&lt;div&gt;ららららら&lt;/div&gt;</code>になる</li>
+</ol>
+</li>
+<li>複数行の場合
+<ol>
+<li>文字列を選択した上でEmmetのショートカットキー<kbd>ctl + Shift + 1</kbd>を押す。</li>
+</ol>
+</li>
+</ol>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

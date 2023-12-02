@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Test your skills&colon; Events</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension bierner.markdown-checkbox */
+.contains-task-list {
+    padding-left: 0;
+}
+
+.contains-task-list li {
+    margin-left: 24px;
+}
+
+.contains-task-list .task-list-item {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.contains-task-list .contains-task-list {
+    padding-left: 20px;
+} 
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="test-your-skills-events">Test your skills: Events</h1>
+<ul>
+<li><a href="#test-your-skills-events">Test your skills: Events</a>
+<ul>
+<li><a href="#events-1">Events 1</a></li>
+<li><a href="#events-2">Events 2</a></li>
+<li><a href="#events-3">Events 3</a></li>
+</ul>
+</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Test_your_skills:_Events">Test your skills: Events-MDN</a></p>
+<h2 id="events-1">Events 1</h2>
+<p>イベント関連の最初のタスクでは、</p>
+<ol>
+<li>ボタン（<code>btn</code>）がクリックされると中のテキストが変化し、</li>
+<li>再びクリックされると元に戻るというシンプルなイベントハンドラを作成する必要があります。</li>
+</ol>
+<p>HTMLは変更せず、JavaScriptだけを変更します。</p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.off&#x27;</span>);
+
+<span class="hljs-comment">// Add your code here</span>
+    
+</code></pre>
+<h2 id="events-2">Events 2</h2>
+<p>次に、キーボードイベントについて見ていきます。この評価に合格するには、キーボードのWASDキーが押されたときに、提供されたキャンバスの周りを円を移動させるイベントハンドラを構築する必要があります。円の描画は関数 <code>drawCircle()</code> で行い、入力として以下のパラメータを受け取ります：</p>
+<ul>
+<li><code>x</code> — 円のx座標を指定する。</li>
+<li><code>y</code> — 円のy座標を指定する。</li>
+<li><code>size</code> — 円の半径を表す。</li>
+</ul>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;canvas&#x27;</span>);
+<span class="hljs-keyword">const</span> ctx = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">drawCircle</span>(<span class="hljs-params">x, y, size</span>) {
+  ctx.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&#x27;white&#x27;</span>;
+  ctx.<span class="hljs-title function_">fillRect</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, canvas.<span class="hljs-property">width</span>, canvas.<span class="hljs-property">height</span>);
+
+  ctx.<span class="hljs-title function_">beginPath</span>();
+  ctx.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&#x27;black&#x27;</span>;
+  ctx.<span class="hljs-title function_">arc</span>(x, y, size, <span class="hljs-number">0</span>, <span class="hljs-number">2</span> * <span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>);
+  ctx.<span class="hljs-title function_">fill</span>();
+}
+
+<span class="hljs-keyword">let</span> x = <span class="hljs-number">50</span>;
+<span class="hljs-keyword">let</span> y = <span class="hljs-number">50</span>;
+<span class="hljs-keyword">const</span> size = <span class="hljs-number">30</span>;
+
+<span class="hljs-title function_">drawCircle</span>(x, y, size);
+
+<span class="hljs-comment">// Add your code here</span>
+
+</code></pre>
+<h2 id="events-3">Events 3</h2>
+<p>次のイベント関連の作業では、<code>&lt;button&gt;</code>の親要素（<code>&lt;div class=&quot;button-bar&quot;&gt; ... &lt;/div&gt;</code>）にイベントリスナーを設定し、いずれかのボタンをクリックしたときに呼び出される <code>button-bar</code> の背景をボタンの <code>data-color</code> 属性の色に設定する必要があります。</p>
+<p>すべてのボタンをループして、それぞれにイベントリスナーを与えることなく、この問題を解決してほしいのです。</p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> buttonBar = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.button-bar&#x27;</span>);
+
+<span class="hljs-comment">// Add your code here</span>
+
+</code></pre>
+
+        
+        
+    </body>
+    </html>
